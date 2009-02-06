@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: Taxon [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Taxon
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/models/taxon_rb.html">app/models/taxon.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="SpeciesSchemaModel.html">SpeciesSchemaModel</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            The basic theme here is that there is no standard definition of what a
+            &#8216;taxon&#8217; or species is. There are no
+            </p>
+            <pre>clear lines drawn between different species, so some content partner's interpretation of what a species is&#x000A;will be different from another's. We therefore need to store all metadata that we get from content partners,&#x000A;and the 'taxa' table is where we store it. We eventually try to reconcile these different interpretations&#x000A;into a common understanding of the species, and these common understandings are what we are currently&#x000A;calling taxon concepts.</pre>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000581">taxon_concepts</a></li>
+              <li><a href="#M000582">title</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000581'>
+                <a name='M000581'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>taxon_concepts</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  This doesn&#8217;t work: has_and_belongs_to_many :<a
+                  href="Taxon.html#M000581">taxon_concepts</a>, :join_table =>
+                  :taxon_concept_names, :foreign_key => :name_id, :association_foreign_key =>
+                  :name_id, :uniq => true So I&#8217;m doing this, instead. It&#8217;s
+                  another one of those composite primary key problems.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000581-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000581-source'>    <span class="ruby-comment cmt"># File app/models/taxon.rb, line 39</span>&#x000A;39:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">taxon_concepts</span>&#x000A;40:     <span class="ruby-constant">TaxonConceptName</span>.<span class="ruby-identifier">find_all_by_name_id</span>(<span class="ruby-identifier">name_id</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">taxon_concept</span> }&#x000A;41:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000582'>
+                <a name='M000582'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>title</span>
+                  <span class='arguments'>(expertise = :middle)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000582-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000582-source'>    <span class="ruby-comment cmt"># File app/models/taxon.rb, line 43</span>&#x000A;43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>(<span class="ruby-identifier">expertise</span> = <span class="ruby-identifier">:middle</span>)&#x000A;44:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">scientific_name</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">common_name</span>.<span class="ruby-identifier">nil?</span> &#x000A;45:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">expertise</span>&#x000A;46:     <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:expert</span>&#x000A;47:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">scientific_name</span> <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>&#x000A;48:     <span class="ruby-keyword kw">else</span>&#x000A;49:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">common_name</span> <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>&#x000A;50:     <span class="ruby-keyword kw">end</span>&#x000A;51:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

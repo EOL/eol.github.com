@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Module: ApplicationHelper [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Module</span>
+          ApplicationHelper
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/helpers/application_helper_rb.html">app/helpers/application_helper.rb</a>
+          </li>
+        </ol>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            TODO - look these over. I&#8217;m not sure all of them are used, and those
+            that are... perhaps not efficiently.
+            </p>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000743">agent_logo</a></li>
+              <li><a href="#M000741">back_or_home</a></li>
+              <li><a href="#M000748">clade_selector</a></li>
+              <li><a href="#M000730">create_external_link</a></li>
+              <li><a href="#M000750">css_class</a></li>
+              <li><a href="#M000739">data_quality_description</a></li>
+              <li><a href="#M000740">eol_lang_error_messages_for</a></li>
+              <li><a href="#M000738">eol_lang_main_stylesheet</a></li>
+              <li><a href="#M000745">eol_return_linked_image</a></li>
+              <li><a href="#M000729">eol_return_linked_text</a></li>
+              <li><a href="#M000744">eol_return_linked_text</a></li>
+              <li><a href="#M000731">external_link_icon</a></li>
+              <li><a href="#M000735">format_number_with_commas</a></li>
+              <li><a href="#M000747">get_image_url</a></li>
+              <li><a href="#M000728">has_hidden_attributions?</a></li>
+              <li><a href="#M000749">image_button_group</a></li>
+              <li><a href="#M000736">inside_layout</a></li>
+              <li><a href="#M000746">linked_name</a></li>
+              <li><a href="#M000742">medium_thumb_partial</a></li>
+              <li><a href="#M000737">meta_keywords</a></li>
+              <li><a href="#M000733">page_title</a></li>
+              <li><a href="#M000751">preview_icon</a></li>
+              <li><a href="#M000752">published_icon</a></li>
+              <li><a href="#M000734">recaptch_theme</a></li>
+              <li><a href="#M000732">taxon_concept_comments_path</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='class-list'>
+              <h2>Classes and Modules</h2>
+              Class <a href="ApplicationHelper/ImageButtonGroup.html" class="link">ApplicationHelper::ImageButtonGroup</a><br />
+            </div>
+            <div id='methods'>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000743'>
+                <a name='M000743'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>agent_logo</span>
+                  <span class='arguments'>(agent, size = &quot;large&quot;, params={})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000743-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000743-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 212</span>&#x000A;212:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_logo</span>(<span class="ruby-identifier">agent</span>, <span class="ruby-identifier">size</span> = <span class="ruby-value str">&quot;large&quot;</span>, <span class="ruby-identifier">params</span>={})&#x000A;213:     <span class="ruby-identifier">src</span> = (<span class="ruby-identifier">agent</span>.<span class="ruby-identifier">logo_cache_url</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">logo_url</span>(<span class="ruby-identifier">size</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">logo_file_name</span>&#x000A;214:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">src</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">empty?</span>&#x000A;215:     <span class="ruby-identifier">logo_str</span> = <span class="ruby-value str">&quot;&lt;img &quot;</span>&#x000A;216:     <span class="ruby-identifier">logo_str</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;width='#{params[:width]}'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:width</span>].<span class="ruby-identifier">nil?</span>&#x000A;217:     <span class="ruby-identifier">logo_str</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;height='#{params[:height]}'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:height</span>].<span class="ruby-identifier">nil?</span>&#x000A;218:     <span class="ruby-identifier">logo_str</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;src=\&quot;#{ src }\&quot; border=\&quot;0\&quot; alt=\&quot;#{hh(agent.project_name)}\&quot; title=\&quot;#{hh(agent.project_name)}\&quot; class=\&quot;agent-logo\&quot; /&gt;&quot;</span>&#x000A;219:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">logo_str</span>&#x000A;220:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000741'>
+                <a name='M000741'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>back_or_home</span>
+                  <span class='arguments'>(back_url)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000741-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000741-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 189</span>&#x000A;189:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">back_or_home</span>(<span class="ruby-identifier">back_url</span>)&#x000A;190:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">back_url</span>.<span class="ruby-identifier">blank?</span>&#x000A;191:       <span class="ruby-identifier">home_page_url</span>&#x000A;192:     <span class="ruby-keyword kw">else</span>&#x000A;193:       <span class="ruby-constant">URI</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">back_url</span>)&#x000A;194:     <span class="ruby-keyword kw">end</span>&#x000A;195:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000748'>
+                <a name='M000748'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>clade_selector</span>
+                  <span class='arguments'>(field_name = 'selected-clade-id', options = {})</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  render a version of the classification that allows you to choose a
+                  particular clade
+                  </p>
+                  <p>
+                  Usage:
+                  </p>
+                  <pre>&lt;%=  clade_selector  %&gt;&#x000A;&lt;%=  clade_selector 'name-of-input-field-that-will-be-created' %&gt;&#x000A;&lt;%=  clade_selector 'name-of-input-field-that-will-be-created', :some_options =&gt; 'go here' %&gt;&#x000A;&lt;%=  clade_selector :some_options =&gt; 'go here' %&gt;</pre>
+                  <p>
+                  Options:
+                  </p>
+                  <pre>value:            a HierarchyEntry or HierarchyEntry ID (currently selected)&#x000A;id:               ID of the outer-most HTML element of the clade selector (default: 'clade-selector')&#x000A;visible:          true/false - whether or not to show the clade selector by default (default: false)&#x000A;toggle:           true/false - whether or not to show the links to toggle the visibility (default: true)&#x000A;hierarchy:        the actual Hierarchy to use (default: Hierarchy.find(106))&#x000A;name:             the name of the input field to use (default: whatever you pass as field-name, or 'selected-clade-id')&#x000A;debug:            true/false - shows the hidden input field as a text field, if true&#x000A;show_clear:       true/false - whether or not to show the '[clear]' option to clear the selection&#x000A;on_select:        javascript to call everytime a clade is selected (clade_id is available as 'clade_id')&#x000A;on_clear:         javascript to call when the clear 'button' is clicked&#x000A;on_expand:        javascript to call when a '+' expand link is clicked&#x000A;on_unselect_all:  javascript to call whenever all clades are unselected (happens on_select and on_clear)</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000748-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000748-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 324</span>&#x000A;324:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clade_selector</span> <span class="ruby-identifier">field_name</span> = <span class="ruby-value str">'selected-clade-id'</span>, <span class="ruby-identifier">options</span> = {}&#x000A;325:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">field_name</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Hash</span>&#x000A;326:       <span class="ruby-identifier">options</span> = <span class="ruby-identifier">field_name</span> &#x000A;327:       <span class="ruby-identifier">field_name</span> = <span class="ruby-value str">'selected-clade-id'</span>&#x000A;328:     <span class="ruby-keyword kw">end</span>&#x000A;329:     <span class="ruby-identifier">options</span> = { &#x000A;330:       <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>,&#x000A;331:       <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'clade-selector'</span>,&#x000A;332:       <span class="ruby-identifier">:visible</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>,&#x000A;333:       <span class="ruby-identifier">:toggle</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>,&#x000A;334:       <span class="ruby-identifier">:hierarchy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Hierarchy</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">106</span>),&#x000A;335:       <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">field_name</span>,&#x000A;336:       <span class="ruby-identifier">:show_text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'show clade browser'</span>,&#x000A;337:       <span class="ruby-identifier">:hide_text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'hide clade browser'</span>,&#x000A;338:       <span class="ruby-identifier">:debug</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>,&#x000A;339:       <span class="ruby-identifier">:show_clear</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>,&#x000A;340:       <span class="ruby-identifier">:selectable_clade_level</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>&#x000A;341:     }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})&#x000A;342: &#x000A;343:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:is_debug</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:debug</span>]&#x000A;344:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:debug</span>&#x000A;345:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:value</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-comment cmt"># essentially, nil has been passed along</span>&#x000A;346:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>] = (<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">is_a?</span><span class="ruby-constant">HierarchyEntry</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>] <span class="ruby-operator">:</span> <span class="ruby-constant">HierarchyEntry</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>]&#x000A;347:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>] = (<span class="ruby-identifier">params</span>.<span class="ruby-identifier">include?</span><span class="ruby-identifier">:clade_to_expand</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:clade_to_expand</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">HierarchyEntry</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:clade_to_expand</span>]) <span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>]&#x000A;348:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:hierarchy</span>] = <span class="ruby-constant">Hierarchy</span>.<span class="ruby-identifier">last</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:hierarchy</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:value</span>]&#x000A;349:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:show_text</span>], <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:hide_text</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:text</span>], <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:text</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:text</span>]&#x000A;350: &#x000A;351:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'shared/clade_selector'</span>, <span class="ruby-identifier">:locals</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>&#x000A;352:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000730'>
+                <a name='M000730'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>create_external_link</span>
+                  <span class='arguments'>(text,link,params)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000730-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000730-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 30</span>&#x000A;30:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_external_link</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>,<span class="ruby-identifier">params</span>)&#x000A;31:      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:new_window</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">true</span> &#x000A;32:      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">true</span>&#x000A;33:      <span class="ruby-identifier">result</span>=<span class="ruby-value str">'&lt;a onclick=&quot;JavaScript:external_link(\''</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">escape</span>(<span class="ruby-identifier">link</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'\','</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:new_window</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">','</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$USE_EXTERNAL_LINK_POPUPS</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">');return false;&quot; href=&quot;'</span><span class="ruby-operator">+</span><span class="ruby-identifier">link</span><span class="ruby-operator">+</span><span class="ruby-value str">'&quot;&gt;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">text</span>)&#x000A;34:      <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">external_link_icon</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>]&#x000A;35:      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/a&gt;'</span>&#x000A;36:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000750'>
+                <a name='M000750'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>css_class</span>
+                  <span class='arguments'>(value)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  returns a string that can be used as a CSS class, given an object
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000750-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000750-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 392</span>&#x000A;392:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">css_class</span> <span class="ruby-identifier">value</span>&#x000A;393:     <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">' '</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># TODO update to strip out all non alphanumeric characters</span>&#x000A;394:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000739'>
+                <a name='M000739'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>data_quality_description</span>
+                  <span class='arguments'>(data_quality)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  show a description of the data quality in the &#8216;title&#8217; tag of
+                  the data quality icons
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000739-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000739-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 109</span>&#x000A;109:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">data_quality_description</span>(<span class="ruby-identifier">data_quality</span>)&#x000A;110:     &#x000A;111:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">data_quality</span>.<span class="ruby-identifier">downcase</span>&#x000A;112:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;bronze&quot;</span> <span class="ruby-keyword kw">then</span> <span class="ruby-value str">&quot;This content has not been scientifically vetted for accuracy.&quot;</span>&#x000A;113:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;silver&quot;</span> <span class="ruby-keyword kw">then</span> <span class="ruby-value str">&quot;This content has been vetted but is not from a known trusted source.&quot;</span>&#x000A;114:       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;gold&quot;</span> <span class="ruby-keyword kw">then</span> <span class="ruby-value str">&quot;This content has been scientifically vetted and is from a known trusted source.&quot;</span>&#x000A;115:     <span class="ruby-keyword kw">end</span>&#x000A;116:     &#x000A;117:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000740'>
+                <a name='M000740'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>eol_lang_error_messages_for</span>
+                  <span class='arguments'>(*params)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Version of error_messages_for that displays translated error messages View
+                  the <custom></custom> section to see the relevant pieces changed from
+                  original TODO: Move to a plugin?
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000740-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000740-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 122</span>&#x000A;122:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eol_lang_error_messages_for</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">params</span>)&#x000A;123:     <span class="ruby-identifier">options</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>&#x000A;124:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">object</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:object</span>)&#x000A;125:       <span class="ruby-identifier">objects</span> = [<span class="ruby-identifier">object</span>].<span class="ruby-identifier">flatten</span>&#x000A;126:     <span class="ruby-keyword kw">else</span>&#x000A;127:       <span class="ruby-identifier">objects</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">object_name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@#{object_name}&quot;</span>) }.<span class="ruby-identifier">compact</span>&#x000A;128:     <span class="ruby-keyword kw">end</span>&#x000A;129:     <span class="ruby-identifier">count</span> = <span class="ruby-identifier">objects</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">count</span> }&#x000A;130:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">count</span>.<span class="ruby-identifier">zero?</span>&#x000A;131:       <span class="ruby-identifier">html</span> = {}&#x000A;132:       [<span class="ruby-identifier">:id</span>, <span class="ruby-identifier">:class</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>&#x000A;133:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)&#x000A;134:           <span class="ruby-identifier">value</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>]&#x000A;135:           <span class="ruby-identifier">html</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">blank?</span>&#x000A;136:         <span class="ruby-keyword kw">else</span>&#x000A;137:           <span class="ruby-identifier">html</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-value str">'errorExplanation'</span>&#x000A;138:         <span class="ruby-keyword kw">end</span>&#x000A;139:       <span class="ruby-keyword kw">end</span>&#x000A;140:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:header_message</span>] = <span class="ruby-value str">&quot;Validation Error&quot;</span>[] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:header_message</span>)&#x000A;141:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:message</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;There were problems with the following fields:&quot;</span>[<span class="ruby-identifier">:validation_following_fields</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:message</span>)&#x000A;142:       &#x000A;143:       <span class="ruby-comment cmt"># &lt;custom&gt;</span>&#x000A;144:       <span class="ruby-comment cmt"># Invert the default error messages so we can look them up easily for translation</span>&#x000A;145:       <span class="ruby-identifier">default_error_messages_inverted</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Errors</span>.<span class="ruby-identifier">default_error_messages</span>.<span class="ruby-identifier">invert</span>      &#x000A;146:       &#x000A;147:       <span class="ruby-comment cmt"># Translate error messages</span>&#x000A;148:       <span class="ruby-identifier">error_messages</span> = <span class="ruby-identifier">objects</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> &#x000A;149:         <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">|</span> &#x000A;150:           <span class="ruby-comment cmt"># Try translating the field name</span>&#x000A;151:           <span class="ruby-identifier">field</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">human_attribute_name</span>(<span class="ruby-identifier">field</span>)[]&#x000A;152: &#x000A;153:           <span class="ruby-comment cmt"># Make two versions of the error message:</span>&#x000A;154:           <span class="ruby-comment cmt">#   Example: is too short (minimum 3 characters)</span>&#x000A;155:           <span class="ruby-comment cmt">#   1) is too short (minimum %d characters)</span>&#x000A;156:           <span class="ruby-comment cmt">#   Use this to map with default_error_messages_inverted</span>&#x000A;157:           <span class="ruby-comment cmt">#   2) is too short (minimum {n} characters)</span>&#x000A;158:           <span class="ruby-comment cmt">#   Use this for Gibberish to translate with variables</span>&#x000A;159:           <span class="ruby-identifier">error_attributes</span> = <span class="ruby-identifier">error</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/\d+/</span>)&#x000A;160:           <span class="ruby-identifier">error_default</span> = <span class="ruby-identifier">error</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\d+/</span>,<span class="ruby-value str">&quot;%d&quot;</span>)&#x000A;161:           <span class="ruby-identifier">error_translate</span> = <span class="ruby-identifier">error</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\d+/</span>,<span class="ruby-value str">&quot;{n}&quot;</span>) <span class="ruby-comment cmt"># </span>&#x000A;162:           <span class="ruby-identifier">error_index</span> = <span class="ruby-identifier">default_error_messages_inverted</span>[<span class="ruby-identifier">error_default</span>]&#x000A;163: &#x000A;164:           <span class="ruby-identifier">error</span> = <span class="ruby-identifier">error_translate</span>[<span class="ruby-node">&quot;validation_#{error_index}&quot;</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">error_attributes</span>]&#x000A;165:           &#x000A;166:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">error</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\^/</span>&#x000A;167:             <span class="ruby-identifier">error_display</span> = <span class="ruby-identifier">error</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]&#x000A;168:           <span class="ruby-keyword kw">else</span>&#x000A;169:             <span class="ruby-identifier">error_display</span> =  <span class="ruby-node">&quot;#{field == 'Base' ? '' : field} #{error}&quot;</span> &#x000A;170:           <span class="ruby-keyword kw">end</span>&#x000A;171:           &#x000A;172:           <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:li</span>,<span class="ruby-identifier">error_display</span>)&#x000A;173:         <span class="ruby-keyword kw">end</span>&#x000A;174:       <span class="ruby-keyword kw">end</span>&#x000A;175:       &#x000A;176:       <span class="ruby-comment cmt"># &lt;/custom&gt;</span>&#x000A;177:       &#x000A;178:       <span class="ruby-identifier">contents</span> = <span class="ruby-value str">''</span>&#x000A;179:       <span class="ruby-identifier">contents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:header_tag</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">:h2</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:header_message</span>]) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:header_message</span>].<span class="ruby-identifier">blank?</span>&#x000A;180:       <span class="ruby-identifier">contents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:p</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:message</span>]) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:message</span>].<span class="ruby-identifier">blank?</span>&#x000A;181:       <span class="ruby-identifier">contents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:ul</span>, <span class="ruby-identifier">error_messages</span>)&#x000A;182: &#x000A;183:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:div</span>, <span class="ruby-identifier">contents</span>, <span class="ruby-identifier">html</span>)&#x000A;184:     <span class="ruby-keyword kw">else</span>&#x000A;185:       <span class="ruby-value str">''</span>&#x000A;186:     <span class="ruby-keyword kw">end</span>&#x000A;187:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000738'>
+                <a name='M000738'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>eol_lang_main_stylesheet</span>
+                  <span class='arguments'>(stylesheet, options = {})</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Link to a single stylesheet by first looking for a language version
+                  (stylesheet-<language>.css) or defaulting to the provided stylesheet if the
+                  language version is not found.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000738-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000738-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 95</span>&#x000A; 95:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eol_lang_main_stylesheet</span>(<span class="ruby-identifier">stylesheet</span>, <span class="ruby-identifier">options</span> = {})&#x000A; 96:     <span class="ruby-identifier">current_language</span> = <span class="ruby-constant">Gibberish</span>.<span class="ruby-identifier">current_language</span>.<span class="ruby-identifier">to_s</span>&#x000A; 97:     <span class="ruby-identifier">language_stylesheet</span> = <span class="ruby-node">&quot;/languages/#{current_language}/#{stylesheet}.css&quot;</span>&#x000A; 98: &#x000A; 99:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RAILS_ROOT</span>, <span class="ruby-value str">&quot;public&quot;</span>, <span class="ruby-identifier">language_stylesheet</span>))&#x000A;100:       <span class="ruby-identifier">stylesheet</span> = <span class="ruby-identifier">language_stylesheet</span>&#x000A;101:     <span class="ruby-keyword kw">end</span>&#x000A;102: &#x000A;103:     <span class="ruby-comment cmt"># Make sure stylesheets are cached by language if we're caching</span>&#x000A;104:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;all-#{current_language}&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:cache</span>]&#x000A;105:     <span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-operator">*</span>[<span class="ruby-identifier">stylesheet</span>, <span class="ruby-identifier">options</span>])&#x000A;106:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000745'>
+                <a name='M000745'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>eol_return_linked_image</span>
+                  <span class='arguments'>(image,link=&quot;&quot;,params={})</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Pass in image url and an optional link, if the link is not blank or nil,
+                  you will get an HTML <a href> image tag linked to the url
+                  </p>
+                  <pre>if the link is blank or nil, an image tag itself is returned&#x000A; this is used for creating the attribution image links where we don't know if a URL exists or not</pre>
+                  <p>
+                  if :new_window=>true is passed, links are sent to new window (defaults to
+                  true) if :show_only_if_link=>true is passed, no image is returned if there
+                  is no link present (defaults to false) if :alt=>&#8217;value&#8217; is
+                  passed, then the alt tag is set with the value passed if
+                  :title=>&#8217;value&#8217; is passed, then the title tag is set with the
+                  value passed
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000745-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000745-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 253</span>&#x000A;253:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eol_return_linked_image</span>(<span class="ruby-identifier">image</span>,<span class="ruby-identifier">link</span>=<span class="ruby-value str">&quot;&quot;</span>,<span class="ruby-identifier">params</span>={})&#x000A;254: &#x000A;255:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:new_window</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:new_window</span>].<span class="ruby-identifier">nil?</span>&#x000A;256:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_only_if_linked</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>    &#x000A;257:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>      &#x000A;258:     <span class="ruby-identifier">alt</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:alt</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>&#x000A;259:     <span class="ruby-identifier">title</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:title</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>&#x000A;260:     <span class="ruby-identifier">result</span>=<span class="ruby-value str">&quot;&quot;</span>&#x000A;261: &#x000A;262:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_only_if_linked</span>]  <span class="ruby-comment cmt"># we don't have a URL and we are asked not to show the text, we won't</span>&#x000A;263:     &#x000A;264:     <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-value str">'&lt;a onclick=&quot;JavaScript:external_link(\''</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">escape</span>(<span class="ruby-identifier">link</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'\','</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:new_window</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">','</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$USE_EXTERNAL_LINK_POPUPS</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">');return false;&quot; href=&quot;'</span><span class="ruby-operator">+</span><span class="ruby-identifier">link</span><span class="ruby-operator">+</span><span class="ruby-value str">'&quot;&gt;'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span>&#x000A;265:     &#x000A;266:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">blank?</span>&#x000A;267:       <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot;&lt;img src=\&quot;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">image</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\&quot;&quot;</span> &#x000A;268:       <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot; alt=\&quot;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">alt</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\&quot; title=\&quot;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">title</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\&quot; /&gt;&quot;</span>&#x000A;269:       <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot;&lt;/a&gt;&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span> &#x000A;270:     <span class="ruby-keyword kw">end</span>&#x000A;271: &#x000A;272:     <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">external_link_icon</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>]    &#x000A;273:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>&#x000A;274:     &#x000A;275:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000729'>
+                <a name='M000729'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>eol_return_linked_text</span>
+                  <span class='arguments'>(text,link=&quot;&quot;,params={})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000729-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000729-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 20</span>&#x000A;20:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eol_return_linked_text</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>=<span class="ruby-value str">&quot;&quot;</span>,<span class="ruby-identifier">params</span>={})&#x000A;21:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_only_if_linked</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>              &#x000A;22:     <span class="ruby-identifier">result</span>=<span class="ruby-value str">&quot;&quot;</span>&#x000A;23:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">blank?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_only_if_linked</span>]  <span class="ruby-comment cmt"># we don't have a URL and we are asked not to show the text, we won't</span>&#x000A;24:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">text</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span>&#x000A;25:     <span class="ruby-comment cmt"># if we have a link, show it</span>&#x000A;26:     <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-identifier">create_external_link</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>,<span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span>&#x000A;27:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>&#x000A;28:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000744'>
+                <a name='M000744'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>eol_return_linked_text</span>
+                  <span class='arguments'>(text,link=&quot;&quot;,params={})</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Pass in text and an optional link, if the link is not blank or nil, you
+                  will get an HTML <a href> tag linked to the url
+                  </p>
+                  <pre>if the link is blank or nil, the text itself is returned&#x000A; this is used for creating the attribution links where we don't know if a URL exists or not</pre>
+                  <p>
+                  if :new_window=>false is passed, links are sent to new window (defaults to
+                  true) if :show_only_if_link=>true is passed, no text is returned if there
+                  is no link present (defaults to false) if :show_link_icon=>true, then the
+                  external link icons are shown for any links that are made (defaults to
+                  true)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000744-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000744-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 230</span>&#x000A;230:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eol_return_linked_text</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>=<span class="ruby-value str">&quot;&quot;</span>,<span class="ruby-identifier">params</span>={})&#x000A;231: &#x000A;232:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_only_if_linked</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>              &#x000A;233:     <span class="ruby-identifier">result</span>=<span class="ruby-value str">&quot;&quot;</span>&#x000A;234: &#x000A;235:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">blank?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_only_if_linked</span>]  <span class="ruby-comment cmt"># we don't have a URL and we are asked not to show the text, we won't</span>&#x000A;236:     &#x000A;237:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">text</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span>&#x000A;238:     <span class="ruby-comment cmt"># if we have a link, show it</span>&#x000A;239:     <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-identifier">create_external_link</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>,<span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">blank?</span>&#x000A;240:    &#x000A;241:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>&#x000A;242:     &#x000A;243:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000731'>
+                <a name='M000731'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>external_link_icon</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000731-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000731-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 38</span>&#x000A;38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">external_link_icon</span>&#x000A;39:     <span class="ruby-value str">&quot;&lt;img alt=\&quot;external link\&quot; title=\&quot;external link\&quot; src=\&quot;/images/external_link.png\&quot; /&gt;&quot;</span>&#x000A;40:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000735'>
+                <a name='M000735'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>format_number_with_commas</span>
+                  <span class='arguments'>(st)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  format numbers with commas for digit separators
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000735-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000735-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 60</span>&#x000A;60:    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format_number_with_commas</span>(<span class="ruby-identifier">st</span>)&#x000A;61:      <span class="ruby-identifier">st</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/(\d)(?=(\d\d\d)+(?!\d))/</span>, <span class="ruby-value str">&quot;\\1,&quot;</span>)&#x000A;62:    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000747'>
+                <a name='M000747'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>get_image_url</span>
+                  <span class='arguments'>(image_item)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  get the local or remote image URL based on our preference setting
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000747-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000747-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 294</span>&#x000A;294:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_image_url</span>(<span class="ruby-identifier">image_item</span>)&#x000A;295:       <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">$PREFER_REMOTE_IMAGES</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">image_item</span>[<span class="ruby-value str">'remoteURL'</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>) <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">image_item</span>[<span class="ruby-value str">'localURL'</span>].<span class="ruby-identifier">nil?</span>)&#x000A;296:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">image_item</span>[<span class="ruby-value str">'remoteURL'</span>]&#x000A;297:       <span class="ruby-keyword kw">else</span>&#x000A;298:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">image_item</span>[<span class="ruby-value str">'localURL'</span>]&#x000A;299:       <span class="ruby-keyword kw">end</span>&#x000A;300:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000728'>
+                <a name='M000728'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>has_hidden_attributions?</span>
+                  <span class='arguments'>(data_object)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  this only applies to text attributions for now author, source, copyright,
+                  and data supplier should be shown
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000728-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000728-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 9</span>&#x000A; 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_hidden_attributions?</span>(<span class="ruby-identifier">data_object</span>)&#x000A;10:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">text?</span>&#x000A;11:     <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">attributions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribution</span><span class="ruby-operator">|</span>&#x000A;12:       <span class="ruby-comment cmt">#TODO: so.... copyright and datasource don't exist in the db. which foces me to do string compares, seems like a kudge </span>&#x000A;13:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">attribution</span>.<span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">to_s!</span>=<span class="ruby-value str">'Author'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attribution</span>.<span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">to_s!</span>=<span class="ruby-value str">'Source'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attribution</span>.<span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">to_s!</span>=<span class="ruby-value str">'Copyright'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attribution</span>.<span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">to_s!</span>=<span class="ruby-value str">'Supplier'</span>&#x000A;14:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>&#x000A;15:       <span class="ruby-keyword kw">end</span>&#x000A;16:     <span class="ruby-keyword kw">end</span>&#x000A;17:     <span class="ruby-keyword kw">false</span>&#x000A;18:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000749'>
+                <a name='M000749'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>image_button_group</span>
+                  <span class='arguments'>(name, &amp;block)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  for creating a group of image buttons
+                  </p>
+                  <p>
+                  Usage:
+                  </p>
+                  <pre>&lt;% image_button_group 'some-buttons' do |group| %&gt;&#x000A;  &lt;%= group.image_button 'button1', '/some/path' %&gt;&#x000A;  &lt;%= group.image_button 'button2', '/some/path' %&gt;&#x000A;&lt;% end %&gt;</pre>
+                  <p>
+                  This renders the shared/_image_button_group partial (for the whole group)
+                  and, for each image_button, it renders the shared/_image_button partial
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000749-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000749-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 365</span>&#x000A;365:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_button_group</span> <span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>&#x000A;366:     <span class="ruby-identifier">group</span>        = <span class="ruby-constant">ImageButtonGroup</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">name</span>, <span class="ruby-keyword kw">self</span>&#x000A;367:     <span class="ruby-identifier">buttons_html</span> = <span class="ruby-identifier">capture</span>(<span class="ruby-identifier">group</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;368:     <span class="ruby-identifier">group_html</span>   = <span class="ruby-identifier">capture</span>(<span class="ruby-identifier">group</span>) <span class="ruby-keyword kw">do</span>&#x000A;369:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'shared/image_button_group'</span>, <span class="ruby-identifier">:locals</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">group</span>, <span class="ruby-identifier">:buttons_html</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">buttons_html</span> }&#x000A;370:     <span class="ruby-keyword kw">end</span>&#x000A;371:     <span class="ruby-identifier">concat</span> <span class="ruby-identifier">group_html</span>, <span class="ruby-identifier">block</span>.<span class="ruby-identifier">binding</span>&#x000A;372:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000736'>
+                <a name='M000736'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>inside_layout</span>
+                  <span class='arguments'>(layout, &amp;block)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  render something inside of a particular layout
+                  </p>
+                  <p>
+                  useful for sub-layouts or nested layouts for particular sections of the
+                  site.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000736-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000736-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 74</span>&#x000A;74:    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inside_layout</span>(<span class="ruby-identifier">layout</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;75:      <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value str">&quot;@content_for_layout&quot;</span>, <span class="ruby-identifier">capture</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>))&#x000A;76: &#x000A;77:      <span class="ruby-identifier">layout</span> = <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">&quot;/&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">layout</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;layouts/#{layout}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">layout</span>&#x000A;78:      <span class="ruby-identifier">buffer</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-value str">&quot;_erbout&quot;</span>, <span class="ruby-identifier">block</span>.<span class="ruby-identifier">binding</span>)&#x000A;79:      <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-ivar">@template</span>.<span class="ruby-identifier">render_file</span>(<span class="ruby-identifier">layout</span>, <span class="ruby-keyword kw">true</span>))&#x000A;80:    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000746'>
+                <a name='M000746'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>linked_name</span>
+                  <span class='arguments'>(taxon, link_name_string = '', new_window = false)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000746-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000746-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 279</span>&#x000A;279:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">linked_name</span>(<span class="ruby-identifier">taxon</span>, <span class="ruby-identifier">link_name_string</span> = <span class="ruby-value str">''</span>, <span class="ruby-identifier">new_window</span> = <span class="ruby-keyword kw">false</span>)&#x000A;280:     <span class="ruby-identifier">return_html</span>=<span class="ruby-value str">&quot;&quot;</span>&#x000A;281:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">nil?</span>&#x000A;282:       <span class="ruby-identifier">scientific_name</span> = <span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">quick_scientific_name</span>(<span class="ruby-identifier">:italicized</span>)&#x000A;283:       <span class="ruby-identifier">common_name</span> = <span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">quick_common_name</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">language</span>)&#x000A;284:       <span class="ruby-identifier">return_html</span> = <span class="ruby-value str">%Q{&lt;a }</span>&#x000A;285:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-value str">%Q{ target=\&quot;_blank\&quot; }</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_window</span>&#x000A;286:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-value str">%Q{ id=\&quot;&quot; + h(scientific_name) + &quot;\&quot;}</span>  <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">link_name_string</span>.<span class="ruby-identifier">empty?</span>&#x000A;287:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{ href=&quot;/pages/#{taxon.respond_to?(:taxon_concept_id) ? taxon.taxon_concept_id : taxon.id}&quot;&gt;#{hh(scientific_name)}&lt;/a&gt;&lt;br /&gt;}</span>&#x000A;288:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{#{hh(common_name)}}</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">common_name</span>.<span class="ruby-identifier">empty?</span>&#x000A;289:     <span class="ruby-keyword kw">end</span>&#x000A;290:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">return_html</span>&#x000A;291:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000742'>
+                <a name='M000742'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>medium_thumb_partial</span>
+                  <span class='arguments'>(taxon, image_id_name = '', new_window = false)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000742-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000742-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 197</span>&#x000A;197:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">medium_thumb_partial</span>(<span class="ruby-identifier">taxon</span>, <span class="ruby-identifier">image_id_name</span> = <span class="ruby-value str">''</span>, <span class="ruby-identifier">new_window</span> = <span class="ruby-keyword kw">false</span>)&#x000A;198:     <span class="ruby-identifier">return_html</span> = <span class="ruby-value str">''</span>&#x000A;199:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">smart_medium_thumb</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span> &#x000A;200:       <span class="ruby-identifier">name</span> = <span class="ruby-identifier">hh</span>(<span class="ruby-identifier">remove_html</span>(<span class="ruby-identifier">taxon</span>.<span class="ruby-identifier">name</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">expertise</span>)))&#x000A;201:       <span class="ruby-identifier">return_html</span> = <span class="ruby-value str">%Q{&lt;a}</span>&#x000A;202:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-value str">%Q{ target=\&quot;_blank\&quot; }</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_window</span>&#x000A;203:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{ id=&quot;#{image_id_name}_href&quot;}</span>       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">image_id_name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span>           &#x000A;204:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{ href=&quot;/pages/#{taxon.respond_to?(:taxon_concept_id) ? taxon.taxon_concept_id : taxon.id}&quot;&gt;&lt;img}</span>&#x000A;205:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{ id=&quot;#{image_id_name}&quot;}</span>            <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">image_id_name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span>&#x000A;206:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{ src=&quot;#{taxon.smart_medium_thumb}&quot; alt=&quot;#{name}&quot;}</span>&#x000A;207:       <span class="ruby-identifier">return_html</span><span class="ruby-operator">+=</span> <span class="ruby-node">%Q{ title=&quot;#{name}&quot;/&gt;&lt;/a&gt;}</span>&#x000A;208:     <span class="ruby-keyword kw">end</span>&#x000A;209:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">return_html</span>&#x000A;210:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000737'>
+                <a name='M000737'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>meta_keywords</span>
+                  <span class='arguments'>(input_string,strip_html=true)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  take an input string, split it up by spaces and return a comma delimited
+                  list of the words
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000737-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000737-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 83</span>&#x000A;83:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">meta_keywords</span>(<span class="ruby-identifier">input_string</span>,<span class="ruby-identifier">strip_html</span>=<span class="ruby-keyword kw">true</span>)&#x000A;84: &#x000A;85:     <span class="ruby-identifier">keyword_list</span>=<span class="ruby-value str">''</span>&#x000A;86:     <span class="ruby-identifier">input_string</span>=<span class="ruby-identifier">remove_html</span>(<span class="ruby-identifier">input_string</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">strip_html</span>&#x000A;87:     <span class="ruby-identifier">input_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">' '</span>).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">keyword_list</span><span class="ruby-operator">+=</span><span class="ruby-identifier">word</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;,&quot;</span>}&#x000A;88:     <span class="ruby-identifier">keyword_list</span>.<span class="ruby-identifier">chop!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">keyword_list</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">&gt;</span><span class="ruby-value">0</span>&#x000A;89:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">keyword_list</span>&#x000A;90:   &#x000A;91:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000733'>
+                <a name='M000733'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>page_title</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  HTML page title
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000733-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000733-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 48</span>&#x000A;48:    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_title</span>&#x000A;49:      <span class="ruby-value str">&quot;Encyclopedia of Life&quot;</span>[<span class="ruby-identifier">:encyclopedia_of_life</span>]&#x000A;50:    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000751'>
+                <a name='M000751'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>preview_icon</span>
+                  <span class='arguments'>(options={})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000751-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000751-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 396</span>&#x000A;396:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">preview_icon</span>(<span class="ruby-identifier">options</span>={})&#x000A;397:     <span class="ruby-identifier">style</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:style</span>] <span class="ruby-operator">?</span> <span class="ruby-node">&quot;style=\&quot;#{options[:style]}\&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>&#x000A;398:     <span class="ruby-node">&quot;&lt;img src=\&quot;/images/icons/preview.png\&quot; alt=\&quot;Unpublished\&quot; title=\&quot;Unpublished\&quot; #{style} /&gt;&quot;</span>&#x000A;399:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000752'>
+                <a name='M000752'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>published_icon</span>
+                  <span class='arguments'>(options={})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000752-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000752-source'>     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 401</span>&#x000A;401:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">published_icon</span>(<span class="ruby-identifier">options</span>={})&#x000A;402:     <span class="ruby-identifier">style</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:style</span>] <span class="ruby-operator">?</span> <span class="ruby-node">&quot;style=\&quot;#{options[:style]}\&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>&#x000A;403:     <span class="ruby-identifier">description</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:agent_name</span>] <span class="ruby-operator">?</span> <span class="ruby-node">&quot;From #{options[:agent_name]}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>&#x000A;404:     <span class="ruby-node">&quot;&lt;img src=\&quot;/images/icons/published.png\&quot; alt=\&quot;#{description}\&quot; title=\&quot;#{description}\&quot; #{style} /&gt;&quot;</span>&#x000A;405:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000734'>
+                <a name='M000734'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>recaptch_theme</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000734-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000734-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 52</span>&#x000A;52:    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recaptch_theme</span>&#x000A;53:      <span class="ruby-identifier">theme</span>=<span class="ruby-value str">&quot;&lt;script type='text/javascript'&gt;&quot;</span>&#x000A;54:      <span class="ruby-identifier">theme</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot;var RecaptchaOptions = { theme : 'clean'};&quot;</span>&#x000A;55:      <span class="ruby-identifier">theme</span><span class="ruby-operator">+=</span><span class="ruby-value str">&quot;&lt;/script&gt;&quot;</span>&#x000A;56:      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">theme</span>&#x000A;57:    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000732'>
+                <a name='M000732'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>taxon_concept_comments_path</span>
+                  <span class='arguments'>(taxon_concept)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000732-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000732-source'>    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 43</span>&#x000A;43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">taxon_concept_comments_path</span>(<span class="ruby-identifier">taxon_concept</span>)&#x000A;44:     <span class="ruby-keyword kw">return</span> <span class="ruby-node">&quot;/taxon_concepts/#{taxon_concept.id}/comments/&quot;</span>&#x000A;45:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

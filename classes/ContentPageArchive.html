@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: ContentPageArchive [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          ContentPageArchive
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/models/content_page_archive_rb.html">app/models/content_page_archive.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="ActiveRecord/Base.html">ActiveRecord::Base</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000323">backup</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000324">archived_by</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000323'>
+                <a name='M000323'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>backup</span>
+                  <span class='arguments'>(page)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000323-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000323-source'>    <span class="ruby-comment cmt"># File app/models/content_page_archive.rb, line 6</span>&#x000A; 6:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backup</span>(<span class="ruby-identifier">page</span>)&#x000A; 7:     &#x000A; 8:     <span class="ruby-identifier">backup_page</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">:content_page_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">:last_update_user_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">last_update_user_id</span>,<span class="ruby-identifier">:page_name=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">page_name</span>,<span class="ruby-identifier">:title=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">title</span>,<span class="ruby-identifier">:language_key=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">language_key</span>,<span class="ruby-identifier">:content_section_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">content_section_id</span>,<span class="ruby-identifier">:sort_order=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">sort_order</span>,<span class="ruby-identifier">:left_content=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">left_content</span>,<span class="ruby-identifier">:main_content=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">main_content</span>,<span class="ruby-identifier">:original_creation_date=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">created_at</span>,<span class="ruby-identifier">:language_abbr=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">language_abbr</span>,<span class="ruby-identifier">:url=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">url</span>,<span class="ruby-identifier">:open_in_new_window=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">open_in_new_window</span>)&#x000A; 9:         &#x000A;10:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000324'>
+                <a name='M000324'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>archived_by</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000324-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000324-source'>    <span class="ruby-comment cmt"># File app/models/content_page_archive.rb, line 12</span>&#x000A;12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">archived_by</span>&#x000A;13:      &#x000A;14:      <span class="ruby-node">&quot;#{self.created_at} by #{self.user.full_name}&quot;</span>&#x000A;15:      &#x000A;16:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

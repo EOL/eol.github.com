@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: Administrator::ErrorLogController [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Administrator::ErrorLogController
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/app/controllers/administrator/error_log_controller_rb.html">app/controllers/administrator/error_log_controller.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="../AdminController.html">AdminController</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000678">index</a></li>
+              <li><a href="#M000679">show</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000678'>
+                <a name='M000678'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>index</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000678-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000678-source'>    <span class="ruby-comment cmt"># File app/controllers/administrator/error_log_controller.rb, line 5</span>&#x000A; 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>&#x000A; 6:   &#x000A; 7:    <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>].<span class="ruby-identifier">blank?</span>&#x000A; 8:      <span class="ruby-ivar">@date</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:date</span>]&#x000A; 9:      <span class="ruby-identifier">conditions</span>=<span class="ruby-node">&quot;date(created_at)='#{@date}'&quot;</span>&#x000A;10:    <span class="ruby-keyword kw">end</span>&#x000A;11:    <span class="ruby-ivar">@errors</span>=<span class="ruby-constant">ErrorLog</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'created_at desc'</span>,<span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:page</span>],<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">conditions</span>)&#x000A;12:    <span class="ruby-ivar">@errors_count</span>=<span class="ruby-constant">ErrorLog</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">conditions</span>)&#x000A;13:    &#x000A;14:    <span class="ruby-ivar">@distinct_dates</span>=<span class="ruby-constant">ErrorLog</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,<span class="ruby-identifier">:select=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'distinct(DATE_FORMAT(date(created_at),&quot;%Y-%m-%d&quot;)) AS date'</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'created_at DESC'</span>)&#x000A;15:    &#x000A;16:  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000679'>
+                <a name='M000679'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>show</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000679-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000679-source'>    <span class="ruby-comment cmt"># File app/controllers/administrator/error_log_controller.rb, line 18</span>&#x000A;18:  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>&#x000A;19:    &#x000A;20:    <span class="ruby-ivar">@error</span>=<span class="ruby-constant">ErrorLog</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])&#x000A;21:    &#x000A;22:  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

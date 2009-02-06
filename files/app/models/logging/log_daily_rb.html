@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>File: log_daily.rb [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../../../.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='file' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>log_daily.rb</h1>
+        <div class='paths'>
+          app/models/logging/log_daily.rb
+        </div>
+        <div class='last-update'>
+          Last Update:
+          <span class='datetime'>Thu Feb 05 13:41:10 -0700 2009</span>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            A nugget of information derived from the master log (<a
+            href="../../../../classes/DataObjectLog.html">DataObjectLog</a>), intended
+            to be optimized for data reporting purposes and not necessarily normalized
+            for performance reasons.
+            </p>
+            <p>
+            There are a number of pieces of data that we track for each <a
+            href="../../../../classes/LogDaily.html">LogDaily</a>. These are subject to
+            change. For now, we include them all here.
+            </p>
+            <p>
+            For performance reasons (or if these defaults conflict with other
+            LogDailies we wish to create), we will likely remove some of these
+            associations / validations.
+            </p>
+            <p>
+            All <a href="../../../../classes/LogDaily.html">LogDaily</a> classes should
+            implement a few common class methods.
+            </p>
+            <p>
+            <a href="../../../../classes/LogDaily.html#M000403">LogDaily#mine</a> RANGE
+            </p>
+            <pre>go and mine data for a range and save the log objects</pre>
+            <p>
+            <a href="../../../../classes/LogDaily.html#M000403">LogDaily#mine</a>
+            </p>
+            <pre>go and mine ALL data (no range given) and save the log objects</pre>
+            <p>
+            <a href="../../../../classes/LogDaily.html#M000404">LogDaily#mine_data</a>
+            RANGE
+            </p>
+            <pre>returns objects to save (fetches the data used by #mine)</pre>
+            <p>
+            <a href="../../../../classes/LogDaily.html#M000404">LogDaily#mine_data</a>
+            </p>
+            <pre>returns objects to save (fetches the data used by #mine_all)</pre>
+            <p>
+            <a
+            href="../../../../classes/LogDaily.html#M000405">LogDaily#grand_totals</a>
+            </p>
+            <pre>returns the sum of the LogDaily#total for all records</pre>
+            <p>
+            <a
+            href="../../../../classes/LogDaily.html#M000405">LogDaily#grand_totals</a>
+            RANGE
+            </p>
+            <pre>returns the sum of the LogDaily#total for a given range of records</pre>
+            <p>
+            <a
+            href="../../../../classes/LogDaily.html#M000394">LogDaily#unique_data</a>
+            </p>
+            <pre>returns the value of the LogDaily#unique_data_column ... LogDails objects all have a&#x000A;column with some kindof unique data that we're logging&#x000A;&#x000A;IMPORTANT: this currently assumes that we only have 1 column of unique data&#x000A;           which we're logging and we'll display.  this should be refactored&#x000A;           to handle any arbitrary number of columns and any arbitrary number&#x000A;           of views of this data.  Needs to be simpler but also more flexible.</pre>
+            <p>
+            <a
+            href="../../../../classes/LogDaily.html#M000400">LogDaily#create_table</a>
+            </p>
+            <pre>intended to be called within the context of an ActiveRecord::Migration, this should&#x000A;properly create a LogDaily table with the default columns.  it should take a block&#x000A;with the usual |t| parameter for defining any additional columns</pre>
+            <p>
+            Primary Maintainers
+            </p>
+            <ul>
+            <li>Preston Lee <preston.lee@openrain.com>
+            
+            </li>
+            <li>Remi Taylor <remi.taylor@openrain.com>
+            
+            </li>
+            </ul>
+          </div>
+          <div id='section'>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: ContentController [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          ContentController
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/controllers/content_controller_rb.html">app/controllers/content_controller.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="ApplicationController.html">ApplicationController</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000269">clear_caches</a></li>
+              <li><a href="#M000263">contact_us</a></li>
+              <li><a href="#M000268">donate</a></li>
+              <li><a href="#M000266">error</a></li>
+              <li><a href="#M000260">exemplars</a></li>
+              <li><a href="#M000272">expire</a></li>
+              <li><a href="#M000270">expire_all</a></li>
+              <li><a href="#M000273">expire_multiple</a></li>
+              <li><a href="#M000271">expire_single</a></li>
+              <li><a href="#M000261">explore_taxa</a></li>
+              <li><a href="#M000255">index</a></li>
+              <li><a href="#M000264">media_contact</a></li>
+              <li><a href="#M000259">mediarss</a></li>
+              <li><a href="#M000257">news</a></li>
+              <li><a href="#M000265">page</a></li>
+              <li><a href="#M000267">partners</a></li>
+              <li><a href="#M000262">replace_single_explore_taxa</a></li>
+              <li><a href="#M000256">species_bar</a></li>
+              <li><a href="#M000258">translate</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000269'>
+                <a name='M000269'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>clear_caches</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  conveninece page to expire everything immediately (call with <a
+                  href="http://www.eol.org/clear_caches">www.eol.org/clear_caches</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000269-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000269-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 242</span>&#x000A;242:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear_caches</span>&#x000A;243:     &#x000A;244:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span>&#x000A;245:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">clear_all_caches</span>&#x000A;246:         <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">&quot;All caches expired.&quot;</span>,<span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;247:       <span class="ruby-keyword kw">else</span>&#x000A;248:         <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'Clearing all caches not supported for this cache store.'</span>, <span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;249:       <span class="ruby-keyword kw">end</span>  &#x000A;250:     <span class="ruby-keyword kw">else</span>&#x000A;251:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_page_url</span>&#x000A;252:     <span class="ruby-keyword kw">end</span>&#x000A;253:     &#x000A;254:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000263'>
+                <a name='M000263'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>contact_us</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000263-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000263-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 118</span>&#x000A;118:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contact_us</span>&#x000A;119:  &#x000A;120:     <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">ContactSubject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'active=1'</span>,<span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'title'</span>)&#x000A;121: &#x000A;122:     <span class="ruby-ivar">@contact</span> = <span class="ruby-constant">Contact</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:contact</span>])&#x000A;123:     <span class="ruby-identifier">store_location</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:return_to</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:return_to</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">get?</span> <span class="ruby-comment cmt"># store the page we came from so we can return there if it's passed in the URL</span>&#x000A;124:     &#x000A;125:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;126:       <span class="ruby-identifier">return_to</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:return_to</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>&#x000A;127:       <span class="ruby-comment cmt"># grab default subject to select in list if it's passed in the querystring</span>&#x000A;128:       <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">contact_subject</span>=<span class="ruby-constant">ContactSubject</span>.<span class="ruby-identifier">find_by_title</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:default_subject</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:default_subject</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>   &#x000A;129:       <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">name</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:default_name</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:default_name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;130:       <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">email</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:default_email</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:default_email</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;131:       <span class="ruby-keyword kw">return</span>&#x000A;132:     <span class="ruby-keyword kw">end</span> &#x000A;133:     &#x000A;134:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">ip_address</span>=<span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>&#x000A;135:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">user_id</span>=<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>&#x000A;136:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">referred_page</span>=<span class="ruby-identifier">return_to_url</span>&#x000A;137:     &#x000A;138:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verify_recaptcha</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">save</span>  &#x000A;139:       <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_contact_us_auto_response</span>(<span class="ruby-ivar">@contact</span>)&#x000A;140:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>]=<span class="ruby-value str">&quot;Thank you for your feedback.&quot;</span>[<span class="ruby-identifier">:thanks_for_feedback</span>]&#x000A;141:       <span class="ruby-identifier">redirect_back_or_default</span>&#x000A;142:     <span class="ruby-keyword kw">else</span>&#x000A;143:       <span class="ruby-ivar">@verification_did_not_match</span>=<span class="ruby-value str">&quot;The verification phrase you entered did not match.&quot;</span>[<span class="ruby-identifier">:verification_phrase_did_not_match</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verify_recaptcha</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;144:     <span class="ruby-keyword kw">end</span>&#x000A;145:     &#x000A;146:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000268'>
+                <a name='M000268'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>donate</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000268-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000268-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 213</span>&#x000A;213:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">donate</span>&#x000A;214:     &#x000A;215:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;216:     &#x000A;217:     <span class="ruby-identifier">donation</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:donation</span>]&#x000A;218: &#x000A;219:     <span class="ruby-ivar">@other_amount</span>=<span class="ruby-identifier">donation</span>[<span class="ruby-identifier">:amount</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">&quot;,&quot;</span>,<span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_f</span> &#x000A;220:     <span class="ruby-ivar">@preset_amount</span>=<span class="ruby-identifier">donation</span>[<span class="ruby-identifier">:preset_amount</span>]&#x000A;221:    &#x000A;222:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@preset_amount</span>.<span class="ruby-identifier">nil?</span>&#x000A;223:       <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-identifier">:error</span>]=<span class="ruby-value str">&quot;Please select a donation amount.&quot;</span>[<span class="ruby-identifier">:donation_error</span>]&#x000A;224:       <span class="ruby-keyword kw">return</span>&#x000A;225:     <span class="ruby-keyword kw">end</span>&#x000A;226:     &#x000A;227:     <span class="ruby-keyword kw">if</span> (<span class="ruby-ivar">@preset_amount</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;other&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@other_amount</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)&#x000A;228:       <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-identifier">:error</span>]=<span class="ruby-value str">&quot;Please enter an amount using only numbers.&quot;</span>[<span class="ruby-identifier">:donation_error2</span>]&#x000A;229:       <span class="ruby-keyword kw">return</span>&#x000A;230:     <span class="ruby-keyword kw">end</span>&#x000A;231:   &#x000A;232:     <span class="ruby-ivar">@donation_amount</span> = <span class="ruby-ivar">@preset_amount</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@preset_amount</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@other_amount</span>&#x000A;233:     <span class="ruby-ivar">@transaction_type</span> = <span class="ruby-value str">&quot;sale&quot;</span>&#x000A;234:     <span class="ruby-ivar">@currency</span> = <span class="ruby-value str">&quot;usd&quot;</span>&#x000A;235:     &#x000A;236:     <span class="ruby-identifier">parameters</span>=<span class="ruby-value str">'function=InsertSignature3&amp;version=2&amp;amount='</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@donation_amount</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&amp;type='</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@transaction_type</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&amp;currency='</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@currency</span>&#x000A;237:     <span class="ruby-ivar">@form_elements</span>=<span class="ruby-constant">EOLWebService</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">:parameters=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">parameters</span>)&#x000A;238:  &#x000A;239:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000266'>
+                <a name='M000266'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>error</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  error page
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000266-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000266-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 201</span>&#x000A;201:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">error</span>&#x000A;202:     &#x000A;203:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000260'>
+                <a name='M000260'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>exemplars</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000260-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000260-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 75</span>&#x000A;75:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exemplars</span>&#x000A;76:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">read_fragment</span>(<span class="ruby-identifier">:controller=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'content'</span>,<span class="ruby-identifier">:part=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'exemplars'</span>)&#x000A;77:       <span class="ruby-ivar">@exemplars</span> = <span class="ruby-constant">TaxonConcept</span>.<span class="ruby-identifier">exemplars</span>.<span class="ruby-identifier">sort_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:quick_scientific_name</span>)&#x000A;78:     <span class="ruby-keyword kw">end</span>&#x000A;79:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000272'>
+                <a name='M000272'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>expire</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  convenience page to expire a specific species page based on a taxon ID
+                  (call with <a
+                  href="http://www.eol.org/expire/TAXON_ID">www.eol.org/expire/TAXON_ID</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000272-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000272-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 281</span>&#x000A;281:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire</span>&#x000A;282:     &#x000A;283:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>].<span class="ruby-identifier">nil?</span>&#x000A;284:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">expire_taxon</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])&#x000A;285:          <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'Taxon ID '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">' and its ancestors expired.'</span>,<span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;286:       <span class="ruby-keyword kw">else</span>&#x000A;287:          <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'Invalid taxon ID supplied'</span>,<span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;288:       <span class="ruby-keyword kw">end</span>&#x000A;289:     <span class="ruby-keyword kw">else</span>&#x000A;290:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_page_url</span>&#x000A;291:     <span class="ruby-keyword kw">end</span>&#x000A;292: &#x000A;293:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000270'>
+                <a name='M000270'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>expire_all</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  conveninece page to expire all caches (except species pages) immediately
+                  (call with <a
+                  href="http://www.eol.org/expire_all">www.eol.org/expire_all</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000270-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000270-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 257</span>&#x000A;257:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_all</span>&#x000A;258:     &#x000A;259:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span>&#x000A;260:       <span class="ruby-identifier">expire_caches</span>  &#x000A;261:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">&quot;Non-species page caches expired.&quot;</span>,<span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;262:     <span class="ruby-keyword kw">else</span>&#x000A;263:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_page_url</span>&#x000A;264:     <span class="ruby-keyword kw">end</span>&#x000A;265:     &#x000A;266:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000273'>
+                <a name='M000273'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>expire_multiple</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  convenience page to expire a specific list of species page based on a comma
+                  delimited list of taxa IDs passed in as a post or get with parameter
+                  taxa_ids (call with <a
+                  href="http://www.eol.org/expire_taxa">www.eol.org/expire_taxa</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000273-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000273-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 296</span>&#x000A;296:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_multiple</span>&#x000A;297:     &#x000A;298:     <span class="ruby-identifier">taxa_ids</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxa_ids</span>]&#x000A;299: &#x000A;300:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxa_ids</span>].<span class="ruby-identifier">nil?</span>&#x000A;301:       <span class="ruby-identifier">expire_taxa</span>(<span class="ruby-identifier">taxa_ids</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">','</span>))&#x000A;302:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'Taxa IDs '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">taxa_ids</span> <span class="ruby-operator">+</span> <span class="ruby-value str">' and their ancestors expired.'</span>,<span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;303:      <span class="ruby-keyword kw">else</span>&#x000A;304:        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_page_url</span>&#x000A;305:      <span class="ruby-keyword kw">end</span>&#x000A;306:      &#x000A;307:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000271'>
+                <a name='M000271'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>expire_single</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  conveninece page to expire a single CMS page immediately (call with <a
+                  href="http://www.eol.org/expire/PAGE_NAME">www.eol.org/expire/PAGE_NAME</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000271-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000271-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 269</span>&#x000A;269:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_single</span>&#x000A;270:     &#x000A;271:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span>&#x000A;272:       <span class="ruby-identifier">expire_cache</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])&#x000A;273:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">&quot;Non-species page '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;' cache expired.&quot;</span>,<span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>&#x000A;274:     <span class="ruby-keyword kw">else</span>&#x000A;275:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_page_url</span>&#x000A;276:     <span class="ruby-keyword kw">end</span>&#x000A;277:     &#x000A;278:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000261'>
+                <a name='M000261'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>explore_taxa</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  AJAX call to show more explore taxa on the home page
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000261-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000261-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 82</span>&#x000A;82:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explore_taxa</span>&#x000A;83: &#x000A;84:     <span class="ruby-ivar">@explore_taxa</span>=<span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-value">6</span>)&#x000A;85: &#x000A;86:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span>,<span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'explore_taxa'</span>&#x000A;87:     &#x000A;88:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000255'>
+                <a name='M000255'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>index</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000255-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000255-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 7</span>&#x000A; 7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>&#x000A; 8: &#x000A; 9:     <span class="ruby-ivar">@home_page</span>=<span class="ruby-keyword kw">true</span>&#x000A;10: &#x000A;11:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">read_fragment</span>(<span class="ruby-identifier">:controller=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'content'</span>,<span class="ruby-identifier">:part=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'home_'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">language_abbr</span>)&#x000A;12:       <span class="ruby-ivar">@content</span>=<span class="ruby-constant">ContentPage</span>.<span class="ruby-identifier">get_by_page_name_and_language_abbr</span>(<span class="ruby-value str">'Home'</span>,<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">language_abbr</span>)&#x000A;13:       <span class="ruby-ivar">@explore_taxa</span>  = <span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-value">6</span>)&#x000A;14:       <span class="ruby-ivar">@featured_taxa</span> = <span class="ruby-constant">TaxonConcept</span>.<span class="ruby-identifier">exemplars</span>&#x000A;15:       <span class="ruby-comment cmt"># get top news items less then a predetermined number of weeks old</span>&#x000A;16:       <span class="ruby-ivar">@news_items</span> = <span class="ruby-constant">NewsItem</span>.<span class="ruby-identifier">find_all_by_active</span>(<span class="ruby-keyword kw">true</span>,<span class="ruby-identifier">:limit=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">$NEWS_ITEMS_HOMEPAGE_MAX_DISPLAY</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'display_date desc'</span>,<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'display_date &gt;= &quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$NEWS_ITEMS_TIMEOUT_HOMEPAGE_WEEKS</span>.<span class="ruby-identifier">weeks</span>.<span class="ruby-identifier">ago</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">:db</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot;'</span>)&#x000A;17:     <span class="ruby-keyword kw">end</span>&#x000A;18:       &#x000A;19:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000264'>
+                <a name='M000264'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>media_contact</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000264-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000264-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 148</span>&#x000A;148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">media_contact</span>&#x000A;149:     &#x000A;150:     <span class="ruby-ivar">@contact</span> = <span class="ruby-constant">Contact</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:contact</span>])&#x000A;151:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">contact_subject</span>=<span class="ruby-constant">ContactSubject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">$MEDIA_INQUIRY_CONTACT_SUBJECT_ID</span>)&#x000A;152:     &#x000A;153:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;154:       <span class="ruby-identifier">store_location</span>&#x000A;155:       <span class="ruby-keyword kw">return</span>&#x000A;156:     <span class="ruby-keyword kw">end</span>&#x000A;157: &#x000A;158:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">ip_address</span>=<span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>&#x000A;159:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">user_id</span>=<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>&#x000A;160:     <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">referred_page</span>=<span class="ruby-identifier">return_to_url</span>&#x000A;161:     &#x000A;162:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verify_recaptcha</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@contact</span>.<span class="ruby-identifier">save</span>&#x000A;163:       <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_media_contact_auto_response</span>(<span class="ruby-ivar">@contact</span>)&#x000A;164:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>]=<span class="ruby-value str">&quot;Your message was sent.&quot;</span>[<span class="ruby-identifier">:your_message_was_sent</span>]&#x000A;165:       <span class="ruby-identifier">redirect_back_or_default</span> &#x000A;166:     <span class="ruby-keyword kw">else</span>&#x000A;167:       <span class="ruby-ivar">@verification_did_not_match</span>=<span class="ruby-value str">&quot;The verification phrase you entered did not match.&quot;</span>[<span class="ruby-identifier">:verification_phrase_did_not_match</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verify_recaptcha</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>&#x000A;168:     <span class="ruby-keyword kw">end</span>&#x000A;169:     &#x000A;170:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000259'>
+                <a name='M000259'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>mediarss</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000259-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000259-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 48</span>&#x000A;48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mediarss</span>&#x000A;49:     <span class="ruby-identifier">taxon_concept_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>&#x000A;50:     <span class="ruby-identifier">taxon_concept</span> = <span class="ruby-constant">TaxonConcept</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">taxon_concept_id</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;51:     <span class="ruby-ivar">@items</span> = []&#x000A;52:     &#x000A;53:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">nil?</span>&#x000A;54:       <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;for &quot;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">quick_scientific_name</span>(<span class="ruby-identifier">:normal</span>)&#x000A;55:     &#x000A;56:       <span class="ruby-identifier">rows</span> = <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;SELECT tcn.taxon_concept_id, do.object_cache_url, do.object_title, do.guid FROM hierarchy_entries he JOIN top_images ti ON (he.id=ti.hierarchy_entry_id) JOIN data_objects do ON (ti.data_object_id=do.id) JOIN data_objects_taxa dot ON (do.id=dot.data_object_id) JOIN taxa t ON (dot.taxon_id=t.id) JOIN taxon_concept_names tcn ON (t.name_id=tcn.name_id) WHERE he.taxon_concept_id=#{taxon_concept.id} GROUP BY do.id ORDER BY ti.view_order&quot;</span>).<span class="ruby-identifier">all_hashes</span>&#x000A;57:       &#x000A;58:       <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>&#x000A;59:         <span class="ruby-ivar">@items</span> <span class="ruby-operator">&lt;&lt;</span> {&#x000A;60:           <span class="ruby-identifier">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">row</span>[<span class="ruby-value str">'object_title'</span>],&#x000A;61:           <span class="ruby-identifier">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;/pages/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">row</span>[<span class="ruby-value str">'taxon_concept_id'</span>],&#x000A;62:           <span class="ruby-identifier">:guid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">row</span>[<span class="ruby-value str">'guid'</span>],&#x000A;63:           <span class="ruby-identifier">:thumbnail</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">DataObject</span>.<span class="ruby-identifier">image_cache_path</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value str">'object_cache_url'</span>], <span class="ruby-identifier">:medium</span>),&#x000A;64:           <span class="ruby-identifier">:image</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">DataObject</span>.<span class="ruby-identifier">image_cache_path</span>(<span class="ruby-identifier">row</span>[<span class="ruby-value str">'object_cache_url'</span>], <span class="ruby-identifier">:orig</span>)&#x000A;65:         }&#x000A;66:       <span class="ruby-keyword kw">end</span>&#x000A;67:     <span class="ruby-keyword kw">end</span>&#x000A;68:     &#x000A;69:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>&#x000A;70:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">rss</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span> }&#x000A;71:     <span class="ruby-keyword kw">end</span>&#x000A;72:     &#x000A;73:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000257'>
+                <a name='M000257'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>news</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000257-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000257-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 28</span>&#x000A;28:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">news</span>&#x000A;29:     &#x000A;30:     <span class="ruby-ivar">@term_search_string</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:term_search_string</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>&#x000A;31:     <span class="ruby-identifier">search_string_parameter</span>=<span class="ruby-value str">'%'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@term_search_string</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'%'</span> &#x000A;32:     <span class="ruby-ivar">@news_items</span>=<span class="ruby-constant">NewsItem</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span>[<span class="ruby-value str">'active=1 and body like ?'</span>,<span class="ruby-identifier">search_string_parameter</span>],<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'display_date desc'</span>,<span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:page</span>])&#x000A;33:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>&#x000A;34:        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>&#x000A;35:        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">rss</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">:layout=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">false</span> }&#x000A;36:      <span class="ruby-keyword kw">end</span>    &#x000A;37: &#x000A;38:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000265'>
+                <a name='M000265'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>page</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  the template for a static page with content from the database
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000265-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000265-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 173</span>&#x000A;173:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page</span>&#x000A;174:     <span class="ruby-comment cmt"># get the id parameter, which can be either a page ID # or a page name</span>&#x000A;175:     <span class="ruby-ivar">@page_id</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>]&#x000A;176: &#x000A;177:     <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;static page without id&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@page_id</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@page_id</span><span class="ruby-operator">==</span><span class="ruby-value str">''</span>&#x000A;178:     &#x000A;179:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">read_fragment</span>(<span class="ruby-identifier">:controller=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'content'</span>,<span class="ruby-identifier">:part=</span><span class="ruby-operator">&gt;</span><span class="ruby-ivar">@page_id</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;_&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">language_abbr</span>)&#x000A;180:         <span class="ruby-comment cmt"># if the id is not numeric, assume it's a page name</span>&#x000A;181:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@page_id</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> &#x000A;182:           <span class="ruby-identifier">page_name</span>=<span class="ruby-ivar">@page_id</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">' '</span>,<span class="ruby-value str">'_'</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'_'</span>,<span class="ruby-value str">' '</span>)&#x000A;183:           <span class="ruby-ivar">@content</span>=<span class="ruby-constant">ContentPage</span>.<span class="ruby-identifier">get_by_page_name_and_language_abbr</span>(<span class="ruby-identifier">page_name</span>,<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">language_abbr</span>)&#x000A;184:         <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># assume the id passed is numeric and find it by ID</span>&#x000A;185:           <span class="ruby-ivar">@content</span>=<span class="ruby-constant">ContentPage</span>.<span class="ruby-identifier">get_by_id_and_language_abbr</span>(<span class="ruby-ivar">@page_id</span>,<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">language_abbr</span>)&#x000A;186:         <span class="ruby-keyword kw">end</span>&#x000A;187:         &#x000A;188:         <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;static page content not found&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">nil?</span>&#x000A;189:         &#x000A;190:         <span class="ruby-comment cmt"># if this static page is simply a redirect, then go there</span>&#x000A;191:         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@content</span>.<span class="ruby-identifier">url</span>.<span class="ruby-identifier">blank?</span>&#x000A;192:           <span class="ruby-identifier">headers</span>[<span class="ruby-value str">&quot;Status&quot;</span>] = <span class="ruby-value str">&quot;301 Moved Permanently&quot;</span>&#x000A;193:           <span class="ruby-identifier">redirect_to</span>(<span class="ruby-ivar">@content</span>.<span class="ruby-identifier">url</span>)&#x000A;194:         <span class="ruby-keyword kw">end</span>&#x000A;195:         &#x000A;196:     <span class="ruby-keyword kw">end</span>&#x000A;197:   &#x000A;198:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000267'>
+                <a name='M000267'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>partners</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  get the list of content partners
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000267-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000267-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 206</span>&#x000A;206:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">partners</span>&#x000A;207:   &#x000A;208:     <span class="ruby-comment cmt"># content partners will have a username</span>&#x000A;209:     <span class="ruby-ivar">@partners</span>=<span class="ruby-constant">Agent</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'username&lt;&gt;&quot;&quot; AND content_partners.show_on_partner_page = 1'</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'agents.full_name asc'</span>,<span class="ruby-identifier">:include=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:content_partner</span>,<span class="ruby-identifier">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:page</span>] <span class="ruby-operator">||</span> <span class="ruby-value">1</span>)&#x000A;210:     &#x000A;211:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000262'>
+                <a name='M000262'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>replace_single_explore_taxa</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  AJAX call to replace a single explore taxa for the home page
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000262-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000262-source'>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 91</span>&#x000A; 91:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">replace_single_explore_taxa</span>&#x000A; 92:  &#x000A; 93:      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:current_taxa</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">''</span>&#x000A; 94:      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxa_number</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">'1'</span>&#x000A; 95:      &#x000A; 96:      <span class="ruby-identifier">current_taxa</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:current_taxa</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">','</span>)&#x000A; 97:      <span class="ruby-identifier">explore_taxa</span>       = <span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random</span>&#x000A; 98:      <span class="ruby-comment cmt"># Ensure that we don't end up with duplicates:</span>&#x000A; 99:      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">current_taxa</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">taxon_concept_id</span>.<span class="ruby-identifier">to_s</span>)&#x000A;100:        <span class="ruby-identifier">explore_taxa</span> = <span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random</span>&#x000A;101:      <span class="ruby-keyword kw">end</span>&#x000A;102:      <span class="ruby-identifier">taxa_number</span>        = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxa_number</span>]&#x000A;103:      &#x000A;104:      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">taxa_number</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">taxa_number</span>.<span class="ruby-identifier">empty?</span>&#x000A;105:        <span class="ruby-identifier">render</span> <span class="ruby-identifier">:update</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page</span><span class="ruby-operator">|</span>&#x000A;106:           <span class="ruby-identifier">page</span>[<span class="ruby-value str">'top_image_tag_'</span><span class="ruby-operator">+</span><span class="ruby-identifier">taxa_number</span>].<span class="ruby-identifier">alt</span>          = <span class="ruby-identifier">remove_html</span>(<span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">name</span>(<span class="ruby-identifier">:expert</span>))&#x000A;107:           <span class="ruby-identifier">page</span>[<span class="ruby-value str">'top_image_tag_'</span><span class="ruby-operator">+</span><span class="ruby-identifier">taxa_number</span>].<span class="ruby-identifier">title</span>        = <span class="ruby-identifier">remove_html</span>(<span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">name</span>(<span class="ruby-identifier">:expert</span>))&#x000A;108:           <span class="ruby-identifier">page</span>[<span class="ruby-value str">'top_image_tag_'</span><span class="ruby-operator">+</span><span class="ruby-identifier">taxa_number</span>].<span class="ruby-identifier">src</span>          = <span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">smart_medium_thumb</span>&#x000A;109:           <span class="ruby-identifier">page</span>[<span class="ruby-value str">'top_image_tag_'</span><span class="ruby-operator">+</span><span class="ruby-identifier">taxa_number</span><span class="ruby-operator">+</span><span class="ruby-value str">'_href'</span>].<span class="ruby-identifier">href</span> = <span class="ruby-value str">&quot;/pages/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">taxon_concept_id</span>.<span class="ruby-identifier">to_s</span>&#x000A;110:           <span class="ruby-identifier">page</span>.<span class="ruby-identifier">replace_html</span> <span class="ruby-value str">'top_name_'</span><span class="ruby-operator">+</span><span class="ruby-identifier">taxa_number</span>, <span class="ruby-identifier">linked_name</span>(<span class="ruby-identifier">explore_taxa</span>.<span class="ruby-identifier">taxon_concept</span>)&#x000A;111:        <span class="ruby-keyword kw">end</span>&#x000A;112:      <span class="ruby-keyword kw">else</span>&#x000A;113:        <span class="ruby-identifier">render</span> <span class="ruby-identifier">:nothing=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">true</span>&#x000A;114:      <span class="ruby-keyword kw">end</span>&#x000A;115:      &#x000A;116:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000256'>
+                <a name='M000256'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>species_bar</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  just shows the top set of species &#8212; can be included on other websites
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000256-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000256-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 22</span>&#x000A;22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">species_bar</span>&#x000A;23:      <span class="ruby-ivar">@explore_taxa</span>  = <span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-value">6</span>)&#x000A;24:      <span class="ruby-ivar">@new_window</span> = <span class="ruby-keyword kw">true</span>&#x000A;25:      <span class="ruby-identifier">render</span>(<span class="ruby-identifier">:partial=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'explore_taxa'</span>)&#x000A;26:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000258'>
+                <a name='M000258'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>translate</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000258-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000258-source'>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 40</span>&#x000A;40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">translate</span>&#x000A;41:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:return_to</span>].<span class="ruby-identifier">blank?</span>&#x000A;42:       <span class="ruby-ivar">@translate_url</span>=<span class="ruby-identifier">home_page_url</span>&#x000A;43:     <span class="ruby-keyword kw">else</span>&#x000A;44:       <span class="ruby-ivar">@translate_url</span>=<span class="ruby-node">&quot;http://#{request.host}#{params[:return_to]}&quot;</span>&#x000A;45:     <span class="ruby-keyword kw">end</span>&#x000A;46:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

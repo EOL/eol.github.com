@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>File: taxon_concept.rb [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../../.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='file' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>taxon_concept.rb</h1>
+        <div class='paths'>
+          app/models/taxon_concept.rb
+        </div>
+        <div class='last-update'>
+          Last Update:
+          <span class='datetime'>Thu Feb 05 13:41:10 -0700 2009</span>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            Represents the vague idea of a <a
+            href="../../../classes/Taxon.html">Taxon</a>.
+            </p>
+            <p>
+            We get different interpretations of taxa from our partners (<a
+            href="../../../classes/ContentPartner.html">ContentPartner</a>), often
+            differing slightly and referring to basically the same thing, so <a
+            href="../../../classes/TaxonConcept.html">TaxonConcept</a> was created as a
+            means to reconcile the variant definitions of what are essentially the same
+            <a href="../../../classes/Taxon.html">Taxon</a>. We currently store basic
+            <a href="../../../classes/Taxon.html">Taxon</a> we receive from data
+            imports in the <tt>taxa</tt> table and we also store taxonomic hierarchies
+            (<a href="../../../classes/HierarchyEntry.html">HierarchyEntry</a>) in the
+            <tt>hierarchy_entries</tt> table. Currently <a
+            href="../../../classes/TaxonConcept.html">TaxonConcept</a> are groups of
+            one or many <a
+            href="../../../classes/HierarchyEntry.html">HierarchyEntry</a>. We will
+            eventually create hierarchy_entries for each entry in the taxa table (<a
+            href="../../../classes/Taxon.html">Taxon</a>).
+            </p>
+            <p>
+            It is worth mentioning that the &#8220;eol.org/page/nnnn&#8220; route is a
+            misnomer. Those IDs are, for the time-being, pointing to TaxonConcepts.
+            </p>
+            <p>
+            See the comments at the top of the <a
+            href="../../../classes/Taxon.html">Taxon</a> for more information on this.
+            I include there a basic biological definition of what a <a
+            href="../../../classes/Taxon.html">Taxon</a> is.
+            </p>
+          </div>
+          <div id='section'>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

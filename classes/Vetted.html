@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: Vetted [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Vetted
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/models/vetted_rb.html">app/models/vetted.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="SpeciesSchemaModel.html">SpeciesSchemaModel</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000407">trusted</a></li>
+              <li><a href="#M000409">trusted_ids</a></li>
+              <li><a href="#M000408">unknown</a></li>
+              <li><a href="#M000406">untrusted</a></li>
+              <li><a href="#M000410">untrusted_ids</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000407'>
+                <a name='M000407'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>trusted</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000407-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000407-source'>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 14</span>&#x000A;14:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">trusted</span>&#x000A;15:     <span class="ruby-ivar">@@trusted</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Trusted'</span>)&#x000A;16:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000409'>
+                <a name='M000409'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>trusted_ids</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000409-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000409-source'>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 29</span>&#x000A;29:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">trusted_ids</span>  &#x000A;30:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">trusted</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>&#x000A;31:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000408'>
+                <a name='M000408'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>unknown</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000408-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000408-source'>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 18</span>&#x000A;18:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unknown</span>&#x000A;19:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@@unknown</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@@unknown</span>.<span class="ruby-identifier">nil?</span>&#x000A;20:     <span class="ruby-ivar">@@unknown</span> = <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Unknown'</span>)&#x000A;21:     <span class="ruby-comment cmt"># The ID *must* be 0 (PHP hard-coded; it also makes /sense/).  If it's not, we fix it now:</span>&#x000A;22:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@unknown</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>&#x000A;23:       <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;UPDATE vetted SET id = 0 WHERE id = #{@@unknown.id}&quot;</span>)&#x000A;24:       <span class="ruby-ivar">@@unknown</span> = <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Unknown'</span>)&#x000A;25:     <span class="ruby-keyword kw">end</span>&#x000A;26:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@@unknown</span>&#x000A;27:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000406'>
+                <a name='M000406'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>untrusted</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  These are just the class methods to grab the ones you want, without hitting
+                  the DB every time...
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000406-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000406-source'>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 10</span>&#x000A;10:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">untrusted</span>&#x000A;11:     <span class="ruby-ivar">@@untrusted</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Untrusted'</span>)&#x000A;12:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000410'>
+                <a name='M000410'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>untrusted_ids</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000410-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000410-source'>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 33</span>&#x000A;33:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">untrusted_ids</span>&#x000A;34:     [<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">untrusted</span>.<span class="ruby-identifier">id</span>,<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unknown</span>.<span class="ruby-identifier">id</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">','</span>) &#x000A;35:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

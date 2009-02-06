@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: Language [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Language
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/models/language_rb.html">app/models/language.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="SpeciesSchemaModel.html">SpeciesSchemaModel</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000413">english</a></li>
+              <li><a href="#M000412">scientific</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000414">display_code</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000413'>
+                <a name='M000413'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>english</span>
+                  <span class='arguments'>(</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000413-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000413-source'>    <span class="ruby-comment cmt"># File app/models/language.rb, line 14</span>&#x000A;14:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">english</span> <span class="ruby-comment cmt"># because it's a default.  No other language will have this kind of method.</span>&#x000A;15:     <span class="ruby-ivar">@@english</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Language</span>.<span class="ruby-identifier">find_by_iso_639_1</span>(<span class="ruby-value str">'en'</span>)&#x000A;16:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000412'>
+                <a name='M000412'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>scientific</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000412-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000412-source'>    <span class="ruby-comment cmt"># File app/models/language.rb, line 10</span>&#x000A;10:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">scientific</span>&#x000A;11:     <span class="ruby-ivar">@@scientific</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Language</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@@SCIENTIFIC_ID</span>) &#x000A;12:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000414'>
+                <a name='M000414'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>display_code</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000414-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000414-source'>    <span class="ruby-comment cmt"># File app/models/language.rb, line 18</span>&#x000A;18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_code</span>&#x000A;19:     <span class="ruby-identifier">iso_639_1</span>.<span class="ruby-identifier">upcase</span>&#x000A;20:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: DataType [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          DataType
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/models/data_type_rb.html">app/models/data_type.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="SpeciesSchemaModel.html">SpeciesSchemaModel</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000325">attribution_order</a></li>
+              <li><a href="#M000329">image_type_ids</a></li>
+              <li><a href="#M000331">map_type_ids</a></li>
+              <li><a href="#M000332">text_type_ids</a></li>
+              <li><a href="#M000330">video_type_ids</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000326">attribution_order</a></li>
+              <li><a href="#M000327">attribution_order_for</a></li>
+              <li><a href="#M000328">full_attribution_order</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='attribute-list'>
+              <h2 class='section-bar'>Attributes</h2>
+              <div class='name-list'>
+                <table>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>attribution_order</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000325'>
+                <a name='M000325'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>attribution_order</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000325-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000325-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 9</span>&#x000A; 9:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution_order</span>&#x000A;10:       <span class="ruby-comment cmt"># define defaults </span>&#x000A;11:       <span class="ruby-ivar">@attribution_order</span> <span class="ruby-operator">||=</span> {&#x000A;12:         <span class="ruby-value str">'Image'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AgentRole</span>[ <span class="ruby-identifier">:Author</span>, <span class="ruby-identifier">:Source</span>, <span class="ruby-identifier">:Project</span>, <span class="ruby-identifier">:Publisher</span> ],&#x000A;13:         <span class="ruby-value str">'Text'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">AgentRole</span>[ <span class="ruby-identifier">:Author</span>, <span class="ruby-identifier">:Source</span>, <span class="ruby-identifier">:Project</span>, <span class="ruby-identifier">:Publisher</span> ]&#x000A;14:       }&#x000A;15:     <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000329'>
+                <a name='M000329'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>image_type_ids</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000329-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000329-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 36</span>&#x000A;36:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">image_type_ids</span>&#x000A;37:     <span class="ruby-ivar">@@image_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'Image'</span>])&#x000A;38:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000331'>
+                <a name='M000331'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>map_type_ids</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000331-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000331-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 44</span>&#x000A;44:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">map_type_ids</span>&#x000A;45:     <span class="ruby-ivar">@@map_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'GBIF Image'</span>])&#x000A;46:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000332'>
+                <a name='M000332'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>text_type_ids</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000332-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000332-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 48</span>&#x000A;48:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">text_type_ids</span>&#x000A;49:     <span class="ruby-ivar">@@text_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'Text'</span>])&#x000A;50:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000330'>
+                <a name='M000330'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>video_type_ids</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000330-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000330-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 40</span>&#x000A;40:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">video_type_ids</span>&#x000A;41:     <span class="ruby-ivar">@@video_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'YouTube'</span>, <span class="ruby-value str">'Flash'</span>])&#x000A;42:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000326'>
+                <a name='M000326'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>attribution_order</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  shortcut reference to <a
+                  href="DataType.html#M000325">DataType.attribution_order</a>[
+                  @data_type.label ]
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000326-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000326-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 19</span>&#x000A;19:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution_order</span>&#x000A;20:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">attribution_order</span>[ <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">label</span> ] <span class="ruby-operator">||=</span> []&#x000A;21:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000327'>
+                <a name='M000327'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>attribution_order_for</span>
+                  <span class='arguments'>(agent_role)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000327-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000327-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 23</span>&#x000A;23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution_order_for</span> <span class="ruby-identifier">agent_role</span>&#x000A;24:     <span class="ruby-identifier">agent_role_id</span> = (<span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Fixnum</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">agent_role</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">id</span>&#x000A;25:     <span class="ruby-identifier">full_attribution_order</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ordered_agent_role</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>&#x000A;26:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">index</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ordered_agent_role</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">agent_role_id</span>&#x000A;27:     <span class="ruby-keyword kw">end</span>&#x000A;28:     <span class="ruby-keyword kw">return</span> <span class="ruby-value">-1</span> <span class="ruby-comment cmt"># doesn't exist!</span>&#x000A;29:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000328'>
+                <a name='M000328'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>full_attribution_order</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000328-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000328-source'>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 31</span>&#x000A;31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_attribution_order</span>&#x000A;32:     <span class="ruby-identifier">other_roles</span> = <span class="ruby-constant">AgentRole</span>.<span class="ruby-identifier">all</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">attribution_order</span>&#x000A;33:     <span class="ruby-identifier">attribution_order</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">other_roles</span>&#x000A;34:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

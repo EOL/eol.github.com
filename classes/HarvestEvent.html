@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Class: HarvestEvent [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          HarvestEvent
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../files/app/models/harvest_event_rb.html">app/models/harvest_event.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="SpeciesSchemaModel.html">SpeciesSchemaModel</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000301">last_published</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000300">make_invisible</a></li>
+              <li><a href="#M000299">make_visible</a></li>
+              <li><a href="#M000298">publish</a></li>
+            </ol>
+            <h3>protected instance</h3>
+            <ol>
+              <li><a href="#M000302">delete_upstream_harvests</a></li>
+              <li><a href="#M000303">remove_related_data_objects</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000301'>
+                <a name='M000301'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>last_published</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000301-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000301-source'>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 48</span>&#x000A;48:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">last_published</span>&#x000A;49:     <span class="ruby-identifier">last_published</span>=<span class="ruby-constant">HarvestEvent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">&quot;published_at &lt;&gt; 'null'&quot;</span>,<span class="ruby-identifier">:limit=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'published_at desc'</span>)&#x000A;50:     <span class="ruby-keyword kw">return</span> (<span class="ruby-identifier">last_published</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">last_published</span>[<span class="ruby-value">0</span>])&#x000A;51:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000300'>
+                <a name='M000300'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>make_invisible</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000300-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000300-source'>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 43</span>&#x000A;43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_invisible</span> &#x000A;44:     <span class="ruby-comment cmt"># change all data objects for this harvest event that are currently not visibility=inappropriate to visibility=invisible</span>&#x000A;45:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects d, data_objects_harvest_events dh set d.visibility_id = #{Visibility.invisible.id} where d.visibility_id &lt;&gt; #{Visibility.inappropriate.id} and d.id = dh.data_object_id and dh.harvest_event_id = #{self.id}&quot;</span>)&#x000A;46:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000299'>
+                <a name='M000299'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>make_visible</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000299-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000299-source'>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 31</span>&#x000A;31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_visible</span> &#x000A;32:     <span class="ruby-comment cmt"># change all data objects for this harvest event that are currently visibility=preview to visibility=visible</span>&#x000A;33:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects d, data_objects_harvest_events dh set d.visibility_id = #{Visibility.visible.id} where d.visibility_id = #{Visibility.preview.id} and d.id = dh.data_object_id and dh.harvest_event_id = #{self.id}&quot;</span>)&#x000A;34:      &#x000A;35:     <span class="ruby-comment cmt">#find inappropriate and invisible objects connected to harvest</span>&#x000A;36:     <span class="ruby-identifier">data</span> = <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">select_rows</span>(<span class="ruby-node">&quot;select do.guid, MAX(do.id), do.visibility_id from data_objects_harvest_events dohe join data_objects do on (dohe.guid=do.guid) where dohe.status_id=2 and do.id!=dohe.data_object_id and do.visibility_id IN (#{Visibility.invisible.id},#{Visibility.inappropriate.id}) GROUP BY do.guid&quot;</span>)  &#x000A;37:     <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>&#x000A;38:       <span class="ruby-identifier">query</span> = <span class="ruby-node">&quot;update data_objects do, data_objects_harvest_events dh set do.visibility_id = #{d[2]} where dh.guid = '#{d[0]}' and do.guid = dh.guid and dh.harvest_event_id = #{self.id}&quot;</span>&#x000A;39:       <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">query</span>)&#x000A;40:     <span class="ruby-keyword kw">end</span>&#x000A;41:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000298'>
+                <a name='M000298'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>publish</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000298-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000298-source'>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 9</span>&#x000A; 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">publish</span>&#x000A;10:     <span class="ruby-identifier">published</span> = <span class="ruby-keyword kw">true</span>&#x000A;11:     <span class="ruby-keyword kw">begin</span>&#x000A;12:       <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword kw">do</span>&#x000A;13:         <span class="ruby-identifier">is_new_harvest_event</span> = <span class="ruby-operator">!</span><span class="ruby-constant">DataObject</span>.<span class="ruby-identifier">find_by_sql</span>(<span class="ruby-node">&quot;select d.id from data_objects d join data_objects_harvest_events dh on (d.id=dh.data_object_id) where dh.harvest_event_id = #{self.id} and d.visibility_id = #{Visibility.preview.id} limit 1&quot;</span>).<span class="ruby-identifier">blank?</span>&#x000A;14:         <span class="ruby-identifier">make_visible</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">is_new_harvest_event</span>&#x000A;15: &#x000A;16:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">resource</span>.<span class="ruby-identifier">unpublish</span>(<span class="ruby-keyword kw">false</span>)&#x000A;17:         &#x000A;18:         <span class="ruby-identifier">delete_upstream_harvests</span>&#x000A;19:         &#x000A;20:         <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects, data_objects_harvest_events set data_objects.published = 1 where data_objects.id = data_objects_harvest_events.data_object_id and data_objects_harvest_events.harvest_event_id = #{self.id}&quot;</span>)&#x000A;21:         &#x000A;22:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">published_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>&#x000A;23:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save!</span>&#x000A;24:       <span class="ruby-keyword kw">end</span>&#x000A;25:     <span class="ruby-keyword kw">rescue</span>&#x000A;26:       <span class="ruby-identifier">published</span> = <span class="ruby-keyword kw">false</span>&#x000A;27:     <span class="ruby-keyword kw">end</span>&#x000A;28:     <span class="ruby-identifier">published</span>&#x000A;29:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Protected instance methods</h2>
+              <div class='protected-instance method' id='method-M000302'>
+                <a name='M000302'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>delete_upstream_harvests</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000302-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000302-source'>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 55</span>&#x000A;55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_upstream_harvests</span>&#x000A;56:     <span class="ruby-identifier">he</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">resource</span>.<span class="ruby-identifier">harvest_events</span>&#x000A;57:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">he</span>.<span class="ruby-identifier">last</span>&#x000A;58:       <span class="ruby-identifier">harvest_event_delete_index</span> = <span class="ruby-identifier">he</span>.<span class="ruby-identifier">index</span>(<span class="ruby-keyword kw">self</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>&#x000A;59:       <span class="ruby-identifier">harvests_to_delete</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">resource</span>.<span class="ruby-identifier">harvest_events</span>[<span class="ruby-identifier">harvest_event_delete_index</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">he</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)]&#x000A;60:       <span class="ruby-identifier">harvests_to_delete</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">harvest_event</span><span class="ruby-operator">|</span>&#x000A;61:         <span class="ruby-identifier">harvest_event</span>.<span class="ruby-identifier">destroy</span>&#x000A;62:       <span class="ruby-keyword kw">end</span>&#x000A;63:     <span class="ruby-keyword kw">end</span>&#x000A;64:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='protected-instance method' id='method-M000303'>
+                <a name='M000303'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>remove_related_data_objects</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000303-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000303-source'>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 66</span>&#x000A;66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_related_data_objects</span>&#x000A;67: &#x000A;68:     <span class="ruby-comment cmt"># get data objects</span>&#x000A;69:     <span class="ruby-identifier">data_objects</span>=<span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">select_values</span>(<span class="ruby-node">&quot;SELECT do.id FROM data_objects do JOIN data_objects_harvest_events dohe ON dohe.data_object_id=do.id WHERE dohe.status_id != #{Status.unchanged.id} and dohe.harvest_event_id=#{self.id}&quot;</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;,&quot;</span>)&#x000A;70:      &#x000A;71:     <span class="ruby-comment cmt">#remove data_objects_taxa</span>&#x000A;72:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;DELETE FROM data_objects_taxa WHERE data_object_id IN (#{data_objects})&quot;</span>)&#x000A;73:     &#x000A;74:     <span class="ruby-comment cmt">#remove data objects that have been inserted or updated</span>&#x000A;75:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;DELETE FROM data_objects WHERE id in (#{data_objects})&quot;</span>)&#x000A;76:     &#x000A;77:     <span class="ruby-comment cmt">#remove data_objects_harvest_events</span>&#x000A;78:     <span class="ruby-constant">DataObjectsHarvestEvent</span>.<span class="ruby-identifier">delete_all</span>([<span class="ruby-value str">'harvest_event_id=?'</span>,<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>])&#x000A;79: &#x000A;80:     <span class="ruby-comment cmt">#remove harvest_events_taxa</span>&#x000A;81:     <span class="ruby-constant">HarvestEventsTaxon</span>.<span class="ruby-identifier">delete_all</span>([<span class="ruby-value str">'harvest_event_id=?'</span>,<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>])&#x000A;82:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

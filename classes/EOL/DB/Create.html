@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>Module: EOL::DB::Create [Rails Application Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../../.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Module</span>
+          EOL::DB::Create
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../../files/lib/eol_data_rb.html">lib/eol_data.rb</a>
+          </li>
+        </ol>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000063">all</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000063'>
+                <a name='M000063'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>all</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000063-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000063-source'>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 4</span>&#x000A; 4:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all</span>&#x000A; 5:         <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">configurations</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">find_all</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/#{RAILS_ENV}/</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config_name</span><span class="ruby-operator">|</span>&#x000A; 6:           <span class="ruby-identifier">config</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">configurations</span>[<span class="ruby-identifier">config_name</span>]&#x000A; 7:           <span class="ruby-keyword kw">begin</span>&#x000A; 8:             <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">establish_connection</span>(<span class="ruby-identifier">config</span>)&#x000A; 9:             <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>&#x000A;10:           <span class="ruby-keyword kw">rescue</span>&#x000A;11:             <span class="ruby-ivar">@charset</span>   = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'CHARSET'</span>]   <span class="ruby-operator">||</span> <span class="ruby-value str">'utf8'</span>&#x000A;12:             <span class="ruby-ivar">@collation</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'COLLATION'</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'utf8_general_ci'</span>&#x000A;13:             <span class="ruby-keyword kw">begin</span>&#x000A;14:               <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">establish_connection</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value str">'database'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>))&#x000A;15:               <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">create_database</span>(<span class="ruby-identifier">config</span>[<span class="ruby-value str">'database'</span>], <span class="ruby-identifier">:charset</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">config</span>[<span class="ruby-value str">'charset'</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@charset</span>), <span class="ruby-identifier">:collation</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">config</span>[<span class="ruby-value str">'collation'</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@collation</span>))&#x000A;16:               <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">establish_connection</span>(<span class="ruby-identifier">config</span>)&#x000A;17:             <span class="ruby-keyword kw">rescue</span>&#x000A;18:               <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Couldn't create database for #{config.inspect}, charset: #{config['charset'] || @charset}, collation: #{config['collation'] || @collation} (if you set the charset manually, make sure you have a matching collation)&quot;</span>&#x000A;19:             <span class="ruby-keyword kw">end</span>&#x000A;20:           <span class="ruby-keyword kw">else</span>&#x000A;21:             <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{config['database']} already exists&quot;</span>&#x000A;22:           <span class="ruby-keyword kw">end</span>&#x000A;23:         <span class="ruby-keyword kw">end</span>&#x000A;24:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
