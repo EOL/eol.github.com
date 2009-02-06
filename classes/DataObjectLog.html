@@ -1,166 +1,531 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang='en'>
-  <head>
-    <title>Class: DataObjectLog [Rails Application Documentation]</title>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
-    <script type='text/javascript'>
-      //<![CDATA[
-        function popupCode(url) {
-          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Class: DataObjectLog</title><link type="text/css" href=".././rdoc-style.css" media="screen" rel="stylesheet"/><script type="text/javascript">
+// Allison template
+// Copyright 2007, 2008 Cloudburst, LLC. Licensed under the AFL 3. See the included LICENSE file.
+
+var href_base = '.././rdoc-style.css'.replace(/(.*\/).*/, '$1'); // inline js is good for something  
+
+function $(id) {
+    if (document.getElementById)
+      elem = document.getElementById(id);
+    else if ( document.all )
+      elem = eval("document.all." + id);
+    else
+      return false;
+    return elem;
+}
+
+  function toggle(id) {
+    elem = $(id);
+    elemStyle = elem.style;   
+    if (elemStyle.display == "block") {
+      elemStyle.display = "none"
+    } else {
+      elemStyle.display = "block"
+    }
+    return true;
+  }
+
+  function toggleText(id) {
+    elem = $(id)
+    if (m = elem.innerHTML.match(/(Hide)(.*)/)) {
+      elem.innerHTML = "Show" + m[2];
+    } else if (m = elem.innerHTML.match(/(Show)(.*)/)) {
+      elem.innerHTML = "Hide" + m[2];
+    }
+    return true;
+  }
+
+function span(s, klass) {
+  return '<span class="' + klass + '">' + s + '</span>';
+}
+  
+function highlightSymbols() {
+  pres = document.getElementsByTagName('pre');
+  for(var i = 0; i < pres.length; i++) {
+    pre = pres[i];
+    spans = pre.getElementsByTagName('span');
+    for(var k = 0; k < spans.length; k++) {
+      span = spans[k];
+      if (span.className.match(/ruby-identifier/)) {
+        if (span.innerHTML.match(/^:/)) {
+          span.className += " ruby-symbol";
         }
-        
-        function toggleCode(id) {
-          var code = document.getElementById(id)
-        
-          code.style.display = code.style.display != 'block' ? 'block' : 'none'
-          return true
+      }
+    }
+  }
+}
+
+ function hasClass(obj) {
+     var result = false;
+     if (obj.getAttributeNode("class") != null) {
+         result = obj.getAttributeNode("class").value;
+     }
+     return result;
+  }   
+
+ function stripe() {
+    var even = true;
+    var color = "#e4ebed";
+    var tables = document.getElementsByTagName('table');
+    if (tables.length == 0) { return; }
+    for (var h = 0; h < tables.length; h++) {
+        var trs = tables[h].getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+          var tds = trs[i].getElementsByTagName("td");
+            for (var j = 0; j < tds.length; j++) {       
+              if (hasClass(tds[j]) != "first") {                
+              var mytd = tds[j];
+              if (even) {
+                mytd.style.backgroundColor = color;
+              }         
+            }
+          }
+          even =  ! even;
+      }
+    }
+  }
+  
+function ajaxGet(url) {
+  url = (href_base + url).replace('/./', '/')
+  var req = false;
+
+  if (window.ActiveXObject) {
+    try {
+      // stupid hack because IE7 disables local Ajax with the native xmlhttprequest object
+      // for security purposes. Yet ActiveX still works. Thanks, Microsoft. I hate you. Die.
+      req = new ActiveXObject("MSXML2.XMLHTTP.3.0");
+    } catch (e) {
+      try {
+        /* IE 6 and maybe 5, don't know, don't care */
+        req = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+        try {
+          req = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e) {
+          req = false;
         }
-        
-        // Make codeblocks hidden by default
-        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
-      //]]>
-    </script>
-  </head>
-  <body class='page'>
-    <div class='class' id='wrapper'>
-      <div class='header'>
-        <h1 class='name'>
-          <span class='type'>Class</span>
-          DataObjectLog
-        </h1>
-        <ol class='paths'>
-          <li>
-            <a href="../files/app/models/logging/data_object_log_rb.html">app/models/logging/data_object_log.rb</a>
-          </li>
-        </ol>
-        <div class='parent'>
-          Parent:
-          <strong><a href="LoggingModel.html">LoggingModel</a></strong>
-        </div>
-      </div>
-      <div id='content'>
-        <div id='text'>
-          <div id='description'>
-            <p>
-            Represents a single view event for a given <tt>DataObject</tt>. Each
-            instance
-            </p>
-            <p>
-            Author: Preston Lee <preston.lee@openrain.com>
-            </p>
-          </div>
-          <div id='method-list'>
-            <h2>Methods</h2>
-            <h3>public class</h3>
-            <ol>
-              <li><a href="#M000317">data_logging_enabled?</a></li>
-              <li><a href="#M000318">log</a></li>
-            </ol>
-            <h3>public instance</h3>
-            <ol>
-              <li><a href="#M000316">before_validation</a></li>
-              <li><a href="#M000315">total</a></li>
-            </ol>
-          </div>
-          <div id='section'>
-            <div id='attribute-list'>
-              <h2 class='section-bar'>Attributes</h2>
-              <div class='name-list'>
-                <table>
-                  <tr class='top-aligned-row context-row'>
-                    <td class='context-item-name'>data_logging_enabled</td>
-                    <td class='context-item-value'>[RW]</td>
-                    <td class='context-item-desc'></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <div id='methods'>
-              <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000317'>
-                <a name='M000317'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>data_logging_enabled?</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000317-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000317-source'>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 39</span>&#x000A;39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">data_logging_enabled?</span>&#x000A;40:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_logging_enabled</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">false</span> <span class="ruby-comment cmt"># will return true for anything but false, including nil!</span>&#x000A;41:     <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000318'>
-                <a name='M000318'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>log</span>
-                  <span class='arguments'>(data_objects, request, user, taxon_concept)</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  Creates log events (instances of this class) for the given +DataObject(s)+
-                  and the given client/user information. The first parameter must be either a
-                  single instance or array or instances. Example usage:
-                  </p>
-                  <p>
-                  Usage:
-                  </p>
-                  <pre>DataObjectLog.log [data_object, data_object], rails_request, user, taxon_concept</pre>
-                  <p>
-                  For now, we assume that all of the object passed in refer to a particular
-                  user, came from a particular rails request, and refer to a particular
-                  taxon_concept
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000318-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000318-source'>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 53</span>&#x000A;53:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">log</span> <span class="ruby-identifier">data_objects</span>, <span class="ruby-identifier">request</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">taxon_concept</span>&#x000A;54:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">data_logging_enabled?</span>&#x000A;55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># allow nil taxon_concept, atleast for now.  maybe not all data object views refer to a TC?</span>&#x000A;56:       <span class="ruby-identifier">taxon_concept</span> = <span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">TaxonConcept</span>&#x000A;57:       &#x000A;58:       <span class="ruby-identifier">data_objects</span>=[<span class="ruby-identifier">data_objects</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Array</span>  <span class="ruby-comment cmt"># turn a singleton into an array</span>&#x000A;59:       &#x000A;60:       <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">compact!</span> &#x000A;61:       <span class="ruby-comment cmt"># ... add referrer?  hmm ... string would be a whole lot of data ... would it be useful for mining?  more useful than Google Analytics?</span>&#x000A;62:       <span class="ruby-identifier">opts</span> = {&#x000A;63:         <span class="ruby-identifier">:ip_address_raw</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">IpAddress</span>.<span class="ruby-identifier">ip2int</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>),&#x000A;64:         <span class="ruby-identifier">:user_agent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">user_agent</span>,&#x000A;65:         <span class="ruby-identifier">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">request_uri</span>&#x000A;66:       }&#x000A;67:       <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:user_id</span>] = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>&#x000A;68:       &#x000A;69:       <span class="ruby-comment cmt"># We'll log an event for each item in the array.</span>&#x000A;70:       <span class="ruby-identifier">result</span> = []&#x000A;71:       <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword kw">do</span>&#x000A;72:         <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>&#x000A;73:           <span class="ruby-identifier">agent_id</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">data_supplier_agent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">agents</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">agents</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">id</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">data_supplier_agent</span>.<span class="ruby-identifier">id</span>&#x000A;74:           <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">create_log</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>({ <span class="ruby-identifier">:agent_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">agent_id</span>, <span class="ruby-identifier">:taxon_concept_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">taxon_concept</span> }))&#x000A;75:         <span class="ruby-keyword kw">end</span>&#x000A;76:       <span class="ruby-keyword kw">end</span>&#x000A;77: &#x000A;78:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>&#x000A;79:     <span class="ruby-keyword kw">end</span>&#x000A;80:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000316'>
-                <a name='M000316'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>before_validation</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000316-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000316-source'>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 31</span>&#x000A;31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_validation</span>&#x000A;32:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type</span> = <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">data_type</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type_id</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_object_id</span>&#x000A;33:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address_raw</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address</span>.<span class="ruby-identifier">number</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address_raw</span>&#x000A;34:     <span class="ruby-keyword kw">true</span> <span class="ruby-comment cmt"># continue validation, as normal</span>&#x000A;35:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-instance method' id='method-M000315'>
-                <a name='M000315'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>total</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  while mining this table, we often add a .total column &#8230; we expect it
-                  to return an integer
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000315-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000315-source'>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 27</span>&#x000A;27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">total</span>&#x000A;28:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'total'</span>].<span class="ruby-identifier">to_i</span>&#x000A;29:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id='footer-push'></div>
-    </div>
-    <div id='footer'>
-      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
-    </div>
-  </body>
-</html>
+      }
+    }
+  }
+    
+  /* real browsers */
+  if (!req && window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } 
+  
+  if (req) {
+    req.open('GET', url, false);
+    req.send(null);
+    return req.responseText;
+  } else {
+    return "Ajax error";  
+  }
+}
+
+
+function addEvent(elm, evType, fn, useCapture) {
+	if (elm.addEventListener) {
+	  elm.addEventListener(evType, fn, useCapture);  
+  	return true;
+	} else if (elm.attachEvent) {
+  	var r = elm.attachEvent('on' + evType, fn);  
+	  return r;  
+	} else {
+  	elm['on' + evType] = fn;
+	}
+}
+
+function insertIndices() {
+  pages = ["class", "file", "method"]
+  for (x in pages) { 
+    $(pages[x]).innerHTML += ajaxGet('fr_' + pages[x] + '_index.html').replace(/(href=")/g, '$1' + href_base);
+  }
+  /* mouseoverify method links */
+  links = $('method').getElementsByTagName('a');
+  for (var x = 0; x < links.length; x++) {
+    if (m = links[x].innerHTML.match(/(.*)\s\((.*)\)/)) {
+      links[x].innerHTML = m[1] + '<br>';
+      links[x].title = m[2];
+    }
+  }
+  /* this is stupid */
+  $('class').style.display = "block";
+  $('file').style.display = "block";
+  
+  /* has to be here because IE7 does not guarantee the onLoad callback order */
+  abbreviateIndicesInner(["class", "file"], 25, "a");
+  /* same, linkTitle() depends on the class link list */
+  linkTitle();
+}
+
+function abbreviateIndices() {
+  var ids = ["defined_in", "child_of", "includes", "requires", "method", "methods"];
+  abbreviateIndicesInner(ids, 25, 'a');
+  abbreviateIndicesInner(ids, 25, 'span');
+}
+
+function abbreviateIndicesInner(indices, amount, tag) {
+  for (var x = 0; x < indices.length; x++) { 
+    var the_index = $(indices[x]);
+    if (the_index) {
+      links = the_index.getElementsByTagName(tag);
+      for (var y = 0; y < links.length; y++) {
+        var link = links[y];
+        if (link.getElementsByTagName('span').length == 0 && link.getElementsByTagName('a').length == 0) {
+          // avoid nesting
+          link.innerHTML = link.innerHTML.replace(/<br>|\n/gi, '');
+          link.title = link.innerHTML;
+          link.innerHTML = abbreviate(link.innerHTML, amount) + '<br>';
+        }
+      }
+    }
+  }
+}
+
+function linkTitle() {
+  
+  /* grab the correct title element from the index */
+  var index_page = ajaxGet('index.html');
+  title_text = index_page.match(/<title>(.*)<\/title>/m)[1];
+  document.title = title_text + " - " + document.title;
+  var p = $('header').getElementsByTagName('p')[0]
+  if (p.innerHTML.match(/^\s*$/)) {
+    p.innerHTML = title_text;
+  } else {
+    p.innerHTML = title_text + ": " + p.innerHTML;
+  }
+  
+  /* set the link properly */
+  title_link = index_page.match(/<a\s+href="(.*?)"/)[1];
+  var element = $('title');
+  var item_type = "";
+  var item_name = "";
+  if (m = element.innerHTML.match(/(Class:|Module:|File:)\s*(.*)/)) {
+    item_type = m[1];
+    item_name = m[2];
+  } else {
+    item_name = element.innerHTML;
+  }
+  element.innerHTML = '<a href="' + href_base + title_link + '">' + item_type + " " + abbreviate(item_name, 45) + '</a>';
+  element.getElementsByTagName('a')[0].title = item_name
+  
+  /* breadcrumb navigation */
+  items = item_name.split("::");
+  items_new = item_name.split("::");
+  file_links = $('class').getElementsByTagName('a');
+  for (var x = 0; x < items.length - 1; x++ ){
+    var item = items[x];
+    link = ("/classes/" + items.slice(0,x).join("/") + "/" + item + ".html").replace('//', '/');
+    regex = new RegExp(RegExp.escape(link) + '$');
+    for (var y = 0; y < file_links.length; y++) {
+      if (file_links[y].href.match(regex)) {
+         items_new[x] = '<a href="' + href_base + link + '">' + item + '</a>';
+         break;
+      }
+    }  
+  }
+  $('item_name').innerHTML = item_type + ' ' + items_new.join(" :: ");
+}
+
+function abbreviate(s, size) {
+  while (s.length > size) {
+    var old_s = s;
+    s = s.replace(/\s|\n/mg, '');
+    s = s.replace(/([A-Z])[a-z]+/m, '$1');
+    if (!s || old_s == s) {
+      return "..." + s.substring(s.length - size, s.length);
+    }
+  }
+  return s;
+}
+
+function disableSubmit(event) {
+  var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+  if (keyCode == 13) {
+    return false;
+  } else {
+    return true;
+  }
+}
+  
+function filterList(id, s, event) {
+  
+  /* some weak escaping */
+  s = s.replace(/[^\w\d\.\_\-\/\:\=\[\]\?\!]/g, '');
+  s = RegExp.escape(s);
+  
+  var show_all = false;
+  if (s.match(/^\s*$/)) {
+    show_all = true;
+  }
+  
+  links = $(id).getElementsByTagName('a')
+  regex = new RegExp(s, 'i');
+  
+  for (var x = 0; x < links.length; x++) {
+    var link = links[x];
+    if (show_all) {
+      link.style.display = 'inline';
+    } else {
+       if (link.innerHTML.match(regex)) {        
+         link.style.display = 'inline';
+       } else {
+         link.style.display = 'none';
+       }
+    }
+  }
+  return true;
+}
+
+RegExp.escape = function(text) {
+  if (!arguments.callee.sRE) {
+    var specials = ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'];
+    arguments.callee.sRE = new RegExp(
+      '(\\' + specials.join('|\\') + ')', 'g'
+    );
+  }
+  return text.replace(arguments.callee.sRE, '\\$1');
+}
+
+function hacks() {
+  // show the spacer if necessary, 
+  divs = document.getElementsByTagName('div');
+  for(var x = 0; x < divs.length; x++) {
+    if (divs[x].className && divs[x].className.match(/top/)) {
+      document.getElementById('spacer').style.display = 'block';
+    }
+  }
+  // remove extra colons from tables
+  tds = document.getElementsByTagName('td');
+  for(var x = 0; x < tds.length; x++) {
+    str = tds[x].innerHTML
+    if (str.charAt(str.length - 1) == ":") {
+      tds[x].innerHTML = str.slice(0, str.length - 1)
+    }
+  }
+}
+
+addEvent(window, 'load', insertIndices, false);
+addEvent(window, 'load', abbreviateIndices, false);
+addEvent(window, 'load', stripe, false);
+addEvent(window, 'load', highlightSymbols, false);
+addEvent(window, 'load', hacks, false);
+</script></head><body><div id="container"><div class="curve" id="preheader_curve_0"></div><div class="curve" id="preheader_curve_1"></div><div class="curve" id="preheader_curve_2"></div><div class="curve" id="preheader_curve_3"></div><div class="curve" id="preheader_curve_4"></div><div class="curve" id="preheader_curve_5"></div><div id="header"><p>
+</p><span><h1 id="title">
+Class: DataObjectLog
+</h1></span>
+</div><div class="clear"></div><div id="left">
+<div class="navigation darker top" id="child_of"><h3>Child of</h3><span>
+
+<a href='LoggingModel.html'>
+LoggingModel
+</a>
+</span></div>
+
+<div class="navigation darker top" id="defined_in"><h3>Defined in</h3>
+
+<a href="../files/app/models/logging/data_object_log_rb.html">app/models/logging/data_object_log.rb</a>
+
+</div>
+
+
+
+<div class="navigation top" id="methods"><h3>Methods</h3>
+
+
+<a href='#M000316'>
+before_validation<br/>
+</a>
+
+
+
+
+<a href='#M000317'>
+data_logging_enabled?<br/>
+</a>
+
+
+
+
+<a href='#M000318'>
+log<br/>
+</a>
+
+
+
+
+<a href='#M000315'>
+total<br/>
+</a>
+
+
+</div>
+<div id="spacer"></div><div class="navigation darker index" id="class_wrapper"><div class="list_header"><h3>All classes</h3></div><div class="list_header_link"><a onclick="toggle('class'); toggleText('class_link'); return false;" href="#" id="class_link">Hide...</a></div><div class="clear"></div><div id="class"><form><label for="filter_class">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('class', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_class"></input></form></div></div><div class="navigation darker index" id="file_wrapper"><div class="list_header"><h3>All files</h3></div><div class="list_header_link"><a onclick="toggle('file'); toggleText('file_link'); return false;" href="#" id="file_link">Hide...</a></div><div class="clear"></div><div id="file"><form><label for="filter_file">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('file', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_file"></input></form></div></div><div class="navigation darker index" id="method_wrapper"><div class="list_header"><h3>All methods</h3></div><div class="list_header_link"><a onclick="toggle('method'); toggleText('method_link'); return false;" href="#" id="method_link">Show...</a></div><div class="clear"></div><div id="method"><form><label for="filter_method">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('method', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_method"></input></form></div></div></div><div id="content">
+<h1 id="item_name">Class: DataObjectLog</h1>
+
+<div id="description"><p>
+Represents a single view event for a given <tt><a
+href="DataObject.html">DataObject</a></tt>. Each instance
+</p>
+<p>
+Author: Preston Lee &lt;preston.lee@openrain.com&gt;
+</p>
+</div>
+
+
+
+
+<p></p>
+
+
+
+
+<h1>Attributes</h1><p><table><tr><th>Name</th><th>Read/write?</th></tr>
+<tr>
+<td class="highlight">data_logging_enabled</td>
+
+
+
+
+<td class="normal">RW</td>
+</tr>
+</table></p>
+
+
+<h1>Public Class Methods</h1>
+
+
+<a class="small" name="M000317"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000317'>
+
+
+data_logging_enabled?
+
+()
+
+</a>
+</h3>
+
+<p class="source_link" id="M000317-show-link"><a onclick="toggle('M000317-source'); toggleText('M000317-link'); return false;" href="#" id="M000317-link">Show source...</a></p><div class="source" id="M000317-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 39</span>
+39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">data_logging_enabled?</span>
+40:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_logging_enabled</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">false</span> <span class="ruby-comment cmt"># will return true for anything but false, including nil!</span>
+41:     <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000318"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000318'>
+
+
+log
+
+(data_objects, request, user, taxon_concept)
+
+</a>
+</h3>
+<p>
+Creates <a href="DataObjectLog.html#M000318">log</a> events (instances of
+this class) for the given +<a href="DataObject.html">DataObject</a>(s)+ and
+the given client/user information. The first parameter must be either a
+single instance or array or instances. Example usage:
+</p>
+<p>
+Usage:
+</p>
+<pre>
+  DataObjectLog.log [data_object, data_object], rails_request, user, taxon_concept
+</pre>
+<p>
+For now, we assume that all of the object passed in refer to a particular
+user, came from a particular rails request, and refer to a particular
+taxon_concept
+</p>
+
+<p class="source_link" id="M000318-show-link"><a onclick="toggle('M000318-source'); toggleText('M000318-link'); return false;" href="#" id="M000318-link">Show source...</a></p><div class="source" id="M000318-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 53</span>
+53:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">log</span> <span class="ruby-identifier">data_objects</span>, <span class="ruby-identifier">request</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">taxon_concept</span>
+54:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">data_logging_enabled?</span>
+55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># allow nil taxon_concept, atleast for now.  maybe not all data object views refer to a TC?</span>
+56:       <span class="ruby-identifier">taxon_concept</span> = <span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">TaxonConcept</span>
+57:       
+58:       <span class="ruby-identifier">data_objects</span>=[<span class="ruby-identifier">data_objects</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Array</span>  <span class="ruby-comment cmt"># turn a singleton into an array</span>
+59:       
+60:       <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">compact!</span> 
+61:       <span class="ruby-comment cmt"># ... add referrer?  hmm ... string would be a whole lot of data ... would it be useful for mining?  more useful than Google Analytics?</span>
+62:       <span class="ruby-identifier">opts</span> = {
+63:         <span class="ruby-identifier">:ip_address_raw</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">IpAddress</span>.<span class="ruby-identifier">ip2int</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>),
+64:         <span class="ruby-identifier">:user_agent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">user_agent</span>,
+65:         <span class="ruby-identifier">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">request_uri</span>
+66:       }
+67:       <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:user_id</span>] = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>
+68:       
+69:       <span class="ruby-comment cmt"># We'll log an event for each item in the array.</span>
+70:       <span class="ruby-identifier">result</span> = []
+71:       <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword kw">do</span>
+72:         <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+73:           <span class="ruby-identifier">agent_id</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">data_supplier_agent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">agents</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">agents</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">id</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">data_supplier_agent</span>.<span class="ruby-identifier">id</span>
+74:           <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">create_log</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>({ <span class="ruby-identifier">:agent_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">agent_id</span>, <span class="ruby-identifier">:taxon_concept_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">taxon_concept</span> }))
+75:         <span class="ruby-keyword kw">end</span>
+76:       <span class="ruby-keyword kw">end</span>
+77: 
+78:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+79:     <span class="ruby-keyword kw">end</span>
+80:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+
+<h1>Public Instance Methods</h1>
+
+
+<a class="small" name="M000316"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000316'>
+
+
+before_validation
+
+()
+
+</a>
+</h3>
+
+<p class="source_link" id="M000316-show-link"><a onclick="toggle('M000316-source'); toggleText('M000316-link'); return false;" href="#" id="M000316-link">Show source...</a></p><div class="source" id="M000316-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 31</span>
+31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_validation</span>
+32:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type</span> = <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">data_type</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type_id</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_object_id</span>
+33:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address_raw</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address</span>.<span class="ruby-identifier">number</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address_raw</span>
+34:     <span class="ruby-keyword kw">true</span> <span class="ruby-comment cmt"># continue validation, as normal</span>
+35:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000315"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000315'>
+
+
+total
+
+()
+
+</a>
+</h3>
+<p>
+while mining this table, we often add a .<a
+href="DataObjectLog.html#M000315">total</a> column &#8230; we expect it to
+return an integer
+</p>
+
+<p class="source_link" id="M000315-show-link"><a onclick="toggle('M000315-source'); toggleText('M000315-link'); return false;" href="#" id="M000315-link">Show source...</a></p><div class="source" id="M000315-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 27</span>
+27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">total</span>
+28:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'total'</span>].<span class="ruby-identifier">to_i</span>
+29:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+
+
+
+
+</div><div class="clear" id="footer">Generated on Jan 21, 2008 / Allison 2 &copy; 2007 <a href="http://cloudbur.st">Cloudburst, LLC</a></div></div></body></html>

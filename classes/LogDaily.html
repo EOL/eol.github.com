@@ -1,481 +1,1057 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang='en'>
-  <head>
-    <title>Class: LogDaily [Rails Application Documentation]</title>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
-    <script type='text/javascript'>
-      //<![CDATA[
-        function popupCode(url) {
-          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Class: LogDaily</title><link type="text/css" href=".././rdoc-style.css" media="screen" rel="stylesheet"/><script type="text/javascript">
+// Allison template
+// Copyright 2007, 2008 Cloudburst, LLC. Licensed under the AFL 3. See the included LICENSE file.
+
+var href_base = '.././rdoc-style.css'.replace(/(.*\/).*/, '$1'); // inline js is good for something  
+
+function $(id) {
+    if (document.getElementById)
+      elem = document.getElementById(id);
+    else if ( document.all )
+      elem = eval("document.all." + id);
+    else
+      return false;
+    return elem;
+}
+
+  function toggle(id) {
+    elem = $(id);
+    elemStyle = elem.style;   
+    if (elemStyle.display == "block") {
+      elemStyle.display = "none"
+    } else {
+      elemStyle.display = "block"
+    }
+    return true;
+  }
+
+  function toggleText(id) {
+    elem = $(id)
+    if (m = elem.innerHTML.match(/(Hide)(.*)/)) {
+      elem.innerHTML = "Show" + m[2];
+    } else if (m = elem.innerHTML.match(/(Show)(.*)/)) {
+      elem.innerHTML = "Hide" + m[2];
+    }
+    return true;
+  }
+
+function span(s, klass) {
+  return '<span class="' + klass + '">' + s + '</span>';
+}
+  
+function highlightSymbols() {
+  pres = document.getElementsByTagName('pre');
+  for(var i = 0; i < pres.length; i++) {
+    pre = pres[i];
+    spans = pre.getElementsByTagName('span');
+    for(var k = 0; k < spans.length; k++) {
+      span = spans[k];
+      if (span.className.match(/ruby-identifier/)) {
+        if (span.innerHTML.match(/^:/)) {
+          span.className += " ruby-symbol";
         }
-        
-        function toggleCode(id) {
-          var code = document.getElementById(id)
-        
-          code.style.display = code.style.display != 'block' ? 'block' : 'none'
-          return true
+      }
+    }
+  }
+}
+
+ function hasClass(obj) {
+     var result = false;
+     if (obj.getAttributeNode("class") != null) {
+         result = obj.getAttributeNode("class").value;
+     }
+     return result;
+  }   
+
+ function stripe() {
+    var even = true;
+    var color = "#e4ebed";
+    var tables = document.getElementsByTagName('table');
+    if (tables.length == 0) { return; }
+    for (var h = 0; h < tables.length; h++) {
+        var trs = tables[h].getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+          var tds = trs[i].getElementsByTagName("td");
+            for (var j = 0; j < tds.length; j++) {       
+              if (hasClass(tds[j]) != "first") {                
+              var mytd = tds[j];
+              if (even) {
+                mytd.style.backgroundColor = color;
+              }         
+            }
+          }
+          even =  ! even;
+      }
+    }
+  }
+  
+function ajaxGet(url) {
+  url = (href_base + url).replace('/./', '/')
+  var req = false;
+
+  if (window.ActiveXObject) {
+    try {
+      // stupid hack because IE7 disables local Ajax with the native xmlhttprequest object
+      // for security purposes. Yet ActiveX still works. Thanks, Microsoft. I hate you. Die.
+      req = new ActiveXObject("MSXML2.XMLHTTP.3.0");
+    } catch (e) {
+      try {
+        /* IE 6 and maybe 5, don't know, don't care */
+        req = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+        try {
+          req = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e) {
+          req = false;
         }
-        
-        // Make codeblocks hidden by default
-        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
-      //]]>
-    </script>
-  </head>
-  <body class='page'>
-    <div class='class' id='wrapper'>
-      <div class='header'>
-        <h1 class='name'>
-          <span class='type'>Class</span>
-          LogDaily
-        </h1>
-        <ol class='paths'>
-          <li>
-            <a href="../files/app/models/logging/log_daily_rb.html">app/models/logging/log_daily.rb</a>
-          </li>
-        </ol>
-        <div class='parent'>
-          Parent:
-          <strong><a href="LoggingModel.html">LoggingModel</a></strong>
-        </div>
-      </div>
-      <div id='content'>
-        <div id='text'>
-          <div id='description'>
-            <p>
-            A nugget of information derived from the master log (<a
-            href="DataObjectLog.html">DataObjectLog</a>), intended to be optimized for
-            data reporting purposes and not necessarily normalized for performance
-            reasons.
-            </p>
-            <p>
-            There are a number of pieces of data that we track for each <a
-            href="LogDaily.html">LogDaily</a>. These are subject to change. For now, we
-            include them all here.
-            </p>
-            <p>
-            For performance reasons (or if these defaults conflict with other
-            LogDailies we wish to create), we will likely remove some of these
-            associations / validations.
-            </p>
-            <p>
-            All <a href="LogDaily.html">LogDaily</a> classes should implement a few
-            common class methods.
-            </p>
-            <p>
-            <a href="LogDaily.html#M000403">LogDaily#mine</a> RANGE
-            </p>
-            <pre>go and mine data for a range and save the log objects</pre>
-            <p>
-            <a href="LogDaily.html#M000403">LogDaily#mine</a>
-            </p>
-            <pre>go and mine ALL data (no range given) and save the log objects</pre>
-            <p>
-            <a href="LogDaily.html#M000404">LogDaily#mine_data</a> RANGE
-            </p>
-            <pre>returns objects to save (fetches the data used by #mine)</pre>
-            <p>
-            <a href="LogDaily.html#M000404">LogDaily#mine_data</a>
-            </p>
-            <pre>returns objects to save (fetches the data used by #mine_all)</pre>
-            <p>
-            <a href="LogDaily.html#M000405">LogDaily#grand_totals</a>
-            </p>
-            <pre>returns the sum of the LogDaily#total for all records</pre>
-            <p>
-            <a href="LogDaily.html#M000405">LogDaily#grand_totals</a> RANGE
-            </p>
-            <pre>returns the sum of the LogDaily#total for a given range of records</pre>
-            <p>
-            <a href="LogDaily.html#M000394">LogDaily#unique_data</a>
-            </p>
-            <pre>returns the value of the LogDaily#unique_data_column ... LogDails objects all have a&#x000A;column with some kindof unique data that we're logging&#x000A;&#x000A;IMPORTANT: this currently assumes that we only have 1 column of unique data&#x000A;           which we're logging and we'll display.  this should be refactored&#x000A;           to handle any arbitrary number of columns and any arbitrary number&#x000A;           of views of this data.  Needs to be simpler but also more flexible.</pre>
-            <p>
-            <a href="LogDaily.html#M000400">LogDaily#create_table</a>
-            </p>
-            <pre>intended to be called within the context of an ActiveRecord::Migration, this should&#x000A;properly create a LogDaily table with the default columns.  it should take a block&#x000A;with the usual |t| parameter for defining any additional columns</pre>
-            <p>
-            Primary Maintainers
-            </p>
-            <ul>
-            <li>Preston Lee <preston.lee@openrain.com>
-            
-            </li>
-            <li>Remi Taylor <remi.taylor@openrain.com>
-            
-            </li>
-            </ul>
-          </div>
-          <div id='method-list'>
-            <h2>Methods</h2>
-            <h3>public class</h3>
-            <ol>
-              <li><a href="#M000400">create_table</a></li>
-              <li><a href="#M000401">drop_table</a></li>
-              <li><a href="#M000402">find_or_paginate</a></li>
-              <li><a href="#M000405">grand_totals</a></li>
-              <li><a href="#M000403">mine</a></li>
-              <li><a href="#M000404">mine_data</a></li>
-              <li><a href="#M000397">path</a></li>
-              <li><a href="#M000398">report_classes</a></li>
-              <li><a href="#M000399">report_name</a></li>
-              <li><a href="#M000393">set_mine_data_options</a></li>
-              <li><a href="#M000392">set_unique_data_column</a></li>
-              <li><a href="#M000396">unique_data_name</a></li>
-            </ol>
-            <h3>public instance</h3>
-            <ol>
-              <li><a href="#M000394">unique_data</a></li>
-              <li><a href="#M000395">unique_data_to_s</a></li>
-            </ol>
-          </div>
-          <div id='section'>
-            <div id='constants-list'>
-              <h2>Constants</h2>
-              <div class='name-list'>
-                <table summary='Constants'>
-                  <tr class='top-aligned-row context-row'>
-                    <td class='context-item-name'>DEFAULT_PER_PAGE</td>
-                    <td>=</td>
-                    <td class='context-item-value'>10 unless defined? DEFAULT_PER_PAGE</td>
-                    <td>&nbsp;</td>
-                    <td class='context-item-desc'>
-                      
-                      default :per_page argument for pagination
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <div id='attribute-list'>
-              <h2 class='section-bar'>Attributes</h2>
-              <div class='name-list'>
-                <table>
-                  <tr class='top-aligned-row context-row'>
-                    <td class='context-item-name'>percentage</td>
-                    <td class='context-item-value'>[RW]</td>
-                    <td class='context-item-desc'>
-                      
-                      if <a href="LogDaily.html#M000405">grand_totals</a> is called with
-                      :include_percentage => true, <a
-                      href="LogDaily.html#M000405">grand_totals</a> will set this column on all
-                      returned objects using using total / the total of all objects (ungrouped)
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <div id='methods'>
-              <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000400'>
-                <a name='M000400'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>create_table</span>
-                  <span class='arguments'>(migration) {|t| ...}</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  Helpers for migrations for creating new <a
-                  href="LogDaily.html">LogDaily</a> models ###
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000400-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000400-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 188</span>&#x000A;188:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_table</span>(<span class="ruby-identifier">migration</span>)&#x000A;189:     <span class="ruby-identifier">migration</span>.<span class="ruby-identifier">create_table</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>&#x000A;190:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:data_type_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>&#x000A;191:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:total</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>&#x000A;192:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:agent_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>&#x000A;193:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">date</span>    <span class="ruby-identifier">:day</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>&#x000A;194: &#x000A;195:       <span class="ruby-keyword kw">unless</span> [ <span class="ruby-identifier">:data_type_id</span>, <span class="ruby-identifier">:total</span>, <span class="ruby-identifier">:agent_id</span>, <span class="ruby-identifier">:day</span> ].<span class="ruby-identifier">include?</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span>.<span class="ruby-identifier">to_sym</span>&#x000A;196:         <span class="ruby-identifier">t</span>.<span class="ruby-identifier">column</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span>[<span class="ruby-identifier">:name</span>], <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span>[<span class="ruby-identifier">:type</span>], <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span>[<span class="ruby-identifier">:options</span>]&#x000A;197:       <span class="ruby-keyword kw">end</span>&#x000A;198: &#x000A;199:       <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">t</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>&#x000A;200:     <span class="ruby-keyword kw">end</span>&#x000A;201:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000401'>
-                <a name='M000401'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>drop_table</span>
-                  <span class='arguments'>(migration)</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000401-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000401-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 203</span>&#x000A;203:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">drop_table</span>(<span class="ruby-identifier">migration</span>)&#x000A;204:     <span class="ruby-identifier">migration</span>.<span class="ruby-identifier">drop_table</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_sym</span>&#x000A;205:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000402'>
-                <a name='M000402'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>find_or_paginate</span>
-                  <span class='arguments'>(first_argument, options = {})</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  will run a find or a paginate call depending on whether pagination options
-                  are included in the options passed. it&#8217;ll also set :per_page to a
-                  default if it&#8217;s unset (and if :page is set) so you don&#8217;t have
-                  to always pass :per_page in
-                  </p>
-                  <p>
-                  if :page => :all or :page => &#8216;all&#8217;, pagination will NOT be used
-                  </p>
-                  <p>
-                  TODO move this onto <a href="ActiveRecord/Base.html">ActiveRecord::Base</a>
-                  so all models get it?
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000402-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000402-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 214</span>&#x000A;214:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_or_paginate</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span> = {}&#x000A;215:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">:page</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:page</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'all'</span>&#x000A;216:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:per_page</span>] = <span class="ruby-constant">DEFAULT_PER_PAGE</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">:per_page</span>&#x000A;217:       <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span>&#x000A;218:     <span class="ruby-keyword kw">else</span>&#x000A;219:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:page</span>&#x000A;220:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:per_page</span>&#x000A;221:       <span class="ruby-identifier">find</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span>&#x000A;222:     <span class="ruby-keyword kw">end</span>&#x000A;223:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000405'>
-                <a name='M000405'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>grand_totals</span>
-                  <span class='arguments'>(date_range = nil, additional_options = {})</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  Usage:
-                  </p>
-                  <pre>grand_totals :options =&gt; value&#x000A;grand_totals &lt;Date&gt;..&lt;Date&gt;, :options =&gt; value</pre>
-                  <p>
-                  see log_daily_spec for usage.
-                  </p>
-                  <p>
-                  you can pass in options and they will override the options passed to find,
-                  except for :conditions (you need to pass :override_conditions for that)
-                  </p>
-                  <p>
-                  please pass your :conditions in as [&#8220;sql string with :keys&#8221;,
-                  {:keys => &#8216;value&#8217;}] or they will explode :P
-                  </p>
-                  <p>
-                  there are a few &#8216;special&#8217; options:
-                  </p>
-                  <pre>:agent =&gt; 5               # filter the results to just those for Agent with id 5&#x000A;:agent =&gt; Agent.find(5)   # filter the results to just those for Agent with id 5&#x000A;&#x000A;:include_percentage =&gt; true   # will add a .percentage to each item for the percentage its .total&#x000A;                              # represents out of ALL of the .total's for the query&#x000A;&#x000A;:override_conditions =&gt; true  # the :conditions passed will override all other :conditions</pre>
-                  <p>
-                  TODO test (spec) that :conditions work as expected, with and without
-                  :override_conditions
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000405-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000405-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 278</span>&#x000A;278:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">grand_totals</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}&#x000A;279:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Hash</span>&#x000A;280:       <span class="ruby-identifier">additional_options</span> = <span class="ruby-identifier">date_range</span>&#x000A;281:       <span class="ruby-identifier">date_range</span>         = <span class="ruby-keyword kw">nil</span>&#x000A;282:     <span class="ruby-keyword kw">end</span>&#x000A;283:     &#x000A;284:     <span class="ruby-identifier">agent_id</span>            = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:agent</span>&#x000A;285:     <span class="ruby-identifier">include_percentage</span>  = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:include_percentage</span>&#x000A;286:     <span class="ruby-identifier">override_conditions</span> = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:override_conditions</span>&#x000A;287: &#x000A;288:     <span class="ruby-identifier">conditions_sql</span>      = []&#x000A;289:     <span class="ruby-identifier">conditions_values</span>   = {}&#x000A;290: &#x000A;291:     <span class="ruby-comment cmt"># create the default #find options</span>&#x000A;292:     <span class="ruby-identifier">options</span> = { &#x000A;293:       <span class="ruby-identifier">:select</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;count(*) as count, sum(total) as total, agent_id, #{ self.unique_data_column }&quot;</span>, &#x000A;294:       <span class="ruby-identifier">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{ self.unique_data_column }&quot;</span>,&#x000A;295:       <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;sum(total) DESC, #{ self.unique_data_column }&quot;</span>&#x000A;296:     }&#x000A;297: &#x000A;298:     <span class="ruby-comment cmt"># filter by date, if a date_range was passed in</span>&#x000A;299:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>&#x000A;300:       <span class="ruby-identifier">conditions_sql</span> <span class="ruby-operator">+=</span> [<span class="ruby-value str">&quot;day &gt;= :start_date&quot;</span>, <span class="ruby-value str">&quot;day &lt;= :end_date&quot;</span>]&#x000A;301:       <span class="ruby-identifier">conditions_values</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">:start_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">:end_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">last</span> })&#x000A;302:     <span class="ruby-keyword kw">end</span>&#x000A;303: &#x000A;304:     <span class="ruby-comment cmt"># filter by agent, if an agent was passed in</span>&#x000A;305:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent_id</span>&#x000A;306:       <span class="ruby-identifier">agent_id</span> = <span class="ruby-identifier">agent_id</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent_id</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Agent</span> <span class="ruby-comment cmt"># we allow a Fixnum (id) or an Agent object</span>&#x000A;307:       <span class="ruby-identifier">conditions_sql</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;agent_id = :agent_id&quot;</span>&#x000A;308:       <span class="ruby-identifier">conditions_values</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">:agent_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">agent_id</span> })&#x000A;309:     <span class="ruby-keyword kw">end</span>&#x000A;310: &#x000A;311:     <span class="ruby-comment cmt"># if :conditions were passed in and we're not overriding all of the conditions, add the conditions ( assuming [&quot;&quot;,{}] format )</span>&#x000A;312:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">additional_options</span>[<span class="ruby-identifier">:conditions</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">override_conditions</span>&#x000A;313:       <span class="ruby-identifier">conditions</span> = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:conditions</span>&#x000A;314:       <span class="ruby-identifier">conditions_sql</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">first</span>       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">empty?</span>&#x000A;315:       <span class="ruby-identifier">conditions_values</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">last</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">empty?</span>&#x000A;316:     <span class="ruby-keyword kw">end</span>&#x000A;317: &#x000A;318:     <span class="ruby-comment cmt"># build final :conditions to pass to #find</span>&#x000A;319:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">additional_options</span>[<span class="ruby-identifier">:conditions</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">override_conditions</span>&#x000A;320:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:conditions</span>] = [ <span class="ruby-identifier">conditions_sql</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' AND '</span>), <span class="ruby-identifier">conditions_values</span> ] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">conditions_sql</span>.<span class="ruby-identifier">empty?</span>&#x000A;321:     <span class="ruby-keyword kw">end</span>&#x000A;322: &#x000A;323:     <span class="ruby-comment cmt"># merge in the rest of the options</span>&#x000A;324:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">additional_options</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">empty?</span>&#x000A;325: &#x000A;326:     <span class="ruby-identifier">results</span> = <span class="ruby-identifier">find_or_paginate</span> <span class="ruby-identifier">:all</span>, <span class="ruby-identifier">options</span>&#x000A;327: &#x000A;328:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">include_percentage</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span>&#x000A;329:       <span class="ruby-comment cmt"># tweak options to get the total</span>&#x000A;330:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:group</span>&#x000A;331:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:page</span>&#x000A;332:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:per_page</span>&#x000A;333:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:select</span>] = <span class="ruby-value str">'sum(total) as total'</span>&#x000A;334: &#x000A;335:       <span class="ruby-comment cmt"># get the total</span>&#x000A;336:       <span class="ruby-identifier">total</span> = <span class="ruby-identifier">find</span>( <span class="ruby-identifier">:all</span>, <span class="ruby-identifier">options</span> ).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">total</span>.<span class="ruby-identifier">to_f</span>&#x000A;337: &#x000A;338:       <span class="ruby-identifier">results</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span>&#x000A;339:         <span class="ruby-identifier">result</span>.<span class="ruby-identifier">percentage</span> = ( <span class="ruby-identifier">result</span>.<span class="ruby-identifier">total</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">total</span> ) <span class="ruby-operator">*</span> <span class="ruby-value">100</span>&#x000A;340:       <span class="ruby-keyword kw">end</span>&#x000A;341:     <span class="ruby-keyword kw">end</span>&#x000A;342: &#x000A;343:     <span class="ruby-identifier">results</span>&#x000A;344:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000403'>
-                <a name='M000403'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>mine</span>
-                  <span class='arguments'>(date_range = nil, additional_options = {})</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  mine a date range
-                  </p>
-                  <p>
-                  returns [(total number of items found),(number successfully mined),(number
-                  skipped)]
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000403-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000403-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 230</span>&#x000A;230:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}&#x000A;231:     <span class="ruby-identifier">data</span> = <span class="ruby-identifier">mine_data</span>(<span class="ruby-identifier">date_range</span>, <span class="ruby-identifier">additional_options</span>)&#x000A;232:     <span class="ruby-identifier">skipped</span> = <span class="ruby-value">0</span>&#x000A;233:     <span class="ruby-identifier">created</span> = <span class="ruby-value">0</span>&#x000A;234:     <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">log</span><span class="ruby-operator">|</span>&#x000A;235:       <span class="ruby-keyword kw">begin</span>&#x000A;236:         <span class="ruby-identifier">object</span> = <span class="ruby-identifier">create</span> <span class="ruby-identifier">log</span>.<span class="ruby-identifier">attributes</span> <span class="ruby-comment cmt"># ActiveRecord validation errors are silenced</span>&#x000A;237:         (<span class="ruby-identifier">object</span>.<span class="ruby-identifier">new_record?</span>) <span class="ruby-operator">?</span> (<span class="ruby-identifier">skipped</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>) <span class="ruby-operator">:</span> (<span class="ruby-identifier">created</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>)&#x000A;238:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementInvalid</span> <span class="ruby-comment cmt"># Mysql::Error exceptions caught here, wrapped in StatementInvalid</span>&#x000A;239:         <span class="ruby-identifier">skipped</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>&#x000A;240:       <span class="ruby-keyword kw">end</span>&#x000A;241:     <span class="ruby-keyword kw">end</span>&#x000A;242:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">created</span>, <span class="ruby-identifier">skipped</span>&#x000A;243:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000404'>
-                <a name='M000404'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>mine_data</span>
-                  <span class='arguments'>(date_range = nil, additional_options = {})</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000404-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000404-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 245</span>&#x000A;245:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}&#x000A;246:     <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:select</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;count(*) AS total, agent_id, data_type_id, DATE(data_object_logs.created_at) AS day, #{ self.unique_data_column }&quot;</span>, &#x000A;247:       <span class="ruby-identifier">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;agent_id, data_type_id, #{ self.unique_data_column }, DATE(data_object_logs.created_at)&quot;</span> }&#x000A;248:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:conditions</span>] = [<span class="ruby-value str">&quot;DATE(data_object_logs.created_at) &gt;= ? AND DATE(data_object_logs.created_at) &lt;= ?&quot;</span>, <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">last</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>&#x000A;249:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span>&#x000A;250:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">additional_options</span>     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">additional_options</span>&#x000A;251:     <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">:all</span>, <span class="ruby-identifier">options</span>&#x000A;252:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000397'>
-                <a name='M000397'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>path</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  a pretty URL path that this class is associated with &#8230; eg.
-                  StateLogDaily.path => &#8216;states&#8217;
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000397-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000397-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 166</span>&#x000A;166:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span>&#x000A;167:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/LogDaily$/</span>,<span class="ruby-value str">''</span>).<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">pluralize</span>&#x000A;168:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000398'>
-                <a name='M000398'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>report_classes</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  returns the *<a href="LogDaily.html">LogDaily</a> classes
-                  </p>
-                  <p>
-                  this is currently updated <b>MANUALLY</b>
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000398-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000398-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 173</span>&#x000A;173:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_classes</span>&#x000A;174:     <span class="ruby-comment cmt"># self.subclasses</span>&#x000A;175:     [ <span class="ruby-constant">StateLogDaily</span>, <span class="ruby-constant">CountryLogDaily</span>, <span class="ruby-constant">UserLogDaily</span>, <span class="ruby-constant">AgentLogDaily</span>, <span class="ruby-constant">DataObjectLogDaily</span> ]&#x000A;176:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000399'>
-                <a name='M000399'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>report_name</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  a pretty title / name for the report that this class is associated with
-                  (when we fetch <a href="LogDaily.html#M000405">grand_totals</a>) eg.
-                  StateLogDaily.report_name => &#8216;States&#8217;
-                  </p>
-                  <p>
-                  TODO make this overridable in classes, set_report_name &#8216;Blah&#8217;
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000399-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000399-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 182</span>&#x000A;182:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_name</span>&#x000A;183:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">pluralize</span>&#x000A;184:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000393'>
-                <a name='M000393'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>set_mine_data_options</span>
-                  <span class='arguments'>(options)</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000393-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000393-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 100</span>&#x000A;100:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_mine_data_options</span> <span class="ruby-identifier">options</span>&#x000A;101:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span> = <span class="ruby-identifier">options</span>&#x000A;102:     <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000392'>
-                <a name='M000392'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>set_unique_data_column</span>
-                  <span class='arguments'>(type, name, options = { :null =&gt; false })</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000392-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000392-source'>    <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 83</span>&#x000A;83:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_unique_data_column</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span> }&#x000A;84:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>&#x000A;85:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span> = { <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:options</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span> }&#x000A;86: &#x000A;87:       <span class="ruby-comment cmt"># we validate the uniqueness of LogDaily objects per a given day, a unique data_type, </span>&#x000A;88:       <span class="ruby-comment cmt"># a unique agent, AND the custom bit of unique_data</span>&#x000A;89:       <span class="ruby-comment cmt">#</span>&#x000A;90:       <span class="ruby-comment cmt"># we stick the scope we're using within a class attribute: uniqueness_scope so </span>&#x000A;91:       <span class="ruby-comment cmt"># we can reuse it elsewhere, if desired</span>&#x000A;92:       <span class="ruby-comment cmt">#</span>&#x000A;93:       <span class="ruby-comment cmt"># actually, i thought i was going to reuse this, but i'm not currently reusing it anywhere, so ...</span>&#x000A;94:       <span class="ruby-comment cmt"># TODO remove uniqueness_scope ?</span>&#x000A;95:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span> = [ <span class="ruby-identifier">:agent_id</span>, <span class="ruby-identifier">:data_type_id</span> ]&#x000A;96:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">unique_data_column</span>.<span class="ruby-identifier">to_sym</span>&#x000A;97: &#x000A;98:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">validates_uniqueness_of</span> <span class="ruby-identifier">:day</span>, <span class="ruby-identifier">:scope</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span>&#x000A;99:     <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-class method' id='method-M000396'>
-                <a name='M000396'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>unique_data_name</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  this will be deprecated when we change the way <a
-                  href="LogDaily.html#M000394">unique_data</a> works and make it more
-                  flexible
-                  </p>
-                  <p>
-                  for now, this merely allow us to give a unique name to our unique data.
-                  essentially:
-                  </p>
-                  <pre>unique_data_name:  the name of the daily log's data&#x000A;unique_data:       the value is unique_data&#x000A;unique_data_to_s:  the value to display is unique_data_to_s</pre>
-                  <p>
-                  override this in your <a href="LogDaily.html">LogDaily</a> class to return
-                  something different
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000396-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000396-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 161</span>&#x000A;161:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_name</span>&#x000A;162:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_name</span>.<span class="ruby-identifier">singularize</span>&#x000A;163:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000394'>
-                <a name='M000394'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>unique_data</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  returns the value of this daily&#8217;s unique data column (eg. state_code
-                  or user_id)
-                  </p>
-                  <p>
-                  TODO i want to change this to return a <a href="Hash.html">Hash</a> like {
-                  :description => &#8216;blah&#8217;, :data_table => &#8216;xxx&#8217; }
-                  </p>
-                  <pre>and then i can use the keys as table column headers and whatnot ... this also means changing&#x000A;set_unique_data_column to set_unique_data_columns ...&#x000A;if i wanna be really hardcore i might allow a lambda (or something that responds to #call)&#x000A;as the value for the key, so it'll eval ONLY if you #call the value (IF the value responds to #call)&#x000A;... it might help optimize so we're lazily loading some things.  then again, we might want to&#x000A;eagerly load things to optimize as well</pre>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000394-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000394-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 114</span>&#x000A;114:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data</span>&#x000A;115:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span>[ <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span> ]&#x000A;116:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-              <div class='public-instance method' id='method-M000395'>
-                <a name='M000395'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>unique_data_to_s</span>
-                  <span class='arguments'>()</span>
-                </div>
-                <div class='description'>
-                  <p>
-                  override this if you want to return something custom (and pretty) when <a
-                  href="LogDaily.html#M000394">unique_data</a> is printed out (we call <a
-                  href="LogDaily.html#M000395">unique_data_to_s</a> from views which defaults
-                  to unique_data.to_s)
-                  </p>
-                  <p>
-                  this will be deprecated when <a
-                  href="LogDaily.html#M000394">unique_data</a> becomes a hash
-                  </p>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000395-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000395-source'>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 148</span>&#x000A;148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data_to_s</span>&#x000A;149:     <span class="ruby-identifier">unique_data</span>.<span class="ruby-identifier">to_s</span>&#x000A;150:   <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id='footer-push'></div>
-    </div>
-    <div id='footer'>
-      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
-    </div>
-  </body>
-</html>
+      }
+    }
+  }
+    
+  /* real browsers */
+  if (!req && window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } 
+  
+  if (req) {
+    req.open('GET', url, false);
+    req.send(null);
+    return req.responseText;
+  } else {
+    return "Ajax error";  
+  }
+}
+
+
+function addEvent(elm, evType, fn, useCapture) {
+	if (elm.addEventListener) {
+	  elm.addEventListener(evType, fn, useCapture);  
+  	return true;
+	} else if (elm.attachEvent) {
+  	var r = elm.attachEvent('on' + evType, fn);  
+	  return r;  
+	} else {
+  	elm['on' + evType] = fn;
+	}
+}
+
+function insertIndices() {
+  pages = ["class", "file", "method"]
+  for (x in pages) { 
+    $(pages[x]).innerHTML += ajaxGet('fr_' + pages[x] + '_index.html').replace(/(href=")/g, '$1' + href_base);
+  }
+  /* mouseoverify method links */
+  links = $('method').getElementsByTagName('a');
+  for (var x = 0; x < links.length; x++) {
+    if (m = links[x].innerHTML.match(/(.*)\s\((.*)\)/)) {
+      links[x].innerHTML = m[1] + '<br>';
+      links[x].title = m[2];
+    }
+  }
+  /* this is stupid */
+  $('class').style.display = "block";
+  $('file').style.display = "block";
+  
+  /* has to be here because IE7 does not guarantee the onLoad callback order */
+  abbreviateIndicesInner(["class", "file"], 25, "a");
+  /* same, linkTitle() depends on the class link list */
+  linkTitle();
+}
+
+function abbreviateIndices() {
+  var ids = ["defined_in", "child_of", "includes", "requires", "method", "methods"];
+  abbreviateIndicesInner(ids, 25, 'a');
+  abbreviateIndicesInner(ids, 25, 'span');
+}
+
+function abbreviateIndicesInner(indices, amount, tag) {
+  for (var x = 0; x < indices.length; x++) { 
+    var the_index = $(indices[x]);
+    if (the_index) {
+      links = the_index.getElementsByTagName(tag);
+      for (var y = 0; y < links.length; y++) {
+        var link = links[y];
+        if (link.getElementsByTagName('span').length == 0 && link.getElementsByTagName('a').length == 0) {
+          // avoid nesting
+          link.innerHTML = link.innerHTML.replace(/<br>|\n/gi, '');
+          link.title = link.innerHTML;
+          link.innerHTML = abbreviate(link.innerHTML, amount) + '<br>';
+        }
+      }
+    }
+  }
+}
+
+function linkTitle() {
+  
+  /* grab the correct title element from the index */
+  var index_page = ajaxGet('index.html');
+  title_text = index_page.match(/<title>(.*)<\/title>/m)[1];
+  document.title = title_text + " - " + document.title;
+  var p = $('header').getElementsByTagName('p')[0]
+  if (p.innerHTML.match(/^\s*$/)) {
+    p.innerHTML = title_text;
+  } else {
+    p.innerHTML = title_text + ": " + p.innerHTML;
+  }
+  
+  /* set the link properly */
+  title_link = index_page.match(/<a\s+href="(.*?)"/)[1];
+  var element = $('title');
+  var item_type = "";
+  var item_name = "";
+  if (m = element.innerHTML.match(/(Class:|Module:|File:)\s*(.*)/)) {
+    item_type = m[1];
+    item_name = m[2];
+  } else {
+    item_name = element.innerHTML;
+  }
+  element.innerHTML = '<a href="' + href_base + title_link + '">' + item_type + " " + abbreviate(item_name, 45) + '</a>';
+  element.getElementsByTagName('a')[0].title = item_name
+  
+  /* breadcrumb navigation */
+  items = item_name.split("::");
+  items_new = item_name.split("::");
+  file_links = $('class').getElementsByTagName('a');
+  for (var x = 0; x < items.length - 1; x++ ){
+    var item = items[x];
+    link = ("/classes/" + items.slice(0,x).join("/") + "/" + item + ".html").replace('//', '/');
+    regex = new RegExp(RegExp.escape(link) + '$');
+    for (var y = 0; y < file_links.length; y++) {
+      if (file_links[y].href.match(regex)) {
+         items_new[x] = '<a href="' + href_base + link + '">' + item + '</a>';
+         break;
+      }
+    }  
+  }
+  $('item_name').innerHTML = item_type + ' ' + items_new.join(" :: ");
+}
+
+function abbreviate(s, size) {
+  while (s.length > size) {
+    var old_s = s;
+    s = s.replace(/\s|\n/mg, '');
+    s = s.replace(/([A-Z])[a-z]+/m, '$1');
+    if (!s || old_s == s) {
+      return "..." + s.substring(s.length - size, s.length);
+    }
+  }
+  return s;
+}
+
+function disableSubmit(event) {
+  var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+  if (keyCode == 13) {
+    return false;
+  } else {
+    return true;
+  }
+}
+  
+function filterList(id, s, event) {
+  
+  /* some weak escaping */
+  s = s.replace(/[^\w\d\.\_\-\/\:\=\[\]\?\!]/g, '');
+  s = RegExp.escape(s);
+  
+  var show_all = false;
+  if (s.match(/^\s*$/)) {
+    show_all = true;
+  }
+  
+  links = $(id).getElementsByTagName('a')
+  regex = new RegExp(s, 'i');
+  
+  for (var x = 0; x < links.length; x++) {
+    var link = links[x];
+    if (show_all) {
+      link.style.display = 'inline';
+    } else {
+       if (link.innerHTML.match(regex)) {        
+         link.style.display = 'inline';
+       } else {
+         link.style.display = 'none';
+       }
+    }
+  }
+  return true;
+}
+
+RegExp.escape = function(text) {
+  if (!arguments.callee.sRE) {
+    var specials = ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'];
+    arguments.callee.sRE = new RegExp(
+      '(\\' + specials.join('|\\') + ')', 'g'
+    );
+  }
+  return text.replace(arguments.callee.sRE, '\\$1');
+}
+
+function hacks() {
+  // show the spacer if necessary, 
+  divs = document.getElementsByTagName('div');
+  for(var x = 0; x < divs.length; x++) {
+    if (divs[x].className && divs[x].className.match(/top/)) {
+      document.getElementById('spacer').style.display = 'block';
+    }
+  }
+  // remove extra colons from tables
+  tds = document.getElementsByTagName('td');
+  for(var x = 0; x < tds.length; x++) {
+    str = tds[x].innerHTML
+    if (str.charAt(str.length - 1) == ":") {
+      tds[x].innerHTML = str.slice(0, str.length - 1)
+    }
+  }
+}
+
+addEvent(window, 'load', insertIndices, false);
+addEvent(window, 'load', abbreviateIndices, false);
+addEvent(window, 'load', stripe, false);
+addEvent(window, 'load', highlightSymbols, false);
+addEvent(window, 'load', hacks, false);
+</script></head><body><div id="container"><div class="curve" id="preheader_curve_0"></div><div class="curve" id="preheader_curve_1"></div><div class="curve" id="preheader_curve_2"></div><div class="curve" id="preheader_curve_3"></div><div class="curve" id="preheader_curve_4"></div><div class="curve" id="preheader_curve_5"></div><div id="header"><p>
+</p><span><h1 id="title">
+Class: LogDaily
+</h1></span>
+</div><div class="clear"></div><div id="left">
+<div class="navigation darker top" id="child_of"><h3>Child of</h3><span>
+
+<a href='LoggingModel.html'>
+LoggingModel
+</a>
+</span></div>
+
+<div class="navigation darker top" id="defined_in"><h3>Defined in</h3>
+
+<a href="../files/app/models/logging/log_daily_rb.html">app/models/logging/log_daily.rb</a>
+
+</div>
+
+
+
+<div class="navigation top" id="methods"><h3>Methods</h3>
+
+
+<a href='#M000400'>
+create_table<br/>
+</a>
+
+
+
+
+<a href='#M000401'>
+drop_table<br/>
+</a>
+
+
+
+
+<a href='#M000402'>
+find_or_paginate<br/>
+</a>
+
+
+
+
+<a href='#M000405'>
+grand_totals<br/>
+</a>
+
+
+
+
+<a href='#M000403'>
+mine<br/>
+</a>
+
+
+
+
+<a href='#M000404'>
+mine_data<br/>
+</a>
+
+
+
+
+<a href='#M000397'>
+path<br/>
+</a>
+
+
+
+
+<a href='#M000398'>
+report_classes<br/>
+</a>
+
+
+
+
+<a href='#M000399'>
+report_name<br/>
+</a>
+
+
+
+
+<a href='#M000393'>
+set_mine_data_options<br/>
+</a>
+
+
+
+
+<a href='#M000392'>
+set_unique_data_column<br/>
+</a>
+
+
+
+
+<a href='#M000394'>
+unique_data<br/>
+</a>
+
+
+
+
+<a href='#M000396'>
+unique_data_name<br/>
+</a>
+
+
+
+
+<a href='#M000395'>
+unique_data_to_s<br/>
+</a>
+
+
+</div>
+<div id="spacer"></div><div class="navigation darker index" id="class_wrapper"><div class="list_header"><h3>All classes</h3></div><div class="list_header_link"><a onclick="toggle('class'); toggleText('class_link'); return false;" href="#" id="class_link">Hide...</a></div><div class="clear"></div><div id="class"><form><label for="filter_class">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('class', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_class"></input></form></div></div><div class="navigation darker index" id="file_wrapper"><div class="list_header"><h3>All files</h3></div><div class="list_header_link"><a onclick="toggle('file'); toggleText('file_link'); return false;" href="#" id="file_link">Hide...</a></div><div class="clear"></div><div id="file"><form><label for="filter_file">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('file', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_file"></input></form></div></div><div class="navigation darker index" id="method_wrapper"><div class="list_header"><h3>All methods</h3></div><div class="list_header_link"><a onclick="toggle('method'); toggleText('method_link'); return false;" href="#" id="method_link">Show...</a></div><div class="clear"></div><div id="method"><form><label for="filter_method">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('method', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_method"></input></form></div></div></div><div id="content">
+<h1 id="item_name">Class: LogDaily</h1>
+
+<div id="description"><p>
+A nugget of information derived from the master log (<a
+href="DataObjectLog.html">DataObjectLog</a>), intended to be optimized for
+data reporting purposes and not necessarily normalized for performance
+reasons.
+</p>
+<p>
+There are a number of pieces of data that we track for each <a
+href="LogDaily.html">LogDaily</a>. These are subject to change. For now, we
+include them all here.
+</p>
+<p>
+For performance reasons (or if these defaults conflict with other
+LogDailies we wish to create), we will likely remove some of these
+associations / validations.
+</p>
+<p>
+All <a href="LogDaily.html">LogDaily</a> classes should implement a few
+common class methods.
+</p>
+<p>
+<a href="LogDaily.html#M000403">LogDaily#mine</a> RANGE
+</p>
+<pre>
+  go and mine data for a range and save the log objects
+</pre>
+<p>
+<a href="LogDaily.html#M000403">LogDaily#mine</a>
+</p>
+<pre>
+  go and mine ALL data (no range given) and save the log objects
+</pre>
+<p>
+<a href="LogDaily.html#M000404">LogDaily#mine_data</a> RANGE
+</p>
+<pre>
+  returns objects to save (fetches the data used by #mine)
+</pre>
+<p>
+<a href="LogDaily.html#M000404">LogDaily#mine_data</a>
+</p>
+<pre>
+  returns objects to save (fetches the data used by #mine_all)
+</pre>
+<p>
+<a href="LogDaily.html#M000405">LogDaily#grand_totals</a>
+</p>
+<pre>
+  returns the sum of the LogDaily#total for all records
+</pre>
+<p>
+<a href="LogDaily.html#M000405">LogDaily#grand_totals</a> RANGE
+</p>
+<pre>
+  returns the sum of the LogDaily#total for a given range of records
+</pre>
+<p>
+<a href="LogDaily.html#M000394">LogDaily#unique_data</a>
+</p>
+<pre>
+  returns the value of the LogDaily#unique_data_column ... LogDails objects all have a
+  column with some kindof unique data that we're logging
+
+  IMPORTANT: this currently assumes that we only have 1 column of unique data
+             which we're logging and we'll display.  this should be refactored
+             to handle any arbitrary number of columns and any arbitrary number
+             of views of this data.  Needs to be simpler but also more flexible.
+</pre>
+<p>
+<a href="LogDaily.html#M000400">LogDaily#create_table</a>
+</p>
+<pre>
+  intended to be called within the context of an ActiveRecord::Migration, this should
+  properly create a LogDaily table with the default columns.  it should take a block
+  with the usual |t| parameter for defining any additional columns
+</pre>
+<p>
+Primary Maintainers
+</p>
+<ul>
+<li>Preston Lee &lt;preston.lee@openrain.com&gt;
+
+</li>
+<li>Remi Taylor &lt;remi.taylor@openrain.com&gt;
+
+</li>
+</ul>
+</div>
+
+
+
+
+<p></p>
+
+
+<h1>Constants</h1><p><table><tr><th>Name</th><th>Value</th></tr>
+<tr>
+<td class="highlight">DEFAULT_PER_PAGE</td>
+
+<td class="normal">10 unless defined? DEFAULT_PER_PAGE</td>
+
+
+
+</tr>
+</table></p>
+
+
+<h1>Attributes</h1><p><table><tr><th>Name</th><th>Read/write?</th></tr>
+<tr>
+<td class="highlight">percentage</td>
+
+
+
+
+<td class="normal">RW</td>
+</tr>
+</table></p>
+
+
+<h1>Public Class Methods</h1>
+
+
+<a class="small" name="M000400"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000400'>
+
+
+create_table
+
+(migration) {|t| ...}
+
+</a>
+</h3>
+<p>
+Helpers for migrations for creating new <a
+href="LogDaily.html">LogDaily</a> models ###
+</p>
+
+<p class="source_link" id="M000400-show-link"><a onclick="toggle('M000400-source'); toggleText('M000400-link'); return false;" href="#" id="M000400-link">Show source...</a></p><div class="source" id="M000400-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 188</span>
+188:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_table</span>(<span class="ruby-identifier">migration</span>)
+189:     <span class="ruby-identifier">migration</span>.<span class="ruby-identifier">create_table</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+190:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:data_type_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+191:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:total</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+192:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:agent_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+193:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">date</span>    <span class="ruby-identifier">:day</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+194: 
+195:       <span class="ruby-keyword kw">unless</span> [ <span class="ruby-identifier">:data_type_id</span>, <span class="ruby-identifier">:total</span>, <span class="ruby-identifier">:agent_id</span>, <span class="ruby-identifier">:day</span> ].<span class="ruby-identifier">include?</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span>.<span class="ruby-identifier">to_sym</span>
+196:         <span class="ruby-identifier">t</span>.<span class="ruby-identifier">column</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span>[<span class="ruby-identifier">:name</span>], <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span>[<span class="ruby-identifier">:type</span>], <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span>[<span class="ruby-identifier">:options</span>]
+197:       <span class="ruby-keyword kw">end</span>
+198: 
+199:       <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">t</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+200:     <span class="ruby-keyword kw">end</span>
+201:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000401"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000401'>
+
+
+drop_table
+
+(migration)
+
+</a>
+</h3>
+
+<p class="source_link" id="M000401-show-link"><a onclick="toggle('M000401-source'); toggleText('M000401-link'); return false;" href="#" id="M000401-link">Show source...</a></p><div class="source" id="M000401-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 203</span>
+203:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">drop_table</span>(<span class="ruby-identifier">migration</span>)
+204:     <span class="ruby-identifier">migration</span>.<span class="ruby-identifier">drop_table</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_sym</span>
+205:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000402"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000402'>
+
+
+find_or_paginate
+
+(first_argument, options = {})
+
+</a>
+</h3>
+<p>
+will run a find or a paginate call depending on whether pagination options
+are included in the options passed. it&#8216;ll also set :per_page to a
+default if it&#8216;s unset (and if :page is set) so you don&#8216;t have
+to always pass :per_page in
+</p>
+<p>
+if :page =&gt; :all or :page =&gt; &#8216;all&#8217;, pagination will NOT
+be used
+</p>
+<p>
+TODO move this onto <a href="ActiveRecord/Base.html">ActiveRecord::Base</a>
+so all models get it?
+</p>
+
+<p class="source_link" id="M000402-show-link"><a onclick="toggle('M000402-source'); toggleText('M000402-link'); return false;" href="#" id="M000402-link">Show source...</a></p><div class="source" id="M000402-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 214</span>
+214:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_or_paginate</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span> = {}
+215:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">:page</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:page</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'all'</span>
+216:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:per_page</span>] = <span class="ruby-constant">DEFAULT_PER_PAGE</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">:per_page</span>
+217:       <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span>
+218:     <span class="ruby-keyword kw">else</span>
+219:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:page</span>
+220:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:per_page</span>
+221:       <span class="ruby-identifier">find</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span>
+222:     <span class="ruby-keyword kw">end</span>
+223:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000405"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000405'>
+
+
+grand_totals
+
+(date_range = nil, additional_options = {})
+
+</a>
+</h3>
+<p>
+Usage:
+</p>
+<pre>
+  grand_totals :options =&gt; value
+  grand_totals &lt;Date&gt;..&lt;Date&gt;, :options =&gt; value
+</pre>
+<p>
+see log_daily_spec for usage.
+</p>
+<p>
+you can pass in options and they will override the options passed to find,
+except for :conditions (you need to pass :override_conditions for that)
+</p>
+<p>
+please pass your :conditions in as [&quot;sql string with :keys&quot;,
+{:keys =&gt; &#8216;value&#8217;}] or they will explode :P
+</p>
+<p>
+there are a few &#8216;special&#8217; options:
+</p>
+<pre>
+  :agent =&gt; 5               # filter the results to just those for Agent with id 5
+  :agent =&gt; Agent.find(5)   # filter the results to just those for Agent with id 5
+
+  :include_percentage =&gt; true   # will add a .percentage to each item for the percentage its .total
+                                # represents out of ALL of the .total's for the query
+
+  :override_conditions =&gt; true  # the :conditions passed will override all other :conditions
+</pre>
+<p>
+TODO test (spec) that :conditions work as expected, with and without
+:override_conditions
+</p>
+
+<p class="source_link" id="M000405-show-link"><a onclick="toggle('M000405-source'); toggleText('M000405-link'); return false;" href="#" id="M000405-link">Show source...</a></p><div class="source" id="M000405-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 278</span>
+278:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">grand_totals</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}
+279:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Hash</span>
+280:       <span class="ruby-identifier">additional_options</span> = <span class="ruby-identifier">date_range</span>
+281:       <span class="ruby-identifier">date_range</span>         = <span class="ruby-keyword kw">nil</span>
+282:     <span class="ruby-keyword kw">end</span>
+283:     
+284:     <span class="ruby-identifier">agent_id</span>            = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:agent</span>
+285:     <span class="ruby-identifier">include_percentage</span>  = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:include_percentage</span>
+286:     <span class="ruby-identifier">override_conditions</span> = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:override_conditions</span>
+287: 
+288:     <span class="ruby-identifier">conditions_sql</span>      = []
+289:     <span class="ruby-identifier">conditions_values</span>   = {}
+290: 
+291:     <span class="ruby-comment cmt"># create the default #find options</span>
+292:     <span class="ruby-identifier">options</span> = { 
+293:       <span class="ruby-identifier">:select</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;count(*) as count, sum(total) as total, agent_id, #{ self.unique_data_column }&quot;</span>, 
+294:       <span class="ruby-identifier">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{ self.unique_data_column }&quot;</span>,
+295:       <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;sum(total) DESC, #{ self.unique_data_column }&quot;</span>
+296:     }
+297: 
+298:     <span class="ruby-comment cmt"># filter by date, if a date_range was passed in</span>
+299:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>
+300:       <span class="ruby-identifier">conditions_sql</span> <span class="ruby-operator">+=</span> [<span class="ruby-value str">&quot;day &gt;= :start_date&quot;</span>, <span class="ruby-value str">&quot;day &lt;= :end_date&quot;</span>]
+301:       <span class="ruby-identifier">conditions_values</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">:start_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">:end_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">last</span> })
+302:     <span class="ruby-keyword kw">end</span>
+303: 
+304:     <span class="ruby-comment cmt"># filter by agent, if an agent was passed in</span>
+305:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent_id</span>
+306:       <span class="ruby-identifier">agent_id</span> = <span class="ruby-identifier">agent_id</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent_id</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Agent</span> <span class="ruby-comment cmt"># we allow a Fixnum (id) or an Agent object</span>
+307:       <span class="ruby-identifier">conditions_sql</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;agent_id = :agent_id&quot;</span>
+308:       <span class="ruby-identifier">conditions_values</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">:agent_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">agent_id</span> })
+309:     <span class="ruby-keyword kw">end</span>
+310: 
+311:     <span class="ruby-comment cmt"># if :conditions were passed in and we're not overriding all of the conditions, add the conditions ( assuming [&quot;&quot;,{}] format )</span>
+312:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">additional_options</span>[<span class="ruby-identifier">:conditions</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">override_conditions</span>
+313:       <span class="ruby-identifier">conditions</span> = <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:conditions</span>
+314:       <span class="ruby-identifier">conditions_sql</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">first</span>       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">empty?</span>
+315:       <span class="ruby-identifier">conditions_values</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">last</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">conditions</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">empty?</span>
+316:     <span class="ruby-keyword kw">end</span>
+317: 
+318:     <span class="ruby-comment cmt"># build final :conditions to pass to #find</span>
+319:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">additional_options</span>[<span class="ruby-identifier">:conditions</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">override_conditions</span>
+320:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:conditions</span>] = [ <span class="ruby-identifier">conditions_sql</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' AND '</span>), <span class="ruby-identifier">conditions_values</span> ] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">conditions_sql</span>.<span class="ruby-identifier">empty?</span>
+321:     <span class="ruby-keyword kw">end</span>
+322: 
+323:     <span class="ruby-comment cmt"># merge in the rest of the options</span>
+324:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">additional_options</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">additional_options</span>.<span class="ruby-identifier">empty?</span>
+325: 
+326:     <span class="ruby-identifier">results</span> = <span class="ruby-identifier">find_or_paginate</span> <span class="ruby-identifier">:all</span>, <span class="ruby-identifier">options</span>
+327: 
+328:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">include_percentage</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span>
+329:       <span class="ruby-comment cmt"># tweak options to get the total</span>
+330:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:group</span>
+331:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:page</span>
+332:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">:per_page</span>
+333:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:select</span>] = <span class="ruby-value str">'sum(total) as total'</span>
+334: 
+335:       <span class="ruby-comment cmt"># get the total</span>
+336:       <span class="ruby-identifier">total</span> = <span class="ruby-identifier">find</span>( <span class="ruby-identifier">:all</span>, <span class="ruby-identifier">options</span> ).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">total</span>.<span class="ruby-identifier">to_f</span>
+337: 
+338:       <span class="ruby-identifier">results</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span>
+339:         <span class="ruby-identifier">result</span>.<span class="ruby-identifier">percentage</span> = ( <span class="ruby-identifier">result</span>.<span class="ruby-identifier">total</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">total</span> ) <span class="ruby-operator">*</span> <span class="ruby-value">100</span>
+340:       <span class="ruby-keyword kw">end</span>
+341:     <span class="ruby-keyword kw">end</span>
+342: 
+343:     <span class="ruby-identifier">results</span>
+344:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000403"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000403'>
+
+
+mine
+
+(date_range = nil, additional_options = {})
+
+</a>
+</h3>
+<p>
+<a href="LogDaily.html#M000403">mine</a> a date range
+</p>
+<p>
+returns [(total number of items found),(number successfully mined),(number
+skipped)]
+</p>
+
+<p class="source_link" id="M000403-show-link"><a onclick="toggle('M000403-source'); toggleText('M000403-link'); return false;" href="#" id="M000403-link">Show source...</a></p><div class="source" id="M000403-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 230</span>
+230:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}
+231:     <span class="ruby-identifier">data</span> = <span class="ruby-identifier">mine_data</span>(<span class="ruby-identifier">date_range</span>, <span class="ruby-identifier">additional_options</span>)
+232:     <span class="ruby-identifier">skipped</span> = <span class="ruby-value">0</span>
+233:     <span class="ruby-identifier">created</span> = <span class="ruby-value">0</span>
+234:     <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">log</span><span class="ruby-operator">|</span>
+235:       <span class="ruby-keyword kw">begin</span>
+236:         <span class="ruby-identifier">object</span> = <span class="ruby-identifier">create</span> <span class="ruby-identifier">log</span>.<span class="ruby-identifier">attributes</span> <span class="ruby-comment cmt"># ActiveRecord validation errors are silenced</span>
+237:         (<span class="ruby-identifier">object</span>.<span class="ruby-identifier">new_record?</span>) <span class="ruby-operator">?</span> (<span class="ruby-identifier">skipped</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>) <span class="ruby-operator">:</span> (<span class="ruby-identifier">created</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>)
+238:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementInvalid</span> <span class="ruby-comment cmt"># Mysql::Error exceptions caught here, wrapped in StatementInvalid</span>
+239:         <span class="ruby-identifier">skipped</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+240:       <span class="ruby-keyword kw">end</span>
+241:     <span class="ruby-keyword kw">end</span>
+242:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">created</span>, <span class="ruby-identifier">skipped</span>
+243:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000404"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000404'>
+
+
+mine_data
+
+(date_range = nil, additional_options = {})
+
+</a>
+</h3>
+
+<p class="source_link" id="M000404-show-link"><a onclick="toggle('M000404-source'); toggleText('M000404-link'); return false;" href="#" id="M000404-link">Show source...</a></p><div class="source" id="M000404-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 245</span>
+245:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}
+246:     <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:select</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;count(*) AS total, agent_id, data_type_id, DATE(data_object_logs.created_at) AS day, #{ self.unique_data_column }&quot;</span>, 
+247:       <span class="ruby-identifier">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;agent_id, data_type_id, #{ self.unique_data_column }, DATE(data_object_logs.created_at)&quot;</span> }
+248:     <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:conditions</span>] = [<span class="ruby-value str">&quot;DATE(data_object_logs.created_at) &gt;= ? AND DATE(data_object_logs.created_at) &lt;= ?&quot;</span>, <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">last</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>
+249:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span>
+250:     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">additional_options</span>     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">additional_options</span>
+251:     <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">:all</span>, <span class="ruby-identifier">options</span>
+252:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000397"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000397'>
+
+
+path
+
+()
+
+</a>
+</h3>
+<p>
+a pretty URL <a href="LogDaily.html#M000397">path</a> that this class is
+associated with &#8230; eg. StateLogDaily.path =&gt; &#8216;states&#8216;
+</p>
+
+<p class="source_link" id="M000397-show-link"><a onclick="toggle('M000397-source'); toggleText('M000397-link'); return false;" href="#" id="M000397-link">Show source...</a></p><div class="source" id="M000397-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 166</span>
+166:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span>
+167:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/LogDaily$/</span>,<span class="ruby-value str">''</span>).<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">pluralize</span>
+168:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000398"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000398'>
+
+
+report_classes
+
+()
+
+</a>
+</h3>
+<p>
+returns the *<a href="LogDaily.html">LogDaily</a> classes
+</p>
+<p>
+this is currently updated <b>MANUALLY</b>
+</p>
+
+<p class="source_link" id="M000398-show-link"><a onclick="toggle('M000398-source'); toggleText('M000398-link'); return false;" href="#" id="M000398-link">Show source...</a></p><div class="source" id="M000398-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 173</span>
+173:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_classes</span>
+174:     <span class="ruby-comment cmt"># self.subclasses</span>
+175:     [ <span class="ruby-constant">StateLogDaily</span>, <span class="ruby-constant">CountryLogDaily</span>, <span class="ruby-constant">UserLogDaily</span>, <span class="ruby-constant">AgentLogDaily</span>, <span class="ruby-constant">DataObjectLogDaily</span> ]
+176:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000399"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000399'>
+
+
+report_name
+
+()
+
+</a>
+</h3>
+<p>
+a pretty title / name for the report that this class is associated with
+(when we fetch <a href="LogDaily.html#M000405">grand_totals</a>) eg.
+StateLogDaily.report_name =&gt; &#8216;States&#8216;
+</p>
+<p>
+TODO make this overridable in classes, set_report_name &#8216;Blah&#8216;
+</p>
+
+<p class="source_link" id="M000399-show-link"><a onclick="toggle('M000399-source'); toggleText('M000399-link'); return false;" href="#" id="M000399-link">Show source...</a></p><div class="source" id="M000399-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 182</span>
+182:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_name</span>
+183:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">pluralize</span>
+184:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000393"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000393'>
+
+
+set_mine_data_options
+
+(options)
+
+</a>
+</h3>
+
+<p class="source_link" id="M000393-show-link"><a onclick="toggle('M000393-source'); toggleText('M000393-link'); return false;" href="#" id="M000393-link">Show source...</a></p><div class="source" id="M000393-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 100</span>
+100:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_mine_data_options</span> <span class="ruby-identifier">options</span>
+101:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span> = <span class="ruby-identifier">options</span>
+102:     <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000392"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000392'>
+
+
+set_unique_data_column
+
+(type, name, options = { :null =&gt; false })
+
+</a>
+</h3>
+
+<p class="source_link" id="M000392-show-link"><a onclick="toggle('M000392-source'); toggleText('M000392-link'); return false;" href="#" id="M000392-link">Show source...</a></p><div class="source" id="M000392-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 83</span>
+83:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_unique_data_column</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span> }
+84:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+85:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span> = { <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:options</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span> }
+86: 
+87:       <span class="ruby-comment cmt"># we validate the uniqueness of LogDaily objects per a given day, a unique data_type, </span>
+88:       <span class="ruby-comment cmt"># a unique agent, AND the custom bit of unique_data</span>
+89:       <span class="ruby-comment cmt">#</span>
+90:       <span class="ruby-comment cmt"># we stick the scope we're using within a class attribute: uniqueness_scope so </span>
+91:       <span class="ruby-comment cmt"># we can reuse it elsewhere, if desired</span>
+92:       <span class="ruby-comment cmt">#</span>
+93:       <span class="ruby-comment cmt"># actually, i thought i was going to reuse this, but i'm not currently reusing it anywhere, so ...</span>
+94:       <span class="ruby-comment cmt"># TODO remove uniqueness_scope ?</span>
+95:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span> = [ <span class="ruby-identifier">:agent_id</span>, <span class="ruby-identifier">:data_type_id</span> ]
+96:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">unique_data_column</span>.<span class="ruby-identifier">to_sym</span>
+97: 
+98:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">validates_uniqueness_of</span> <span class="ruby-identifier">:day</span>, <span class="ruby-identifier">:scope</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uniqueness_scope</span>
+99:     <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000396"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000396'>
+
+
+unique_data_name
+
+()
+
+</a>
+</h3>
+<p>
+this will be deprecated when we change the way <a
+href="LogDaily.html#M000394">unique_data</a> works and make it more
+flexible
+</p>
+<p>
+for now, this merely allow us to give a unique name to our unique data.
+essentially:
+</p>
+<pre>
+  unique_data_name:  the name of the daily log's data
+  unique_data:       the value is unique_data
+  unique_data_to_s:  the value to display is unique_data_to_s
+</pre>
+<p>
+override this in your <a href="LogDaily.html">LogDaily</a> class to return
+something different
+</p>
+
+<p class="source_link" id="M000396-show-link"><a onclick="toggle('M000396-source'); toggleText('M000396-link'); return false;" href="#" id="M000396-link">Show source...</a></p><div class="source" id="M000396-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 161</span>
+161:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_name</span>
+162:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_name</span>.<span class="ruby-identifier">singularize</span>
+163:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+
+<h1>Public Instance Methods</h1>
+
+
+<a class="small" name="M000394"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000394'>
+
+
+unique_data
+
+()
+
+</a>
+</h3>
+<p>
+returns the value of this daily&#8216;s unique data column (eg. state_code
+or user_id)
+</p>
+<p>
+TODO i want to change this to return a <a href="Hash.html">Hash</a> like {
+:description =&gt; &#8216;blah&#8217;, :data_table =&gt; &#8216;xxx&#8217;
+}
+</p>
+<pre>
+     and then i can use the keys as table column headers and whatnot ... this also means changing
+     set_unique_data_column to set_unique_data_columns ...
+     if i wanna be really hardcore i might allow a lambda (or something that responds to #call)
+     as the value for the key, so it'll eval ONLY if you #call the value (IF the value responds to #call)
+     ... it might help optimize so we're lazily loading some things.  then again, we might want to
+     eagerly load things to optimize as well
+</pre>
+
+<p class="source_link" id="M000394-show-link"><a onclick="toggle('M000394-source'); toggleText('M000394-link'); return false;" href="#" id="M000394-link">Show source...</a></p><div class="source" id="M000394-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 114</span>
+114:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data</span>
+115:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span>[ <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span> ]
+116:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000395"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000395'>
+
+
+unique_data_to_s
+
+()
+
+</a>
+</h3>
+<p>
+override this if you want to return something custom (and pretty) when <a
+href="LogDaily.html#M000394">unique_data</a> is printed out (we call <a
+href="LogDaily.html#M000395">unique_data_to_s</a> from views which defaults
+to unique_data.to_s)
+</p>
+<p>
+this will be deprecated when <a
+href="LogDaily.html#M000394">unique_data</a> becomes a hash
+</p>
+
+<p class="source_link" id="M000395-show-link"><a onclick="toggle('M000395-source'); toggleText('M000395-link'); return false;" href="#" id="M000395-link">Show source...</a></p><div class="source" id="M000395-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 148</span>
+148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data_to_s</span>
+149:     <span class="ruby-identifier">unique_data</span>.<span class="ruby-identifier">to_s</span>
+150:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+
+
+
+
+</div><div class="clear" id="footer">Generated on Jan 21, 2008 / Allison 2 &copy; 2007 <a href="http://cloudbur.st">Cloudburst, LLC</a></div></div></body></html>
