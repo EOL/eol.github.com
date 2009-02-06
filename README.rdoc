@@ -1,0 +1,11 @@
+= EOL Project Documentation
+
+http://eol.github.com shows the generated RDoc documentation 
+for the EOL project, http://github.com/eol/eol
+
+EOL core team members can regenerate the documentation found 
+here by running script/publish_rdoc from the root of the EOL project
+
+Usage: ./script/public_rdoc path-to-cloned-eol.github.com-repository
+
+http://github.com/eol/eol/blob/master/script/publish_rdoc
