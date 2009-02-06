@@ -15,3 +15,5 @@ We're currently using the Allison template: http://blog.evanweaver.com/files/doc
 We previously used the Hanna template: http://github.com/mislav/hanna/tree/master
 
 Allison's filter mechanism is *very* handy for quickly finding classes, files, and methods.
+
+NOTE: we might want to think about customizing an RDoc template to be styled like http://www.eol.org.  A great example of styling RDoc to match a website: http://code.macournoyer.com/thin/doc/files/README.html
