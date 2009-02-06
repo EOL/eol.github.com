@@ -10,4 +10,8 @@ Usage: ./script/public_rdoc path-to-cloned-eol.github.com-repository
 
 http://github.com/eol/eol/blob/master/script/publish_rdoc
 
-To generate docs using this template, sudo gem install mislav-hanna -s http://gems.github.com ... otherwise the default RDoc template will be used.  We might want to switch to a different template in the future, tho, or customize a template to look like http://www.eol.org
+We're currently using the Allison template: http://blog.evanweaver.com/files/doc/fauna/allison/files/README.html
+
+We previously used the Hanna template: http://github.com/mislav/hanna/tree/master
+
+Allison's filter mechanism is *very* handy for quickly finding classes, files, and methods.
