@@ -331,91 +331,91 @@ Module: ContentPartnerAuthenticationModule
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000719'>
+<a href='#M000724'>
 agent_access_denied<br/>
 </a>
 
 
 
 
-<a href='#M000715'>
+<a href='#M000720'>
 agent_logged_in?<br/>
 </a>
 
 
 
 
-<a href='#M000722'>
+<a href='#M000727'>
 agent_login_from_cookie<br/>
 </a>
 
 
 
 
-<a href='#M000721'>
+<a href='#M000726'>
 agent_login_from_session<br/>
 </a>
 
 
 
 
-<a href='#M000718'>
+<a href='#M000723'>
 agent_login_required<br/>
 </a>
 
 
 
 
-<a href='#M000725'>
+<a href='#M000730'>
 agent_must_be_agreeable<br/>
 </a>
 
 
 
 
-<a href='#M000723'>
+<a href='#M000728'>
 agent_redirect_back_or_default<br/>
 </a>
 
 
 
 
-<a href='#M000720'>
+<a href='#M000725'>
 agent_store_location<br/>
 </a>
 
 
 
 
-<a href='#M000716'>
+<a href='#M000721'>
 current_agent<br/>
 </a>
 
 
 
 
-<a href='#M000717'>
+<a href='#M000722'>
 current_agent=<br/>
 </a>
 
 
 
 
-<a href='#M000724'>
+<a href='#M000729'>
 is_user_admin?<br/>
 </a>
 
 
 
 
-<a href='#M000726'>
+<a href='#M000731'>
 resource_must_belong_to_agent<br/>
 </a>
 
 
 
 
-<a href='#M000727'>
+<a href='#M000732'>
 upload_logo<br/>
 </a>
 
@@ -438,9 +438,9 @@ upload_logo<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000719"><br/></a>
+<a class="small" name="M000724"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000719'>
+<a href='#M000724'>
 
 
 agent_access_denied
@@ -450,16 +450,16 @@ agent_access_denied
 </a>
 </h3>
 
-<p class="source_link" id="M000719-show-link"><a onclick="toggle('M000719-source'); toggleText('M000719-link'); return false;" href="#" id="M000719-link">Show source...</a></p><div class="source" id="M000719-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 25</span>
+<p class="source_link" id="M000724-show-link"><a onclick="toggle('M000724-source'); toggleText('M000724-link'); return false;" href="#" id="M000724-link">Show source...</a></p><div class="source" id="M000724-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 25</span>
 25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_access_denied</span>
 26:     <span class="ruby-identifier">agent_store_location</span>
 27:     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'login'</span>)
 28:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000715"><br/></a>
+<a class="small" name="M000720"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000715'>
+<a href='#M000720'>
 
 
 agent_logged_in?
@@ -473,15 +473,15 @@ Protected authentication methods
 </p>
 <hr size="10"></hr>
 
-<p class="source_link" id="M000715-show-link"><a onclick="toggle('M000715-source'); toggleText('M000715-link'); return false;" href="#" id="M000715-link">Show source...</a></p><div class="source" id="M000715-source"><pre>   <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 6</span>
+<p class="source_link" id="M000720-show-link"><a onclick="toggle('M000720-source'); toggleText('M000720-link'); return false;" href="#" id="M000720-link">Show source...</a></p><div class="source" id="M000720-source"><pre>   <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 6</span>
 6:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_logged_in?</span>
 7:     <span class="ruby-identifier">current_agent</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">==</span><span class="ruby-constant">Agent</span>
 8:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000722"><br/></a>
+<a class="small" name="M000727"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000722'>
+<a href='#M000727'>
 
 
 agent_login_from_cookie
@@ -491,7 +491,7 @@ agent_login_from_cookie
 </a>
 </h3>
 
-<p class="source_link" id="M000722-show-link"><a onclick="toggle('M000722-source'); toggleText('M000722-link'); return false;" href="#" id="M000722-link">Show source...</a></p><div class="source" id="M000722-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 38</span>
+<p class="source_link" id="M000727-show-link"><a onclick="toggle('M000727-source'); toggleText('M000727-link'); return false;" href="#" id="M000727-link">Show source...</a></p><div class="source" id="M000727-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 38</span>
 38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_login_from_cookie</span>
 39:     <span class="ruby-identifier">agent</span> = <span class="ruby-identifier">cookies</span>[<span class="ruby-identifier">:agent_auth_token</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find_by_remember_token</span>(<span class="ruby-identifier">cookies</span>[<span class="ruby-identifier">:agent_auth_token</span>])
 40:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">remember_token?</span>
@@ -501,9 +501,9 @@ agent_login_from_cookie
 44:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000721"><br/></a>
+<a class="small" name="M000726"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000721'>
+<a href='#M000726'>
 
 
 agent_login_from_session
@@ -513,15 +513,15 @@ agent_login_from_session
 </a>
 </h3>
 
-<p class="source_link" id="M000721-show-link"><a onclick="toggle('M000721-source'); toggleText('M000721-link'); return false;" href="#" id="M000721-link">Show source...</a></p><div class="source" id="M000721-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 34</span>
+<p class="source_link" id="M000726-show-link"><a onclick="toggle('M000726-source'); toggleText('M000726-link'); return false;" href="#" id="M000726-link">Show source...</a></p><div class="source" id="M000726-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 34</span>
 34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_login_from_session</span>
 35:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">current_agent</span> = <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">session</span>[<span class="ruby-identifier">:agent_id</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:agent_id</span>]
 36:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000718"><br/></a>
+<a class="small" name="M000723"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000718'>
+<a href='#M000723'>
 
 
 agent_login_required
@@ -531,15 +531,15 @@ agent_login_required
 </a>
 </h3>
 
-<p class="source_link" id="M000718-show-link"><a onclick="toggle('M000718-source'); toggleText('M000718-link'); return false;" href="#" id="M000718-link">Show source...</a></p><div class="source" id="M000718-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 21</span>
+<p class="source_link" id="M000723-show-link"><a onclick="toggle('M000723-source'); toggleText('M000723-link'); return false;" href="#" id="M000723-link">Show source...</a></p><div class="source" id="M000723-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 21</span>
 21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_login_required</span>
 22:     <span class="ruby-identifier">agent_logged_in?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">agent_access_denied</span>
 23:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000725"><br/></a>
+<a class="small" name="M000730"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000725'>
+<a href='#M000730'>
 
 
 agent_must_be_agreeable
@@ -549,7 +549,7 @@ agent_must_be_agreeable
 </a>
 </h3>
 
-<p class="source_link" id="M000725-show-link"><a onclick="toggle('M000725-source'); toggleText('M000725-link'); return false;" href="#" id="M000725-link">Show source...</a></p><div class="source" id="M000725-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 55</span>
+<p class="source_link" id="M000730-show-link"><a onclick="toggle('M000730-source'); toggleText('M000730-link'); return false;" href="#" id="M000730-link">Show source...</a></p><div class="source" id="M000730-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 55</span>
 55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_must_be_agreeable</span>
 56:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">current_agent</span>.<span class="ruby-identifier">ready_for_agreement?</span>
 57:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'index'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_partner'</span>
@@ -557,9 +557,9 @@ agent_must_be_agreeable
 59:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000723"><br/></a>
+<a class="small" name="M000728"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000723'>
+<a href='#M000728'>
 
 
 agent_redirect_back_or_default
@@ -569,16 +569,16 @@ agent_redirect_back_or_default
 </a>
 </h3>
 
-<p class="source_link" id="M000723-show-link"><a onclick="toggle('M000723-source'); toggleText('M000723-link'); return false;" href="#" id="M000723-link">Show source...</a></p><div class="source" id="M000723-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 46</span>
+<p class="source_link" id="M000728-show-link"><a onclick="toggle('M000728-source'); toggleText('M000728-link'); return false;" href="#" id="M000728-link">Show source...</a></p><div class="source" id="M000728-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 46</span>
 46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_redirect_back_or_default</span>(<span class="ruby-identifier">default</span>)
 47:     <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">session</span>[<span class="ruby-identifier">:agent_return_to</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span>)
 48:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:agent_return_to</span>] = <span class="ruby-keyword kw">nil</span>
 49:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000720"><br/></a>
+<a class="small" name="M000725"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000720'>
+<a href='#M000725'>
 
 
 agent_store_location
@@ -588,15 +588,15 @@ agent_store_location
 </a>
 </h3>
 
-<p class="source_link" id="M000720-show-link"><a onclick="toggle('M000720-source'); toggleText('M000720-link'); return false;" href="#" id="M000720-link">Show source...</a></p><div class="source" id="M000720-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 30</span>
+<p class="source_link" id="M000725-show-link"><a onclick="toggle('M000725-source'); toggleText('M000725-link'); return false;" href="#" id="M000725-link">Show source...</a></p><div class="source" id="M000725-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 30</span>
 30:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_store_location</span>
 31:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:agent_return_to</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">request_uri</span>
 32:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000716"><br/></a>
+<a class="small" name="M000721"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000716'>
+<a href='#M000721'>
 
 
 current_agent
@@ -609,15 +609,15 @@ current_agent
 Accesses the current agent from the session
 </p>
 
-<p class="source_link" id="M000716-show-link"><a onclick="toggle('M000716-source'); toggleText('M000716-link'); return false;" href="#" id="M000716-link">Show source...</a></p><div class="source" id="M000716-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 11</span>
+<p class="source_link" id="M000721-show-link"><a onclick="toggle('M000721-source'); toggleText('M000721-link'); return false;" href="#" id="M000721-link">Show source...</a></p><div class="source" id="M000721-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 11</span>
 11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_agent</span>
 12:     <span class="ruby-ivar">@current_agent</span> <span class="ruby-operator">||=</span> (<span class="ruby-identifier">agent_login_from_session</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">agent_login_from_cookie</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@current_agent</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
 13:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000717"><br/></a>
+<a class="small" name="M000722"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000717'>
+<a href='#M000722'>
 
 
 current_agent=
@@ -630,16 +630,16 @@ current_agent=
 Store the given agent id in the session
 </p>
 
-<p class="source_link" id="M000717-show-link"><a onclick="toggle('M000717-source'); toggleText('M000717-link'); return false;" href="#" id="M000717-link">Show source...</a></p><div class="source" id="M000717-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 16</span>
+<p class="source_link" id="M000722-show-link"><a onclick="toggle('M000722-source'); toggleText('M000722-link'); return false;" href="#" id="M000722-link">Show source...</a></p><div class="source" id="M000722-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 16</span>
 16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_agent=</span>(<span class="ruby-identifier">new_agent</span>)
 17:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:agent_id</span>] = <span class="ruby-identifier">new_agent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Agent</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">new_agent</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
 18:     <span class="ruby-ivar">@current_agent</span> = <span class="ruby-identifier">new_agent</span> <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
 19:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000724"><br/></a>
+<a class="small" name="M000729"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000724'>
+<a href='#M000729'>
 
 
 is_user_admin?
@@ -649,15 +649,15 @@ is_user_admin?
 </a>
 </h3>
 
-<p class="source_link" id="M000724-show-link"><a onclick="toggle('M000724-source'); toggleText('M000724-link'); return false;" href="#" id="M000724-link">Show source...</a></p><div class="source" id="M000724-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 51</span>
+<p class="source_link" id="M000729-show-link"><a onclick="toggle('M000729-source'); toggleText('M000729-link'); return false;" href="#" id="M000729-link">Show source...</a></p><div class="source" id="M000729-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 51</span>
 51:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_user_admin?</span>
 52:     <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">is_admin?</span>
 53:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000726"><br/></a>
+<a class="small" name="M000731"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000726'>
+<a href='#M000731'>
 
 
 resource_must_belong_to_agent
@@ -667,7 +667,7 @@ resource_must_belong_to_agent
 </a>
 </h3>
 
-<p class="source_link" id="M000726-show-link"><a onclick="toggle('M000726-source'); toggleText('M000726-link'); return false;" href="#" id="M000726-link">Show source...</a></p><div class="source" id="M000726-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 61</span>
+<p class="source_link" id="M000731-show-link"><a onclick="toggle('M000731-source'); toggleText('M000731-link'); return false;" href="#" id="M000731-link">Show source...</a></p><div class="source" id="M000731-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 61</span>
 61:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">resource_must_belong_to_agent</span>
 62:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_object</span>.<span class="ruby-identifier">agents</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_agent</span>)
 63:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>]=<span class="ruby-value str">'The resource you selected is invalid.'</span>
@@ -676,9 +676,9 @@ resource_must_belong_to_agent
 66:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000727"><br/></a>
+<a class="small" name="M000732"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000727'>
+<a href='#M000732'>
 
 
 upload_logo
@@ -688,7 +688,7 @@ upload_logo
 </a>
 </h3>
 
-<p class="source_link" id="M000727-show-link"><a onclick="toggle('M000727-source'); toggleText('M000727-link'); return false;" href="#" id="M000727-link">Show source...</a></p><div class="source" id="M000727-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 68</span>
+<p class="source_link" id="M000732-show-link"><a onclick="toggle('M000732-source'); toggleText('M000732-link'); return false;" href="#" id="M000732-link">Show source...</a></p><div class="source" id="M000732-source"><pre>    <span class="ruby-comment cmt"># File lib/content_partner_authentication_module.rb, line 68</span>
 68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upload_logo</span>(<span class="ruby-identifier">agent</span>)
 69:     <span class="ruby-identifier">parameters</span>=<span class="ruby-value str">'function=partner_image&amp;file_path=http://'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$IP_ADDRESS_OF_SERVER</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">port</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$LOGO_UPLOAD_PATH</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;.&quot;</span>  <span class="ruby-operator">+</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">logo_file_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;.&quot;</span>)[<span class="ruby-value">-1</span>]
 70:     <span class="ruby-identifier">response</span>=<span class="ruby-constant">EOLWebService</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">:parameters=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">parameters</span>)

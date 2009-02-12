@@ -337,21 +337,21 @@ LoggingModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000616'>
+<a href='#M000622'>
 click_times_by_taxon_concept_id<br/>
 </a>
 
 
 
 
-<a href='#M000615'>
+<a href='#M000621'>
 create_log<br/>
 </a>
 
 
 
 
-<a href='#M000614'>
+<a href='#M000620'>
 log<br/>
 </a>
 
@@ -374,9 +374,9 @@ log<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000616"><br/></a>
+<a class="small" name="M000622"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000616'>
+<a href='#M000622'>
 
 
 click_times_by_taxon_concept_id
@@ -386,7 +386,7 @@ click_times_by_taxon_concept_id
 </a>
 </h3>
 
-<p class="source_link" id="M000616-show-link"><a onclick="toggle('M000616-source'); toggleText('M000616-link'); return false;" href="#" id="M000616-link">Show source...</a></p><div class="source" id="M000616-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/search_log.rb, line 30</span>
+<p class="source_link" id="M000622-show-link"><a onclick="toggle('M000622-source'); toggleText('M000622-link'); return false;" href="#" id="M000622-link">Show source...</a></p><div class="source" id="M000622-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/search_log.rb, line 30</span>
 30:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">click_times_by_taxon_concept_id</span>(<span class="ruby-identifier">taxon_concept_id</span>, <span class="ruby-identifier">start_date</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">end_date</span> = <span class="ruby-keyword kw">nil</span>)
 31:     <span class="ruby-identifier">sql</span>=[<span class="ruby-value str">&quot;select 
 32:             case 
@@ -406,9 +406,9 @@ click_times_by_taxon_concept_id
 46:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000615"><br/></a>
+<a class="small" name="M000621"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000615'>
+<a href='#M000621'>
 
 
 create_log
@@ -418,7 +418,7 @@ create_log
 </a>
 </h3>
 
-<p class="source_link" id="M000615-show-link"><a onclick="toggle('M000615-source'); toggleText('M000615-link'); return false;" href="#" id="M000615-link">Show source...</a></p><div class="source" id="M000615-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/search_log.rb, line 24</span>
+<p class="source_link" id="M000621-show-link"><a onclick="toggle('M000621-source'); toggleText('M000621-link'); return false;" href="#" id="M000621-link">Show source...</a></p><div class="source" id="M000621-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/search_log.rb, line 24</span>
 24:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_log</span>(<span class="ruby-identifier">opts</span>)
 25:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-value str">'Bogus invokation of SearchLog creation function!'</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">nil?</span>  
 26:     <span class="ruby-identifier">l</span> = <span class="ruby-constant">SearchLog</span>.<span class="ruby-identifier">create</span> <span class="ruby-identifier">opts</span>
@@ -426,9 +426,9 @@ create_log
 28:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000614"><br/></a>
+<a class="small" name="M000620"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000614'>
+<a href='#M000620'>
 
 
 log
@@ -438,7 +438,7 @@ log
 </a>
 </h3>
 
-<p class="source_link" id="M000614-show-link"><a onclick="toggle('M000614-source'); toggleText('M000614-link'); return false;" href="#" id="M000614-link">Show source...</a></p><div class="source" id="M000614-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/search_log.rb, line 7</span>
+<p class="source_link" id="M000620-show-link"><a onclick="toggle('M000620-source'); toggleText('M000620-link'); return false;" href="#" id="M000620-link">Show source...</a></p><div class="source" id="M000620-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/search_log.rb, line 7</span>
  7:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">log</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">request</span>, <span class="ruby-identifier">user</span>)
  8: 
  9:      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">blank?</span>

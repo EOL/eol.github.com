@@ -337,7 +337,7 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000319'>
+<a href='#M000323'>
 small_logo_url<br/>
 </a>
 
@@ -360,9 +360,9 @@ small_logo_url<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000319"><br/></a>
+<a class="small" name="M000323"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000319'>
+<a href='#M000323'>
 
 
 small_logo_url
@@ -372,7 +372,7 @@ small_logo_url
 </a>
 </h3>
 
-<p class="source_link" id="M000319-show-link"><a onclick="toggle('M000319-source'); toggleText('M000319-link'); return false;" href="#" id="M000319-link">Show source...</a></p><div class="source" id="M000319-source"><pre>   <span class="ruby-comment cmt"># File app/models/license.rb, line 5</span>
+<p class="source_link" id="M000323-show-link"><a onclick="toggle('M000323-source'); toggleText('M000323-link'); return false;" href="#" id="M000323-link">Show source...</a></p><div class="source" id="M000323-source"><pre>   <span class="ruby-comment cmt"># File app/models/license.rb, line 5</span>
 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">small_logo_url</span>
 6:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">logo_url</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">logo_url</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/_small/</span> <span class="ruby-comment cmt"># already there!</span>
 7:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">logo_url</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/\.(\w\w\w)$/</span>, <span class="ruby-value str">&quot;_small.\\1&quot;</span>)

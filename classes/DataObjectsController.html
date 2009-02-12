@@ -337,28 +337,28 @@ ApplicationController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000096'>
+<a href='#M000097'>
 attribution<br/>
 </a>
 
 
 
 
-<a href='#M000098'>
+<a href='#M000099'>
 curate<br/>
 </a>
 
 
 
 
-<a href='#M000097'>
+<a href='#M000098'>
 curation<br/>
 </a>
 
 
 
 
-<a href='#M000099'>
+<a href='#M000100'>
 set_data_object<br/>
 </a>
 
@@ -381,9 +381,9 @@ set_data_object<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000096"><br/></a>
+<a class="small" name="M000097"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000096'>
+<a href='#M000097'>
 
 
 attribution
@@ -396,15 +396,15 @@ attribution
 GET /data_objects/1/attribution
 </p>
 
-<p class="source_link" id="M000096-show-link"><a onclick="toggle('M000096-source'); toggleText('M000096-link'); return false;" href="#" id="M000096-link">Show source...</a></p><div class="source" id="M000096-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 16</span>
+<p class="source_link" id="M000097-show-link"><a onclick="toggle('M000097-source'); toggleText('M000097-link'); return false;" href="#" id="M000097-link">Show source...</a></p><div class="source" id="M000097-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 16</span>
 16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution</span>
 17:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'attribution'</span>, <span class="ruby-identifier">:locals</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:data_object</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_object</span> }, <span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@layout</span>
 18:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000098"><br/></a>
+<a class="small" name="M000099"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000098'>
+<a href='#M000099'>
 
 
 curate
@@ -417,7 +417,7 @@ curate
 PUT /data_objects/1/curate
 </p>
 
-<p class="source_link" id="M000098-show-link"><a onclick="toggle('M000098-source'); toggleText('M000098-link'); return false;" href="#" id="M000098-link">Show source...</a></p><div class="source" id="M000098-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 33</span>
+<p class="source_link" id="M000099-show-link"><a onclick="toggle('M000099-source'); toggleText('M000099-link'); return false;" href="#" id="M000099-link">Show source...</a></p><div class="source" id="M000099-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 33</span>
 33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">curate</span>
 34:     <span class="ruby-ivar">@data_object</span>.<span class="ruby-identifier">curate!</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:curator_activity_id</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">can_curate?</span>(<span class="ruby-ivar">@data_object</span>)
 35:     
@@ -428,9 +428,9 @@ PUT /data_objects/1/curate
 40:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000097"><br/></a>
+<a class="small" name="M000098"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000097'>
+<a href='#M000098'>
 
 
 curation
@@ -448,10 +448,10 @@ UI for curating a data object
 <p>
 This is a GET, so there&#8216;s no real reason to check to see whether or
 not the current_user can_curate the object - we leave that to the <a
-href="DataObjectsController.html#M000098">curate</a> method
+href="DataObjectsController.html#M000099">curate</a> method
 </p>
 
-<p class="source_link" id="M000097-show-link"><a onclick="toggle('M000097-source'); toggleText('M000097-link'); return false;" href="#" id="M000097-link">Show source...</a></p><div class="source" id="M000097-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 29</span>
+<p class="source_link" id="M000098-show-link"><a onclick="toggle('M000098-source'); toggleText('M000098-link'); return false;" href="#" id="M000098-link">Show source...</a></p><div class="source" id="M000098-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 29</span>
 29:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">curation</span>
 30:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
@@ -460,9 +460,9 @@ href="DataObjectsController.html#M000098">curate</a> method
 <h1>Protected Instance Methods</h1>
 
 
-<a class="small" name="M000099"><br/></a>
+<a class="small" name="M000100"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000099'>
+<a href='#M000100'>
 
 
 set_data_object
@@ -472,7 +472,7 @@ set_data_object
 </a>
 </h3>
 
-<p class="source_link" id="M000099-show-link"><a onclick="toggle('M000099-source'); toggleText('M000099-link'); return false;" href="#" id="M000099-link">Show source...</a></p><div class="source" id="M000099-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 44</span>
+<p class="source_link" id="M000100-show-link"><a onclick="toggle('M000100-source'); toggleText('M000100-link'); return false;" href="#" id="M000100-link">Show source...</a></p><div class="source" id="M000100-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/data_objects_controller.rb, line 44</span>
 44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_data_object</span>
 45:     <span class="ruby-ivar">@data_object</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataObject</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>]
 46:   <span class="ruby-keyword kw">end</span></pre></div>

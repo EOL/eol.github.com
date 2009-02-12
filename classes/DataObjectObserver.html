@@ -335,7 +335,7 @@ ActiveRecord::Observer
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000322'>
+<a href='#M000326'>
 before_save<br/>
 </a>
 
@@ -358,9 +358,9 @@ before_save<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000322"><br/></a>
+<a class="small" name="M000326"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000322'>
+<a href='#M000326'>
 
 
 before_save
@@ -370,7 +370,7 @@ before_save
 </a>
 </h3>
 
-<p class="source_link" id="M000322-show-link"><a onclick="toggle('M000322-source'); toggleText('M000322-link'); return false;" href="#" id="M000322-link">Show source...</a></p><div class="source" id="M000322-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_object_observer.rb, line 5</span>
+<p class="source_link" id="M000326-show-link"><a onclick="toggle('M000326-source'); toggleText('M000326-link'); return false;" href="#" id="M000326-link">Show source...</a></p><div class="source" id="M000326-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_object_observer.rb, line 5</span>
  5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_save</span> <span class="ruby-identifier">data_object</span>
  6:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">vetted_id_changed?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">vetted_by</span>
  7:       <span class="ruby-identifier">was</span> = <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">vetted_id_was</span>

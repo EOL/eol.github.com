@@ -337,42 +337,42 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000302'>
+<a href='#M000306'>
 delete_upstream_harvests<br/>
 </a>
 
 
 
 
-<a href='#M000301'>
+<a href='#M000305'>
 last_published<br/>
 </a>
 
 
 
 
-<a href='#M000300'>
+<a href='#M000304'>
 make_invisible<br/>
 </a>
 
 
 
 
-<a href='#M000299'>
+<a href='#M000303'>
 make_visible<br/>
 </a>
 
 
 
 
-<a href='#M000298'>
+<a href='#M000302'>
 publish<br/>
 </a>
 
 
 
 
-<a href='#M000303'>
+<a href='#M000307'>
 remove_related_data_objects<br/>
 </a>
 
@@ -395,9 +395,9 @@ remove_related_data_objects<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000301"><br/></a>
+<a class="small" name="M000305"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000301'>
+<a href='#M000305'>
 
 
 last_published
@@ -407,7 +407,7 @@ last_published
 </a>
 </h3>
 
-<p class="source_link" id="M000301-show-link"><a onclick="toggle('M000301-source'); toggleText('M000301-link'); return false;" href="#" id="M000301-link">Show source...</a></p><div class="source" id="M000301-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 48</span>
+<p class="source_link" id="M000305-show-link"><a onclick="toggle('M000305-source'); toggleText('M000305-link'); return false;" href="#" id="M000305-link">Show source...</a></p><div class="source" id="M000305-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 48</span>
 48:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">last_published</span>
 49:     <span class="ruby-identifier">last_published</span>=<span class="ruby-constant">HarvestEvent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,<span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">&quot;published_at &lt;&gt; 'null'&quot;</span>,<span class="ruby-identifier">:limit=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'published_at desc'</span>)
 50:     <span class="ruby-keyword kw">return</span> (<span class="ruby-identifier">last_published</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">last_published</span>[<span class="ruby-value">0</span>])
@@ -418,9 +418,9 @@ last_published
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000300"><br/></a>
+<a class="small" name="M000304"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000300'>
+<a href='#M000304'>
 
 
 make_invisible
@@ -430,16 +430,16 @@ make_invisible
 </a>
 </h3>
 
-<p class="source_link" id="M000300-show-link"><a onclick="toggle('M000300-source'); toggleText('M000300-link'); return false;" href="#" id="M000300-link">Show source...</a></p><div class="source" id="M000300-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 43</span>
+<p class="source_link" id="M000304-show-link"><a onclick="toggle('M000304-source'); toggleText('M000304-link'); return false;" href="#" id="M000304-link">Show source...</a></p><div class="source" id="M000304-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 43</span>
 43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_invisible</span> 
 44:     <span class="ruby-comment cmt"># change all data objects for this harvest event that are currently not visibility=inappropriate to visibility=invisible</span>
 45:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects d, data_objects_harvest_events dh set d.visibility_id = #{Visibility.invisible.id} where d.visibility_id &lt;&gt; #{Visibility.inappropriate.id} and d.id = dh.data_object_id and dh.harvest_event_id = #{self.id}&quot;</span>)
 46:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000299"><br/></a>
+<a class="small" name="M000303"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000299'>
+<a href='#M000303'>
 
 
 make_visible
@@ -449,7 +449,7 @@ make_visible
 </a>
 </h3>
 
-<p class="source_link" id="M000299-show-link"><a onclick="toggle('M000299-source'); toggleText('M000299-link'); return false;" href="#" id="M000299-link">Show source...</a></p><div class="source" id="M000299-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 31</span>
+<p class="source_link" id="M000303-show-link"><a onclick="toggle('M000303-source'); toggleText('M000303-link'); return false;" href="#" id="M000303-link">Show source...</a></p><div class="source" id="M000303-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 31</span>
 31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_visible</span> 
 32:     <span class="ruby-comment cmt"># change all data objects for this harvest event that are currently visibility=preview to visibility=visible</span>
 33:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects d, data_objects_harvest_events dh set d.visibility_id = #{Visibility.visible.id} where d.visibility_id = #{Visibility.preview.id} and d.id = dh.data_object_id and dh.harvest_event_id = #{self.id}&quot;</span>)
@@ -463,9 +463,9 @@ make_visible
 41:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000298"><br/></a>
+<a class="small" name="M000302"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000298'>
+<a href='#M000302'>
 
 
 publish
@@ -475,7 +475,7 @@ publish
 </a>
 </h3>
 
-<p class="source_link" id="M000298-show-link"><a onclick="toggle('M000298-source'); toggleText('M000298-link'); return false;" href="#" id="M000298-link">Show source...</a></p><div class="source" id="M000298-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 9</span>
+<p class="source_link" id="M000302-show-link"><a onclick="toggle('M000302-source'); toggleText('M000302-link'); return false;" href="#" id="M000302-link">Show source...</a></p><div class="source" id="M000302-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 9</span>
  9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">publish</span>
 10:     <span class="ruby-identifier">published</span> = <span class="ruby-keyword kw">true</span>
 11:     <span class="ruby-keyword kw">begin</span>
@@ -503,9 +503,9 @@ publish
 <h1>Protected Instance Methods</h1>
 
 
-<a class="small" name="M000302"><br/></a>
+<a class="small" name="M000306"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000302'>
+<a href='#M000306'>
 
 
 delete_upstream_harvests
@@ -515,7 +515,7 @@ delete_upstream_harvests
 </a>
 </h3>
 
-<p class="source_link" id="M000302-show-link"><a onclick="toggle('M000302-source'); toggleText('M000302-link'); return false;" href="#" id="M000302-link">Show source...</a></p><div class="source" id="M000302-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 55</span>
+<p class="source_link" id="M000306-show-link"><a onclick="toggle('M000306-source'); toggleText('M000306-link'); return false;" href="#" id="M000306-link">Show source...</a></p><div class="source" id="M000306-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 55</span>
 55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_upstream_harvests</span>
 56:     <span class="ruby-identifier">he</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">resource</span>.<span class="ruby-identifier">harvest_events</span>
 57:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">he</span>.<span class="ruby-identifier">last</span>
@@ -528,9 +528,9 @@ delete_upstream_harvests
 64:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000303"><br/></a>
+<a class="small" name="M000307"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000303'>
+<a href='#M000307'>
 
 
 remove_related_data_objects
@@ -540,7 +540,7 @@ remove_related_data_objects
 </a>
 </h3>
 
-<p class="source_link" id="M000303-show-link"><a onclick="toggle('M000303-source'); toggleText('M000303-link'); return false;" href="#" id="M000303-link">Show source...</a></p><div class="source" id="M000303-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 66</span>
+<p class="source_link" id="M000307-show-link"><a onclick="toggle('M000307-source'); toggleText('M000307-link'); return false;" href="#" id="M000307-link">Show source...</a></p><div class="source" id="M000307-source"><pre>    <span class="ruby-comment cmt"># File app/models/harvest_event.rb, line 66</span>
 66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_related_data_objects</span>
 67: 
 68:     <span class="ruby-comment cmt"># get data objects</span>

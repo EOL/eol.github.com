@@ -337,70 +337,70 @@ ActiveRecord::Base
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000565'>
+<a href='#M000569'>
 content_is_blank?<br/>
 </a>
 
 
 
 
-<a href='#M000570'>
+<a href='#M000574'>
 fragment_name<br/>
 </a>
 
 
 
 
-<a href='#M000563'>
+<a href='#M000567'>
 get_by_id_and_language_abbr<br/>
 </a>
 
 
 
 
-<a href='#M000562'>
+<a href='#M000566'>
 get_by_page_name_and_language_abbr<br/>
 </a>
 
 
 
 
-<a href='#M000568'>
+<a href='#M000572'>
 key<br/>
 </a>
 
 
 
 
-<a href='#M000566'>
+<a href='#M000570'>
 left_content_is_blank?<br/>
 </a>
 
 
 
 
-<a href='#M000569'>
+<a href='#M000573'>
 page_url<br/>
 </a>
 
 
 
 
-<a href='#M000567'>
+<a href='#M000571'>
 remove_underscores_from_page_name<br/>
 </a>
 
 
 
 
-<a href='#M000561'>
+<a href='#M000565'>
 title_with_language<br/>
 </a>
 
 
 
 
-<a href='#M000564'>
+<a href='#M000568'>
 url_and_left_content_is_blank?<br/>
 </a>
 
@@ -423,9 +423,9 @@ url_and_left_content_is_blank?<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000563"><br/></a>
+<a class="small" name="M000567"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000563'>
+<a href='#M000567'>
 
 
 get_by_id_and_language_abbr
@@ -435,7 +435,7 @@ get_by_id_and_language_abbr
 </a>
 </h3>
 
-<p class="source_link" id="M000563-show-link"><a onclick="toggle('M000563-source'); toggleText('M000563-link'); return false;" href="#" id="M000563-link">Show source...</a></p><div class="source" id="M000563-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 23</span>
+<p class="source_link" id="M000567-show-link"><a onclick="toggle('M000567-source'); toggleText('M000567-link'); return false;" href="#" id="M000567-link">Show source...</a></p><div class="source" id="M000567-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 23</span>
 23:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_by_id_and_language_abbr</span>(<span class="ruby-identifier">id</span>,<span class="ruby-identifier">language_abbr</span>)
 24:     <span class="ruby-identifier">language_page</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_id_and_active_and_language_abbr</span>(<span class="ruby-identifier">id</span>,<span class="ruby-keyword kw">true</span>,<span class="ruby-identifier">language_abbr</span>)
 25:     <span class="ruby-identifier">language_page</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_id_and_active_and_language_abbr</span>(<span class="ruby-identifier">id</span>,<span class="ruby-keyword kw">true</span>,<span class="ruby-constant">Language</span>.<span class="ruby-identifier">english</span>.<span class="ruby-identifier">iso_639_1</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">language_page</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># if we couldn't find that language, try English</span>
@@ -443,9 +443,9 @@ get_by_id_and_language_abbr
 27:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000562"><br/></a>
+<a class="small" name="M000566"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000562'>
+<a href='#M000566'>
 
 
 get_by_page_name_and_language_abbr
@@ -455,7 +455,7 @@ get_by_page_name_and_language_abbr
 </a>
 </h3>
 
-<p class="source_link" id="M000562-show-link"><a onclick="toggle('M000562-source'); toggleText('M000562-link'); return false;" href="#" id="M000562-link">Show source...</a></p><div class="source" id="M000562-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 17</span>
+<p class="source_link" id="M000566-show-link"><a onclick="toggle('M000566-source'); toggleText('M000566-link'); return false;" href="#" id="M000566-link">Show source...</a></p><div class="source" id="M000566-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 17</span>
 17:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_by_page_name_and_language_abbr</span>(<span class="ruby-identifier">page_name</span>,<span class="ruby-identifier">language_abbr</span>)
 18:     <span class="ruby-identifier">language_page</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_page_name_and_active_and_language_abbr</span>(<span class="ruby-identifier">page_name</span>,<span class="ruby-keyword kw">true</span>,<span class="ruby-identifier">language_abbr</span>)
 19:     <span class="ruby-identifier">language_page</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_page_name_and_active_and_language_abbr</span>(<span class="ruby-identifier">page_name</span>,<span class="ruby-keyword kw">true</span>,<span class="ruby-constant">Language</span>.<span class="ruby-identifier">english</span>.<span class="ruby-identifier">iso_639_1</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">language_page</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># if we couldn't find that language, try English</span>
@@ -467,9 +467,9 @@ get_by_page_name_and_language_abbr
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000565"><br/></a>
+<a class="small" name="M000569"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000565'>
+<a href='#M000569'>
 
 
 content_is_blank?
@@ -479,15 +479,15 @@ content_is_blank?
 </a>
 </h3>
 
-<p class="source_link" id="M000565-show-link"><a onclick="toggle('M000565-source'); toggleText('M000565-link'); return false;" href="#" id="M000565-link">Show source...</a></p><div class="source" id="M000565-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 33</span>
+<p class="source_link" id="M000569-show-link"><a onclick="toggle('M000569-source'); toggleText('M000569-link'); return false;" href="#" id="M000569-link">Show source...</a></p><div class="source" id="M000569-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 33</span>
 33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content_is_blank?</span>
 34:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">main_content</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">left_content</span>.<span class="ruby-identifier">blank?</span>
 35:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000570"><br/></a>
+<a class="small" name="M000574"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000570'>
+<a href='#M000574'>
 
 
 fragment_name
@@ -500,7 +500,7 @@ fragment_name
 name to use for cached fragment
 </p>
 
-<p class="source_link" id="M000570-show-link"><a onclick="toggle('M000570-source'); toggleText('M000570-link'); return false;" href="#" id="M000570-link">Show source...</a></p><div class="source" id="M000570-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 61</span>
+<p class="source_link" id="M000574-show-link"><a onclick="toggle('M000574-source'); toggleText('M000574-link'); return false;" href="#" id="M000574-link">Show source...</a></p><div class="source" id="M000574-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 61</span>
 61:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fragment_name</span>
 62:     
 63:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">content_section</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;_&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span> 
@@ -508,9 +508,9 @@ name to use for cached fragment
 65:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000568"><br/></a>
+<a class="small" name="M000572"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000568'>
+<a href='#M000572'>
 
 
 key
@@ -521,11 +521,11 @@ key
 </h3>
 <p>
 helper method to retrieve a language <a
-href="ContentPage.html#M000568">key</a> equivalent to the page name if none
+href="ContentPage.html#M000572">key</a> equivalent to the page name if none
 is supplied in the database
 </p>
 
-<p class="source_link" id="M000568-show-link"><a onclick="toggle('M000568-source'); toggleText('M000568-link'); return false;" href="#" id="M000568-link">Show source...</a></p><div class="source" id="M000568-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 48</span>
+<p class="source_link" id="M000572-show-link"><a onclick="toggle('M000572-source'); toggleText('M000572-link'); return false;" href="#" id="M000572-link">Show source...</a></p><div class="source" id="M000572-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 48</span>
 48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">key</span>
 49:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">language_key</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span> <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">language_key</span>.<span class="ruby-identifier">nil?</span>
 50:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">title</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">' '</span>,<span class="ruby-value str">'_'</span>).<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
@@ -535,9 +535,9 @@ is supplied in the database
 54:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000566"><br/></a>
+<a class="small" name="M000570"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000566'>
+<a href='#M000570'>
 
 
 left_content_is_blank?
@@ -547,15 +547,15 @@ left_content_is_blank?
 </a>
 </h3>
 
-<p class="source_link" id="M000566-show-link"><a onclick="toggle('M000566-source'); toggleText('M000566-link'); return false;" href="#" id="M000566-link">Show source...</a></p><div class="source" id="M000566-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 37</span>
+<p class="source_link" id="M000570-show-link"><a onclick="toggle('M000570-source'); toggleText('M000570-link'); return false;" href="#" id="M000570-link">Show source...</a></p><div class="source" id="M000570-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 37</span>
 37:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">left_content_is_blank?</span>
 38:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">left_content</span>.<span class="ruby-identifier">blank?</span>
 39:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000569"><br/></a>
+<a class="small" name="M000573"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000569'>
+<a href='#M000573'>
 
 
 page_url
@@ -565,15 +565,15 @@ page_url
 </a>
 </h3>
 
-<p class="source_link" id="M000569-show-link"><a onclick="toggle('M000569-source'); toggleText('M000569-link'); return false;" href="#" id="M000569-link">Show source...</a></p><div class="source" id="M000569-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 56</span>
+<p class="source_link" id="M000573-show-link"><a onclick="toggle('M000573-source'); toggleText('M000573-link'); return false;" href="#" id="M000573-link">Show source...</a></p><div class="source" id="M000573-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 56</span>
 56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_url</span>
 57:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">page_name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">' '</span>,<span class="ruby-value str">'_'</span>).<span class="ruby-identifier">downcase</span>
 58:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000567"><br/></a>
+<a class="small" name="M000571"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000567'>
+<a href='#M000571'>
 
 
 remove_underscores_from_page_name
@@ -583,7 +583,7 @@ remove_underscores_from_page_name
 </a>
 </h3>
 
-<p class="source_link" id="M000567-show-link"><a onclick="toggle('M000567-source'); toggleText('M000567-link'); return false;" href="#" id="M000567-link">Show source...</a></p><div class="source" id="M000567-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 41</span>
+<p class="source_link" id="M000571-show-link"><a onclick="toggle('M000571-source'); toggleText('M000571-link'); return false;" href="#" id="M000571-link">Show source...</a></p><div class="source" id="M000571-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 41</span>
 41:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_underscores_from_page_name</span>
 42:     
 43:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">page_name</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">'_'</span>,<span class="ruby-value str">' '</span>)
@@ -591,9 +591,9 @@ remove_underscores_from_page_name
 45:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000561"><br/></a>
+<a class="small" name="M000565"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000561'>
+<a href='#M000565'>
 
 
 title_with_language
@@ -603,15 +603,15 @@ title_with_language
 </a>
 </h3>
 
-<p class="source_link" id="M000561-show-link"><a onclick="toggle('M000561-source'); toggleText('M000561-link'); return false;" href="#" id="M000561-link">Show source...</a></p><div class="source" id="M000561-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 13</span>
+<p class="source_link" id="M000565-show-link"><a onclick="toggle('M000565-source'); toggleText('M000565-link'); return false;" href="#" id="M000565-link">Show source...</a></p><div class="source" id="M000565-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 13</span>
 13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title_with_language</span>
 14:     <span class="ruby-identifier">title</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot; (&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">language_abbr</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;)&quot;</span>
 15:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000564"><br/></a>
+<a class="small" name="M000568"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000564'>
+<a href='#M000568'>
 
 
 url_and_left_content_is_blank?
@@ -621,7 +621,7 @@ url_and_left_content_is_blank?
 </a>
 </h3>
 
-<p class="source_link" id="M000564-show-link"><a onclick="toggle('M000564-source'); toggleText('M000564-link'); return false;" href="#" id="M000564-link">Show source...</a></p><div class="source" id="M000564-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 29</span>
+<p class="source_link" id="M000568-show-link"><a onclick="toggle('M000568-source'); toggleText('M000568-link'); return false;" href="#" id="M000568-link">Show source...</a></p><div class="source" id="M000568-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page.rb, line 29</span>
 29:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url_and_left_content_is_blank?</span>
 30:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">left_content</span>.<span class="ruby-identifier">blank?</span>
 31:   <span class="ruby-keyword kw">end</span></pre></div>

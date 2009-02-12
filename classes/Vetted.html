@@ -337,35 +337,35 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000407'>
+<a href='#M000411'>
 trusted<br/>
 </a>
 
 
 
 
-<a href='#M000409'>
+<a href='#M000413'>
 trusted_ids<br/>
 </a>
 
 
 
 
-<a href='#M000408'>
+<a href='#M000412'>
 unknown<br/>
 </a>
 
 
 
 
-<a href='#M000406'>
+<a href='#M000410'>
 untrusted<br/>
 </a>
 
 
 
 
-<a href='#M000410'>
+<a href='#M000414'>
 untrusted_ids<br/>
 </a>
 
@@ -388,9 +388,9 @@ untrusted_ids<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000407"><br/></a>
+<a class="small" name="M000411"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000407'>
+<a href='#M000411'>
 
 
 trusted
@@ -400,15 +400,15 @@ trusted
 </a>
 </h3>
 
-<p class="source_link" id="M000407-show-link"><a onclick="toggle('M000407-source'); toggleText('M000407-link'); return false;" href="#" id="M000407-link">Show source...</a></p><div class="source" id="M000407-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 14</span>
+<p class="source_link" id="M000411-show-link"><a onclick="toggle('M000411-source'); toggleText('M000411-link'); return false;" href="#" id="M000411-link">Show source...</a></p><div class="source" id="M000411-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 14</span>
 14:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">trusted</span>
 15:     <span class="ruby-ivar">@@trusted</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Trusted'</span>)
 16:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000409"><br/></a>
+<a class="small" name="M000413"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000409'>
+<a href='#M000413'>
 
 
 trusted_ids
@@ -418,15 +418,15 @@ trusted_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000409-show-link"><a onclick="toggle('M000409-source'); toggleText('M000409-link'); return false;" href="#" id="M000409-link">Show source...</a></p><div class="source" id="M000409-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 29</span>
+<p class="source_link" id="M000413-show-link"><a onclick="toggle('M000413-source'); toggleText('M000413-link'); return false;" href="#" id="M000413-link">Show source...</a></p><div class="source" id="M000413-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 29</span>
 29:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">trusted_ids</span>  
 30:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">trusted</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>
 31:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000408"><br/></a>
+<a class="small" name="M000412"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000408'>
+<a href='#M000412'>
 
 
 unknown
@@ -436,7 +436,7 @@ unknown
 </a>
 </h3>
 
-<p class="source_link" id="M000408-show-link"><a onclick="toggle('M000408-source'); toggleText('M000408-link'); return false;" href="#" id="M000408-link">Show source...</a></p><div class="source" id="M000408-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 18</span>
+<p class="source_link" id="M000412-show-link"><a onclick="toggle('M000412-source'); toggleText('M000412-link'); return false;" href="#" id="M000412-link">Show source...</a></p><div class="source" id="M000412-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 18</span>
 18:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unknown</span>
 19:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@@unknown</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@@unknown</span>.<span class="ruby-identifier">nil?</span>
 20:     <span class="ruby-ivar">@@unknown</span> = <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Unknown'</span>)
@@ -449,9 +449,9 @@ unknown
 27:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000406"><br/></a>
+<a class="small" name="M000410"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000406'>
+<a href='#M000410'>
 
 
 untrusted
@@ -465,15 +465,15 @@ These are just the class methods to grab the ones you want, without hitting
 the DB every time&#8230;
 </p>
 
-<p class="source_link" id="M000406-show-link"><a onclick="toggle('M000406-source'); toggleText('M000406-link'); return false;" href="#" id="M000406-link">Show source...</a></p><div class="source" id="M000406-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 10</span>
+<p class="source_link" id="M000410-show-link"><a onclick="toggle('M000410-source'); toggleText('M000410-link'); return false;" href="#" id="M000410-link">Show source...</a></p><div class="source" id="M000410-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 10</span>
 10:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">untrusted</span>
 11:     <span class="ruby-ivar">@@untrusted</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Untrusted'</span>)
 12:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000410"><br/></a>
+<a class="small" name="M000414"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000410'>
+<a href='#M000414'>
 
 
 untrusted_ids
@@ -483,7 +483,7 @@ untrusted_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000410-show-link"><a onclick="toggle('M000410-source'); toggleText('M000410-link'); return false;" href="#" id="M000410-link">Show source...</a></p><div class="source" id="M000410-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 33</span>
+<p class="source_link" id="M000414-show-link"><a onclick="toggle('M000414-source'); toggleText('M000414-link'); return false;" href="#" id="M000414-link">Show source...</a></p><div class="source" id="M000414-source"><pre>    <span class="ruby-comment cmt"># File app/models/vetted.rb, line 33</span>
 33:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">untrusted_ids</span>
 34:     [<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">untrusted</span>.<span class="ruby-identifier">id</span>,<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unknown</span>.<span class="ruby-identifier">id</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">','</span>) 
 35:   <span class="ruby-keyword kw">end</span></pre></div>

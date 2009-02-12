@@ -337,35 +337,35 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000113'>
+<a href='#M000114'>
 default<br/>
 </a>
 
 
 
 
-<a href='#M000115'>
+<a href='#M000116'>
 kingdoms<br/>
 </a>
 
 
 
 
-<a href='#M000116'>
+<a href='#M000117'>
 kingdoms_hash<br/>
 </a>
 
 
 
 
-<a href='#M000117'>
+<a href='#M000118'>
 node_to_hash<br/>
 </a>
 
 
 
 
-<a href='#M000114'>
+<a href='#M000115'>
 original<br/>
 </a>
 
@@ -405,9 +405,9 @@ the Tree of Life that&#8216;s been imported, eg.
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000113"><br/></a>
+<a class="small" name="M000114"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000113'>
+<a href='#M000114'>
 
 
 default
@@ -417,15 +417,15 @@ default
 </a>
 </h3>
 
-<p class="source_link" id="M000113-show-link"><a onclick="toggle('M000113-source'); toggleText('M000113-link'); return false;" href="#" id="M000113-link">Show source...</a></p><div class="source" id="M000113-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 18</span>
+<p class="source_link" id="M000114-show-link"><a onclick="toggle('M000114-source'); toggleText('M000114-link'); return false;" href="#" id="M000114-link">Show source...</a></p><div class="source" id="M000114-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 18</span>
 18:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default</span>
 19:     <span class="ruby-ivar">@@default_hierarchy</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hierarchy</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">&quot;Species 2000 &amp; ITIS Catalogue of Life: Annual Checklist 2008&quot;</span>)
 20:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000114"><br/></a>
+<a class="small" name="M000115"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000114'>
+<a href='#M000115'>
 
 
 original
@@ -439,7 +439,7 @@ This is the first hierarchy we used, and we need it to serve
 &quot;old&quot; URLs (ie: /taxa/16222828 =&gt; Roenbergensis)
 </p>
 
-<p class="source_link" id="M000114-show-link"><a onclick="toggle('M000114-source'); toggleText('M000114-link'); return false;" href="#" id="M000114-link">Show source...</a></p><div class="source" id="M000114-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 23</span>
+<p class="source_link" id="M000115-show-link"><a onclick="toggle('M000115-source'); toggleText('M000115-link'); return false;" href="#" id="M000115-link">Show source...</a></p><div class="source" id="M000115-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 23</span>
 23:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">original</span>
 24:     <span class="ruby-ivar">@@original_hierarchy</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hierarchy</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">&quot;Species 2000 &amp; ITIS Catalogue of Life: Annual Checklist 2007&quot;</span>)
 25:   <span class="ruby-keyword kw">end</span></pre></div>
@@ -449,9 +449,9 @@ This is the first hierarchy we used, and we need it to serve
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000115"><br/></a>
+<a class="small" name="M000116"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000115'>
+<a href='#M000116'>
 
 
 kingdoms
@@ -461,7 +461,7 @@ kingdoms
 </a>
 </h3>
 
-<p class="source_link" id="M000115-show-link"><a onclick="toggle('M000115-source'); toggleText('M000115-link'); return false;" href="#" id="M000115-link">Show source...</a></p><div class="source" id="M000115-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 27</span>
+<p class="source_link" id="M000116-show-link"><a onclick="toggle('M000116-source'); toggleText('M000116-link'); return false;" href="#" id="M000116-link">Show source...</a></p><div class="source" id="M000116-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 27</span>
 27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">kingdoms</span>(<span class="ruby-identifier">current_user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:expertise</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">$DEFAULT_EXPERTISE</span>, <span class="ruby-identifier">:language</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Language</span>.<span class="ruby-identifier">english</span>))
 28:     <span class="ruby-identifier">kingdoms</span> = <span class="ruby-constant">HierarchyEntry</span>.<span class="ruby-identifier">find_all_by_parent_id_and_hierarchy_id</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">id</span>).<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">he</span><span class="ruby-operator">|</span> <span class="ruby-identifier">he</span>.<span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">nil?</span>}
 29:     <span class="ruby-identifier">kingdoms</span>.<span class="ruby-identifier">sort!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
@@ -472,9 +472,9 @@ kingdoms
 34:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000116"><br/></a>
+<a class="small" name="M000117"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000116'>
+<a href='#M000117'>
 
 
 kingdoms_hash
@@ -484,21 +484,34 @@ kingdoms_hash
 </a>
 </h3>
 
-<p class="source_link" id="M000116-show-link"><a onclick="toggle('M000116-source'); toggleText('M000116-link'); return false;" href="#" id="M000116-link">Show source...</a></p><div class="source" id="M000116-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 36</span>
+<p class="source_link" id="M000117-show-link"><a onclick="toggle('M000117-source'); toggleText('M000117-link'); return false;" href="#" id="M000117-link">Show source...</a></p><div class="source" id="M000117-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 36</span>
 36:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">kingdoms_hash</span>(<span class="ruby-identifier">detail_level</span> = <span class="ruby-identifier">:middle</span>, <span class="ruby-identifier">language</span> = <span class="ruby-constant">Language</span>.<span class="ruby-identifier">english</span>)
 37:     <span class="ruby-identifier">language</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Language</span>.<span class="ruby-identifier">english</span> <span class="ruby-comment cmt"># Not sure why; this didn't work as a default to the argument.</span>
 38:         
-39:     <span class="ruby-identifier">kingdoms</span> = <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;SELECT n1.string scientific_name, n1.italicized scientific_name_italicized, n2.string common_name, n2.italicized common_name_italicized, he.taxon_concept_id id, he.id hierarchy_entry_id, he.lft lft, he.rgt rgt, he.rank_id, hc.content_level content_level, hc.image image, hc.text text, hc.child_image child_image, r.label rank_string FROM hierarchy_entries he JOIN names n1 ON (he.name_id=n1.id) JOIN hierarchies_content hc ON (he.id=hc.hierarchy_entry_id) LEFT JOIN (taxon_concept_names tcn JOIN names n2 ON (tcn.name_id=n2.id)) ON (he.taxon_concept_id=tcn.taxon_concept_id AND tcn.preferred=1 AND tcn.language_id=#{language.id}) LEFT JOIN ranks r ON (he.rank_id=r.id) WHERE he.parent_id=0 AND hierarchy_id=#{id}&quot;</span>).<span class="ruby-identifier">all_hashes</span>
-40:     
-41:     <span class="ruby-identifier">kingdoms</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
-42:       <span class="ruby-identifier">node_to_hash</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">detail_level</span>)
-43:     <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>[<span class="ruby-identifier">:name</span>]}
-44:   <span class="ruby-keyword kw">end</span></pre></div>
+39:     <span class="ruby-identifier">kingdoms</span> = <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;
+40:       SELECT n1.string scientific_name, n1.italicized scientific_name_italicized,
+41:              n2.string common_name, n2.italicized common_name_italicized,
+42:              he.taxon_concept_id id, he.id hierarchy_entry_id, he.lft lft, he.rgt rgt, he.rank_id,
+43:              hc.content_level content_level, hc.image image, hc.text text, hc.child_image child_image,
+44:              r.label rank_string
+45:         FROM hierarchy_entries he
+46:           JOIN names n1 ON (he.name_id=n1.id)
+47:           JOIN hierarchies_content hc ON (he.id=hc.hierarchy_entry_id)
+48:           LEFT JOIN (taxon_concept_names tcn JOIN names n2 ON (tcn.name_id=n2.id))
+49:             ON (he.taxon_concept_id=tcn.taxon_concept_id AND tcn.preferred=1 AND tcn.language_id=#{language.id})
+50:           LEFT JOIN ranks r ON (he.rank_id=r.id)
+51:         WHERE he.parent_id=0 AND hierarchy_id=#{id}
+52:     &quot;</span>).<span class="ruby-identifier">all_hashes</span>
+53:     
+54:     <span class="ruby-identifier">kingdoms</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+55:       <span class="ruby-identifier">node_to_hash</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">detail_level</span>)
+56:     <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>[<span class="ruby-identifier">:name</span>]}
+57:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000117"><br/></a>
+<a class="small" name="M000118"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000117'>
+<a href='#M000118'>
 
 
 node_to_hash
@@ -508,22 +521,22 @@ node_to_hash
 </a>
 </h3>
 
-<p class="source_link" id="M000117-show-link"><a onclick="toggle('M000117-source'); toggleText('M000117-link'); return false;" href="#" id="M000117-link">Show source...</a></p><div class="source" id="M000117-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 46</span>
-46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node_to_hash</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">detail_level</span>)
-47:     <span class="ruby-identifier">is_leaf_node</span> = (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'rgt'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'lft'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
-48:     <span class="ruby-identifier">name</span> = (<span class="ruby-identifier">detail_level</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:expert</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>  <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name'</span>].<span class="ruby-identifier">firstcap</span>)
-49:     <span class="ruby-comment cmt">#name = node['scientific_name_italicized'] if (is_leaf_node &amp;&amp; (detail_level.to_sym == :expert || node['common_name'] == nil))</span>
-50:     <span class="ruby-identifier">name</span> = <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name_italicized'</span>] <span class="ruby-keyword kw">if</span> (<span class="ruby-constant">Rank</span>.<span class="ruby-identifier">italicized_ids</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>[<span class="ruby-value str">'rank_id'</span>].<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">detail_level</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:expert</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>))
-51:     {
-52:       <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>,
-53:       <span class="ruby-identifier">:italicized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">detail_level</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:expert</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name_italicized'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name_italicized'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>  <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name_italicized'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name_italicized'</span>].<span class="ruby-identifier">firstcap</span>),
-54:       <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'id'</span>],
-55:       <span class="ruby-identifier">:rank_string</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'rank_string'</span>],
-56:       <span class="ruby-identifier">:hierarchy_entry_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'hierarchy_entry_id'</span>],
-57:       <span class="ruby-identifier">:valid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'content_level'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">$VALID_CONTENT_LEVEL</span>,
-58:       <span class="ruby-identifier">:enable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">is_leaf_node</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">node</span>[<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'image'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>) <span class="ruby-operator">:</span> (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'image'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'child_image'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
-59:     }
-60:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000118-show-link"><a onclick="toggle('M000118-source'); toggleText('M000118-link'); return false;" href="#" id="M000118-link">Show source...</a></p><div class="source" id="M000118-source"><pre>    <span class="ruby-comment cmt"># File app/models/hierarchy.rb, line 59</span>
+59:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node_to_hash</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">detail_level</span>)
+60:     <span class="ruby-identifier">is_leaf_node</span> = (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'rgt'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'lft'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+61:     <span class="ruby-identifier">name</span> = (<span class="ruby-identifier">detail_level</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:expert</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>  <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name'</span>].<span class="ruby-identifier">firstcap</span>)
+62:     <span class="ruby-comment cmt">#name = node['scientific_name_italicized'] if (is_leaf_node &amp;&amp; (detail_level.to_sym == :expert || node['common_name'] == nil))</span>
+63:     <span class="ruby-identifier">name</span> = <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name_italicized'</span>] <span class="ruby-keyword kw">if</span> (<span class="ruby-constant">Rank</span>.<span class="ruby-identifier">italicized_ids</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>[<span class="ruby-value str">'rank_id'</span>].<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">detail_level</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:expert</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>))
+64:     {
+65:       <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>,
+66:       <span class="ruby-identifier">:italicized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">detail_level</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:expert</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name_italicized'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name_italicized'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>  <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'scientific_name_italicized'</span>].<span class="ruby-identifier">firstcap</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'common_name_italicized'</span>].<span class="ruby-identifier">firstcap</span>),
+67:       <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'id'</span>],
+68:       <span class="ruby-identifier">:rank_string</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'rank_string'</span>],
+69:       <span class="ruby-identifier">:hierarchy_entry_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'hierarchy_entry_id'</span>],
+70:       <span class="ruby-identifier">:valid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'content_level'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">$VALID_CONTENT_LEVEL</span>,
+71:       <span class="ruby-identifier">:enable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">is_leaf_node</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">node</span>[<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'image'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>) <span class="ruby-operator">:</span> (<span class="ruby-identifier">node</span>[<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'image'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>[<span class="ruby-value str">'child_image'</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+72:     }
+73:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
 

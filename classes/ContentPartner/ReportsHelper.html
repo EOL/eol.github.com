@@ -331,14 +331,14 @@ Module: ContentPartner::ReportsHelper
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000287'>
+<a href='#M000291'>
 link_to_report<br/>
 </a>
 
 
 
 
-<a href='#M000286'>
+<a href='#M000290'>
 path_for_report<br/>
 </a>
 
@@ -367,9 +367,9 @@ the ReportsController views get access to these &#8230;
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000287"><br/></a>
+<a class="small" name="M000291"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000287'>
+<a href='#M000291'>
 
 
 link_to_report
@@ -382,7 +382,7 @@ link_to_report
 helper method for easily constructing links to reports (with query strings)
 </p>
 <p>
-see <a href="ReportsHelper.html#M000286">path_for_report</a>
+see <a href="ReportsHelper.html#M000290">path_for_report</a>
 </p>
 <p>
 Usage:
@@ -393,15 +393,15 @@ Usage:
   link_to_report 'States Report', :states, :per_page =&gt; 50, :page =&gt; 5
 </pre>
 
-<p class="source_link" id="M000287-show-link"><a onclick="toggle('M000287-source'); toggleText('M000287-link'); return false;" href="#" id="M000287-link">Show source...</a></p><div class="source" id="M000287-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/content_partner/reports_helper.rb, line 48</span>
+<p class="source_link" id="M000291-show-link"><a onclick="toggle('M000291-source'); toggleText('M000291-link'); return false;" href="#" id="M000291-link">Show source...</a></p><div class="source" id="M000291-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/content_partner/reports_helper.rb, line 48</span>
 48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_report</span> <span class="ruby-identifier">text</span>, <span class="ruby-identifier">report</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">query_strings</span> = {}
 49:     <span class="ruby-node">%{&lt;a href=&quot;#{ path_for_report report, query_strings }&quot;&gt;#{ text }&lt;/a&gt;}</span>
 50:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000286"><br/></a>
+<a class="small" name="M000290"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000286'>
+<a href='#M000290'>
 
 
 path_for_report
@@ -427,7 +427,7 @@ If no report is given, it will default to the current +@report+ (assuming
 you&#8216;re on a report&#8216;s page)
 </p>
 
-<p class="source_link" id="M000286-show-link"><a onclick="toggle('M000286-source'); toggleText('M000286-link'); return false;" href="#" id="M000286-link">Show source...</a></p><div class="source" id="M000286-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/content_partner/reports_helper.rb, line 17</span>
+<p class="source_link" id="M000290-show-link"><a onclick="toggle('M000290-source'); toggleText('M000290-link'); return false;" href="#" id="M000290-link">Show source...</a></p><div class="source" id="M000290-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/content_partner/reports_helper.rb, line 17</span>
 17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path_for_report</span> <span class="ruby-identifier">report</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">query_strings</span> = {}
 18:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">report</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Hash</span>
 19:       <span class="ruby-identifier">query_strings</span> = <span class="ruby-identifier">report</span>

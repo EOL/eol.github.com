@@ -472,11 +472,11 @@ topic)
 <pre>
   rake eol:db:create:all           # Note the &quot;EOL&quot;.  This keeps bad things from happening.  Please use it.
   rake db:migrate
-  rake spec:db:fixtures:load       # You need this or the next step will do nothing.
-  rake denormal:build_random_taxa  # This populates the eolData database with data.
-  rake db:migrate RAILS_ENV=test7
-  rake spec:db:fixtures:load RAILS_ENV=test
-  rake denormal:build_random_taxa RAILS_ENV=test   # If you don't run this one, you will get more failures!
+  rake db:migrate RAILS_ENV=test
+  rake truncate
+  rake truncate RAILS_ENV=test
+  rake scenarios:load NAME=foundation,bootstrap RAILS_ENV=development   # Yes, you REALLY have to specify the environment.
+  rake scenarios:load NAME=foundation,bootstrap RAILS_ENV=test
   rake eol:site_specific repo=URL  # Your &quot;URL&quot; (or an alternative) will be provided to you privately.
 </pre>
 <p>
@@ -496,8 +496,38 @@ Go to <a href="http://localhost:3000">localhost:3000</a> and see stuff.
 </p>
 <h2>TESTING</h2>
 <p>
-We&#8216;re using RSpec for our testing (see the spec/ directory). For
-model tests, you can either use fixtures or ValidModelBuilder.
+We&#8216;re using RSpec for our testing (see the spec/ directory). Run
+&#8216;rake spec&#8216;
+</p>
+<p>
+If you ran the rake commands above, you should be able to load the website
+with minimal functionality. Otherwise, run:
+</p>
+<pre>
+  rake truncate ; rake scenarios:load NAME=foundation,bootstrap RAILS_ENV=development
+</pre>
+<h3>Additional tests</h3>
+<p>
+You can log in as any of the users or content partners with the password
+&quot;test password&quot;. There are no consistent users, so either create
+your own, log in with OpenID, or use the console to find a username.
+</p>
+<p>
+There are several consistent content partners, and the password is also
+&quot;test password&quot;. There will be IUCN, catalogueoflife, and
+test_cp.
+</p>
+<p>
+Once logged in, every taxon concept should have various images that will
+only show up based on <a href="../../classes/Vetted.html">Vetted</a>/<a
+href="../../classes/Visibility.html">Visibility</a> values: each
+combination is represented.
+</p>
+<p>
+Finally, pages/6 (<a
+href="../../classes/TaxonConcept.html">TaxonConcept</a> ID 6) has one
+additional image which is in &quot;preview&quot; mode for the test_cp
+Content Partner, and should be visibile only to her.
 </p>
 <h2>MULTI-DATABASE AND MASTER/SLAVE DATABASES SETUP</h2>
 <p>
@@ -797,8 +827,8 @@ Any links to external sites that need to be tracked should use the
 following two helpers:
 </p>
 <pre>
-  eol_return_linked_text(text,url)      # (aliased as link_text as well)
-  eol_return_linked_image(image,url)
+  external_link_to(text,url)
+  external_link_to(image_tag(image),url)
 </pre>
 <p>
 Both will generate a link (with either the supplied text or the supplied

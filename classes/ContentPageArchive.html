@@ -337,14 +337,14 @@ ActiveRecord::Base
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000324'>
+<a href='#M000328'>
 archived_by<br/>
 </a>
 
 
 
 
-<a href='#M000323'>
+<a href='#M000327'>
 backup<br/>
 </a>
 
@@ -367,9 +367,9 @@ backup<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000323"><br/></a>
+<a class="small" name="M000327"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000323'>
+<a href='#M000327'>
 
 
 backup
@@ -379,7 +379,7 @@ backup
 </a>
 </h3>
 
-<p class="source_link" id="M000323-show-link"><a onclick="toggle('M000323-source'); toggleText('M000323-link'); return false;" href="#" id="M000323-link">Show source...</a></p><div class="source" id="M000323-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page_archive.rb, line 6</span>
+<p class="source_link" id="M000327-show-link"><a onclick="toggle('M000327-source'); toggleText('M000327-link'); return false;" href="#" id="M000327-link">Show source...</a></p><div class="source" id="M000327-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page_archive.rb, line 6</span>
  6:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backup</span>(<span class="ruby-identifier">page</span>)
  7:     
  8:     <span class="ruby-identifier">backup_page</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">:content_page_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">:last_update_user_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">last_update_user_id</span>,<span class="ruby-identifier">:page_name=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">page_name</span>,<span class="ruby-identifier">:title=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">title</span>,<span class="ruby-identifier">:language_key=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">language_key</span>,<span class="ruby-identifier">:content_section_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">content_section_id</span>,<span class="ruby-identifier">:sort_order=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">sort_order</span>,<span class="ruby-identifier">:left_content=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">left_content</span>,<span class="ruby-identifier">:main_content=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">main_content</span>,<span class="ruby-identifier">:original_creation_date=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">created_at</span>,<span class="ruby-identifier">:language_abbr=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">language_abbr</span>,<span class="ruby-identifier">:url=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">url</span>,<span class="ruby-identifier">:open_in_new_window=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">page</span>.<span class="ruby-identifier">open_in_new_window</span>)
@@ -391,9 +391,9 @@ backup
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000324"><br/></a>
+<a class="small" name="M000328"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000324'>
+<a href='#M000328'>
 
 
 archived_by
@@ -403,7 +403,7 @@ archived_by
 </a>
 </h3>
 
-<p class="source_link" id="M000324-show-link"><a onclick="toggle('M000324-source'); toggleText('M000324-link'); return false;" href="#" id="M000324-link">Show source...</a></p><div class="source" id="M000324-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page_archive.rb, line 12</span>
+<p class="source_link" id="M000328-show-link"><a onclick="toggle('M000328-source'); toggleText('M000328-link'); return false;" href="#" id="M000328-link">Show source...</a></p><div class="source" id="M000328-source"><pre>    <span class="ruby-comment cmt"># File app/models/content_page_archive.rb, line 12</span>
 12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">archived_by</span>
 13:      
 14:      <span class="ruby-node">&quot;#{self.created_at} by #{self.user.full_name}&quot;</span>

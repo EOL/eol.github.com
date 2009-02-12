@@ -337,70 +337,70 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000610'>
+<a href='#M000614'>
 being_processed<br/>
 </a>
 
 
 
 
-<a href='#M000607'>
+<a href='#M000611'>
 moved_to_content_server<br/>
 </a>
 
 
 
 
-<a href='#M000611'>
+<a href='#M000615'>
 processed<br/>
 </a>
 
 
 
 
-<a href='#M000612'>
+<a href='#M000616'>
 processing_failed<br/>
 </a>
 
 
 
 
-<a href='#M000613'>
+<a href='#M000617'>
 published<br/>
 </a>
 
 
 
 
-<a href='#M000606'>
+<a href='#M000610'>
 upload_failed<br/>
 </a>
 
 
 
 
-<a href='#M000605'>
+<a href='#M000609'>
 uploaded<br/>
 </a>
 
 
 
 
-<a href='#M000604'>
+<a href='#M000608'>
 uploading<br/>
 </a>
 
 
 
 
-<a href='#M000608'>
+<a href='#M000612'>
 validated<br/>
 </a>
 
 
 
 
-<a href='#M000609'>
+<a href='#M000613'>
 validation_failed<br/>
 </a>
 
@@ -423,9 +423,9 @@ validation_failed<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000610"><br/></a>
+<a class="small" name="M000614"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000610'>
+<a href='#M000614'>
 
 
 being_processed
@@ -435,15 +435,15 @@ being_processed
 </a>
 </h3>
 
-<p class="source_link" id="M000610-show-link"><a onclick="toggle('M000610-source'); toggleText('M000610-link'); return false;" href="#" id="M000610-link">Show source...</a></p><div class="source" id="M000610-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 28</span>
+<p class="source_link" id="M000614-show-link"><a onclick="toggle('M000614-source'); toggleText('M000614-link'); return false;" href="#" id="M000614-link">Show source...</a></p><div class="source" id="M000614-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 28</span>
 28:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">being_processed</span>
 29:     <span class="ruby-ivar">@@being_processed</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Being Processed'</span>)
 30:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000607"><br/></a>
+<a class="small" name="M000611"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000607'>
+<a href='#M000611'>
 
 
 moved_to_content_server
@@ -453,15 +453,15 @@ moved_to_content_server
 </a>
 </h3>
 
-<p class="source_link" id="M000607-show-link"><a onclick="toggle('M000607-source'); toggleText('M000607-link'); return false;" href="#" id="M000607-link">Show source...</a></p><div class="source" id="M000607-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 16</span>
+<p class="source_link" id="M000611-show-link"><a onclick="toggle('M000611-source'); toggleText('M000611-link'); return false;" href="#" id="M000611-link">Show source...</a></p><div class="source" id="M000611-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 16</span>
 16:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">moved_to_content_server</span>
 17:     <span class="ruby-ivar">@@moved_to_content_server</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Moved to Content Server'</span>)
 18:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000611"><br/></a>
+<a class="small" name="M000615"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000611'>
+<a href='#M000615'>
 
 
 processed
@@ -471,15 +471,15 @@ processed
 </a>
 </h3>
 
-<p class="source_link" id="M000611-show-link"><a onclick="toggle('M000611-source'); toggleText('M000611-link'); return false;" href="#" id="M000611-link">Show source...</a></p><div class="source" id="M000611-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 32</span>
+<p class="source_link" id="M000615-show-link"><a onclick="toggle('M000615-source'); toggleText('M000615-link'); return false;" href="#" id="M000615-link">Show source...</a></p><div class="source" id="M000615-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 32</span>
 32:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">processed</span>
 33:     <span class="ruby-ivar">@@processed</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Processed'</span>)
 34:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000612"><br/></a>
+<a class="small" name="M000616"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000612'>
+<a href='#M000616'>
 
 
 processing_failed
@@ -489,15 +489,15 @@ processing_failed
 </a>
 </h3>
 
-<p class="source_link" id="M000612-show-link"><a onclick="toggle('M000612-source'); toggleText('M000612-link'); return false;" href="#" id="M000612-link">Show source...</a></p><div class="source" id="M000612-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 36</span>
+<p class="source_link" id="M000616-show-link"><a onclick="toggle('M000616-source'); toggleText('M000616-link'); return false;" href="#" id="M000616-link">Show source...</a></p><div class="source" id="M000616-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 36</span>
 36:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">processing_failed</span>
 37:     <span class="ruby-ivar">@@processing_failed</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Processing Failed'</span>)
 38:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000613"><br/></a>
+<a class="small" name="M000617"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000613'>
+<a href='#M000617'>
 
 
 published
@@ -507,15 +507,15 @@ published
 </a>
 </h3>
 
-<p class="source_link" id="M000613-show-link"><a onclick="toggle('M000613-source'); toggleText('M000613-link'); return false;" href="#" id="M000613-link">Show source...</a></p><div class="source" id="M000613-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 40</span>
+<p class="source_link" id="M000617-show-link"><a onclick="toggle('M000617-source'); toggleText('M000617-link'); return false;" href="#" id="M000617-link">Show source...</a></p><div class="source" id="M000617-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 40</span>
 40:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">published</span>
 41:     <span class="ruby-ivar">@@published</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Published'</span>)
 42:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000606"><br/></a>
+<a class="small" name="M000610"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000606'>
+<a href='#M000610'>
 
 
 upload_failed
@@ -525,15 +525,15 @@ upload_failed
 </a>
 </h3>
 
-<p class="source_link" id="M000606-show-link"><a onclick="toggle('M000606-source'); toggleText('M000606-link'); return false;" href="#" id="M000606-link">Show source...</a></p><div class="source" id="M000606-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 12</span>
+<p class="source_link" id="M000610-show-link"><a onclick="toggle('M000610-source'); toggleText('M000610-link'); return false;" href="#" id="M000610-link">Show source...</a></p><div class="source" id="M000610-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 12</span>
 12:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">upload_failed</span>
 13:     <span class="ruby-ivar">@@upload_failed</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Upload Failed'</span>)
 14:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000605"><br/></a>
+<a class="small" name="M000609"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000605'>
+<a href='#M000609'>
 
 
 uploaded
@@ -543,15 +543,15 @@ uploaded
 </a>
 </h3>
 
-<p class="source_link" id="M000605-show-link"><a onclick="toggle('M000605-source'); toggleText('M000605-link'); return false;" href="#" id="M000605-link">Show source...</a></p><div class="source" id="M000605-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 8</span>
+<p class="source_link" id="M000609-show-link"><a onclick="toggle('M000609-source'); toggleText('M000609-link'); return false;" href="#" id="M000609-link">Show source...</a></p><div class="source" id="M000609-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 8</span>
  8:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uploaded</span>
  9:     <span class="ruby-ivar">@@uploaded</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Uploaded'</span>)
 10:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000604"><br/></a>
+<a class="small" name="M000608"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000604'>
+<a href='#M000608'>
 
 
 uploading
@@ -561,15 +561,15 @@ uploading
 </a>
 </h3>
 
-<p class="source_link" id="M000604-show-link"><a onclick="toggle('M000604-source'); toggleText('M000604-link'); return false;" href="#" id="M000604-link">Show source...</a></p><div class="source" id="M000604-source"><pre>   <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 4</span>
+<p class="source_link" id="M000608-show-link"><a onclick="toggle('M000608-source'); toggleText('M000608-link'); return false;" href="#" id="M000608-link">Show source...</a></p><div class="source" id="M000608-source"><pre>   <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 4</span>
 4:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">uploading</span>
 5:     <span class="ruby-ivar">@@uploading</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Uploading'</span>) 
 6:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000608"><br/></a>
+<a class="small" name="M000612"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000608'>
+<a href='#M000612'>
 
 
 validated
@@ -579,15 +579,15 @@ validated
 </a>
 </h3>
 
-<p class="source_link" id="M000608-show-link"><a onclick="toggle('M000608-source'); toggleText('M000608-link'); return false;" href="#" id="M000608-link">Show source...</a></p><div class="source" id="M000608-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 20</span>
+<p class="source_link" id="M000612-show-link"><a onclick="toggle('M000612-source'); toggleText('M000612-link'); return false;" href="#" id="M000612-link">Show source...</a></p><div class="source" id="M000612-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 20</span>
 20:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">validated</span>
 21:     <span class="ruby-ivar">@@validated</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Validated'</span>)
 22:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000609"><br/></a>
+<a class="small" name="M000613"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000609'>
+<a href='#M000613'>
 
 
 validation_failed
@@ -597,7 +597,7 @@ validation_failed
 </a>
 </h3>
 
-<p class="source_link" id="M000609-show-link"><a onclick="toggle('M000609-source'); toggleText('M000609-link'); return false;" href="#" id="M000609-link">Show source...</a></p><div class="source" id="M000609-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 24</span>
+<p class="source_link" id="M000613-show-link"><a onclick="toggle('M000613-source'); toggleText('M000613-link'); return false;" href="#" id="M000613-link">Show source...</a></p><div class="source" id="M000613-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource_status.rb, line 24</span>
 24:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">validation_failed</span>
 25:     <span class="ruby-ivar">@@validation_failed</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_label</span>(<span class="ruby-value str">'Validation Failed'</span>)
 26:   <span class="ruby-keyword kw">end</span></pre></div>

@@ -337,56 +337,56 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000325'>
-attribution_order<br/>
-</a>
-
-
-
-
-<a href='#M000326'>
-attribution_order<br/>
-</a>
-
-
-
-
-<a href='#M000327'>
-attribution_order_for<br/>
-</a>
-
-
-
-
-<a href='#M000328'>
-full_attribution_order<br/>
-</a>
-
-
-
-
 <a href='#M000329'>
-image_type_ids<br/>
-</a>
-
-
-
-
-<a href='#M000331'>
-map_type_ids<br/>
-</a>
-
-
-
-
-<a href='#M000332'>
-text_type_ids<br/>
+attribution_order<br/>
 </a>
 
 
 
 
 <a href='#M000330'>
+attribution_order<br/>
+</a>
+
+
+
+
+<a href='#M000331'>
+attribution_order_for<br/>
+</a>
+
+
+
+
+<a href='#M000332'>
+full_attribution_order<br/>
+</a>
+
+
+
+
+<a href='#M000333'>
+image_type_ids<br/>
+</a>
+
+
+
+
+<a href='#M000335'>
+map_type_ids<br/>
+</a>
+
+
+
+
+<a href='#M000336'>
+text_type_ids<br/>
+</a>
+
+
+
+
+<a href='#M000334'>
 video_type_ids<br/>
 </a>
 
@@ -419,9 +419,9 @@ video_type_ids<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000325"><br/></a>
+<a class="small" name="M000329"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000325'>
+<a href='#M000329'>
 
 
 attribution_order
@@ -431,7 +431,7 @@ attribution_order
 </a>
 </h3>
 
-<p class="source_link" id="M000325-show-link"><a onclick="toggle('M000325-source'); toggleText('M000325-link'); return false;" href="#" id="M000325-link">Show source...</a></p><div class="source" id="M000325-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 9</span>
+<p class="source_link" id="M000329-show-link"><a onclick="toggle('M000329-source'); toggleText('M000329-link'); return false;" href="#" id="M000329-link">Show source...</a></p><div class="source" id="M000329-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 9</span>
  9:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution_order</span>
 10:       <span class="ruby-comment cmt"># define defaults </span>
 11:       <span class="ruby-ivar">@attribution_order</span> <span class="ruby-operator">||=</span> {
@@ -441,9 +441,9 @@ attribution_order
 15:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000329"><br/></a>
+<a class="small" name="M000333"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000329'>
+<a href='#M000333'>
 
 
 image_type_ids
@@ -453,15 +453,15 @@ image_type_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000329-show-link"><a onclick="toggle('M000329-source'); toggleText('M000329-link'); return false;" href="#" id="M000329-link">Show source...</a></p><div class="source" id="M000329-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 36</span>
+<p class="source_link" id="M000333-show-link"><a onclick="toggle('M000333-source'); toggleText('M000333-link'); return false;" href="#" id="M000333-link">Show source...</a></p><div class="source" id="M000333-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 36</span>
 36:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">image_type_ids</span>
 37:     <span class="ruby-ivar">@@image_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'Image'</span>])
 38:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000331"><br/></a>
+<a class="small" name="M000335"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000331'>
+<a href='#M000335'>
 
 
 map_type_ids
@@ -471,15 +471,15 @@ map_type_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000331-show-link"><a onclick="toggle('M000331-source'); toggleText('M000331-link'); return false;" href="#" id="M000331-link">Show source...</a></p><div class="source" id="M000331-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 44</span>
+<p class="source_link" id="M000335-show-link"><a onclick="toggle('M000335-source'); toggleText('M000335-link'); return false;" href="#" id="M000335-link">Show source...</a></p><div class="source" id="M000335-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 44</span>
 44:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">map_type_ids</span>
 45:     <span class="ruby-ivar">@@map_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'GBIF Image'</span>])
 46:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000332"><br/></a>
+<a class="small" name="M000336"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000332'>
+<a href='#M000336'>
 
 
 text_type_ids
@@ -489,15 +489,15 @@ text_type_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000332-show-link"><a onclick="toggle('M000332-source'); toggleText('M000332-link'); return false;" href="#" id="M000332-link">Show source...</a></p><div class="source" id="M000332-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 48</span>
+<p class="source_link" id="M000336-show-link"><a onclick="toggle('M000336-source'); toggleText('M000336-link'); return false;" href="#" id="M000336-link">Show source...</a></p><div class="source" id="M000336-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 48</span>
 48:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">text_type_ids</span>
 49:     <span class="ruby-ivar">@@text_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'Text'</span>])
 50:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000330"><br/></a>
+<a class="small" name="M000334"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000330'>
+<a href='#M000334'>
 
 
 video_type_ids
@@ -507,7 +507,7 @@ video_type_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000330-show-link"><a onclick="toggle('M000330-source'); toggleText('M000330-link'); return false;" href="#" id="M000330-link">Show source...</a></p><div class="source" id="M000330-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 40</span>
+<p class="source_link" id="M000334-show-link"><a onclick="toggle('M000334-source'); toggleText('M000334-link'); return false;" href="#" id="M000334-link">Show source...</a></p><div class="source" id="M000334-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 40</span>
 40:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">video_type_ids</span>
 41:     <span class="ruby-ivar">@@video_type_ids</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DataType</span>.<span class="ruby-identifier">get_type_ids</span>([<span class="ruby-value str">'YouTube'</span>, <span class="ruby-value str">'Flash'</span>])
 42:   <span class="ruby-keyword kw">end</span></pre></div>
@@ -517,9 +517,9 @@ video_type_ids
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000326"><br/></a>
+<a class="small" name="M000330"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000326'>
+<a href='#M000330'>
 
 
 attribution_order
@@ -530,19 +530,19 @@ attribution_order
 </h3>
 <p>
 shortcut reference to <a
-href="DataType.html#M000325">DataType.attribution_order</a>[
+href="DataType.html#M000329">DataType.attribution_order</a>[
 @data_type.label ]
 </p>
 
-<p class="source_link" id="M000326-show-link"><a onclick="toggle('M000326-source'); toggleText('M000326-link'); return false;" href="#" id="M000326-link">Show source...</a></p><div class="source" id="M000326-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 19</span>
+<p class="source_link" id="M000330-show-link"><a onclick="toggle('M000330-source'); toggleText('M000330-link'); return false;" href="#" id="M000330-link">Show source...</a></p><div class="source" id="M000330-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 19</span>
 19:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution_order</span>
 20:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">attribution_order</span>[ <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">label</span> ] <span class="ruby-operator">||=</span> []
 21:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000327"><br/></a>
+<a class="small" name="M000331"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000327'>
+<a href='#M000331'>
 
 
 attribution_order_for
@@ -552,7 +552,7 @@ attribution_order_for
 </a>
 </h3>
 
-<p class="source_link" id="M000327-show-link"><a onclick="toggle('M000327-source'); toggleText('M000327-link'); return false;" href="#" id="M000327-link">Show source...</a></p><div class="source" id="M000327-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 23</span>
+<p class="source_link" id="M000331-show-link"><a onclick="toggle('M000331-source'); toggleText('M000331-link'); return false;" href="#" id="M000331-link">Show source...</a></p><div class="source" id="M000331-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 23</span>
 23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attribution_order_for</span> <span class="ruby-identifier">agent_role</span>
 24:     <span class="ruby-identifier">agent_role_id</span> = (<span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Fixnum</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">agent_role</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">agent_role</span>.<span class="ruby-identifier">id</span>
 25:     <span class="ruby-identifier">full_attribution_order</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ordered_agent_role</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
@@ -562,9 +562,9 @@ attribution_order_for
 29:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000328"><br/></a>
+<a class="small" name="M000332"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000328'>
+<a href='#M000332'>
 
 
 full_attribution_order
@@ -574,7 +574,7 @@ full_attribution_order
 </a>
 </h3>
 
-<p class="source_link" id="M000328-show-link"><a onclick="toggle('M000328-source'); toggleText('M000328-link'); return false;" href="#" id="M000328-link">Show source...</a></p><div class="source" id="M000328-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 31</span>
+<p class="source_link" id="M000332-show-link"><a onclick="toggle('M000332-source'); toggleText('M000332-link'); return false;" href="#" id="M000332-link">Show source...</a></p><div class="source" id="M000332-source"><pre>    <span class="ruby-comment cmt"># File app/models/data_type.rb, line 31</span>
 31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_attribution_order</span>
 32:     <span class="ruby-identifier">other_roles</span> = <span class="ruby-constant">AgentRole</span>.<span class="ruby-identifier">all</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">attribution_order</span>
 33:     <span class="ruby-identifier">attribution_order</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">other_roles</span>

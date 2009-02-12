@@ -337,21 +337,21 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000414'>
+<a href='#M000418'>
 display_code<br/>
 </a>
 
 
 
 
-<a href='#M000413'>
+<a href='#M000417'>
 english<br/>
 </a>
 
 
 
 
-<a href='#M000412'>
+<a href='#M000416'>
 scientific<br/>
 </a>
 
@@ -374,9 +374,9 @@ scientific<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000413"><br/></a>
+<a class="small" name="M000417"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000413'>
+<a href='#M000417'>
 
 
 english
@@ -386,15 +386,15 @@ english
 </a>
 </h3>
 
-<p class="source_link" id="M000413-show-link"><a onclick="toggle('M000413-source'); toggleText('M000413-link'); return false;" href="#" id="M000413-link">Show source...</a></p><div class="source" id="M000413-source"><pre>    <span class="ruby-comment cmt"># File app/models/language.rb, line 14</span>
+<p class="source_link" id="M000417-show-link"><a onclick="toggle('M000417-source'); toggleText('M000417-link'); return false;" href="#" id="M000417-link">Show source...</a></p><div class="source" id="M000417-source"><pre>    <span class="ruby-comment cmt"># File app/models/language.rb, line 14</span>
 14:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">english</span> <span class="ruby-comment cmt"># because it's a default.  No other language will have this kind of method.</span>
 15:     <span class="ruby-ivar">@@english</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Language</span>.<span class="ruby-identifier">find_by_iso_639_1</span>(<span class="ruby-value str">'en'</span>)
 16:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000412"><br/></a>
+<a class="small" name="M000416"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000412'>
+<a href='#M000416'>
 
 
 scientific
@@ -404,7 +404,7 @@ scientific
 </a>
 </h3>
 
-<p class="source_link" id="M000412-show-link"><a onclick="toggle('M000412-source'); toggleText('M000412-link'); return false;" href="#" id="M000412-link">Show source...</a></p><div class="source" id="M000412-source"><pre>    <span class="ruby-comment cmt"># File app/models/language.rb, line 10</span>
+<p class="source_link" id="M000416-show-link"><a onclick="toggle('M000416-source'); toggleText('M000416-link'); return false;" href="#" id="M000416-link">Show source...</a></p><div class="source" id="M000416-source"><pre>    <span class="ruby-comment cmt"># File app/models/language.rb, line 10</span>
 10:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">scientific</span>
 11:     <span class="ruby-ivar">@@scientific</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Language</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@@SCIENTIFIC_ID</span>) 
 12:   <span class="ruby-keyword kw">end</span></pre></div>
@@ -414,9 +414,9 @@ scientific
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000414"><br/></a>
+<a class="small" name="M000418"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000414'>
+<a href='#M000418'>
 
 
 display_code
@@ -426,7 +426,7 @@ display_code
 </a>
 </h3>
 
-<p class="source_link" id="M000414-show-link"><a onclick="toggle('M000414-source'); toggleText('M000414-link'); return false;" href="#" id="M000414-link">Show source...</a></p><div class="source" id="M000414-source"><pre>    <span class="ruby-comment cmt"># File app/models/language.rb, line 18</span>
+<p class="source_link" id="M000418-show-link"><a onclick="toggle('M000418-source'); toggleText('M000418-link'); return false;" href="#" id="M000418-link">Show source...</a></p><div class="source" id="M000418-source"><pre>    <span class="ruby-comment cmt"># File app/models/language.rb, line 18</span>
 18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_code</span>
 19:     <span class="ruby-identifier">iso_639_1</span>.<span class="ruby-identifier">upcase</span>
 20:   <span class="ruby-keyword kw">end</span></pre></div>

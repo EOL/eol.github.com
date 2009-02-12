@@ -337,70 +337,70 @@ AdminController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000660'>
+<a href='#M000666'>
 auto_publish<br/>
 </a>
 
 
 
 
-<a href='#M000656'>
+<a href='#M000662'>
 edit_agreement<br/>
 </a>
 
 
 
 
-<a href='#M000654'>
+<a href='#M000660'>
 edit_profile<br/>
 </a>
 
 
 
 
-<a href='#M000651'>
+<a href='#M000657'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000655'>
+<a href='#M000661'>
 login_as_agent<br/>
 </a>
 
 
 
 
-<a href='#M000652'>
+<a href='#M000658'>
 show<br/>
 </a>
 
 
 
 
-<a href='#M000653'>
+<a href='#M000659'>
 show_contacts<br/>
 </a>
 
 
 
 
-<a href='#M000658'>
+<a href='#M000664'>
 show_mou_on_partner_page<br/>
 </a>
 
 
 
 
-<a href='#M000657'>
+<a href='#M000663'>
 show_on_partner_page<br/>
 </a>
 
 
 
 
-<a href='#M000659'>
+<a href='#M000665'>
 vet_partner<br/>
 </a>
 
@@ -423,9 +423,9 @@ vet_partner<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000660"><br/></a>
+<a class="small" name="M000666"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000660'>
+<a href='#M000666'>
 
 
 auto_publish
@@ -435,7 +435,7 @@ auto_publish
 </a>
 </h3>
 
-<p class="source_link" id="M000660-show-link"><a onclick="toggle('M000660-source'); toggleText('M000660-link'); return false;" href="#" id="M000660-link">Show source...</a></p><div class="source" id="M000660-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 130</span>
+<p class="source_link" id="M000666-show-link"><a onclick="toggle('M000666-source'); toggleText('M000666-link'); return false;" href="#" id="M000666-link">Show source...</a></p><div class="source" id="M000666-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 130</span>
 130:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">auto_publish</span>
 131:     <span class="ruby-ivar">@agent</span> = <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 132:     <span class="ruby-ivar">@agent</span>.<span class="ruby-identifier">content_partner</span>.<span class="ruby-identifier">toggle!</span>(<span class="ruby-identifier">:auto_publish</span>)
@@ -450,9 +450,9 @@ auto_publish
 141:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000656"><br/></a>
+<a class="small" name="M000662"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000656'>
+<a href='#M000662'>
 
 
 edit_agreement
@@ -462,7 +462,7 @@ edit_agreement
 </a>
 </h3>
 
-<p class="source_link" id="M000656-show-link"><a onclick="toggle('M000656-source'); toggleText('M000656-link'); return false;" href="#" id="M000656-link">Show source...</a></p><div class="source" id="M000656-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 63</span>
+<p class="source_link" id="M000662-show-link"><a onclick="toggle('M000662-source'); toggleText('M000662-link'); return false;" href="#" id="M000662-link">Show source...</a></p><div class="source" id="M000662-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 63</span>
 63:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit_agreement</span>
 64:     
 65:     <span class="ruby-ivar">@agent</span>=<span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
@@ -492,9 +492,9 @@ edit_agreement
 89:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000654"><br/></a>
+<a class="small" name="M000660"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000654'>
+<a href='#M000660'>
 
 
 edit_profile
@@ -504,7 +504,7 @@ edit_profile
 </a>
 </h3>
 
-<p class="source_link" id="M000654-show-link"><a onclick="toggle('M000654-source'); toggleText('M000654-link'); return false;" href="#" id="M000654-link">Show source...</a></p><div class="source" id="M000654-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 35</span>
+<p class="source_link" id="M000660-show-link"><a onclick="toggle('M000660-source'); toggleText('M000660-link'); return false;" href="#" id="M000660-link">Show source...</a></p><div class="source" id="M000660-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 35</span>
 35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit_profile</span>
 36: 
 37:     <span class="ruby-ivar">@agent</span>=<span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>],<span class="ruby-identifier">:include=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:content_partner</span>)   
@@ -521,9 +521,9 @@ edit_profile
 48:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000651"><br/></a>
+<a class="small" name="M000657"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000651'>
+<a href='#M000657'>
 
 
 index
@@ -533,7 +533,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000651-show-link"><a onclick="toggle('M000651-source'); toggleText('M000651-link'); return false;" href="#" id="M000651-link">Show source...</a></p><div class="source" id="M000651-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 7</span>
+<p class="source_link" id="M000657-show-link"><a onclick="toggle('M000657-source'); toggleText('M000657-link'); return false;" href="#" id="M000657-link">Show source...</a></p><div class="source" id="M000657-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 7</span>
  7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
  8:     <span class="ruby-ivar">@partner_search_string</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:partner_search_string</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
  9:     <span class="ruby-identifier">search_string_parameter</span>=<span class="ruby-value str">'%'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@partner_search_string</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'%'</span> 
@@ -543,9 +543,9 @@ index
 13:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000655"><br/></a>
+<a class="small" name="M000661"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000655'>
+<a href='#M000661'>
 
 
 login_as_agent
@@ -555,7 +555,7 @@ login_as_agent
 </a>
 </h3>
 
-<p class="source_link" id="M000655-show-link"><a onclick="toggle('M000655-source'); toggleText('M000655-link'); return false;" href="#" id="M000655-link">Show source...</a></p><div class="source" id="M000655-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 50</span>
+<p class="source_link" id="M000661-show-link"><a onclick="toggle('M000661-source'); toggleText('M000661-link'); return false;" href="#" id="M000661-link">Show source...</a></p><div class="source" id="M000661-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 50</span>
 50:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">login_as_agent</span>
 51:       
 52:     <span class="ruby-ivar">@agent</span>=<span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])   
@@ -570,9 +570,9 @@ login_as_agent
 61:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000652"><br/></a>
+<a class="small" name="M000658"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000652'>
+<a href='#M000658'>
 
 
 show
@@ -582,7 +582,7 @@ show
 </a>
 </h3>
 
-<p class="source_link" id="M000652-show-link"><a onclick="toggle('M000652-source'); toggleText('M000652-link'); return false;" href="#" id="M000652-link">Show source...</a></p><div class="source" id="M000652-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 15</span>
+<p class="source_link" id="M000658-show-link"><a onclick="toggle('M000658-source'); toggleText('M000658-link'); return false;" href="#" id="M000658-link">Show source...</a></p><div class="source" id="M000658-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 15</span>
 15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
 16:     <span class="ruby-ivar">@agent</span> = <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 17:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@agent</span>.<span class="ruby-identifier">blank?</span>
@@ -599,9 +599,9 @@ show
 28:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000653"><br/></a>
+<a class="small" name="M000659"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000653'>
+<a href='#M000659'>
 
 
 show_contacts
@@ -611,16 +611,16 @@ show_contacts
 </a>
 </h3>
 
-<p class="source_link" id="M000653-show-link"><a onclick="toggle('M000653-source'); toggleText('M000653-link'); return false;" href="#" id="M000653-link">Show source...</a></p><div class="source" id="M000653-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 30</span>
+<p class="source_link" id="M000659-show-link"><a onclick="toggle('M000659-source'); toggleText('M000659-link'); return false;" href="#" id="M000659-link">Show source...</a></p><div class="source" id="M000659-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 30</span>
 30:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_contacts</span>
 31:     <span class="ruby-ivar">@agent</span>=<span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>],<span class="ruby-identifier">:include=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:agent_contacts</span>)
 32:     <span class="ruby-ivar">@contacts</span>=<span class="ruby-ivar">@agent</span>.<span class="ruby-identifier">agent_contacts</span>
 33:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000658"><br/></a>
+<a class="small" name="M000664"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000658'>
+<a href='#M000664'>
 
 
 show_mou_on_partner_page
@@ -630,7 +630,7 @@ show_mou_on_partner_page
 </a>
 </h3>
 
-<p class="source_link" id="M000658-show-link"><a onclick="toggle('M000658-source'); toggleText('M000658-link'); return false;" href="#" id="M000658-link">Show source...</a></p><div class="source" id="M000658-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 104</span>
+<p class="source_link" id="M000664-show-link"><a onclick="toggle('M000664-source'); toggleText('M000664-link'); return false;" href="#" id="M000664-link">Show source...</a></p><div class="source" id="M000664-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 104</span>
 104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_mou_on_partner_page</span>
 105:     <span class="ruby-ivar">@agent</span> = <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 106:     <span class="ruby-ivar">@agent</span>.<span class="ruby-identifier">content_partner</span>.<span class="ruby-identifier">toggle!</span>(<span class="ruby-identifier">:show_mou_on_partner_page</span>)
@@ -645,9 +645,9 @@ show_mou_on_partner_page
 115:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000657"><br/></a>
+<a class="small" name="M000663"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000657'>
+<a href='#M000663'>
 
 
 show_on_partner_page
@@ -657,7 +657,7 @@ show_on_partner_page
 </a>
 </h3>
 
-<p class="source_link" id="M000657-show-link"><a onclick="toggle('M000657-source'); toggleText('M000657-link'); return false;" href="#" id="M000657-link">Show source...</a></p><div class="source" id="M000657-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 91</span>
+<p class="source_link" id="M000663-show-link"><a onclick="toggle('M000663-source'); toggleText('M000663-link'); return false;" href="#" id="M000663-link">Show source...</a></p><div class="source" id="M000663-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 91</span>
  91:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_on_partner_page</span>
  92:     <span class="ruby-ivar">@agent</span> = <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
  93:     <span class="ruby-ivar">@agent</span>.<span class="ruby-identifier">content_partner</span>.<span class="ruby-identifier">toggle!</span>(<span class="ruby-identifier">:show_on_partner_page</span>)
@@ -672,9 +672,9 @@ show_on_partner_page
 102:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000659"><br/></a>
+<a class="small" name="M000665"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000659'>
+<a href='#M000665'>
 
 
 vet_partner
@@ -684,7 +684,7 @@ vet_partner
 </a>
 </h3>
 
-<p class="source_link" id="M000659-show-link"><a onclick="toggle('M000659-source'); toggleText('M000659-link'); return false;" href="#" id="M000659-link">Show source...</a></p><div class="source" id="M000659-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 117</span>
+<p class="source_link" id="M000665-show-link"><a onclick="toggle('M000665-source'); toggleText('M000665-link'); return false;" href="#" id="M000665-link">Show source...</a></p><div class="source" id="M000665-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/administrator/content_partner_report_controller.rb, line 117</span>
 117:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vet_partner</span>
 118:     <span class="ruby-ivar">@agent</span> = <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 119:     <span class="ruby-ivar">@agent</span>.<span class="ruby-identifier">content_partner</span>.<span class="ruby-identifier">toggle!</span>(<span class="ruby-identifier">:vetted</span>)

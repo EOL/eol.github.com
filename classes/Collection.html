@@ -337,21 +337,21 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000078'>
+<a href='#M000079'>
 fishbase<br/>
 </a>
 
 
 
 
-<a href='#M000079'>
+<a href='#M000080'>
 ping_host?<br/>
 </a>
 
 
 
 
-<a href='#M000080'>
+<a href='#M000081'>
 ping_host_url<br/>
 </a>
 
@@ -378,9 +378,9 @@ TODO - ADD COMMENTS
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000078"><br/></a>
+<a class="small" name="M000079"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000078'>
+<a href='#M000079'>
 
 
 fishbase
@@ -395,7 +395,7 @@ database called &quot;logo_url&quot; (so image can be moved to content
 server)
 </p>
 
-<p class="source_link" id="M000078-show-link"><a onclick="toggle('M000078-source'); toggleText('M000078-link'); return false;" href="#" id="M000078-link">Show source...</a></p><div class="source" id="M000078-source"><pre>    <span class="ruby-comment cmt"># File app/models/collection.rb, line 8</span>
+<p class="source_link" id="M000079-show-link"><a onclick="toggle('M000079-source'); toggleText('M000079-link'); return false;" href="#" id="M000079-link">Show source...</a></p><div class="source" id="M000079-source"><pre>    <span class="ruby-comment cmt"># File app/models/collection.rb, line 8</span>
  8:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">fishbase</span>
  9:     <span class="ruby-ivar">@@fishbase</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Collection</span>.<span class="ruby-identifier">find_by_title</span>(<span class="ruby-value str">'FishBase species detail'</span>)
 10:   <span class="ruby-keyword kw">end</span></pre></div>
@@ -405,9 +405,9 @@ server)
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000079"><br/></a>
+<a class="small" name="M000080"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000079'>
+<a href='#M000080'>
 
 
 ping_host?
@@ -417,15 +417,15 @@ ping_host?
 </a>
 </h3>
 
-<p class="source_link" id="M000079-show-link"><a onclick="toggle('M000079-source'); toggleText('M000079-link'); return false;" href="#" id="M000079-link">Show source...</a></p><div class="source" id="M000079-source"><pre>    <span class="ruby-comment cmt"># File app/models/collection.rb, line 12</span>
+<p class="source_link" id="M000080-show-link"><a onclick="toggle('M000080-source'); toggleText('M000080-link'); return false;" href="#" id="M000080-link">Show source...</a></p><div class="source" id="M000080-source"><pre>    <span class="ruby-comment cmt"># File app/models/collection.rb, line 12</span>
 12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ping_host?</span>
 13:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Collection</span>.<span class="ruby-identifier">fishbase</span>.<span class="ruby-identifier">id</span>
 14:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000080"><br/></a>
+<a class="small" name="M000081"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000080'>
+<a href='#M000081'>
 
 
 ping_host_url
@@ -435,7 +435,7 @@ ping_host_url
 </a>
 </h3>
 
-<p class="source_link" id="M000080-show-link"><a onclick="toggle('M000080-source'); toggleText('M000080-link'); return false;" href="#" id="M000080-link">Show source...</a></p><div class="source" id="M000080-source"><pre>    <span class="ruby-comment cmt"># File app/models/collection.rb, line 16</span>
+<p class="source_link" id="M000081-show-link"><a onclick="toggle('M000081-source'); toggleText('M000081-link'); return false;" href="#" id="M000081-link">Show source...</a></p><div class="source" id="M000081-source"><pre>    <span class="ruby-comment cmt"># File app/models/collection.rb, line 16</span>
 16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ping_host_url</span>
 17:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">'http://www.fishbase.ca/utility/log/eol/record.php?id=%ID%'</span>
 18:   <span class="ruby-keyword kw">end</span></pre></div>

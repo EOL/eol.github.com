@@ -334,9 +334,50 @@ SpeciesSchemaModel
 
 
 
+<div class="navigation top" id="methods"><h3>Methods</h3>
+
+
+<a href='#M000619'>
+parse!<br/>
+</a>
+
+
+
+
+<a href='#M000618'>
+parse_into_parts<br/>
+</a>
+
+
+</div>
 <div id="spacer"></div><div class="navigation darker index" id="class_wrapper"><div class="list_header"><h3>All classes</h3></div><div class="list_header_link"><a onclick="toggle('class'); toggleText('class_link'); return false;" href="#" id="class_link">Hide...</a></div><div class="clear"></div><div id="class"><form><label for="filter_class">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('class', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_class"></input></form></div></div><div class="navigation darker index" id="file_wrapper"><div class="list_header"><h3>All files</h3></div><div class="list_header_link"><a onclick="toggle('file'); toggleText('file_link'); return false;" href="#" id="file_link">Hide...</a></div><div class="clear"></div><div id="file"><form><label for="filter_file">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('file', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_file"></input></form></div></div><div class="navigation darker index" id="method_wrapper"><div class="list_header"><h3>All methods</h3></div><div class="list_header_link"><a onclick="toggle('method'); toggleText('method_link'); return false;" href="#" id="method_link">Show...</a></div><div class="clear"></div><div id="method"><form><label for="filter_method">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('method', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_method"></input></form></div></div></div><div id="content">
 <h1 id="item_name">Class: NormalizedName</h1>
 
+<div id="description"><p>
+A normalized name is a unique part of a <a href="Name.html">Name</a>
+</p>
+<p>
+<a href="Name.html">Name</a> is broken down into parts, each of which is a
+<a href="NormalizedName.html">NormalizedName</a>.
+</p>
+<p>
+<a href="NormalizedName.html">NormalizedName</a>&#8216;s are related to <a
+href="Name.html">Name</a>&#8216;s via <a
+href="NormalizedLink.html">NormalizedLink</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  &gt;&gt; @name.string
+  =&gt; &quot;Why Hello There&quot;
+
+  &gt;&gt; @name.normalized_links.map do |link|
+       link.normalized_name.name_part
+     end
+  =&gt; ['Why', 'Hello', 'There']  # &lt;--- each of these name_parts is a NormalizedName
+</pre>
+</div>
 
 
 
@@ -344,6 +385,87 @@ SpeciesSchemaModel
 <p></p>
 
 
+
+
+
+
+<h1>Public Class Methods</h1>
+
+
+<a class="small" name="M000619"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000619'>
+
+
+parse!
+
+(name)
+
+</a>
+</h3>
+<p>
+Parse a name into its parts (NormalizedNames)
+</p>
+<p>
+This will actually create NormalizedNames
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">name&lt;~to_s&gt;:</td><td>The string to parse into parts
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Array.html">Array</a>(<a href="NormalizedName.html">NormalizedName</a>):</td><td>NormalizedNames for the unique parts of the given name
+
+</td></tr>
+</table>
+
+<p class="source_link" id="M000619-show-link"><a onclick="toggle('M000619-source'); toggleText('M000619-link'); return false;" href="#" id="M000619-link">Show source...</a></p><div class="source" id="M000619-source"><pre>    <span class="ruby-comment cmt"># File app/models/normalized_name.rb, line 51</span>
+51:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-identifier">name</span>
+52:     <span class="ruby-identifier">parse_into_parts</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name_part</span><span class="ruby-operator">|</span>
+53:       <span class="ruby-constant">NormalizedName</span>.<span class="ruby-identifier">find_or_create_by_name_part</span>(<span class="ruby-identifier">name_part</span>)
+54:     <span class="ruby-keyword kw">end</span>
+55:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
+
+<a class="small" name="M000618"><br/></a>
+<div class="method_block"><h3>
+<a href='#M000618'>
+
+
+parse_into_parts
+
+(name)
+
+</a>
+</h3>
+<p>
+Parse a <a href="Name.html">Name</a> or String into name_parts
+</p>
+<h4>Parameters</h4>
+<table>
+<tr><td valign="top">name&lt;~to_s&gt;:</td><td>The string to parse into parts
+
+</td></tr>
+</table>
+<h4>Returns</h4>
+<table>
+<tr><td valign="top"><a href="Array.html">Array</a>(String):</td><td>The unique parts of the given name
+
+</td></tr>
+</table>
+
+<p class="source_link" id="M000618-show-link"><a onclick="toggle('M000618-source'); toggleText('M000618-link'); return false;" href="#" id="M000618-link">Show source...</a></p><div class="source" id="M000618-source"><pre>    <span class="ruby-comment cmt"># File app/models/normalized_name.rb, line 31</span>
+31:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse_into_parts</span> <span class="ruby-identifier">name</span>
+32:     <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.
+33:       <span class="ruby-identifier">gsub</span>(<span class="ruby-value str">' and '</span>,<span class="ruby-value str">' '</span>). <span class="ruby-comment cmt"># remove ' and ', useless word ... keep a space as a separator tho</span>
+34:       <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[^\w ]/</span>,<span class="ruby-value str">''</span>). <span class="ruby-comment cmt"># remove all non-alphanumeric characters</span>
+35:       <span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'_'</span>,<span class="ruby-value str">''</span>).      <span class="ruby-comment cmt"># remove underscores (the previous line doesn't catch them for some reason)</span>
+36:       <span class="ruby-identifier">split</span>              <span class="ruby-comment cmt"># split on spaces</span>
+37:   <span class="ruby-keyword kw">end</span></pre></div>
+</div>
 
 
 

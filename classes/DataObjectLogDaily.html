@@ -337,7 +337,7 @@ LogDaily
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000156'>
+<a href='#M000157'>
 unique_data_to_s<br/>
 </a>
 
@@ -394,9 +394,9 @@ unique_data_to_s<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000156"><br/></a>
+<a class="small" name="M000157"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000156'>
+<a href='#M000157'>
 
 
 unique_data_to_s
@@ -410,7 +410,7 @@ OPTIMIZE this&#8216;ll do one query per row &#8230; ouchies &#8230; i wanna
 cache to hit :(
 </p>
 
-<p class="source_link" id="M000156-show-link"><a onclick="toggle('M000156-source'); toggleText('M000156-link'); return false;" href="#" id="M000156-link">Show source...</a></p><div class="source" id="M000156-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log_daily.rb, line 10</span>
+<p class="source_link" id="M000157-show-link"><a onclick="toggle('M000157-source'); toggleText('M000157-link'); return false;" href="#" id="M000157-link">Show source...</a></p><div class="source" id="M000157-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log_daily.rb, line 10</span>
 10:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data_to_s</span>
 11:     <span class="ruby-identifier">object</span> = <span class="ruby-constant">DataObject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">unique_data</span>,<span class="ruby-identifier">:include=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:data_type</span>)
 12:     <span class="ruby-ivar">@object_type</span>=<span class="ruby-identifier">object</span>.<span class="ruby-identifier">data_type</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">downcase</span>

@@ -337,133 +337,133 @@ ApplicationController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000269'>
+<a href='#M000273'>
 clear_caches<br/>
 </a>
 
 
 
 
-<a href='#M000263'>
+<a href='#M000267'>
 contact_us<br/>
 </a>
 
 
 
 
-<a href='#M000268'>
+<a href='#M000272'>
 donate<br/>
 </a>
 
 
 
 
-<a href='#M000266'>
+<a href='#M000270'>
 error<br/>
 </a>
 
 
 
 
-<a href='#M000260'>
+<a href='#M000264'>
 exemplars<br/>
 </a>
 
 
 
 
-<a href='#M000272'>
+<a href='#M000276'>
 expire<br/>
 </a>
 
 
 
 
-<a href='#M000270'>
+<a href='#M000274'>
 expire_all<br/>
 </a>
 
 
 
 
-<a href='#M000273'>
+<a href='#M000277'>
 expire_multiple<br/>
 </a>
 
 
 
 
-<a href='#M000271'>
+<a href='#M000275'>
 expire_single<br/>
 </a>
 
 
 
 
-<a href='#M000261'>
+<a href='#M000265'>
 explore_taxa<br/>
 </a>
 
 
 
 
-<a href='#M000255'>
+<a href='#M000259'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000264'>
+<a href='#M000268'>
 media_contact<br/>
 </a>
 
 
 
 
-<a href='#M000259'>
+<a href='#M000263'>
 mediarss<br/>
 </a>
 
 
 
 
-<a href='#M000257'>
+<a href='#M000261'>
 news<br/>
 </a>
 
 
 
 
-<a href='#M000265'>
+<a href='#M000269'>
 page<br/>
 </a>
 
 
 
 
-<a href='#M000267'>
+<a href='#M000271'>
 partners<br/>
 </a>
 
 
 
 
-<a href='#M000262'>
+<a href='#M000266'>
 replace_single_explore_taxa<br/>
 </a>
 
 
 
 
-<a href='#M000256'>
+<a href='#M000260'>
 species_bar<br/>
 </a>
 
 
 
 
-<a href='#M000258'>
+<a href='#M000262'>
 translate<br/>
 </a>
 
@@ -486,9 +486,9 @@ translate<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000269"><br/></a>
+<a class="small" name="M000273"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000269'>
+<a href='#M000273'>
 
 
 clear_caches
@@ -498,13 +498,13 @@ clear_caches
 </a>
 </h3>
 <p>
-conveninece <a href="ContentController.html#M000265">page</a> to <a
-href="ContentController.html#M000272">expire</a> everything immediately
+conveninece <a href="ContentController.html#M000269">page</a> to <a
+href="ContentController.html#M000276">expire</a> everything immediately
 (call with <a
 href="http://www.eol.org/clear_caches">www.eol.org/clear_caches</a>)
 </p>
 
-<p class="source_link" id="M000269-show-link"><a onclick="toggle('M000269-source'); toggleText('M000269-link'); return false;" href="#" id="M000269-link">Show source...</a></p><div class="source" id="M000269-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 242</span>
+<p class="source_link" id="M000273-show-link"><a onclick="toggle('M000273-source'); toggleText('M000273-link'); return false;" href="#" id="M000273-link">Show source...</a></p><div class="source" id="M000273-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 242</span>
 242:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear_caches</span>
 243:     
 244:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span>
@@ -520,9 +520,9 @@ href="http://www.eol.org/clear_caches">www.eol.org/clear_caches</a>)
 254:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000263"><br/></a>
+<a class="small" name="M000267"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000263'>
+<a href='#M000267'>
 
 
 contact_us
@@ -532,7 +532,7 @@ contact_us
 </a>
 </h3>
 
-<p class="source_link" id="M000263-show-link"><a onclick="toggle('M000263-source'); toggleText('M000263-link'); return false;" href="#" id="M000263-link">Show source...</a></p><div class="source" id="M000263-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 118</span>
+<p class="source_link" id="M000267-show-link"><a onclick="toggle('M000267-source'); toggleText('M000267-link'); return false;" href="#" id="M000267-link">Show source...</a></p><div class="source" id="M000267-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 118</span>
 118:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contact_us</span>
 119:  
 120:     <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">ContactSubject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'active=1'</span>,<span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'title'</span>)
@@ -564,9 +564,9 @@ contact_us
 146:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000268"><br/></a>
+<a class="small" name="M000272"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000268'>
+<a href='#M000272'>
 
 
 donate
@@ -576,7 +576,7 @@ donate
 </a>
 </h3>
 
-<p class="source_link" id="M000268-show-link"><a onclick="toggle('M000268-source'); toggleText('M000268-link'); return false;" href="#" id="M000268-link">Show source...</a></p><div class="source" id="M000268-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 213</span>
+<p class="source_link" id="M000272-show-link"><a onclick="toggle('M000272-source'); toggleText('M000272-link'); return false;" href="#" id="M000272-link">Show source...</a></p><div class="source" id="M000272-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 213</span>
 213:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">donate</span>
 214:     
 215:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
@@ -606,9 +606,9 @@ donate
 239:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000266"><br/></a>
+<a class="small" name="M000270"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000266'>
+<a href='#M000270'>
 
 
 error
@@ -618,19 +618,19 @@ error
 </a>
 </h3>
 <p>
-<a href="ContentController.html#M000266">error</a> <a
-href="ContentController.html#M000265">page</a>
+<a href="ContentController.html#M000270">error</a> <a
+href="ContentController.html#M000269">page</a>
 </p>
 
-<p class="source_link" id="M000266-show-link"><a onclick="toggle('M000266-source'); toggleText('M000266-link'); return false;" href="#" id="M000266-link">Show source...</a></p><div class="source" id="M000266-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 201</span>
+<p class="source_link" id="M000270-show-link"><a onclick="toggle('M000270-source'); toggleText('M000270-link'); return false;" href="#" id="M000270-link">Show source...</a></p><div class="source" id="M000270-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 201</span>
 201:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">error</span>
 202:     
 203:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000260"><br/></a>
+<a class="small" name="M000264"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000260'>
+<a href='#M000264'>
 
 
 exemplars
@@ -640,7 +640,7 @@ exemplars
 </a>
 </h3>
 
-<p class="source_link" id="M000260-show-link"><a onclick="toggle('M000260-source'); toggleText('M000260-link'); return false;" href="#" id="M000260-link">Show source...</a></p><div class="source" id="M000260-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 75</span>
+<p class="source_link" id="M000264-show-link"><a onclick="toggle('M000264-source'); toggleText('M000264-link'); return false;" href="#" id="M000264-link">Show source...</a></p><div class="source" id="M000264-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 75</span>
 75:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exemplars</span>
 76:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">read_fragment</span>(<span class="ruby-identifier">:controller=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'content'</span>,<span class="ruby-identifier">:part=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'exemplars'</span>)
 77:       <span class="ruby-ivar">@exemplars</span> = <span class="ruby-constant">TaxonConcept</span>.<span class="ruby-identifier">exemplars</span>.<span class="ruby-identifier">sort_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:quick_scientific_name</span>)
@@ -648,9 +648,9 @@ exemplars
 79:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000272"><br/></a>
+<a class="small" name="M000276"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000272'>
+<a href='#M000276'>
 
 
 expire
@@ -660,14 +660,14 @@ expire
 </a>
 </h3>
 <p>
-convenience <a href="ContentController.html#M000265">page</a> to <a
-href="ContentController.html#M000272">expire</a> a specific species <a
-href="ContentController.html#M000265">page</a> based on a taxon ID (call
+convenience <a href="ContentController.html#M000269">page</a> to <a
+href="ContentController.html#M000276">expire</a> a specific species <a
+href="ContentController.html#M000269">page</a> based on a taxon ID (call
 with <a
 href="http://www.eol.org/expire/TAXON_ID">www.eol.org/expire/TAXON_ID</a>)
 </p>
 
-<p class="source_link" id="M000272-show-link"><a onclick="toggle('M000272-source'); toggleText('M000272-link'); return false;" href="#" id="M000272-link">Show source...</a></p><div class="source" id="M000272-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 281</span>
+<p class="source_link" id="M000276-show-link"><a onclick="toggle('M000276-source'); toggleText('M000276-link'); return false;" href="#" id="M000276-link">Show source...</a></p><div class="source" id="M000276-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 281</span>
 281:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire</span>
 282:     
 283:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>].<span class="ruby-identifier">nil?</span>
@@ -683,9 +683,9 @@ href="http://www.eol.org/expire/TAXON_ID">www.eol.org/expire/TAXON_ID</a>)
 293:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000270"><br/></a>
+<a class="small" name="M000274"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000270'>
+<a href='#M000274'>
 
 
 expire_all
@@ -695,13 +695,13 @@ expire_all
 </a>
 </h3>
 <p>
-conveninece <a href="ContentController.html#M000265">page</a> to <a
-href="ContentController.html#M000272">expire</a> all caches (except species
+conveninece <a href="ContentController.html#M000269">page</a> to <a
+href="ContentController.html#M000276">expire</a> all caches (except species
 pages) immediately (call with <a
 href="http://www.eol.org/expire_all">www.eol.org/expire_all</a>)
 </p>
 
-<p class="source_link" id="M000270-show-link"><a onclick="toggle('M000270-source'); toggleText('M000270-link'); return false;" href="#" id="M000270-link">Show source...</a></p><div class="source" id="M000270-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 257</span>
+<p class="source_link" id="M000274-show-link"><a onclick="toggle('M000274-source'); toggleText('M000274-link'); return false;" href="#" id="M000274-link">Show source...</a></p><div class="source" id="M000274-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 257</span>
 257:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_all</span>
 258:     
 259:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span>
@@ -714,9 +714,9 @@ href="http://www.eol.org/expire_all">www.eol.org/expire_all</a>)
 266:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000273"><br/></a>
+<a class="small" name="M000277"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000273'>
+<a href='#M000277'>
 
 
 expire_multiple
@@ -726,15 +726,15 @@ expire_multiple
 </a>
 </h3>
 <p>
-convenience <a href="ContentController.html#M000265">page</a> to <a
-href="ContentController.html#M000272">expire</a> a specific list of species
-<a href="ContentController.html#M000265">page</a> based on a comma
+convenience <a href="ContentController.html#M000269">page</a> to <a
+href="ContentController.html#M000276">expire</a> a specific list of species
+<a href="ContentController.html#M000269">page</a> based on a comma
 delimited list of taxa IDs passed in as a post or get with parameter
 taxa_ids (call with <a
 href="http://www.eol.org/expire_taxa">www.eol.org/expire_taxa</a>)
 </p>
 
-<p class="source_link" id="M000273-show-link"><a onclick="toggle('M000273-source'); toggleText('M000273-link'); return false;" href="#" id="M000273-link">Show source...</a></p><div class="source" id="M000273-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 296</span>
+<p class="source_link" id="M000277-show-link"><a onclick="toggle('M000277-source'); toggleText('M000277-link'); return false;" href="#" id="M000277-link">Show source...</a></p><div class="source" id="M000277-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 296</span>
 296:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_multiple</span>
 297:     
 298:     <span class="ruby-identifier">taxa_ids</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxa_ids</span>]
@@ -749,9 +749,9 @@ href="http://www.eol.org/expire_taxa">www.eol.org/expire_taxa</a>)
 307:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000271"><br/></a>
+<a class="small" name="M000275"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000271'>
+<a href='#M000275'>
 
 
 expire_single
@@ -761,13 +761,13 @@ expire_single
 </a>
 </h3>
 <p>
-conveninece <a href="ContentController.html#M000265">page</a> to <a
-href="ContentController.html#M000272">expire</a> a single CMS <a
-href="ContentController.html#M000265">page</a> immediately (call with <a
+conveninece <a href="ContentController.html#M000269">page</a> to <a
+href="ContentController.html#M000276">expire</a> a single CMS <a
+href="ContentController.html#M000269">page</a> immediately (call with <a
 href="http://www.eol.org/expire/PAGE_NAME">www.eol.org/expire/PAGE_NAME</a>)
 </p>
 
-<p class="source_link" id="M000271-show-link"><a onclick="toggle('M000271-source'); toggleText('M000271-link'); return false;" href="#" id="M000271-link">Show source...</a></p><div class="source" id="M000271-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 269</span>
+<p class="source_link" id="M000275-show-link"><a onclick="toggle('M000275-source'); toggleText('M000275-link'); return false;" href="#" id="M000275-link">Show source...</a></p><div class="source" id="M000275-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 269</span>
 269:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expire_single</span>
 270:     
 271:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allowed_request</span>
@@ -780,9 +780,9 @@ href="http://www.eol.org/expire/PAGE_NAME">www.eol.org/expire/PAGE_NAME</a>)
 278:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000261"><br/></a>
+<a class="small" name="M000265"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000261'>
+<a href='#M000265'>
 
 
 explore_taxa
@@ -793,10 +793,10 @@ explore_taxa
 </h3>
 <p>
 AJAX call to show more explore taxa on the home <a
-href="ContentController.html#M000265">page</a>
+href="ContentController.html#M000269">page</a>
 </p>
 
-<p class="source_link" id="M000261-show-link"><a onclick="toggle('M000261-source'); toggleText('M000261-link'); return false;" href="#" id="M000261-link">Show source...</a></p><div class="source" id="M000261-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 82</span>
+<p class="source_link" id="M000265-show-link"><a onclick="toggle('M000265-source'); toggleText('M000265-link'); return false;" href="#" id="M000265-link">Show source...</a></p><div class="source" id="M000265-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 82</span>
 82:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explore_taxa</span>
 83: 
 84:     <span class="ruby-ivar">@explore_taxa</span>=<span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-value">6</span>)
@@ -806,9 +806,9 @@ href="ContentController.html#M000265">page</a>
 88:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000255"><br/></a>
+<a class="small" name="M000259"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000255'>
+<a href='#M000259'>
 
 
 index
@@ -818,7 +818,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000255-show-link"><a onclick="toggle('M000255-source'); toggleText('M000255-link'); return false;" href="#" id="M000255-link">Show source...</a></p><div class="source" id="M000255-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 7</span>
+<p class="source_link" id="M000259-show-link"><a onclick="toggle('M000259-source'); toggleText('M000259-link'); return false;" href="#" id="M000259-link">Show source...</a></p><div class="source" id="M000259-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 7</span>
  7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
  8: 
  9:     <span class="ruby-ivar">@home_page</span>=<span class="ruby-keyword kw">true</span>
@@ -834,9 +834,9 @@ index
 19:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000264"><br/></a>
+<a class="small" name="M000268"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000264'>
+<a href='#M000268'>
 
 
 media_contact
@@ -846,7 +846,7 @@ media_contact
 </a>
 </h3>
 
-<p class="source_link" id="M000264-show-link"><a onclick="toggle('M000264-source'); toggleText('M000264-link'); return false;" href="#" id="M000264-link">Show source...</a></p><div class="source" id="M000264-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 148</span>
+<p class="source_link" id="M000268-show-link"><a onclick="toggle('M000268-source'); toggleText('M000268-link'); return false;" href="#" id="M000268-link">Show source...</a></p><div class="source" id="M000268-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 148</span>
 148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">media_contact</span>
 149:     
 150:     <span class="ruby-ivar">@contact</span> = <span class="ruby-constant">Contact</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:contact</span>])
@@ -872,9 +872,9 @@ media_contact
 170:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000259"><br/></a>
+<a class="small" name="M000263"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000259'>
+<a href='#M000263'>
 
 
 mediarss
@@ -884,7 +884,7 @@ mediarss
 </a>
 </h3>
 
-<p class="source_link" id="M000259-show-link"><a onclick="toggle('M000259-source'); toggleText('M000259-link'); return false;" href="#" id="M000259-link">Show source...</a></p><div class="source" id="M000259-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 48</span>
+<p class="source_link" id="M000263-show-link"><a onclick="toggle('M000263-source'); toggleText('M000263-link'); return false;" href="#" id="M000263-link">Show source...</a></p><div class="source" id="M000263-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 48</span>
 48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mediarss</span>
 49:     <span class="ruby-identifier">taxon_concept_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
 50:     <span class="ruby-identifier">taxon_concept</span> = <span class="ruby-constant">TaxonConcept</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">taxon_concept_id</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
@@ -913,9 +913,9 @@ mediarss
 73:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000257"><br/></a>
+<a class="small" name="M000261"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000257'>
+<a href='#M000261'>
 
 
 news
@@ -925,7 +925,7 @@ news
 </a>
 </h3>
 
-<p class="source_link" id="M000257-show-link"><a onclick="toggle('M000257-source'); toggleText('M000257-link'); return false;" href="#" id="M000257-link">Show source...</a></p><div class="source" id="M000257-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 28</span>
+<p class="source_link" id="M000261-show-link"><a onclick="toggle('M000261-source'); toggleText('M000261-link'); return false;" href="#" id="M000261-link">Show source...</a></p><div class="source" id="M000261-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 28</span>
 28:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">news</span>
 29:     
 30:     <span class="ruby-ivar">@term_search_string</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:term_search_string</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
@@ -939,9 +939,9 @@ news
 38:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000265"><br/></a>
+<a class="small" name="M000269"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000265'>
+<a href='#M000269'>
 
 
 page
@@ -951,11 +951,11 @@ page
 </a>
 </h3>
 <p>
-the template for a static <a href="ContentController.html#M000265">page</a>
+the template for a static <a href="ContentController.html#M000269">page</a>
 with content from the database
 </p>
 
-<p class="source_link" id="M000265-show-link"><a onclick="toggle('M000265-source'); toggleText('M000265-link'); return false;" href="#" id="M000265-link">Show source...</a></p><div class="source" id="M000265-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 173</span>
+<p class="source_link" id="M000269-show-link"><a onclick="toggle('M000269-source'); toggleText('M000269-link'); return false;" href="#" id="M000269-link">Show source...</a></p><div class="source" id="M000269-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 173</span>
 173:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page</span>
 174:     <span class="ruby-comment cmt"># get the id parameter, which can be either a page ID # or a page name</span>
 175:     <span class="ruby-ivar">@page_id</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>]
@@ -984,9 +984,9 @@ with content from the database
 198:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000267"><br/></a>
+<a class="small" name="M000271"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000267'>
+<a href='#M000271'>
 
 
 partners
@@ -997,10 +997,10 @@ partners
 </h3>
 <p>
 get the list of content <a
-href="ContentController.html#M000267">partners</a>
+href="ContentController.html#M000271">partners</a>
 </p>
 
-<p class="source_link" id="M000267-show-link"><a onclick="toggle('M000267-source'); toggleText('M000267-link'); return false;" href="#" id="M000267-link">Show source...</a></p><div class="source" id="M000267-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 206</span>
+<p class="source_link" id="M000271-show-link"><a onclick="toggle('M000271-source'); toggleText('M000271-link'); return false;" href="#" id="M000271-link">Show source...</a></p><div class="source" id="M000271-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 206</span>
 206:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">partners</span>
 207:   
 208:     <span class="ruby-comment cmt"># content partners will have a username</span>
@@ -1009,9 +1009,9 @@ href="ContentController.html#M000267">partners</a>
 211:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000262"><br/></a>
+<a class="small" name="M000266"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000262'>
+<a href='#M000266'>
 
 
 replace_single_explore_taxa
@@ -1022,10 +1022,10 @@ replace_single_explore_taxa
 </h3>
 <p>
 AJAX call to replace a single explore taxa for the home <a
-href="ContentController.html#M000265">page</a>
+href="ContentController.html#M000269">page</a>
 </p>
 
-<p class="source_link" id="M000262-show-link"><a onclick="toggle('M000262-source'); toggleText('M000262-link'); return false;" href="#" id="M000262-link">Show source...</a></p><div class="source" id="M000262-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 91</span>
+<p class="source_link" id="M000266-show-link"><a onclick="toggle('M000266-source'); toggleText('M000266-link'); return false;" href="#" id="M000266-link">Show source...</a></p><div class="source" id="M000266-source"><pre>     <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 91</span>
  91:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">replace_single_explore_taxa</span>
  92:  
  93:      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:current_taxa</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">''</span>
@@ -1054,9 +1054,9 @@ href="ContentController.html#M000265">page</a>
 116:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000256"><br/></a>
+<a class="small" name="M000260"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000256'>
+<a href='#M000260'>
 
 
 species_bar
@@ -1069,7 +1069,7 @@ species_bar
 just shows the top set of species &#8212; can be included on other websites
 </p>
 
-<p class="source_link" id="M000256-show-link"><a onclick="toggle('M000256-source'); toggleText('M000256-link'); return false;" href="#" id="M000256-link">Show source...</a></p><div class="source" id="M000256-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 22</span>
+<p class="source_link" id="M000260-show-link"><a onclick="toggle('M000260-source'); toggleText('M000260-link'); return false;" href="#" id="M000260-link">Show source...</a></p><div class="source" id="M000260-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 22</span>
 22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">species_bar</span>
 23:      <span class="ruby-ivar">@explore_taxa</span>  = <span class="ruby-constant">RandomTaxon</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-value">6</span>)
 24:      <span class="ruby-ivar">@new_window</span> = <span class="ruby-keyword kw">true</span>
@@ -1077,9 +1077,9 @@ just shows the top set of species &#8212; can be included on other websites
 26:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000258"><br/></a>
+<a class="small" name="M000262"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000258'>
+<a href='#M000262'>
 
 
 translate
@@ -1089,7 +1089,7 @@ translate
 </a>
 </h3>
 
-<p class="source_link" id="M000258-show-link"><a onclick="toggle('M000258-source'); toggleText('M000258-link'); return false;" href="#" id="M000258-link">Show source...</a></p><div class="source" id="M000258-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 40</span>
+<p class="source_link" id="M000262-show-link"><a onclick="toggle('M000262-source'); toggleText('M000262-link'); return false;" href="#" id="M000262-link">Show source...</a></p><div class="source" id="M000262-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/content_controller.rb, line 40</span>
 40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">translate</span>
 41:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:return_to</span>].<span class="ruby-identifier">blank?</span>
 42:       <span class="ruby-ivar">@translate_url</span>=<span class="ruby-identifier">home_page_url</span>

@@ -337,14 +337,14 @@ LoggingModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000297'>
+<a href='#M000301'>
 int2ip<br/>
 </a>
 
 
 
 
-<a href='#M000296'>
+<a href='#M000300'>
 ip2int<br/>
 </a>
 
@@ -367,9 +367,9 @@ ip2int<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000297"><br/></a>
+<a class="small" name="M000301"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000297'>
+<a href='#M000301'>
 
 
 int2ip
@@ -383,15 +383,15 @@ Converts a 32-bit integer to a human-readable IP address string in dotted
 decimal form.
 </p>
 
-<p class="source_link" id="M000297-show-link"><a onclick="toggle('M000297-source'); toggleText('M000297-link'); return false;" href="#" id="M000297-link">Show source...</a></p><div class="source" id="M000297-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/ip_address.rb, line 23</span>
-23:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">int2ip</span>(<span class="ruby-identifier">int</span> = <span class="ruby-identifier">ip2int</span>())
-24:     <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">int</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>).<span class="ruby-identifier">to_s</span>
-25:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000301-show-link"><a onclick="toggle('M000301-source'); toggleText('M000301-link'); return false;" href="#" id="M000301-link">Show source...</a></p><div class="source" id="M000301-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/ip_address.rb, line 31</span>
+31:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">int2ip</span>(<span class="ruby-identifier">int</span> = <span class="ruby-identifier">ip2int</span>())
+32:     <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">int</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>).<span class="ruby-identifier">to_s</span>
+33:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000296"><br/></a>
+<a class="small" name="M000300"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000296'>
+<a href='#M000300'>
 
 
 ip2int
@@ -406,10 +406,10 @@ an ordinary 4-byte database integer column without truncation or decimal
 points.
 </p>
 
-<p class="source_link" id="M000296-show-link"><a onclick="toggle('M000296-source'); toggleText('M000296-link'); return false;" href="#" id="M000296-link">Show source...</a></p><div class="source" id="M000296-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/ip_address.rb, line 18</span>
-18:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip2int</span>(<span class="ruby-identifier">ip</span> = <span class="ruby-value str">'127.0.0.1'</span>)
-19:     <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ip</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>).<span class="ruby-identifier">to_i</span>
-20:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000300-show-link"><a onclick="toggle('M000300-source'); toggleText('M000300-link'); return false;" href="#" id="M000300-link">Show source...</a></p><div class="source" id="M000300-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/ip_address.rb, line 26</span>
+26:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip2int</span>(<span class="ruby-identifier">ip</span> = <span class="ruby-value str">'127.0.0.1'</span>)
+27:     <span class="ruby-constant">IPAddr</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ip</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>).<span class="ruby-identifier">to_i</span>
+28:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
 

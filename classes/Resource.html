@@ -337,49 +337,49 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000202'>
+<a href='#M000204'>
 hide_latest_harvest<br/>
 </a>
 
 
 
 
-<a href='#M000204'>
+<a href='#M000206'>
 publish<br/>
 </a>
 
 
 
 
-<a href='#M000200'>
+<a href='#M000202'>
 set_vetted_status<br/>
 </a>
 
 
 
 
-<a href='#M000199'>
+<a href='#M000201'>
 status_label<br/>
 </a>
 
 
 
 
-<a href='#M000201'>
+<a href='#M000203'>
 taxon_concept_ids<br/>
 </a>
 
 
 
 
-<a href='#M000205'>
+<a href='#M000207'>
 unpublish<br/>
 </a>
 
 
 
 
-<a href='#M000203'>
+<a href='#M000205'>
 validate<br/>
 </a>
 
@@ -402,9 +402,9 @@ validate<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000202"><br/></a>
+<a class="small" name="M000204"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000202'>
+<a href='#M000204'>
 
 
 hide_latest_harvest
@@ -414,15 +414,15 @@ hide_latest_harvest
 </a>
 </h3>
 
-<p class="source_link" id="M000202-show-link"><a onclick="toggle('M000202-source'); toggleText('M000202-link'); return false;" href="#" id="M000202-link">Show source...</a></p><div class="source" id="M000202-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 46</span>
+<p class="source_link" id="M000204-show-link"><a onclick="toggle('M000204-source'); toggleText('M000204-link'); return false;" href="#" id="M000204-link">Show source...</a></p><div class="source" id="M000204-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 46</span>
 46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hide_latest_harvest</span>
 47:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">harvest_events</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">make_invisible</span>
 48:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000204"><br/></a>
+<a class="small" name="M000206"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000204'>
+<a href='#M000206'>
 
 
 publish
@@ -432,7 +432,7 @@ publish
 </a>
 </h3>
 
-<p class="source_link" id="M000204-show-link"><a onclick="toggle('M000204-source'); toggleText('M000204-link'); return false;" href="#" id="M000204-link">Show source...</a></p><div class="source" id="M000204-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 58</span>
+<p class="source_link" id="M000206-show-link"><a onclick="toggle('M000206-source'); toggleText('M000206-link'); return false;" href="#" id="M000206-link">Show source...</a></p><div class="source" id="M000206-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 58</span>
 58:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">publish</span>(<span class="ruby-identifier">a_harvest_event</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">harvest_events</span>.<span class="ruby-identifier">last</span>)
 59:     <span class="ruby-identifier">published</span> = <span class="ruby-keyword kw">false</span>
 60:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">resource_status</span> = <span class="ruby-constant">ResourceStatus</span>.<span class="ruby-identifier">processed</span>
@@ -443,9 +443,9 @@ publish
 65:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000200"><br/></a>
+<a class="small" name="M000202"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000200'>
+<a href='#M000202'>
 
 
 set_vetted_status
@@ -458,7 +458,7 @@ set_vetted_status
 vet or unvet entire resource (0 = unknown, 1 = vet)
 </p>
 
-<p class="source_link" id="M000200-show-link"><a onclick="toggle('M000200-source'); toggleText('M000200-link'); return false;" href="#" id="M000200-link">Show source...</a></p><div class="source" id="M000200-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 35</span>
+<p class="source_link" id="M000202-show-link"><a onclick="toggle('M000202-source'); toggleText('M000202-link'); return false;" href="#" id="M000202-link">Show source...</a></p><div class="source" id="M000202-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 35</span>
 35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_vetted_status</span>(<span class="ruby-identifier">vetted</span>) 
 36:     <span class="ruby-identifier">set_to_state</span> = <span class="ruby-constant">EOLConvert</span>.<span class="ruby-identifier">to_boolean</span>(<span class="ruby-identifier">vetted</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">trusted</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">unknown</span>.<span class="ruby-identifier">id</span>
 37:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects d, data_objects_harvest_events dh, harvest_events h set d.vetted_id = #{set_to_state} where d.curated = 0 and  d.id = dh.data_object_id and dh.harvest_event_id = h.id and h.resource_id =  #{self.id}&quot;</span>)
@@ -467,9 +467,9 @@ vet or unvet entire resource (0 = unknown, 1 = vet)
 40:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000199"><br/></a>
+<a class="small" name="M000201"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000199'>
+<a href='#M000201'>
 
 
 status_label
@@ -479,15 +479,15 @@ status_label
 </a>
 </h3>
 
-<p class="source_link" id="M000199-show-link"><a onclick="toggle('M000199-source'); toggleText('M000199-link'); return false;" href="#" id="M000199-link">Show source...</a></p><div class="source" id="M000199-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 31</span>
+<p class="source_link" id="M000201-show-link"><a onclick="toggle('M000201-source'); toggleText('M000201-link'); return false;" href="#" id="M000201-link">Show source...</a></p><div class="source" id="M000201-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 31</span>
 31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">status_label</span>
 32:     (<span class="ruby-identifier">resource_status</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;Pending&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">resource_status</span>.<span class="ruby-identifier">label</span>
 33:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000201"><br/></a>
+<a class="small" name="M000203"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000201'>
+<a href='#M000203'>
 
 
 taxon_concept_ids
@@ -497,15 +497,15 @@ taxon_concept_ids
 </a>
 </h3>
 
-<p class="source_link" id="M000201-show-link"><a onclick="toggle('M000201-source'); toggleText('M000201-link'); return false;" href="#" id="M000201-link">Show source...</a></p><div class="source" id="M000201-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 42</span>
+<p class="source_link" id="M000203-show-link"><a onclick="toggle('M000203-source'); toggleText('M000203-link'); return false;" href="#" id="M000203-link">Show source...</a></p><div class="source" id="M000203-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 42</span>
 42:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">taxon_concept_ids</span>
 43:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">select_values</span>(<span class="ruby-node">&quot;select distinct tc.id from resources r join harvest_events h on r.id=h.resource_id join harvest_events_taxa ht on h.id=ht.harvest_event_id join taxa t on t.id=ht.taxon_id join hierarchy_entries he on he.id=t.hierarchy_entry_id join taxon_concepts tc on tc.id=he.taxon_concept_id where r.id=#{self.id.to_s}&quot;</span>)
 44:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000205"><br/></a>
+<a class="small" name="M000207"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000205'>
+<a href='#M000207'>
 
 
 unpublish
@@ -515,7 +515,7 @@ unpublish
 </a>
 </h3>
 
-<p class="source_link" id="M000205-show-link"><a onclick="toggle('M000205-source'); toggleText('M000205-link'); return false;" href="#" id="M000205-link">Show source...</a></p><div class="source" id="M000205-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 67</span>
+<p class="source_link" id="M000207-show-link"><a onclick="toggle('M000207-source'); toggleText('M000207-link'); return false;" href="#" id="M000207-link">Show source...</a></p><div class="source" id="M000207-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 67</span>
 67:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unpublish</span>(<span class="ruby-identifier">change_resource_status</span> = <span class="ruby-keyword kw">true</span>)
 68:     <span class="ruby-identifier">unpublished</span> = <span class="ruby-keyword kw">false</span>
 69:     <span class="ruby-constant">SpeciesSchemaModel</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;update data_objects d, data_objects_harvest_events dh, harvest_events h set d.published = 0 where d.published = 1 and  d.id = dh.data_object_id and dh.harvest_event_id = h.id and h.resource_id =  #{self.id}&quot;</span>)
@@ -524,9 +524,9 @@ unpublish
 72:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000203"><br/></a>
+<a class="small" name="M000205"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000203'>
+<a href='#M000205'>
 
 
 validate
@@ -536,7 +536,7 @@ validate
 </a>
 </h3>
 
-<p class="source_link" id="M000203-show-link"><a onclick="toggle('M000203-source'); toggleText('M000203-link'); return false;" href="#" id="M000203-link">Show source...</a></p><div class="source" id="M000203-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 50</span>
+<p class="source_link" id="M000205-show-link"><a onclick="toggle('M000205-source'); toggleText('M000205-link'); return false;" href="#" id="M000205-link">Show source...</a></p><div class="source" id="M000205-source"><pre>    <span class="ruby-comment cmt"># File app/models/resource.rb, line 50</span>
 50:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate</span>
 51:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">accesspoint_url</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">dataset_file_name</span>.<span class="ruby-identifier">blank?</span>
 52:        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-value str">&quot;You must either provide a URL or upload a resource file&quot;</span>)   

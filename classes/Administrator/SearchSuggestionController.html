@@ -337,49 +337,49 @@ AdminController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000704'>
+<a href='#M000710'>
 create<br/>
 </a>
 
 
 
 
-<a href='#M000706'>
+<a href='#M000712'>
 destroy<br/>
 </a>
 
 
 
 
-<a href='#M000703'>
+<a href='#M000709'>
 edit<br/>
 </a>
 
 
 
 
-<a href='#M000701'>
+<a href='#M000707'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000702'>
+<a href='#M000708'>
 new<br/>
 </a>
 
 
 
 
-<a href='#M000705'>
+<a href='#M000711'>
 update<br/>
 </a>
 
 
 
 
-<a href='#M000707'>
+<a href='#M000713'>
 update_names_and_image<br/>
 </a>
 
@@ -402,9 +402,9 @@ update_names_and_image<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000704"><br/></a>
+<a class="small" name="M000710"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000704'>
+<a href='#M000710'>
 
 
 create
@@ -414,7 +414,7 @@ create
 </a>
 </h3>
 
-<p class="source_link" id="M000704-show-link"><a onclick="toggle('M000704-source'); toggleText('M000704-link'); return false;" href="#" id="M000704-link">Show source...</a></p><div class="source" id="M000704-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 31</span>
+<p class="source_link" id="M000710-show-link"><a onclick="toggle('M000710-source'); toggleText('M000710-link'); return false;" href="#" id="M000710-link">Show source...</a></p><div class="source" id="M000710-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 31</span>
 31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
 32:     
 33:     <span class="ruby-ivar">@search_suggestion</span> = <span class="ruby-constant">SearchSuggestion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:search_suggestion</span>])
@@ -431,9 +431,9 @@ create
 44:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000706"><br/></a>
+<a class="small" name="M000712"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000706'>
+<a href='#M000712'>
 
 
 destroy
@@ -443,7 +443,7 @@ destroy
 </a>
 </h3>
 
-<p class="source_link" id="M000706-show-link"><a onclick="toggle('M000706-source'); toggleText('M000706-link'); return false;" href="#" id="M000706-link">Show source...</a></p><div class="source" id="M000706-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 60</span>
+<p class="source_link" id="M000712-show-link"><a onclick="toggle('M000712-source'); toggleText('M000712-link'); return false;" href="#" id="M000712-link">Show source...</a></p><div class="source" id="M000712-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 60</span>
 60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
 61: 
 62:     (<span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'index'</span>;<span class="ruby-keyword kw">return</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:delete</span>
@@ -456,9 +456,9 @@ destroy
 69:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000703"><br/></a>
+<a class="small" name="M000709"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000703'>
+<a href='#M000709'>
 
 
 edit
@@ -468,7 +468,7 @@ edit
 </a>
 </h3>
 
-<p class="source_link" id="M000703-show-link"><a onclick="toggle('M000703-source'); toggleText('M000703-link'); return false;" href="#" id="M000703-link">Show source...</a></p><div class="source" id="M000703-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 25</span>
+<p class="source_link" id="M000709-show-link"><a onclick="toggle('M000709-source'); toggleText('M000709-link'); return false;" href="#" id="M000709-link">Show source...</a></p><div class="source" id="M000709-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 25</span>
 25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
 26:     
 27:     <span class="ruby-ivar">@search_suggestion</span> = <span class="ruby-constant">SearchSuggestion</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
@@ -476,9 +476,9 @@ edit
 29:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000701"><br/></a>
+<a class="small" name="M000707"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000701'>
+<a href='#M000707'>
 
 
 index
@@ -488,7 +488,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000701-show-link"><a onclick="toggle('M000701-source'); toggleText('M000701-link'); return false;" href="#" id="M000701-link">Show source...</a></p><div class="source" id="M000701-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 6</span>
+<p class="source_link" id="M000707-show-link"><a onclick="toggle('M000707-source'); toggleText('M000707-link'); return false;" href="#" id="M000707-link">Show source...</a></p><div class="source" id="M000707-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 6</span>
  6:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
  7:  
  8:     <span class="ruby-ivar">@term_search_string</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:term_search_string</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
@@ -503,9 +503,9 @@ index
 17:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000702"><br/></a>
+<a class="small" name="M000708"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000702'>
+<a href='#M000708'>
 
 
 new
@@ -515,7 +515,7 @@ new
 </a>
 </h3>
 
-<p class="source_link" id="M000702-show-link"><a onclick="toggle('M000702-source'); toggleText('M000702-link'); return false;" href="#" id="M000702-link">Show source...</a></p><div class="source" id="M000702-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 19</span>
+<p class="source_link" id="M000708-show-link"><a onclick="toggle('M000708-source'); toggleText('M000708-link'); return false;" href="#" id="M000708-link">Show source...</a></p><div class="source" id="M000708-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 19</span>
 19:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
 20: 
 21:     <span class="ruby-ivar">@search_suggestion</span> = <span class="ruby-constant">SearchSuggestion</span>.<span class="ruby-identifier">new</span>
@@ -523,9 +523,9 @@ new
 23:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000705"><br/></a>
+<a class="small" name="M000711"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000705'>
+<a href='#M000711'>
 
 
 update
@@ -535,7 +535,7 @@ update
 </a>
 </h3>
 
-<p class="source_link" id="M000705-show-link"><a onclick="toggle('M000705-source'); toggleText('M000705-link'); return false;" href="#" id="M000705-link">Show source...</a></p><div class="source" id="M000705-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 46</span>
+<p class="source_link" id="M000711-show-link"><a onclick="toggle('M000711-source'); toggleText('M000711-link'); return false;" href="#" id="M000711-link">Show source...</a></p><div class="source" id="M000711-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 46</span>
 46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
 47: 
 48:     <span class="ruby-ivar">@search_suggestion</span> = <span class="ruby-constant">SearchSuggestion</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
@@ -550,9 +550,9 @@ update
 57:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000707"><br/></a>
+<a class="small" name="M000713"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000707'>
+<a href='#M000713'>
 
 
 update_names_and_image
@@ -562,11 +562,11 @@ update_names_and_image
 </a>
 </h3>
 <p>
-ajax call to <a href="SearchSuggestionController.html#M000705">update</a>
+ajax call to <a href="SearchSuggestionController.html#M000711">update</a>
 name and image for a given taxon_id
 </p>
 
-<p class="source_link" id="M000707-show-link"><a onclick="toggle('M000707-source'); toggleText('M000707-link'); return false;" href="#" id="M000707-link">Show source...</a></p><div class="source" id="M000707-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 72</span>
+<p class="source_link" id="M000713-show-link"><a onclick="toggle('M000713-source'); toggleText('M000713-link'); return false;" href="#" id="M000713-link">Show source...</a></p><div class="source" id="M000713-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/search_suggestion_controller.rb, line 72</span>
 72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update_names_and_image</span>
 73:     <span class="ruby-identifier">scientific_name</span>,<span class="ruby-identifier">common_name</span>,<span class="ruby-identifier">image_url</span>=<span class="ruby-identifier">get_names_and_image</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon_id</span>])
 74:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:update</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page</span><span class="ruby-operator">|</span>

@@ -337,42 +337,42 @@ AdminController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000664'>
+<a href='#M000670'>
 create<br/>
 </a>
 
 
 
 
-<a href='#M000666'>
+<a href='#M000672'>
 destroy<br/>
 </a>
 
 
 
 
-<a href='#M000663'>
+<a href='#M000669'>
 edit<br/>
 </a>
 
 
 
 
-<a href='#M000661'>
+<a href='#M000667'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000662'>
+<a href='#M000668'>
 new<br/>
 </a>
 
 
 
 
-<a href='#M000665'>
+<a href='#M000671'>
 update<br/>
 </a>
 
@@ -395,9 +395,9 @@ update<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000664"><br/></a>
+<a class="small" name="M000670"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000664'>
+<a href='#M000670'>
 
 
 create
@@ -407,7 +407,7 @@ create
 </a>
 </h3>
 
-<p class="source_link" id="M000664-show-link"><a onclick="toggle('M000664-source'); toggleText('M000664-link'); return false;" href="#" id="M000664-link">Show source...</a></p><div class="source" id="M000664-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 27</span>
+<p class="source_link" id="M000670-show-link"><a onclick="toggle('M000670-source'); toggleText('M000670-link'); return false;" href="#" id="M000670-link">Show source...</a></p><div class="source" id="M000670-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 27</span>
 27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
 28:     
 29:     <span class="ruby-ivar">@news_item</span> = <span class="ruby-constant">NewsItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:news_item</span>])
@@ -423,9 +423,9 @@ create
 39:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000666"><br/></a>
+<a class="small" name="M000672"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000666'>
+<a href='#M000672'>
 
 
 destroy
@@ -435,7 +435,7 @@ destroy
 </a>
 </h3>
 
-<p class="source_link" id="M000666-show-link"><a onclick="toggle('M000666-source'); toggleText('M000666-link'); return false;" href="#" id="M000666-link">Show source...</a></p><div class="source" id="M000666-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 56</span>
+<p class="source_link" id="M000672-show-link"><a onclick="toggle('M000672-source'); toggleText('M000672-link'); return false;" href="#" id="M000672-link">Show source...</a></p><div class="source" id="M000672-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 56</span>
 56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
 57:     
 58:     (<span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'index'</span>;<span class="ruby-keyword kw">return</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:delete</span>
@@ -449,9 +449,9 @@ destroy
 66:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000663"><br/></a>
+<a class="small" name="M000669"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000663'>
+<a href='#M000669'>
 
 
 edit
@@ -461,7 +461,7 @@ edit
 </a>
 </h3>
 
-<p class="source_link" id="M000663-show-link"><a onclick="toggle('M000663-source'); toggleText('M000663-link'); return false;" href="#" id="M000663-link">Show source...</a></p><div class="source" id="M000663-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 21</span>
+<p class="source_link" id="M000669-show-link"><a onclick="toggle('M000669-source'); toggleText('M000669-link'); return false;" href="#" id="M000669-link">Show source...</a></p><div class="source" id="M000669-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 21</span>
 21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
 22:     
 23:     <span class="ruby-ivar">@news_item</span> = <span class="ruby-constant">NewsItem</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
@@ -469,9 +469,9 @@ edit
 25:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000661"><br/></a>
+<a class="small" name="M000667"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000661'>
+<a href='#M000667'>
 
 
 index
@@ -481,7 +481,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000661-show-link"><a onclick="toggle('M000661-source'); toggleText('M000661-link'); return false;" href="#" id="M000661-link">Show source...</a></p><div class="source" id="M000661-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 6</span>
+<p class="source_link" id="M000667-show-link"><a onclick="toggle('M000667-source'); toggleText('M000667-link'); return false;" href="#" id="M000667-link">Show source...</a></p><div class="source" id="M000667-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 6</span>
  6:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
  7:  
  8:     <span class="ruby-ivar">@term_search_string</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:term_search_string</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
@@ -492,9 +492,9 @@ index
 13:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000662"><br/></a>
+<a class="small" name="M000668"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000662'>
+<a href='#M000668'>
 
 
 new
@@ -504,7 +504,7 @@ new
 </a>
 </h3>
 
-<p class="source_link" id="M000662-show-link"><a onclick="toggle('M000662-source'); toggleText('M000662-link'); return false;" href="#" id="M000662-link">Show source...</a></p><div class="source" id="M000662-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 15</span>
+<p class="source_link" id="M000668-show-link"><a onclick="toggle('M000668-source'); toggleText('M000668-link'); return false;" href="#" id="M000668-link">Show source...</a></p><div class="source" id="M000668-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 15</span>
 15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
 16: 
 17:     <span class="ruby-ivar">@news_item</span> = <span class="ruby-constant">NewsItem</span>.<span class="ruby-identifier">new</span>
@@ -512,9 +512,9 @@ new
 19:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000665"><br/></a>
+<a class="small" name="M000671"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000665'>
+<a href='#M000671'>
 
 
 update
@@ -524,7 +524,7 @@ update
 </a>
 </h3>
 
-<p class="source_link" id="M000665-show-link"><a onclick="toggle('M000665-source'); toggleText('M000665-link'); return false;" href="#" id="M000665-link">Show source...</a></p><div class="source" id="M000665-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 41</span>
+<p class="source_link" id="M000671-show-link"><a onclick="toggle('M000671-source'); toggleText('M000671-link'); return false;" href="#" id="M000671-link">Show source...</a></p><div class="source" id="M000671-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/news_item_controller.rb, line 41</span>
 41:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
 42: 
 43:     <span class="ruby-ivar">@news_item</span> = <span class="ruby-constant">NewsItem</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])

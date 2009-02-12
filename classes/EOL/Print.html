@@ -331,14 +331,14 @@ Module: EOL::Print
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000061'>
+<a href='#M000062'>
 print_he<br/>
 </a>
 
 
 
 
-<a href='#M000060'>
+<a href='#M000061'>
 print_hierarchy_entries<br/>
 </a>
 
@@ -361,9 +361,9 @@ print_hierarchy_entries<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000061"><br/></a>
+<a class="small" name="M000062"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000061'>
+<a href='#M000062'>
 
 
 print_he
@@ -373,16 +373,16 @@ print_he
 </a>
 </h3>
 
-<p class="source_link" id="M000061-show-link"><a onclick="toggle('M000061-source'); toggleText('M000061-link'); return false;" href="#" id="M000061-link">Show source...</a></p><div class="source" id="M000061-source"><pre>     <span class="ruby-comment cmt"># File lib/eol_data.rb, line 111</span>
+<p class="source_link" id="M000062-show-link"><a onclick="toggle('M000062-source'); toggleText('M000062-link'); return false;" href="#" id="M000062-link">Show source...</a></p><div class="source" id="M000062-source"><pre>     <span class="ruby-comment cmt"># File lib/eol_data.rb, line 111</span>
 111:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">print_he</span>(<span class="ruby-identifier">he</span>)
 112:       <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{ &quot;\t&quot; * he.depth }[#{he.id}] #{he.name} [#{he.lft} -&gt; #{he.rgt}]&quot;</span>
 113:       <span class="ruby-identifier">he</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print_he</span>(<span class="ruby-identifier">child</span>) }
 114:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000060"><br/></a>
+<a class="small" name="M000061"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000060'>
+<a href='#M000061'>
 
 
 print_hierarchy_entries
@@ -420,7 +420,7 @@ given <a href="../Hierarchy.html">Hierarchy</a> ID, displaying depths, eg:
  [16101981] Fungi [147 -&gt; 148]
 </pre>
 
-<p class="source_link" id="M000060-show-link"><a onclick="toggle('M000060-source'); toggleText('M000060-link'); return false;" href="#" id="M000060-link">Show source...</a></p><div class="source" id="M000060-source"><pre>     <span class="ruby-comment cmt"># File lib/eol_data.rb, line 107</span>
+<p class="source_link" id="M000061-show-link"><a onclick="toggle('M000061-source'); toggleText('M000061-link'); return false;" href="#" id="M000061-link">Show source...</a></p><div class="source" id="M000061-source"><pre>     <span class="ruby-comment cmt"># File lib/eol_data.rb, line 107</span>
 107:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">print_hierarchy_entries</span> <span class="ruby-identifier">hierarchy_id</span> = <span class="ruby-value">106</span>
 108:       <span class="ruby-constant">Hierarchy</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">hierarchy_id</span>).<span class="ruby-identifier">hierarchy_entries</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">he</span><span class="ruby-operator">|</span> <span class="ruby-identifier">he</span>.<span class="ruby-identifier">parent_id</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">he</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print_he</span> <span class="ruby-identifier">he</span> }
 109:     <span class="ruby-keyword kw">end</span></pre></div>

@@ -338,42 +338,42 @@ GeoKit::Geocoders<br/>
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000757'>
+<a href='#M000759'>
 catch_all<br/>
 </a>
 
 
 
 
-<a href='#M000759'>
+<a href='#M000761'>
 chart_data<br/>
 </a>
 
 
 
 
-<a href='#M000760'>
+<a href='#M000762'>
 chart_settings<br/>
 </a>
 
 
 
 
-<a href='#M000755'>
+<a href='#M000757'>
 included<br/>
 </a>
 
 
 
 
-<a href='#M000756'>
+<a href='#M000758'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000758'>
+<a href='#M000760'>
 report<br/>
 </a>
 
@@ -405,9 +405,9 @@ controllers
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000755"><br/></a>
+<a class="small" name="M000757"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000755'>
+<a href='#M000757'>
 
 
 included
@@ -417,7 +417,7 @@ included
 </a>
 </h3>
 
-<p class="source_link" id="M000755-show-link"><a onclick="toggle('M000755-source'); toggleText('M000755-link'); return false;" href="#" id="M000755-link">Show source...</a></p><div class="source" id="M000755-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 8</span>
+<p class="source_link" id="M000757-show-link"><a onclick="toggle('M000757-source'); toggleText('M000757-link'); return false;" href="#" id="M000757-link">Show source...</a></p><div class="source" id="M000757-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 8</span>
  8:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span> <span class="ruby-identifier">base</span>
  9:     <span class="ruby-identifier">require</span> <span class="ruby-value str">'csv'</span>
 10:     <span class="ruby-identifier">require</span> <span class="ruby-value str">'geo_kit/geocoders'</span>
@@ -433,9 +433,9 @@ included
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000757"><br/></a>
+<a class="small" name="M000759"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000757'>
+<a href='#M000759'>
 
 
 catch_all
@@ -446,13 +446,13 @@ catch_all
 </h3>
 <p>
 this is the only public method on this controller (except <a
-href="ReportsControllerModule.html#M000756">index</a>). ALL calls go
+href="ReportsControllerModule.html#M000758">index</a>). ALL calls go
 through this method (except <a
-href="ReportsControllerModule.html#M000756">index</a>). see
+href="ReportsControllerModule.html#M000758">index</a>). see
 config/routes.rb
 </p>
 
-<p class="source_link" id="M000757-show-link"><a onclick="toggle('M000757-source'); toggleText('M000757-link'); return false;" href="#" id="M000757-link">Show source...</a></p><div class="source" id="M000757-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 25</span>
+<p class="source_link" id="M000759-show-link"><a onclick="toggle('M000759-source'); toggleText('M000759-link'); return false;" href="#" id="M000759-link">Show source...</a></p><div class="source" id="M000759-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 25</span>
 25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">catch_all</span>
 26:     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">valid_report?</span>
 27:       <span class="ruby-identifier">render</span> <span class="ruby-identifier">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;Report not found for #{ params[:report] }&quot;</span>, <span class="ruby-identifier">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">404</span>
@@ -487,9 +487,9 @@ config/routes.rb
 56:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000756"><br/></a>
+<a class="small" name="M000758"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000756'>
+<a href='#M000758'>
 
 
 index
@@ -499,7 +499,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000756-show-link"><a onclick="toggle('M000756-source'); toggleText('M000756-link'); return false;" href="#" id="M000756-link">Show source...</a></p><div class="source" id="M000756-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 18</span>
+<p class="source_link" id="M000758-show-link"><a onclick="toggle('M000758-source'); toggleText('M000758-link'); return false;" href="#" id="M000758-link">Show source...</a></p><div class="source" id="M000758-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 18</span>
 18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
 19:     <span class="ruby-ivar">@admin_header</span>=<span class="ruby-value str">&quot;Data Usage Reports&quot;</span>
 20:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'reports/index'</span>
@@ -510,9 +510,9 @@ index
 <h1>Protected Instance Methods</h1>
 
 
-<a class="small" name="M000759"><br/></a>
+<a class="small" name="M000761"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000759'>
+<a href='#M000761'>
 
 
 chart_data
@@ -522,7 +522,7 @@ chart_data
 </a>
 </h3>
 
-<p class="source_link" id="M000759-show-link"><a onclick="toggle('M000759-source'); toggleText('M000759-link'); return false;" href="#" id="M000759-link">Show source...</a></p><div class="source" id="M000759-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 76</span>
+<p class="source_link" id="M000761-show-link"><a onclick="toggle('M000761-source'); toggleText('M000761-link'); return false;" href="#" id="M000761-link">Show source...</a></p><div class="source" id="M000761-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 76</span>
 76:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">chart_data</span>
 77:       <span class="ruby-identifier">chart</span> = <span class="ruby-constant">Ambling</span><span class="ruby-operator">::</span><span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Pie</span>.<span class="ruby-identifier">new</span>()
 78:       <span class="ruby-ivar">@totals</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
@@ -534,9 +534,9 @@ chart_data
 84:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000760"><br/></a>
+<a class="small" name="M000762"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000760'>
+<a href='#M000762'>
 
 
 chart_settings
@@ -546,16 +546,16 @@ chart_settings
 </a>
 </h3>
 
-<p class="source_link" id="M000760-show-link"><a onclick="toggle('M000760-source'); toggleText('M000760-link'); return false;" href="#" id="M000760-link">Show source...</a></p><div class="source" id="M000760-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 86</span>
+<p class="source_link" id="M000762-show-link"><a onclick="toggle('M000762-source'); toggleText('M000762-link'); return false;" href="#" id="M000762-link">Show source...</a></p><div class="source" id="M000762-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 86</span>
 86:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">chart_settings</span>
 87:     <span class="ruby-identifier">settings</span> = <span class="ruby-identifier">default_pie_chart_settings</span>(<span class="ruby-value str">'Stuff'</span>)
 88:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">to_xml</span>
 89:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000758"><br/></a>
+<a class="small" name="M000760"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000758'>
+<a href='#M000760'>
 
 
 report
@@ -568,7 +568,7 @@ report
 here be the &#8216;actions&#8216;
 </p>
 
-<p class="source_link" id="M000758-show-link"><a onclick="toggle('M000758-source'); toggleText('M000758-link'); return false;" href="#" id="M000758-link">Show source...</a></p><div class="source" id="M000758-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 61</span>
+<p class="source_link" id="M000760-show-link"><a onclick="toggle('M000760-source'); toggleText('M000760-link'); return false;" href="#" id="M000760-link">Show source...</a></p><div class="source" id="M000760-source"><pre>    <span class="ruby-comment cmt"># File lib/reports_controller_module.rb, line 61</span>
 61:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">report</span>
 62:     <span class="ruby-comment cmt"># because of our abnormal path handling, respond_to doesn't seem to work here ...</span>
 63:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:report</span>][<span class="ruby-regexp re">/\.xml$/</span>]

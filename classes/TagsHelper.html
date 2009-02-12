@@ -331,28 +331,28 @@ Module: TagsHelper
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000634'>
+<a href='#M000640'>
 tag_categories<br/>
 </a>
 
 
 
 
-<a href='#M000631'>
+<a href='#M000637'>
 tag_hash<br/>
 </a>
 
 
 
 
-<a href='#M000632'>
+<a href='#M000638'>
 tag_keys<br/>
 </a>
 
 
 
 
-<a href='#M000633'>
+<a href='#M000639'>
 tag_values_for_key<br/>
 </a>
 
@@ -375,9 +375,9 @@ tag_values_for_key<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000634"><br/></a>
+<a class="small" name="M000640"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000634'>
+<a href='#M000640'>
 
 
 tag_categories
@@ -387,15 +387,15 @@ tag_categories
 </a>
 </h3>
 
-<p class="source_link" id="M000634-show-link"><a onclick="toggle('M000634-source'); toggleText('M000634-link'); return false;" href="#" id="M000634-link">Show source...</a></p><div class="source" id="M000634-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 20</span>
+<p class="source_link" id="M000640-show-link"><a onclick="toggle('M000640-source'); toggleText('M000640-link'); return false;" href="#" id="M000640-link">Show source...</a></p><div class="source" id="M000640-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 20</span>
 20:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_categories</span>
 21:     ( <span class="ruby-constant">DataObjectTag</span>.<span class="ruby-identifier">public_keys</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">tag_keys</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">session</span>[<span class="ruby-identifier">:user_added_data_object_tag_keys</span>] <span class="ruby-operator">||</span> []) ).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sort</span>
 22:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000631"><br/></a>
+<a class="small" name="M000637"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000631'>
+<a href='#M000637'>
 
 
 tag_hash
@@ -409,7 +409,7 @@ returns a hash in the format { &#8216;tag_key&#8217; =&gt;
 [&#8216;value1&#8217;,&#8217;value2&#8217;] }
 </p>
 
-<p class="source_link" id="M000631-show-link"><a onclick="toggle('M000631-source'); toggleText('M000631-link'); return false;" href="#" id="M000631-link">Show source...</a></p><div class="source" id="M000631-source"><pre>   <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 4</span>
+<p class="source_link" id="M000637-show-link"><a onclick="toggle('M000637-source'); toggleText('M000637-link'); return false;" href="#" id="M000637-link">Show source...</a></p><div class="source" id="M000637-source"><pre>   <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 4</span>
 4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_hash</span> <span class="ruby-identifier">tags</span>
 5:     <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">all</span>,<span class="ruby-identifier">this</span><span class="ruby-operator">|</span>
 6:       <span class="ruby-identifier">all</span>[<span class="ruby-identifier">this</span>.<span class="ruby-identifier">key</span>] = (<span class="ruby-identifier">all</span>[<span class="ruby-identifier">this</span>.<span class="ruby-identifier">key</span>] <span class="ruby-operator">||</span> []) <span class="ruby-operator">+</span> [<span class="ruby-identifier">this</span>.<span class="ruby-identifier">value</span>]
@@ -418,9 +418,9 @@ returns a hash in the format { &#8216;tag_key&#8217; =&gt;
 9:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000632"><br/></a>
+<a class="small" name="M000638"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000632'>
+<a href='#M000638'>
 
 
 tag_keys
@@ -433,15 +433,15 @@ tag_keys
 returns an array of all of the keys an object is tagged with
 </p>
 
-<p class="source_link" id="M000632-show-link"><a onclick="toggle('M000632-source'); toggleText('M000632-link'); return false;" href="#" id="M000632-link">Show source...</a></p><div class="source" id="M000632-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 12</span>
+<p class="source_link" id="M000638-show-link"><a onclick="toggle('M000638-source'); toggleText('M000638-link'); return false;" href="#" id="M000638-link">Show source...</a></p><div class="source" id="M000638-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 12</span>
 12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_keys</span> <span class="ruby-identifier">tags</span>
 13:     <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">key</span> }.<span class="ruby-identifier">uniq</span>
 14:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000633"><br/></a>
+<a class="small" name="M000639"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000633'>
+<a href='#M000639'>
 
 
 tag_values_for_key
@@ -451,7 +451,7 @@ tag_values_for_key
 </a>
 </h3>
 
-<p class="source_link" id="M000633-show-link"><a onclick="toggle('M000633-source'); toggleText('M000633-link'); return false;" href="#" id="M000633-link">Show source...</a></p><div class="source" id="M000633-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 16</span>
+<p class="source_link" id="M000639-show-link"><a onclick="toggle('M000639-source'); toggleText('M000639-link'); return false;" href="#" id="M000639-link">Show source...</a></p><div class="source" id="M000639-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/tags_helper.rb, line 16</span>
 16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag_values_for_key</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">tags</span>
 17:     <span class="ruby-identifier">tag_hash</span>(<span class="ruby-identifier">tags</span>)[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">sort</span>
 18:   <span class="ruby-keyword kw">end</span></pre></div>

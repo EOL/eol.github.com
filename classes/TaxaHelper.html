@@ -331,49 +331,42 @@ Module: TaxaHelper
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000712'>
+<a href='#M000717'>
 agent_icons_partial<br/>
 </a>
 
 
 
 
-<a href='#M000711'>
+<a href='#M000716'>
 agent_partial<br/>
 </a>
 
 
 
 
-<a href='#M000714'>
+<a href='#M000719'>
 allow_some_html<br/>
 </a>
 
 
 
 
-<a href='#M000710'>
-link_text<br/>
-</a>
-
-
-
-
-<a href='#M000708'>
+<a href='#M000714'>
 popup_link<br/>
 </a>
 
 
 
 
-<a href='#M000709'>
+<a href='#M000715'>
 vetted_id_class<br/>
 </a>
 
 
 
 
-<a href='#M000713'>
+<a href='#M000718'>
 video_hash<br/>
 </a>
 
@@ -396,9 +389,9 @@ video_hash<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000712"><br/></a>
+<a class="small" name="M000717"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000712'>
+<a href='#M000717'>
 
 
 agent_icons_partial
@@ -408,60 +401,60 @@ agent_icons_partial
 </a>
 </h3>
 
-<p class="source_link" id="M000712-show-link"><a onclick="toggle('M000712-source'); toggleText('M000712-link'); return false;" href="#" id="M000712-link">Show source...</a></p><div class="source" id="M000712-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 44</span>
-44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_icons_partial</span>(<span class="ruby-identifier">original_agents</span>,<span class="ruby-identifier">params</span>={})
-45:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">''</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">blank?</span>
-46:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>].<span class="ruby-identifier">nil?</span>
-47:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_text_if_no_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
-48:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_show_col_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
-49:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:normal_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
-50:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&amp;nbsp;&quot;</span>
-51:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:last_separator</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>]
-52:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
-53:     
-54:     <span class="ruby-identifier">is_default_col</span> = <span class="ruby-keyword kw">false</span>
-55:     <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon</span>].<span class="ruby-identifier">col_entry</span>.<span class="ruby-identifier">nil?</span>)
-56:       <span class="ruby-identifier">is_default_col</span> = <span class="ruby-keyword kw">true</span>
-57:     <span class="ruby-keyword kw">end</span>
-58:     
-59:     <span class="ruby-identifier">agents</span> = <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">clone</span> <span class="ruby-comment cmt"># so we can be destructive.</span>
-60:     <span class="ruby-identifier">agents</span> = [<span class="ruby-identifier">agents</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span> <span class="ruby-comment cmt"># Allows us to pass in a single agent, if needed.</span>
-61:     
-62:     <span class="ruby-identifier">output_html</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-63:     
-64:     <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">agent</span><span class="ruby-operator">|</span>
-65:       <span class="ruby-identifier">logo_size</span>=(<span class="ruby-identifier">agent</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">catalogue_of_life</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;large&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;small&quot;</span>) <span class="ruby-comment cmt"># CoL gets their logo big     </span>
-66:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">logo_cache_url</span>.<span class="ruby-identifier">blank?</span> 
-67:         <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_text_if_no_icon</span>] 
-68:       <span class="ruby-keyword kw">else</span>
-69:         <span class="ruby-identifier">url</span> = <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">homepage</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
-70:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_show_col_icon</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_default_col</span> <span class="ruby-comment cmt"># if we are only asked to show the logo if it's COL and the current agent is *not* COL, then show text</span>
-71:           <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">params</span>)
-72:         <span class="ruby-keyword kw">else</span>
-73:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">blank?</span>
-74:             <span class="ruby-identifier">text</span> = <span class="ruby-identifier">agent_logo</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">logo_size</span>,<span class="ruby-identifier">params</span>)
-75:             <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;a onclick=&quot;JavaScript:external_link(\''</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">escape</span>(<span class="ruby-identifier">url</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'\',true,'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$USE_EXTERNAL_LINK_POPUPS</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">');return false;&quot; href=&quot;#&quot;&gt;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/a&gt;'</span>          
-76:           <span class="ruby-keyword kw">else</span>
-77:             <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">agent_logo</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">logo_size</span>,<span class="ruby-identifier">params</span>)
-78:           <span class="ruby-keyword kw">end</span>
-79:         <span class="ruby-keyword kw">end</span>
-80:       <span class="ruby-keyword kw">end</span>
-81:       
-82:     <span class="ruby-keyword kw">end</span>
-83:     
-84:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:last_separator</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>]
-85:       <span class="ruby-comment cmt"># stich the last two elements together with the &quot;last separator&quot; column before joining if there is more than 1 element and the last separator is different</span>
-86:       <span class="ruby-identifier">output_html</span>[<span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">2</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:last_separator</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">pop</span>
-87:                 <span class="ruby-keyword kw">end</span>
-88: 
-89:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>]) 
-90: 
-91:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000717-show-link"><a onclick="toggle('M000717-source'); toggleText('M000717-link'); return false;" href="#" id="M000717-link">Show source...</a></p><div class="source" id="M000717-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 40</span>
+40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_icons_partial</span>(<span class="ruby-identifier">original_agents</span>,<span class="ruby-identifier">params</span>={})
+41:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">''</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">blank?</span>
+42:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>].<span class="ruby-identifier">nil?</span>
+43:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_text_if_no_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+44:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_show_col_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+45:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:normal_icon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+46:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&amp;nbsp;&quot;</span>
+47:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:last_separator</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>]
+48:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+49:     
+50:     <span class="ruby-identifier">is_default_col</span> = <span class="ruby-keyword kw">false</span>
+51:     <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">:taxon</span>].<span class="ruby-identifier">col_entry</span>.<span class="ruby-identifier">nil?</span>)
+52:       <span class="ruby-identifier">is_default_col</span> = <span class="ruby-keyword kw">true</span>
+53:     <span class="ruby-keyword kw">end</span>
+54:     
+55:     <span class="ruby-identifier">agents</span> = <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">clone</span> <span class="ruby-comment cmt"># so we can be destructive.</span>
+56:     <span class="ruby-identifier">agents</span> = [<span class="ruby-identifier">agents</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span> <span class="ruby-comment cmt"># Allows us to pass in a single agent, if needed.</span>
+57:     
+58:     <span class="ruby-identifier">output_html</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+59:     
+60:     <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">agent</span><span class="ruby-operator">|</span>
+61:       <span class="ruby-identifier">logo_size</span>=(<span class="ruby-identifier">agent</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Agent</span>.<span class="ruby-identifier">catalogue_of_life</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;large&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;small&quot;</span>) <span class="ruby-comment cmt"># CoL gets their logo big     </span>
+62:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">logo_cache_url</span>.<span class="ruby-identifier">blank?</span> 
+63:         <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_text_if_no_icon</span>] 
+64:       <span class="ruby-keyword kw">else</span>
+65:         <span class="ruby-identifier">url</span> = <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">homepage</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
+66:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_show_col_icon</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_default_col</span> <span class="ruby-comment cmt"># if we are only asked to show the logo if it's COL and the current agent is *not* COL, then show text</span>
+67:           <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">params</span>)
+68:         <span class="ruby-keyword kw">else</span>
+69:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">blank?</span>
+70:             <span class="ruby-identifier">text</span> = <span class="ruby-identifier">agent_logo</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">logo_size</span>,<span class="ruby-identifier">params</span>)
+71:             <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">external_link_to</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">url</span>,{<span class="ruby-identifier">:show_link_icon</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>})
+72:           <span class="ruby-keyword kw">else</span>
+73:             <span class="ruby-identifier">output_html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">agent_logo</span>(<span class="ruby-identifier">agent</span>,<span class="ruby-identifier">logo_size</span>,<span class="ruby-identifier">params</span>)
+74:           <span class="ruby-keyword kw">end</span>
+75:         <span class="ruby-keyword kw">end</span>
+76:       <span class="ruby-keyword kw">end</span>
+77:       
+78:     <span class="ruby-keyword kw">end</span>
+79:     
+80:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:last_separator</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>]
+81:       <span class="ruby-comment cmt"># stich the last two elements together with the &quot;last separator&quot; column before joining if there is more than 1 element and the last separator is different</span>
+82:       <span class="ruby-identifier">output_html</span>[<span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">2</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:last_separator</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">pop</span>
+83:                 <span class="ruby-keyword kw">end</span>
+84: 
+85:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output_html</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:separator</span>]) 
+86: 
+87:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000711"><br/></a>
+<a class="small" name="M000716"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000711'>
+<a href='#M000716'>
 
 
 agent_partial
@@ -471,29 +464,29 @@ agent_partial
 </a>
 </h3>
 
-<p class="source_link" id="M000711-show-link"><a onclick="toggle('M000711-source'); toggleText('M000711-link'); return false;" href="#" id="M000711-link">Show source...</a></p><div class="source" id="M000711-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 26</span>
-26:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">original_agents</span>, <span class="ruby-identifier">params</span>={})
-27:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">''</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">blank?</span>
-28:     <span class="ruby-comment cmt"># I am going to cache values (in memory), since there is often a LOT of repetition, here.</span>
-29:     <span class="ruby-comment cmt"># Note that I don't bother caching non-linked values, since that's just one variable, anyway.</span>
-30:     <span class="ruby-ivar">@@cached_links</span> <span class="ruby-operator">||=</span> {}
-31:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>].<span class="ruby-identifier">nil?</span>
-32:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_first</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
-33:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>].<span class="ruby-identifier">nil?</span>
-34:     <span class="ruby-identifier">agents</span> = <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">clone</span> <span class="ruby-comment cmt"># so we can be destructive.</span>
-35:     <span class="ruby-identifier">agents</span> = [<span class="ruby-identifier">agents</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span> <span class="ruby-comment cmt"># Allows us to pass in a single agent, if needed.</span>
-36:     <span class="ruby-identifier">agents</span> = [<span class="ruby-identifier">agents</span>[<span class="ruby-value">0</span>]] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_first</span>]
-37:     <span class="ruby-identifier">agent_list</span> = <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">agent</span><span class="ruby-operator">|</span>
-38:       <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">link_text</span>(<span class="ruby-identifier">hh</span>(<span class="ruby-identifier">agent</span>.<span class="ruby-identifier">full_name</span>), <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">homepage</span>, <span class="ruby-identifier">:show_link_icon</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>]).<span class="ruby-identifier">strip</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">hh</span>(<span class="ruby-identifier">agent</span>.<span class="ruby-identifier">full_name</span>)        
-39:     <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>) <span class="ruby-comment cmt"># I know this looks awkward, but I'm making it more readable.  : )</span>
-40:     <span class="ruby-identifier">agent_list</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">', et al.'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_first</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
-41:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">agent_list</span>
-42:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000716-show-link"><a onclick="toggle('M000716-source'); toggleText('M000716-link'); return false;" href="#" id="M000716-link">Show source...</a></p><div class="source" id="M000716-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 22</span>
+22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">original_agents</span>, <span class="ruby-identifier">params</span>={})
+23:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">''</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">blank?</span>
+24:     <span class="ruby-comment cmt"># I am going to cache values (in memory), since there is often a LOT of repetition, here.</span>
+25:     <span class="ruby-comment cmt"># Note that I don't bother caching non-linked values, since that's just one variable, anyway.</span>
+26:     <span class="ruby-ivar">@@cached_links</span> <span class="ruby-operator">||=</span> {}
+27:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>].<span class="ruby-identifier">nil?</span>
+28:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_first</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+29:     <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>].<span class="ruby-identifier">nil?</span>
+30:     <span class="ruby-identifier">agents</span> = <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">clone</span> <span class="ruby-comment cmt"># so we can be destructive.</span>
+31:     <span class="ruby-identifier">agents</span> = [<span class="ruby-identifier">agents</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span> <span class="ruby-comment cmt"># Allows us to pass in a single agent, if needed.</span>
+32:     <span class="ruby-identifier">agents</span> = [<span class="ruby-identifier">agents</span>[<span class="ruby-value">0</span>]] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_first</span>]
+33:     <span class="ruby-identifier">agent_list</span> = <span class="ruby-identifier">agents</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">agent</span><span class="ruby-operator">|</span>
+34:       <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:linked</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">external_link_to</span>(<span class="ruby-identifier">hh</span>(<span class="ruby-identifier">agent</span>.<span class="ruby-identifier">full_name</span>), <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">homepage</span>, {<span class="ruby-identifier">:show_link_icon</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_link_icon</span>]}) <span class="ruby-operator">:</span> <span class="ruby-identifier">hh</span>(<span class="ruby-identifier">agent</span>.<span class="ruby-identifier">full_name</span>)
+35:     <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>) <span class="ruby-comment cmt"># I know this looks awkward, but I'm making it more readable.  : )</span>
+36:     <span class="ruby-identifier">agent_list</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">', et al.'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:only_first</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">original_agents</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+37:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">agent_list</span>
+38:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000714"><br/></a>
+<a class="small" name="M000719"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000714'>
+<a href='#M000719'>
 
 
 allow_some_html
@@ -507,37 +500,19 @@ Note that I change strong to b, &#8216;cause strong appears to be
 overridden in our CSS. Hrmph.
 </p>
 
-<p class="source_link" id="M000714-show-link"><a onclick="toggle('M000714-source'); toggleText('M000714-link'); return false;" href="#" id="M000714-link">Show source...</a></p><div class="source" id="M000714-source"><pre>     <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 119</span>
-119:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow_some_html</span>(<span class="ruby-identifier">text</span>)
-120:     [<span class="ruby-value str">'i'</span>, <span class="ruby-value str">'b'</span>, <span class="ruby-value str">'strong'</span>, <span class="ruby-value str">'em'</span>, <span class="ruby-value str">'blockquote'</span>, <span class="ruby-value str">'small'</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
-121:       <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/&amp;lt;(\/?)#{tag}&amp;gt;/i</span>, <span class="ruby-node">&quot;&lt;\\1#{tag.gsub(/strong/, 'b')}&gt;&quot;</span>)
-122:     <span class="ruby-keyword kw">end</span>
-123:     <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\r\n/</span>, <span class="ruby-value str">'&lt;br/&gt;'</span>)
-124:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">text</span>
-125:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000719-show-link"><a onclick="toggle('M000719-source'); toggleText('M000719-link'); return false;" href="#" id="M000719-link">Show source...</a></p><div class="source" id="M000719-source"><pre>     <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 115</span>
+115:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow_some_html</span>(<span class="ruby-identifier">text</span>)
+116:     [<span class="ruby-value str">'i'</span>, <span class="ruby-value str">'b'</span>, <span class="ruby-value str">'strong'</span>, <span class="ruby-value str">'em'</span>, <span class="ruby-value str">'blockquote'</span>, <span class="ruby-value str">'small'</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+117:       <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/&amp;lt;(\/?)#{tag}&amp;gt;/i</span>, <span class="ruby-node">&quot;&lt;\\1#{tag.gsub(/strong/, 'b')}&gt;&quot;</span>)
+118:     <span class="ruby-keyword kw">end</span>
+119:     <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\r\n/</span>, <span class="ruby-value str">'&lt;br/&gt;'</span>)
+120:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">text</span>
+121:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000710"><br/></a>
+<a class="small" name="M000714"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000710'>
-
-
-link_text
-
-(text,link=&quot;&quot;,params={})
-
-</a>
-</h3>
-
-<p class="source_link" id="M000710-show-link"><a onclick="toggle('M000710-source'); toggleText('M000710-link'); return false;" href="#" id="M000710-link">Show source...</a></p><div class="source" id="M000710-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 22</span>
-22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_text</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>=<span class="ruby-value str">&quot;&quot;</span>,<span class="ruby-identifier">params</span>={})
-23:     <span class="ruby-identifier">eol_return_linked_text</span>(<span class="ruby-identifier">text</span>,<span class="ruby-identifier">link</span>,<span class="ruby-identifier">params</span>)
-24:   <span class="ruby-keyword kw">end</span></pre></div>
-</div>
-
-<a class="small" name="M000708"><br/></a>
-<div class="method_block"><h3>
-<a href='#M000708'>
+<a href='#M000714'>
 
 
 popup_link
@@ -554,16 +529,16 @@ anchor: try &#8216;comment&#8217;, &#8216;tagging&#8217;, or
 (used by JS to create an Ajax request).
 </p>
 
-<p class="source_link" id="M000708-show-link"><a onclick="toggle('M000708-source'); toggleText('M000708-link'); return false;" href="#" id="M000708-link">Show source...</a></p><div class="source" id="M000708-source"><pre>   <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 6</span>
+<p class="source_link" id="M000714-show-link"><a onclick="toggle('M000714-source'); toggleText('M000714-link'); return false;" href="#" id="M000714-link">Show source...</a></p><div class="source" id="M000714-source"><pre>   <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 6</span>
 6:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">popup_link</span>(<span class="ruby-identifier">which</span>, <span class="ruby-identifier">where</span>)
 7:     <span class="ruby-identifier">link_to</span> <span class="ruby-value str">'&lt;span style=&quot;display:block;width:24px;height:25px;&quot;&gt;&lt;/span&gt;'</span>, <span class="ruby-identifier">where</span>, 
 8:             <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;large-image-#{which}-button-popup-link&quot;</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'popup-link'</span>, <span class="ruby-identifier">:style</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'display:none;'</span>
 9:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000709"><br/></a>
+<a class="small" name="M000715"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000709'>
+<a href='#M000715'>
 
 
 vetted_id_class
@@ -573,7 +548,7 @@ vetted_id_class
 </a>
 </h3>
 
-<p class="source_link" id="M000709-show-link"><a onclick="toggle('M000709-source'); toggleText('M000709-link'); return false;" href="#" id="M000709-link">Show source...</a></p><div class="source" id="M000709-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 11</span>
+<p class="source_link" id="M000715-show-link"><a onclick="toggle('M000715-source'); toggleText('M000715-link'); return false;" href="#" id="M000715-link">Show source...</a></p><div class="source" id="M000715-source"><pre>    <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 11</span>
 11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vetted_id_class</span>(<span class="ruby-identifier">data_object</span>)
 12:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">vetted_id</span>
 13:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Vetted</span>.<span class="ruby-identifier">unknown</span>.<span class="ruby-identifier">id</span>
@@ -586,9 +561,9 @@ vetted_id_class
 20:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000713"><br/></a>
+<a class="small" name="M000718"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000713'>
+<a href='#M000718'>
 
 
 video_hash
@@ -598,31 +573,31 @@ video_hash
 </a>
 </h3>
 
-<p class="source_link" id="M000713-show-link"><a onclick="toggle('M000713-source'); toggleText('M000713-link'); return false;" href="#" id="M000713-link">Show source...</a></p><div class="source" id="M000713-source"><pre>     <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 93</span>
- 93:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">video_hash</span>(<span class="ruby-identifier">video</span>,<span class="ruby-identifier">taxon_concept_id</span>=<span class="ruby-value str">''</span>)
- 94:     <span class="ruby-comment cmt"># TODO: (something of a big change, since it means altering the JS)</span>
- 95:     <span class="ruby-comment cmt">#       Note that this won't handle the agent_partial stuff; handle separately:</span>
- 96:     <span class="ruby-comment cmt"># return video.to_json(:methods =&gt; :video_url)</span>
- 97:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">taxon_concept_id</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-comment cmt"># grab the first taxon concept ID from the video object if we didn't just pass it in</span>
- 98:       <span class="ruby-identifier">taxon_concepts</span>=<span class="ruby-identifier">video</span>.<span class="ruby-identifier">taxa_names_taxon_concept_ids</span>
- 99:       <span class="ruby-identifier">taxon_concept_id</span> = <span class="ruby-identifier">taxon_concepts</span>[<span class="ruby-value">0</span>][<span class="ruby-identifier">:taxon_concept_id</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">taxon_concepts</span>.<span class="ruby-identifier">blank?</span>
-100:     <span class="ruby-keyword kw">end</span>
-101:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;{author: '&quot;</span>        <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">authors</span>)) <span class="ruby-operator">+</span>
-102:            <span class="ruby-value str">&quot;', nameString: '&quot;</span>   <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">scientific_name</span>) <span class="ruby-operator">+</span>
-103:            <span class="ruby-value str">&quot;', collection: '&quot;</span>   <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">sources</span>)) <span class="ruby-operator">+</span>
-104:            <span class="ruby-value str">&quot;', location: '&quot;</span>     <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-105:            <span class="ruby-value str">&quot;', info_url: '&quot;</span>     <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">source_url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-106:            <span class="ruby-value str">&quot;', field_notes: '&quot;</span>  <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">description</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-107:            <span class="ruby-value str">&quot;', license_text: '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">license_text</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-108:            <span class="ruby-value str">&quot;', license_logo: '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">license_logo</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-109:            <span class="ruby-value str">&quot;', license_link: '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">license_url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-110:            <span class="ruby-value str">&quot;', title:'&quot;</span>         <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">object_title</span>) <span class="ruby-operator">+</span>
-111:            <span class="ruby-value str">&quot;', video_type:'&quot;</span>    <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">media_type</span>) <span class="ruby-operator">+</span>
-112:            <span class="ruby-value str">&quot;', video_url:'&quot;</span>     <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-node">&quot;#{video.video_url}&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">video</span>.<span class="ruby-identifier">object_url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
-113:            <span class="ruby-value str">&quot;', data_object_id:'&quot;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">+</span>
-114:            <span class="ruby-value str">&quot;', taxon_concept_id:'&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">taxon_concept_id</span>) <span class="ruby-operator">+</span> 
-115:            <span class="ruby-value str">&quot;'}&quot;</span>
-116:   <span class="ruby-keyword kw">end</span></pre></div>
+<p class="source_link" id="M000718-show-link"><a onclick="toggle('M000718-source'); toggleText('M000718-link'); return false;" href="#" id="M000718-link">Show source...</a></p><div class="source" id="M000718-source"><pre>     <span class="ruby-comment cmt"># File app/helpers/taxa_helper.rb, line 89</span>
+ 89:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">video_hash</span>(<span class="ruby-identifier">video</span>,<span class="ruby-identifier">taxon_concept_id</span>=<span class="ruby-value str">''</span>)
+ 90:     <span class="ruby-comment cmt"># TODO: (something of a big change, since it means altering the JS)</span>
+ 91:     <span class="ruby-comment cmt">#       Note that this won't handle the agent_partial stuff; handle separately:</span>
+ 92:     <span class="ruby-comment cmt"># return video.to_json(:methods =&gt; :video_url)</span>
+ 93:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">taxon_concept_id</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-comment cmt"># grab the first taxon concept ID from the video object if we didn't just pass it in</span>
+ 94:       <span class="ruby-identifier">taxon_concepts</span>=<span class="ruby-identifier">video</span>.<span class="ruby-identifier">taxa_names_taxon_concept_ids</span>
+ 95:       <span class="ruby-identifier">taxon_concept_id</span> = <span class="ruby-identifier">taxon_concepts</span>[<span class="ruby-value">0</span>][<span class="ruby-identifier">:taxon_concept_id</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">taxon_concepts</span>.<span class="ruby-identifier">blank?</span>
+ 96:     <span class="ruby-keyword kw">end</span>
+ 97:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;{author: '&quot;</span>        <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">authors</span>)) <span class="ruby-operator">+</span>
+ 98:            <span class="ruby-value str">&quot;', nameString: '&quot;</span>   <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">scientific_name</span>) <span class="ruby-operator">+</span>
+ 99:            <span class="ruby-value str">&quot;', collection: '&quot;</span>   <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">agent_partial</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">sources</span>)) <span class="ruby-operator">+</span>
+100:            <span class="ruby-value str">&quot;', location: '&quot;</span>     <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+101:            <span class="ruby-value str">&quot;', info_url: '&quot;</span>     <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">source_url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+102:            <span class="ruby-value str">&quot;', field_notes: '&quot;</span>  <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">description</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+103:            <span class="ruby-value str">&quot;', license_text: '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">license_text</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+104:            <span class="ruby-value str">&quot;', license_logo: '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">license_logo</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+105:            <span class="ruby-value str">&quot;', license_link: '&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">license_url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+106:            <span class="ruby-value str">&quot;', title:'&quot;</span>         <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">object_title</span>) <span class="ruby-operator">+</span>
+107:            <span class="ruby-value str">&quot;', video_type:'&quot;</span>    <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">media_type</span>) <span class="ruby-operator">+</span>
+108:            <span class="ruby-value str">&quot;', video_url:'&quot;</span>     <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-node">&quot;#{video.video_url}&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">video</span>.<span class="ruby-identifier">object_url</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span>
+109:            <span class="ruby-value str">&quot;', data_object_id:'&quot;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">video</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">+</span>
+110:            <span class="ruby-value str">&quot;', taxon_concept_id:'&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">taxon_concept_id</span>) <span class="ruby-operator">+</span> 
+111:            <span class="ruby-value str">&quot;'}&quot;</span>
+112:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
 

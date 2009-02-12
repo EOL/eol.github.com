@@ -337,42 +337,42 @@ AdminController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000693'>
+<a href='#M000699'>
 create<br/>
 </a>
 
 
 
 
-<a href='#M000695'>
+<a href='#M000701'>
 destroy<br/>
 </a>
 
 
 
 
-<a href='#M000692'>
+<a href='#M000698'>
 edit<br/>
 </a>
 
 
 
 
-<a href='#M000690'>
+<a href='#M000696'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000691'>
+<a href='#M000697'>
 new<br/>
 </a>
 
 
 
 
-<a href='#M000694'>
+<a href='#M000700'>
 update<br/>
 </a>
 
@@ -395,9 +395,9 @@ update<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000693"><br/></a>
+<a class="small" name="M000699"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000693'>
+<a href='#M000699'>
 
 
 create
@@ -407,7 +407,7 @@ create
 </a>
 </h3>
 
-<p class="source_link" id="M000693-show-link"><a onclick="toggle('M000693-source'); toggleText('M000693-link'); return false;" href="#" id="M000693-link">Show source...</a></p><div class="source" id="M000693-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 23</span>
+<p class="source_link" id="M000699-show-link"><a onclick="toggle('M000699-source'); toggleText('M000699-link'); return false;" href="#" id="M000699-link">Show source...</a></p><div class="source" id="M000699-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 23</span>
 23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
 24:     
 25:     <span class="ruby-ivar">@role</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:role</span>])
@@ -422,9 +422,9 @@ create
 34:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000695"><br/></a>
+<a class="small" name="M000701"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000695'>
+<a href='#M000701'>
 
 
 destroy
@@ -434,7 +434,7 @@ destroy
 </a>
 </h3>
 
-<p class="source_link" id="M000695-show-link"><a onclick="toggle('M000695-source'); toggleText('M000695-link'); return false;" href="#" id="M000695-link">Show source...</a></p><div class="source" id="M000695-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 50</span>
+<p class="source_link" id="M000701-show-link"><a onclick="toggle('M000701-source'); toggleText('M000701-link'); return false;" href="#" id="M000701-link">Show source...</a></p><div class="source" id="M000701-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 50</span>
 50:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
 51: 
 52:     (<span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'index'</span>;<span class="ruby-keyword kw">return</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:delete</span>
@@ -447,9 +447,9 @@ destroy
 59:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000692"><br/></a>
+<a class="small" name="M000698"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000692'>
+<a href='#M000698'>
 
 
 edit
@@ -459,7 +459,7 @@ edit
 </a>
 </h3>
 
-<p class="source_link" id="M000692-show-link"><a onclick="toggle('M000692-source'); toggleText('M000692-link'); return false;" href="#" id="M000692-link">Show source...</a></p><div class="source" id="M000692-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 17</span>
+<p class="source_link" id="M000698-show-link"><a onclick="toggle('M000698-source'); toggleText('M000698-link'); return false;" href="#" id="M000698-link">Show source...</a></p><div class="source" id="M000698-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 17</span>
 17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
 18:     
 19:     <span class="ruby-ivar">@role</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
@@ -467,9 +467,9 @@ edit
 21:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000690"><br/></a>
+<a class="small" name="M000696"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000690'>
+<a href='#M000696'>
 
 
 index
@@ -479,7 +479,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000690-show-link"><a onclick="toggle('M000690-source'); toggleText('M000690-link'); return false;" href="#" id="M000690-link">Show source...</a></p><div class="source" id="M000690-source"><pre>   <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 5</span>
+<p class="source_link" id="M000696-show-link"><a onclick="toggle('M000696-source'); toggleText('M000696-link'); return false;" href="#" id="M000696-link">Show source...</a></p><div class="source" id="M000696-source"><pre>   <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 5</span>
 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
 6:  
 7:     <span class="ruby-ivar">@roles</span>=<span class="ruby-constant">Role</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'title'</span>)
@@ -487,9 +487,9 @@ index
 9:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000691"><br/></a>
+<a class="small" name="M000697"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000691'>
+<a href='#M000697'>
 
 
 new
@@ -499,7 +499,7 @@ new
 </a>
 </h3>
 
-<p class="source_link" id="M000691-show-link"><a onclick="toggle('M000691-source'); toggleText('M000691-link'); return false;" href="#" id="M000691-link">Show source...</a></p><div class="source" id="M000691-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 11</span>
+<p class="source_link" id="M000697-show-link"><a onclick="toggle('M000697-source'); toggleText('M000697-link'); return false;" href="#" id="M000697-link">Show source...</a></p><div class="source" id="M000697-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 11</span>
 11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
 12: 
 13:     <span class="ruby-ivar">@role</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">new</span>
@@ -507,9 +507,9 @@ new
 15:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000694"><br/></a>
+<a class="small" name="M000700"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000694'>
+<a href='#M000700'>
 
 
 update
@@ -519,7 +519,7 @@ update
 </a>
 </h3>
 
-<p class="source_link" id="M000694-show-link"><a onclick="toggle('M000694-source'); toggleText('M000694-link'); return false;" href="#" id="M000694-link">Show source...</a></p><div class="source" id="M000694-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 36</span>
+<p class="source_link" id="M000700-show-link"><a onclick="toggle('M000700-source'); toggleText('M000700-link'); return false;" href="#" id="M000700-link">Show source...</a></p><div class="source" id="M000700-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/role_controller.rb, line 36</span>
 36:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
 37:     
 38:     <span class="ruby-ivar">@role</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])

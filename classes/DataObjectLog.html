@@ -337,28 +337,28 @@ LoggingModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000316'>
+<a href='#M000320'>
 before_validation<br/>
 </a>
 
 
 
 
-<a href='#M000317'>
+<a href='#M000321'>
 data_logging_enabled?<br/>
 </a>
 
 
 
 
-<a href='#M000318'>
+<a href='#M000322'>
 log<br/>
 </a>
 
 
 
 
-<a href='#M000315'>
+<a href='#M000319'>
 total<br/>
 </a>
 
@@ -399,9 +399,9 @@ Author: Preston Lee &lt;preston.lee@openrain.com&gt;
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000317"><br/></a>
+<a class="small" name="M000321"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000317'>
+<a href='#M000321'>
 
 
 data_logging_enabled?
@@ -411,15 +411,15 @@ data_logging_enabled?
 </a>
 </h3>
 
-<p class="source_link" id="M000317-show-link"><a onclick="toggle('M000317-source'); toggleText('M000317-link'); return false;" href="#" id="M000317-link">Show source...</a></p><div class="source" id="M000317-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 39</span>
+<p class="source_link" id="M000321-show-link"><a onclick="toggle('M000321-source'); toggleText('M000321-link'); return false;" href="#" id="M000321-link">Show source...</a></p><div class="source" id="M000321-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 39</span>
 39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">data_logging_enabled?</span>
 40:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_logging_enabled</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">false</span> <span class="ruby-comment cmt"># will return true for anything but false, including nil!</span>
 41:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000318"><br/></a>
+<a class="small" name="M000322"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000318'>
+<a href='#M000322'>
 
 
 log
@@ -429,7 +429,7 @@ log
 </a>
 </h3>
 <p>
-Creates <a href="DataObjectLog.html#M000318">log</a> events (instances of
+Creates <a href="DataObjectLog.html#M000322">log</a> events (instances of
 this class) for the given +<a href="DataObject.html">DataObject</a>(s)+ and
 the given client/user information. The first parameter must be either a
 single instance or array or instances. Example usage:
@@ -446,7 +446,7 @@ user, came from a particular rails request, and refer to a particular
 taxon_concept
 </p>
 
-<p class="source_link" id="M000318-show-link"><a onclick="toggle('M000318-source'); toggleText('M000318-link'); return false;" href="#" id="M000318-link">Show source...</a></p><div class="source" id="M000318-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 53</span>
+<p class="source_link" id="M000322-show-link"><a onclick="toggle('M000322-source'); toggleText('M000322-link'); return false;" href="#" id="M000322-link">Show source...</a></p><div class="source" id="M000322-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 53</span>
 53:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">log</span> <span class="ruby-identifier">data_objects</span>, <span class="ruby-identifier">request</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">taxon_concept</span>
 54:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DataObjectLog</span>.<span class="ruby-identifier">data_logging_enabled?</span>
 55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data_objects</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># allow nil taxon_concept, atleast for now.  maybe not all data object views refer to a TC?</span>
@@ -481,9 +481,9 @@ taxon_concept
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000316"><br/></a>
+<a class="small" name="M000320"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000316'>
+<a href='#M000320'>
 
 
 before_validation
@@ -493,7 +493,7 @@ before_validation
 </a>
 </h3>
 
-<p class="source_link" id="M000316-show-link"><a onclick="toggle('M000316-source'); toggleText('M000316-link'); return false;" href="#" id="M000316-link">Show source...</a></p><div class="source" id="M000316-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 31</span>
+<p class="source_link" id="M000320-show-link"><a onclick="toggle('M000320-source'); toggleText('M000320-link'); return false;" href="#" id="M000320-link">Show source...</a></p><div class="source" id="M000320-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 31</span>
 31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_validation</span>
 32:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type</span> = <span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">data_type</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type_id</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_type</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_object_id</span>
 33:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address_raw</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address</span>.<span class="ruby-identifier">number</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ip_address_raw</span>
@@ -501,9 +501,9 @@ before_validation
 35:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000315"><br/></a>
+<a class="small" name="M000319"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000315'>
+<a href='#M000319'>
 
 
 total
@@ -514,11 +514,11 @@ total
 </h3>
 <p>
 while mining this table, we often add a .<a
-href="DataObjectLog.html#M000315">total</a> column &#8230; we expect it to
+href="DataObjectLog.html#M000319">total</a> column &#8230; we expect it to
 return an integer
 </p>
 
-<p class="source_link" id="M000315-show-link"><a onclick="toggle('M000315-source'); toggleText('M000315-link'); return false;" href="#" id="M000315-link">Show source...</a></p><div class="source" id="M000315-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 27</span>
+<p class="source_link" id="M000319-show-link"><a onclick="toggle('M000319-source'); toggleText('M000319-link'); return false;" href="#" id="M000319-link">Show source...</a></p><div class="source" id="M000319-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/data_object_log.rb, line 27</span>
 27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">total</span>
 28:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'total'</span>].<span class="ruby-identifier">to_i</span>
 29:   <span class="ruby-keyword kw">end</span></pre></div>

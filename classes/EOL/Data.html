@@ -331,28 +331,28 @@ Module: EOL::Data
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000059'>
+<a href='#M000060'>
 assign_id<br/>
 </a>
 
 
 
 
-<a href='#M000056'>
+<a href='#M000057'>
 make_all_nested_sets<br/>
 </a>
 
 
 
 
-<a href='#M000057'>
+<a href='#M000058'>
 make_nested_set<br/>
 </a>
 
 
 
 
-<a href='#M000058'>
+<a href='#M000059'>
 make_nested_set_recursion<br/>
 </a>
 
@@ -375,9 +375,9 @@ make_nested_set_recursion<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000059"><br/></a>
+<a class="small" name="M000060"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000059'>
+<a href='#M000060'>
 
 
 assign_id
@@ -390,11 +390,11 @@ assign_id
 assigns the proper lft/right IDs to a <a
 href="../HierarchyEntry.html">HierarchyEntry</a> given the current
 &#8216;next_range_id&#8217; and calls <a
-href="Data.html#M000058">make_nested_set_recursion</a> to <a
-href="Data.html#M000059">assign_id</a> for the entry&#8216;s children
+href="Data.html#M000059">make_nested_set_recursion</a> to <a
+href="Data.html#M000060">assign_id</a> for the entry&#8216;s children
 </p>
 
-<p class="source_link" id="M000059-show-link"><a onclick="toggle('M000059-source'); toggleText('M000059-link'); return false;" href="#" id="M000059-link">Show source...</a></p><div class="source" id="M000059-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 68</span>
+<p class="source_link" id="M000060-show-link"><a onclick="toggle('M000060-source'); toggleText('M000060-link'); return false;" href="#" id="M000060-link">Show source...</a></p><div class="source" id="M000060-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 68</span>
 68:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">assign_id</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">next_range_id</span>
 69:       <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">lft</span> = <span class="ruby-identifier">next_range_id</span>
 70:       <span class="ruby-identifier">next_range_id</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
@@ -406,9 +406,9 @@ href="Data.html#M000059">assign_id</a> for the entry&#8216;s children
 76:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000056"><br/></a>
+<a class="small" name="M000057"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000056'>
+<a href='#M000057'>
 
 
 make_all_nested_sets
@@ -420,10 +420,10 @@ make_all_nested_sets
 <p>
 for each <a href="../Hierarchy.html">Hierarchy</a>, make the nested sets
 for that <a href="../Hierarchy.html">Hierarchy</a> via <a
-href="Data.html#M000057">make_nested_set</a>
+href="Data.html#M000058">make_nested_set</a>
 </p>
 
-<p class="source_link" id="M000056-show-link"><a onclick="toggle('M000056-source'); toggleText('M000056-link'); return false;" href="#" id="M000056-link">Show source...</a></p><div class="source" id="M000056-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 42</span>
+<p class="source_link" id="M000057-show-link"><a onclick="toggle('M000057-source'); toggleText('M000057-link'); return false;" href="#" id="M000057-link">Show source...</a></p><div class="source" id="M000057-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 42</span>
 42:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_all_nested_sets</span>
 43:       <span class="ruby-constant">Hierarchy</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hierarchy</span><span class="ruby-operator">|</span>
 44:         <span class="ruby-identifier">make_nested_set</span> <span class="ruby-identifier">hierarchy</span>
@@ -431,9 +431,9 @@ href="Data.html#M000057">make_nested_set</a>
 46:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000057"><br/></a>
+<a class="small" name="M000058"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000057'>
+<a href='#M000058'>
 
 
 make_nested_set
@@ -446,10 +446,10 @@ make_nested_set
 grabs the top-level <a href="../HierarchyEntry.html">HierarchyEntry</a>
 nodes of a given <a href="../Hierarchy.html">Hierarchy</a> and assigns
 proper lft/rgt IDs to them and their children via <a
-href="Data.html#M000059">assign_id</a>
+href="Data.html#M000060">assign_id</a>
 </p>
 
-<p class="source_link" id="M000057-show-link"><a onclick="toggle('M000057-source'); toggleText('M000057-link'); return false;" href="#" id="M000057-link">Show source...</a></p><div class="source" id="M000057-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 50</span>
+<p class="source_link" id="M000058-show-link"><a onclick="toggle('M000058-source'); toggleText('M000058-link'); return false;" href="#" id="M000058-link">Show source...</a></p><div class="source" id="M000058-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 50</span>
 50:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_nested_set</span> <span class="ruby-identifier">hierarchy</span>
 51:       <span class="ruby-identifier">next_range_id</span> = <span class="ruby-value">1</span>
 52:       <span class="ruby-identifier">hierarchy</span>.<span class="ruby-identifier">hierarchy_entries</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">parent_id</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
@@ -458,9 +458,9 @@ href="Data.html#M000059">assign_id</a>
 55:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000058"><br/></a>
+<a class="small" name="M000059"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000058'>
+<a href='#M000059'>
 
 
 make_nested_set_recursion
@@ -473,10 +473,10 @@ make_nested_set_recursion
 recurses through the childred of a <a
 href="../HierarchyEntry.html">HierarchyEntry</a> and, given the current
 &#8216;next_range_id&#8217;, assigns their lft/rgt IDs properly via <a
-href="Data.html#M000059">assign_id</a>
+href="Data.html#M000060">assign_id</a>
 </p>
 
-<p class="source_link" id="M000058-show-link"><a onclick="toggle('M000058-source'); toggleText('M000058-link'); return false;" href="#" id="M000058-link">Show source...</a></p><div class="source" id="M000058-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 59</span>
+<p class="source_link" id="M000059-show-link"><a onclick="toggle('M000059-source'); toggleText('M000059-link'); return false;" href="#" id="M000059-link">Show source...</a></p><div class="source" id="M000059-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_data.rb, line 59</span>
 59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_nested_set_recursion</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">next_range_id</span>
 60:       <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
 61:         <span class="ruby-identifier">next_range_id</span> = <span class="ruby-identifier">assign_id</span> <span class="ruby-identifier">child</span>, <span class="ruby-identifier">next_range_id</span>

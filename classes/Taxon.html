@@ -337,14 +337,14 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000581'>
+<a href='#M000585'>
 taxon_concepts<br/>
 </a>
 
 
 
 
-<a href='#M000582'>
+<a href='#M000586'>
 title<br/>
 </a>
 
@@ -379,9 +379,9 @@ The basic theme here is that there is no standard definition of what a
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000581"><br/></a>
+<a class="small" name="M000585"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000581'>
+<a href='#M000585'>
 
 
 taxon_concepts
@@ -392,21 +392,21 @@ taxon_concepts
 </h3>
 <p>
 This doesn&#8216;t work: has_and_belongs_to_many :<a
-href="Taxon.html#M000581">taxon_concepts</a>, :join_table =&gt;
+href="Taxon.html#M000585">taxon_concepts</a>, :join_table =&gt;
 :taxon_concept_names, :foreign_key =&gt; :name_id, :association_foreign_key
 =&gt; :name_id, :uniq =&gt; true So I&#8216;m doing this, instead.
 It&#8216;s another one of those composite primary key problems.
 </p>
 
-<p class="source_link" id="M000581-show-link"><a onclick="toggle('M000581-source'); toggleText('M000581-link'); return false;" href="#" id="M000581-link">Show source...</a></p><div class="source" id="M000581-source"><pre>    <span class="ruby-comment cmt"># File app/models/taxon.rb, line 39</span>
+<p class="source_link" id="M000585-show-link"><a onclick="toggle('M000585-source'); toggleText('M000585-link'); return false;" href="#" id="M000585-link">Show source...</a></p><div class="source" id="M000585-source"><pre>    <span class="ruby-comment cmt"># File app/models/taxon.rb, line 39</span>
 39:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">taxon_concepts</span>
 40:     <span class="ruby-constant">TaxonConceptName</span>.<span class="ruby-identifier">find_all_by_name_id</span>(<span class="ruby-identifier">name_id</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">taxon_concept</span> }
 41:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000582"><br/></a>
+<a class="small" name="M000586"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000582'>
+<a href='#M000586'>
 
 
 title
@@ -416,7 +416,7 @@ title
 </a>
 </h3>
 
-<p class="source_link" id="M000582-show-link"><a onclick="toggle('M000582-source'); toggleText('M000582-link'); return false;" href="#" id="M000582-link">Show source...</a></p><div class="source" id="M000582-source"><pre>    <span class="ruby-comment cmt"># File app/models/taxon.rb, line 43</span>
+<p class="source_link" id="M000586-show-link"><a onclick="toggle('M000586-source'); toggleText('M000586-link'); return false;" href="#" id="M000586-link">Show source...</a></p><div class="source" id="M000586-source"><pre>    <span class="ruby-comment cmt"># File app/models/taxon.rb, line 43</span>
 43:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>(<span class="ruby-identifier">expertise</span> = <span class="ruby-identifier">:middle</span>)
 44:     <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">scientific_name</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">common_name</span>.<span class="ruby-identifier">nil?</span> 
 45:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">expertise</span>

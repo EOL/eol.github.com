@@ -335,7 +335,7 @@ ActiveRecord::Observer
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000312'>
+<a href='#M000316'>
 before_save<br/>
 </a>
 
@@ -358,9 +358,9 @@ before_save<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000312"><br/></a>
+<a class="small" name="M000316"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000312'>
+<a href='#M000316'>
 
 
 before_save
@@ -370,7 +370,7 @@ before_save
 </a>
 </h3>
 
-<p class="source_link" id="M000312-show-link"><a onclick="toggle('M000312-source'); toggleText('M000312-link'); return false;" href="#" id="M000312-link">Show source...</a></p><div class="source" id="M000312-source"><pre>    <span class="ruby-comment cmt"># File app/models/comment_observer.rb, line 5</span>
+<p class="source_link" id="M000316-show-link"><a onclick="toggle('M000316-source'); toggleText('M000316-link'); return false;" href="#" id="M000316-link">Show source...</a></p><div class="source" id="M000316-source"><pre>    <span class="ruby-comment cmt"># File app/models/comment_observer.rb, line 5</span>
  5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_save</span> <span class="ruby-identifier">comment</span>
  6:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">visible_at_changed?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">vetted_by</span>
  7:       <span class="ruby-identifier">was</span> = <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">visible_at_was</span>

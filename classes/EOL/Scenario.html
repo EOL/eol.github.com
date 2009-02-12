@@ -335,70 +335,70 @@ Object
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000072'>
+<a href='#M000073'>
 []<br/>
 </a>
 
 
 
 
-<a href='#M000071'>
+<a href='#M000072'>
 all<br/>
 </a>
 
 
 
 
-<a href='#M000067'>
+<a href='#M000068'>
 description<br/>
 </a>
 
 
 
 
-<a href='#M000068'>
+<a href='#M000069'>
 first_line<br/>
 </a>
 
 
 
 
-<a href='#M000073'>
+<a href='#M000074'>
 load<br/>
 </a>
 
 
 
 
-<a href='#M000070'>
+<a href='#M000071'>
 load<br/>
-</a>
-
-
-
-
-<a href='#M000065'>
-name<br/>
-</a>
-
-
-
-
-<a href='#M000064'>
-new<br/>
-</a>
-
-
-
-
-<a href='#M000069'>
-source_code<br/>
 </a>
 
 
 
 
 <a href='#M000066'>
+name<br/>
+</a>
+
+
+
+
+<a href='#M000065'>
+new<br/>
+</a>
+
+
+
+
+<a href='#M000070'>
+source_code<br/>
+</a>
+
+
+
+
+<a href='#M000067'>
 to_s<br/>
 </a>
 
@@ -418,7 +418,7 @@ on, this is a good candidate for a scenario.
 </p>
 <p>
 we can also use scenarios for loading up the base foundation of data
-that&#8216;s required to <a href="Scenario.html#M000070">load</a> the web
+that&#8216;s required to <a href="Scenario.html#M000071">load</a> the web
 application
 </p>
 </div>
@@ -462,9 +462,9 @@ application
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000072"><br/></a>
+<a class="small" name="M000073"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000072'>
+<a href='#M000073'>
 
 
 []
@@ -474,19 +474,19 @@ application
 </a>
 </h3>
 <p>
-returns a scenario by <a href="Scenario.html#M000065">name</a>, eg. <a
+returns a scenario by <a href="Scenario.html#M000066">name</a>, eg. <a
 href="Scenario.html">EOL::Scenario</a>[:foo]
 </p>
 <p>
-if 1 <a href="Scenario.html#M000065">name</a> is passed in, we&#8216;ll
+if 1 <a href="Scenario.html#M000066">name</a> is passed in, we&#8216;ll
 return that scenario or nil
 </p>
 <p>
-if more than 1 <a href="Scenario.html#M000065">name</a> is passed in,
+if more than 1 <a href="Scenario.html#M000066">name</a> is passed in,
 we&#8216;ll return an array of scenarios (or an empty array)
 </p>
 
-<p class="source_link" id="M000072-show-link"><a onclick="toggle('M000072-source'); toggleText('M000072-link'); return false;" href="#" id="M000072-link">Show source...</a></p><div class="source" id="M000072-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 78</span>
+<p class="source_link" id="M000073-show-link"><a onclick="toggle('M000073-source'); toggleText('M000073-link'); return false;" href="#" id="M000073-link">Show source...</a></p><div class="source" id="M000073-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 78</span>
 78:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span> <span class="ruby-operator">*</span><span class="ruby-identifier">names</span>
 79:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">names</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
 80:           <span class="ruby-identifier">all</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">scenario</span><span class="ruby-operator">|</span> <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">names</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span> }
@@ -496,9 +496,9 @@ we&#8216;ll return an array of scenarios (or an empty array)
 84:       <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000071"><br/></a>
+<a class="small" name="M000072"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000071'>
+<a href='#M000072'>
 
 
 all
@@ -508,11 +508,11 @@ all
 </a>
 </h3>
 <p>
-returns <a href="Scenario.html#M000071">all</a> Scenarios found using
+returns <a href="Scenario.html#M000072">all</a> Scenarios found using
 Scenario#load_paths
 </p>
 
-<p class="source_link" id="M000071-show-link"><a onclick="toggle('M000071-source'); toggleText('M000071-link'); return false;" href="#" id="M000071-link">Show source...</a></p><div class="source" id="M000071-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 62</span>
+<p class="source_link" id="M000072-show-link"><a onclick="toggle('M000072-source'); toggleText('M000072-link'); return false;" href="#" id="M000072-link">Show source...</a></p><div class="source" id="M000072-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 62</span>
 62:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all</span>
 63:         <span class="ruby-identifier">load_paths</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">all_scenarios</span>, <span class="ruby-identifier">load_path</span><span class="ruby-operator">|</span>
 64:           <span class="ruby-constant">Dir</span>[ <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">load_path</span>, <span class="ruby-value str">'**'</span>, <span class="ruby-value str">'*.rb'</span>) ].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">found_scenario_file</span><span class="ruby-operator">|</span>
@@ -523,9 +523,9 @@ Scenario#load_paths
 69:       <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000073"><br/></a>
+<a class="small" name="M000074"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000073'>
+<a href='#M000074'>
 
 
 load
@@ -546,7 +546,7 @@ add a context later
   EOL::Scenario.load :names, 'work', :too
 </pre>
 
-<p class="source_link" id="M000073-show-link"><a onclick="toggle('M000073-source'); toggleText('M000073-link'); return false;" href="#" id="M000073-link">Show source...</a></p><div class="source" id="M000073-source"><pre>     <span class="ruby-comment cmt"># File lib/scenario.rb, line 94</span>
+<p class="source_link" id="M000074-show-link"><a onclick="toggle('M000074-source'); toggleText('M000074-link'); return false;" href="#" id="M000074-link">Show source...</a></p><div class="source" id="M000074-source"><pre>     <span class="ruby-comment cmt"># File lib/scenario.rb, line 94</span>
  94:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load</span> <span class="ruby-operator">*</span><span class="ruby-identifier">scenarios</span>
  95:         <span class="ruby-identifier">require</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RAILS_ROOT</span>, <span class="ruby-value str">'spec'</span>, <span class="ruby-value str">'factories'</span>) <span class="ruby-comment cmt"># most scenarios will want to use factories</span>
  96:         <span class="ruby-identifier">scenarios</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">scenario</span><span class="ruby-operator">|</span>
@@ -557,9 +557,9 @@ add a context later
 101:       <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000064"><br/></a>
+<a class="small" name="M000065"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000064'>
+<a href='#M000065'>
 
 
 new
@@ -569,7 +569,7 @@ new
 </a>
 </h3>
 
-<p class="source_link" id="M000064-show-link"><a onclick="toggle('M000064-source'); toggleText('M000064-link'); return false;" href="#" id="M000064-link">Show source...</a></p><div class="source" id="M000064-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 17</span>
+<p class="source_link" id="M000065-show-link"><a onclick="toggle('M000065-source'); toggleText('M000065-link'); return false;" href="#" id="M000065-link">Show source...</a></p><div class="source" id="M000065-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 17</span>
 17:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">file_path</span>
 18:       <span class="ruby-ivar">@file_path</span> = <span class="ruby-identifier">file_path</span>
 19:     <span class="ruby-keyword kw">end</span></pre></div>
@@ -579,9 +579,9 @@ new
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000067"><br/></a>
+<a class="small" name="M000068"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000067'>
+<a href='#M000068'>
 
 
 description
@@ -592,14 +592,14 @@ description
 </h3>
 <p>
 if the first line of the scenario&#8216;s source code is a comment, we use
-it as the scenario&#8216;s <a href="Scenario.html#M000067">description</a>
+it as the scenario&#8216;s <a href="Scenario.html#M000068">description</a>
 </p>
 <p>
-ideally, <a href="Scenario.html#M000071">all</a> scenarios should have a
-short simple <a href="Scenario.html#M000067">description</a>
+ideally, <a href="Scenario.html#M000072">all</a> scenarios should have a
+short simple <a href="Scenario.html#M000068">description</a>
 </p>
 
-<p class="source_link" id="M000067-show-link"><a onclick="toggle('M000067-source'); toggleText('M000067-link'); return false;" href="#" id="M000067-link">Show source...</a></p><div class="source" id="M000067-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 31</span>
+<p class="source_link" id="M000068-show-link"><a onclick="toggle('M000068-source'); toggleText('M000068-link'); return false;" href="#" id="M000068-link">Show source...</a></p><div class="source" id="M000068-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 31</span>
 31:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">description</span>
 32:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_line</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^#/</span>
 33:         <span class="ruby-identifier">first_line</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^#*/</span>, <span class="ruby-value str">''</span>).<span class="ruby-identifier">strip</span>
@@ -609,9 +609,9 @@ short simple <a href="Scenario.html#M000067">description</a>
 37:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000068"><br/></a>
+<a class="small" name="M000069"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000068'>
+<a href='#M000069'>
 
 
 first_line
@@ -621,15 +621,15 @@ first_line
 </a>
 </h3>
 
-<p class="source_link" id="M000068-show-link"><a onclick="toggle('M000068-source'); toggleText('M000068-link'); return false;" href="#" id="M000068-link">Show source...</a></p><div class="source" id="M000068-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 39</span>
+<p class="source_link" id="M000069-show-link"><a onclick="toggle('M000069-source'); toggleText('M000069-link'); return false;" href="#" id="M000069-link">Show source...</a></p><div class="source" id="M000069-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 39</span>
 39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">first_line</span>
 40:       <span class="ruby-identifier">source_code</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">first</span>
 41:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000070"><br/></a>
+<a class="small" name="M000071"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000070'>
+<a href='#M000071'>
 
 
 load
@@ -642,15 +642,15 @@ load
 evaluates the code of the scenario
 </p>
 
-<p class="source_link" id="M000070-show-link"><a onclick="toggle('M000070-source'); toggleText('M000070-link'); return false;" href="#" id="M000070-link">Show source...</a></p><div class="source" id="M000070-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 48</span>
+<p class="source_link" id="M000071-show-link"><a onclick="toggle('M000071-source'); toggleText('M000071-link'); return false;" href="#" id="M000071-link">Show source...</a></p><div class="source" id="M000071-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 48</span>
 48:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load</span>
 49:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">load</span> <span class="ruby-keyword kw">self</span> <span class="ruby-comment cmt"># pass the loading off to the class</span>
 50:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000065"><br/></a>
+<a class="small" name="M000066"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000065'>
+<a href='#M000066'>
 
 
 name
@@ -660,15 +660,15 @@ name
 </a>
 </h3>
 
-<p class="source_link" id="M000065-show-link"><a onclick="toggle('M000065-source'); toggleText('M000065-link'); return false;" href="#" id="M000065-link">Show source...</a></p><div class="source" id="M000065-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 21</span>
+<p class="source_link" id="M000066-show-link"><a onclick="toggle('M000066-source'); toggleText('M000066-link'); return false;" href="#" id="M000066-link">Show source...</a></p><div class="source" id="M000066-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 21</span>
 21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
 22:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file_path</span>).<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/\.rb$/</span>, <span class="ruby-value str">''</span>)
 23:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000069"><br/></a>
+<a class="small" name="M000070"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000069'>
+<a href='#M000070'>
 
 
 source_code
@@ -678,15 +678,15 @@ source_code
 </a>
 </h3>
 
-<p class="source_link" id="M000069-show-link"><a onclick="toggle('M000069-source'); toggleText('M000069-link'); return false;" href="#" id="M000069-link">Show source...</a></p><div class="source" id="M000069-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 43</span>
+<p class="source_link" id="M000070-show-link"><a onclick="toggle('M000070-source'); toggleText('M000070-link'); return false;" href="#" id="M000070-link">Show source...</a></p><div class="source" id="M000070-source"><pre>    <span class="ruby-comment cmt"># File lib/scenario.rb, line 43</span>
 43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">source_code</span>
 44:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span> <span class="ruby-identifier">file_path</span>
 45:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000066"><br/></a>
+<a class="small" name="M000067"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000066'>
+<a href='#M000067'>
 
 
 to_s
@@ -696,7 +696,7 @@ to_s
 </a>
 </h3>
 <p>
-Alias for <a href="Scenario.html#M000065">name</a>
+Alias for <a href="Scenario.html#M000066">name</a>
 </p>
 
 </div>

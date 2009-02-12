@@ -337,49 +337,49 @@ ApplicationController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000309'>
+<a href='#M000313'>
 create<br/>
 </a>
 
 
 
 
-<a href='#M000311'>
+<a href='#M000315'>
 destroy<br/>
 </a>
 
 
 
 
-<a href='#M000308'>
+<a href='#M000312'>
 edit<br/>
 </a>
 
 
 
 
-<a href='#M000305'>
+<a href='#M000309'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000307'>
+<a href='#M000311'>
 new<br/>
 </a>
 
 
 
 
-<a href='#M000306'>
+<a href='#M000310'>
 show<br/>
 </a>
 
 
 
 
-<a href='#M000310'>
+<a href='#M000314'>
 update<br/>
 </a>
 
@@ -402,9 +402,9 @@ update<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000309"><br/></a>
+<a class="small" name="M000313"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000309'>
+<a href='#M000313'>
 
 
 create
@@ -417,7 +417,7 @@ create
 POST /random_images POST /random_images.xml
 </p>
 
-<p class="source_link" id="M000309-show-link"><a onclick="toggle('M000309-source'); toggleText('M000309-link'); return false;" href="#" id="M000309-link">Show source...</a></p><div class="source" id="M000309-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 51</span>
+<p class="source_link" id="M000313-show-link"><a onclick="toggle('M000313-source'); toggleText('M000313-link'); return false;" href="#" id="M000313-link">Show source...</a></p><div class="source" id="M000313-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 51</span>
 51:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
 52:     <span class="ruby-ivar">@random_image</span> = <span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:random_image</span>])
 53: 
@@ -434,9 +434,9 @@ POST /random_images POST /random_images.xml
 64:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000311"><br/></a>
+<a class="small" name="M000315"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000311'>
+<a href='#M000315'>
 
 
 destroy
@@ -449,7 +449,7 @@ destroy
 DELETE /random_images/1 DELETE /random_images/1.xml
 </p>
 
-<p class="source_link" id="M000311-show-link"><a onclick="toggle('M000311-source'); toggleText('M000311-link'); return false;" href="#" id="M000311-link">Show source...</a></p><div class="source" id="M000311-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 85</span>
+<p class="source_link" id="M000315-show-link"><a onclick="toggle('M000315-source'); toggleText('M000315-link'); return false;" href="#" id="M000315-link">Show source...</a></p><div class="source" id="M000315-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 85</span>
 85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
 86:     <span class="ruby-ivar">@random_image</span> = <span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 87:     <span class="ruby-ivar">@random_image</span>.<span class="ruby-identifier">destroy</span>
@@ -461,9 +461,9 @@ DELETE /random_images/1 DELETE /random_images/1.xml
 93:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000308"><br/></a>
+<a class="small" name="M000312"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000308'>
+<a href='#M000312'>
 
 
 edit
@@ -476,15 +476,15 @@ edit
 GET /random_images/1/edit
 </p>
 
-<p class="source_link" id="M000308-show-link"><a onclick="toggle('M000308-source'); toggleText('M000308-link'); return false;" href="#" id="M000308-link">Show source...</a></p><div class="source" id="M000308-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 45</span>
+<p class="source_link" id="M000312-show-link"><a onclick="toggle('M000312-source'); toggleText('M000312-link'); return false;" href="#" id="M000312-link">Show source...</a></p><div class="source" id="M000312-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 45</span>
 45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
 46:     <span class="ruby-ivar">@random_image</span> = <span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 47:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000305"><br/></a>
+<a class="small" name="M000309"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000305'>
+<a href='#M000309'>
 
 
 index
@@ -497,7 +497,7 @@ index
 GET /random_images GET /random_images.xml
 </p>
 
-<p class="source_link" id="M000305-show-link"><a onclick="toggle('M000305-source'); toggleText('M000305-link'); return false;" href="#" id="M000305-link">Show source...</a></p><div class="source" id="M000305-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 7</span>
+<p class="source_link" id="M000309-show-link"><a onclick="toggle('M000309-source'); toggleText('M000309-link'); return false;" href="#" id="M000309-link">Show source...</a></p><div class="source" id="M000309-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 7</span>
  7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
  8:                 <span class="ruby-identifier">limit</span> = <span class="ruby-value">10</span>
  9:                 <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">count</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">limit</span>
@@ -514,9 +514,9 @@ GET /random_images GET /random_images.xml
 20:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000307"><br/></a>
+<a class="small" name="M000311"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000307'>
+<a href='#M000311'>
 
 
 new
@@ -529,7 +529,7 @@ new
 GET /random_images/new GET /random_images/new.xml
 </p>
 
-<p class="source_link" id="M000307-show-link"><a onclick="toggle('M000307-source'); toggleText('M000307-link'); return false;" href="#" id="M000307-link">Show source...</a></p><div class="source" id="M000307-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 35</span>
+<p class="source_link" id="M000311-show-link"><a onclick="toggle('M000311-source'); toggleText('M000311-link'); return false;" href="#" id="M000311-link">Show source...</a></p><div class="source" id="M000311-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 35</span>
 35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
 36:     <span class="ruby-ivar">@random_image</span> = <span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">new</span>
 37: 
@@ -540,9 +540,9 @@ GET /random_images/new GET /random_images/new.xml
 42:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000306"><br/></a>
+<a class="small" name="M000310"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000306'>
+<a href='#M000310'>
 
 
 show
@@ -555,7 +555,7 @@ show
 GET /random_images/1 GET /random_images/1.xml
 </p>
 
-<p class="source_link" id="M000306-show-link"><a onclick="toggle('M000306-source'); toggleText('M000306-link'); return false;" href="#" id="M000306-link">Show source...</a></p><div class="source" id="M000306-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 24</span>
+<p class="source_link" id="M000310-show-link"><a onclick="toggle('M000310-source'); toggleText('M000310-link'); return false;" href="#" id="M000310-link">Show source...</a></p><div class="source" id="M000310-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 24</span>
 24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
 25:     <span class="ruby-ivar">@random_image</span> = <span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 26: 
@@ -566,9 +566,9 @@ GET /random_images/1 GET /random_images/1.xml
 31:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000310"><br/></a>
+<a class="small" name="M000314"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000310'>
+<a href='#M000314'>
 
 
 update
@@ -581,7 +581,7 @@ update
 PUT /random_images/1 PUT /random_images/1.xml
 </p>
 
-<p class="source_link" id="M000310-show-link"><a onclick="toggle('M000310-source'); toggleText('M000310-link'); return false;" href="#" id="M000310-link">Show source...</a></p><div class="source" id="M000310-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 68</span>
+<p class="source_link" id="M000314-show-link"><a onclick="toggle('M000314-source'); toggleText('M000314-link'); return false;" href="#" id="M000314-link">Show source...</a></p><div class="source" id="M000314-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/random_images_controller.rb, line 68</span>
 68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
 69:     <span class="ruby-ivar">@random_image</span> = <span class="ruby-constant">RandomImage</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
 70: 

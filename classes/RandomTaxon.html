@@ -337,49 +337,49 @@ SpeciesSchemaModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000577'>
+<a href='#M000581'>
 name<br/>
 </a>
 
 
 
 
-<a href='#M000575'>
+<a href='#M000579'>
 random<br/>
 </a>
 
 
 
 
-<a href='#M000574'>
+<a href='#M000578'>
 random_set<br/>
 </a>
 
 
 
 
-<a href='#M000576'>
+<a href='#M000580'>
 reset_count<br/>
 </a>
 
 
 
 
-<a href='#M000580'>
+<a href='#M000584'>
 smart_image<br/>
 </a>
 
 
 
 
-<a href='#M000579'>
+<a href='#M000583'>
 smart_medium_thumb<br/>
 </a>
 
 
 
 
-<a href='#M000578'>
+<a href='#M000582'>
 smart_thumb<br/>
 </a>
 
@@ -402,9 +402,9 @@ smart_thumb<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000575"><br/></a>
+<a class="small" name="M000579"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000575'>
+<a href='#M000579'>
 
 
 random
@@ -418,15 +418,15 @@ The first one takes a little longer, since it needs to populate the class
 variables. But after that, it&#8216;s quite fast:
 </p>
 
-<p class="source_link" id="M000575-show-link"><a onclick="toggle('M000575-source'); toggleText('M000575-link'); return false;" href="#" id="M000575-link">Show source...</a></p><div class="source" id="M000575-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 29</span>
+<p class="source_link" id="M000579-show-link"><a onclick="toggle('M000579-source'); toggleText('M000579-link'); return false;" href="#" id="M000579-link">Show source...</a></p><div class="source" id="M000579-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 29</span>
 29:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">random</span>()
 30:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-value">1</span>)[<span class="ruby-value">0</span>]
 31:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000574"><br/></a>
+<a class="small" name="M000578"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000574'>
+<a href='#M000578'>
 
 
 random_set
@@ -436,7 +436,7 @@ random_set
 </a>
 </h3>
 
-<p class="source_link" id="M000574-show-link"><a onclick="toggle('M000574-source'); toggleText('M000574-link'); return false;" href="#" id="M000574-link">Show source...</a></p><div class="source" id="M000574-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 17</span>
+<p class="source_link" id="M000578-show-link"><a onclick="toggle('M000578-source'); toggleText('M000578-link'); return false;" href="#" id="M000578-link">Show source...</a></p><div class="source" id="M000578-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 17</span>
 17:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">random_set</span>(<span class="ruby-identifier">limit</span> = <span class="ruby-value">10</span>)
 18:     <span class="ruby-identifier">list</span> = []
 19:     
@@ -449,9 +449,9 @@ random_set
 26:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000576"><br/></a>
+<a class="small" name="M000580"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000576'>
+<a href='#M000580'>
 
 
 reset_count
@@ -462,16 +462,16 @@ reset_count
 </h3>
 <p>
 NOTE - This is difficult to test with specs. To test manually: 1)
-script/console 2) <a href="RandomTaxon.html#M000575">RandomTaxon.random</a>
+script/console 2) <a href="RandomTaxon.html#M000579">RandomTaxon.random</a>
 should give you a taxon. 3) mysql; delete from random_taxa; 4) <a
-href="RandomTaxon.html#M000575">RandomTaxon.random</a> should raise
+href="RandomTaxon.html#M000579">RandomTaxon.random</a> should raise
 &quot;There are no Random Taxa in the database&quot;. DO NOT close your
 console! 5) rake denormal:build_random_taxa 6) <a
-href="RandomTaxon.html#M000575">RandomTaxon.random</a> should give you a
+href="RandomTaxon.html#M000579">RandomTaxon.random</a> should give you a
 taxon again.
 </p>
 
-<p class="source_link" id="M000576-show-link"><a onclick="toggle('M000576-source'); toggleText('M000576-link'); return false;" href="#" id="M000576-link">Show source...</a></p><div class="source" id="M000576-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 42</span>
+<p class="source_link" id="M000580-show-link"><a onclick="toggle('M000580-source'); toggleText('M000580-link'); return false;" href="#" id="M000580-link">Show source...</a></p><div class="source" id="M000580-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 42</span>
 42:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">reset_count</span>
 43:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@last_cleared</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@@last_cleared</span>.<span class="ruby-identifier">advance</span>(<span class="ruby-identifier">:hours=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
 44:       <span class="ruby-ivar">@@last_cleared</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>()
@@ -484,9 +484,9 @@ taxon again.
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000577"><br/></a>
+<a class="small" name="M000581"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000577'>
+<a href='#M000581'>
 
 
 name
@@ -496,19 +496,19 @@ name
 </a>
 </h3>
 <p>
-So, if we just called <a href="RandomTaxon.html#M000577">name</a>(), return
+So, if we just called <a href="RandomTaxon.html#M000581">name</a>(), return
 our cached version; otherwise, delegate to HE.
 </p>
 
-<p class="source_link" id="M000577-show-link"><a onclick="toggle('M000577-source'); toggleText('M000577-link'); return false;" href="#" id="M000577-link">Show source...</a></p><div class="source" id="M000577-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 50</span>
+<p class="source_link" id="M000581-show-link"><a onclick="toggle('M000581-source'); toggleText('M000581-link'); return false;" href="#" id="M000581-link">Show source...</a></p><div class="source" id="M000581-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 50</span>
 50:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
 51:     <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:name</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">taxon_concept</span>.<span class="ruby-identifier">name</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>])
 52:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000580"><br/></a>
+<a class="small" name="M000584"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000580'>
+<a href='#M000584'>
 
 
 smart_image
@@ -518,15 +518,15 @@ smart_image
 </a>
 </h3>
 
-<p class="source_link" id="M000580-show-link"><a onclick="toggle('M000580-source'); toggleText('M000580-link'); return false;" href="#" id="M000580-link">Show source...</a></p><div class="source" id="M000580-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 63</span>
+<p class="source_link" id="M000584-show-link"><a onclick="toggle('M000584-source'); toggleText('M000584-link'); return false;" href="#" id="M000584-link">Show source...</a></p><div class="source" id="M000584-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 63</span>
 63:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">smart_image</span>
 64:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">image_url</span>
 65:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000579"><br/></a>
+<a class="small" name="M000583"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000579'>
+<a href='#M000583'>
 
 
 smart_medium_thumb
@@ -536,16 +536,16 @@ smart_medium_thumb
 </a>
 </h3>
 
-<p class="source_link" id="M000579-show-link"><a onclick="toggle('M000579-source'); toggleText('M000579-link'); return false;" href="#" id="M000579-link">Show source...</a></p><div class="source" id="M000579-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 58</span>
+<p class="source_link" id="M000583-show-link"><a onclick="toggle('M000583-source'); toggleText('M000583-link'); return false;" href="#" id="M000583-link">Show source...</a></p><div class="source" id="M000583-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 58</span>
 58:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">smart_medium_thumb</span>
 59:     <span class="ruby-comment cmt">#return thumb_url.sub(/_small\.png/, '_medium.png')</span>
 60:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">smart_medium_thumb</span>
 61:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000578"><br/></a>
+<a class="small" name="M000582"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000578'>
+<a href='#M000582'>
 
 
 smart_thumb
@@ -555,7 +555,7 @@ smart_thumb
 </a>
 </h3>
 
-<p class="source_link" id="M000578-show-link"><a onclick="toggle('M000578-source'); toggleText('M000578-link'); return false;" href="#" id="M000578-link">Show source...</a></p><div class="source" id="M000578-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 54</span>
+<p class="source_link" id="M000582-show-link"><a onclick="toggle('M000582-source'); toggleText('M000582-link'); return false;" href="#" id="M000582-link">Show source...</a></p><div class="source" id="M000582-source"><pre>    <span class="ruby-comment cmt"># File app/models/random_taxon.rb, line 54</span>
 54:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">smart_thumb</span>
 55:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">data_object</span>.<span class="ruby-identifier">smart_thumb</span>
 56:   <span class="ruby-keyword kw">end</span></pre></div>

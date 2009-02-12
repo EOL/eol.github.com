@@ -337,21 +337,21 @@ ApplicationController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000241'>
+<a href='#M000244'>
 make_visible<br/>
 </a>
 
 
 
 
-<a href='#M000239'>
+<a href='#M000242'>
 prepare_index<br/>
 </a>
 
 
 
 
-<a href='#M000240'>
+<a href='#M000243'>
 remove<br/>
 </a>
 
@@ -374,9 +374,9 @@ remove<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000241"><br/></a>
+<a class="small" name="M000244"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000241'>
+<a href='#M000244'>
 
 
 make_visible
@@ -386,16 +386,16 @@ make_visible
 </a>
 </h3>
 
-<p class="source_link" id="M000241-show-link"><a onclick="toggle('M000241-source'); toggleText('M000241-link'); return false;" href="#" id="M000241-link">Show source...</a></p><div class="source" id="M000241-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 72</span>
+<p class="source_link" id="M000244-show-link"><a onclick="toggle('M000244-source'); toggleText('M000244-link'); return false;" href="#" id="M000244-link">Show source...</a></p><div class="source" id="M000244-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 72</span>
 72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_visible</span>
 73:     <span class="ruby-identifier">current_object</span>.<span class="ruby-identifier">visible_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
 74:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_object</span>.<span class="ruby-identifier">save</span> <span class="ruby-value">? </span><span class="ruby-value str">'make_visible'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'error'</span>
 75:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000239"><br/></a>
+<a class="small" name="M000242"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000239'>
+<a href='#M000242'>
 
 
 prepare_index
@@ -405,7 +405,7 @@ prepare_index
 </a>
 </h3>
 
-<p class="source_link" id="M000239-show-link"><a onclick="toggle('M000239-source'); toggleText('M000239-link'); return false;" href="#" id="M000239-link">Show source...</a></p><div class="source" id="M000239-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 45</span>
+<p class="source_link" id="M000242-show-link"><a onclick="toggle('M000242-source'); toggleText('M000242-link'); return false;" href="#" id="M000242-link">Show source...</a></p><div class="source" id="M000242-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 45</span>
 45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prepare_index</span>
 46:     <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:user</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>)
 47:     <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent_object</span>
@@ -429,9 +429,9 @@ prepare_index
 65:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000240"><br/></a>
+<a class="small" name="M000243"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000240'>
+<a href='#M000243'>
 
 
 remove
@@ -441,7 +441,7 @@ remove
 </a>
 </h3>
 
-<p class="source_link" id="M000240-show-link"><a onclick="toggle('M000240-source'); toggleText('M000240-link'); return false;" href="#" id="M000240-link">Show source...</a></p><div class="source" id="M000240-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 67</span>
+<p class="source_link" id="M000243-show-link"><a onclick="toggle('M000243-source'); toggleText('M000243-link'); return false;" href="#" id="M000243-link">Show source...</a></p><div class="source" id="M000243-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/comments_controller.rb, line 67</span>
 67:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove</span>
 68:     <span class="ruby-identifier">current_object</span>.<span class="ruby-identifier">visible_at</span> = <span class="ruby-keyword kw">nil</span>
 69:     <span class="ruby-identifier">render</span> <span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_object</span>.<span class="ruby-identifier">save</span> <span class="ruby-value">? </span><span class="ruby-value str">'remove'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'error'</span>

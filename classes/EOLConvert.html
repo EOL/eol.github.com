@@ -335,28 +335,28 @@ Object
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000102'>
+<a href='#M000103'>
 boolean_to_integer<br/>
 </a>
 
 
 
 
-<a href='#M000100'>
+<a href='#M000101'>
 convert_to_hashed_array<br/>
 </a>
 
 
 
 
-<a href='#M000101'>
+<a href='#M000102'>
 get_search_type<br/>
 </a>
 
 
 
 
-<a href='#M000103'>
+<a href='#M000104'>
 to_boolean<br/>
 </a>
 
@@ -379,9 +379,9 @@ to_boolean<br/>
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000102"><br/></a>
+<a class="small" name="M000103"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000102'>
+<a href='#M000103'>
 
 
 boolean_to_integer
@@ -394,7 +394,7 @@ boolean_to_integer
 convert a boolean true/false to a 1/0 integer
 </p>
 
-<p class="source_link" id="M000102-show-link"><a onclick="toggle('M000102-source'); toggleText('M000102-link'); return false;" href="#" id="M000102-link">Show source...</a></p><div class="source" id="M000102-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 25</span>
+<p class="source_link" id="M000103-show-link"><a onclick="toggle('M000103-source'); toggleText('M000103-link'); return false;" href="#" id="M000103-link">Show source...</a></p><div class="source" id="M000103-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 25</span>
 25:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">boolean_to_integer</span>(<span class="ruby-identifier">boolean_value</span>)
 26:  
 27:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">boolean_value</span>
@@ -409,9 +409,9 @@ convert a boolean true/false to a 1/0 integer
 36:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000100"><br/></a>
+<a class="small" name="M000101"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000100'>
+<a href='#M000101'>
 
 
 convert_to_hashed_array
@@ -427,7 +427,7 @@ places the hash into an array if there is only one element
   this allows us to have a consistent hashed array representation for any collection even if it only has one item
 </pre>
 
-<p class="source_link" id="M000100-show-link"><a onclick="toggle('M000100-source'); toggleText('M000100-link'); return false;" href="#" id="M000100-link">Show source...</a></p><div class="source" id="M000100-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 5</span>
+<p class="source_link" id="M000101-show-link"><a onclick="toggle('M000101-source'); toggleText('M000101-link'); return false;" href="#" id="M000101-link">Show source...</a></p><div class="source" id="M000101-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 5</span>
  5:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">convert_to_hashed_array</span>(<span class="ruby-identifier">hashed</span>)
  6:       
  7:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hashed</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Hash</span> <span class="ruby-comment cmt"># next check if our output is still a hash</span>
@@ -441,9 +441,9 @@ places the hash into an array if there is only one element
 15:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000101"><br/></a>
+<a class="small" name="M000102"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000101'>
+<a href='#M000102'>
 
 
 get_search_type
@@ -458,7 +458,7 @@ return either tag or text &#8212; if nil or anything other than those two
 things are passed in, return &quot;text&quot;
 </p>
 
-<p class="source_link" id="M000101-show-link"><a onclick="toggle('M000101-source'); toggleText('M000101-link'); return false;" href="#" id="M000101-link">Show source...</a></p><div class="source" id="M000101-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 18</span>
+<p class="source_link" id="M000102-show-link"><a onclick="toggle('M000102-source'); toggleText('M000102-link'); return false;" href="#" id="M000102-link">Show source...</a></p><div class="source" id="M000102-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 18</span>
 18:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_search_type</span>(<span class="ruby-identifier">search_type</span>)
 19:     <span class="ruby-identifier">search_type</span> = (<span class="ruby-identifier">search_type</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-value str">'text'</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">search_type</span>)
 20:     <span class="ruby-identifier">search_type</span>=<span class="ruby-value str">'text'</span> <span class="ruby-keyword kw">unless</span> [<span class="ruby-value str">'tag'</span>,<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">search_type</span>.<span class="ruby-identifier">downcase</span>)
@@ -466,9 +466,9 @@ things are passed in, return &quot;text&quot;
 22:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000103"><br/></a>
+<a class="small" name="M000104"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000103'>
+<a href='#M000104'>
 
 
 to_boolean
@@ -481,7 +481,7 @@ to_boolean
 convert an integer (0/1) or string to false/true boolean
 </p>
 
-<p class="source_link" id="M000103-show-link"><a onclick="toggle('M000103-source'); toggleText('M000103-link'); return false;" href="#" id="M000103-link">Show source...</a></p><div class="source" id="M000103-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 39</span>
+<p class="source_link" id="M000104-show-link"><a onclick="toggle('M000104-source'); toggleText('M000104-link'); return false;" href="#" id="M000104-link">Show source...</a></p><div class="source" id="M000104-source"><pre>    <span class="ruby-comment cmt"># File lib/eol_convert.rb, line 39</span>
 39:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_boolean</span>(<span class="ruby-identifier">input_value</span>)
 40:     
 41:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">input_value</span>.<span class="ruby-identifier">to_s</span>

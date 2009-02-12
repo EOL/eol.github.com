@@ -337,21 +337,21 @@ AdminController
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000677'>
+<a href='#M000683'>
 export<br/>
 </a>
 
 
 
 
-<a href='#M000675'>
+<a href='#M000681'>
 index<br/>
 </a>
 
 
 
 
-<a href='#M000676'>
+<a href='#M000682'>
 send_message<br/>
 </a>
 
@@ -374,9 +374,9 @@ send_message<br/>
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000677"><br/></a>
+<a class="small" name="M000683"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000677'>
+<a href='#M000683'>
 
 
 export
@@ -386,7 +386,7 @@ export
 </a>
 </h3>
 
-<p class="source_link" id="M000677-show-link"><a onclick="toggle('M000677-source'); toggleText('M000677-link'); return false;" href="#" id="M000677-link">Show source...</a></p><div class="source" id="M000677-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/contact_controller.rb, line 41</span>
+<p class="source_link" id="M000683-show-link"><a onclick="toggle('M000683-source'); toggleText('M000683-link'); return false;" href="#" id="M000683-link">Show source...</a></p><div class="source" id="M000683-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/contact_controller.rb, line 41</span>
 41:  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>
 42:    
 43:      <span class="ruby-ivar">@contacts</span>=<span class="ruby-constant">Contact</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,<span class="ruby-identifier">:include=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:contact_subject</span>)
@@ -403,9 +403,9 @@ export
 54:  <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000675"><br/></a>
+<a class="small" name="M000681"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000675'>
+<a href='#M000681'>
 
 
 index
@@ -415,7 +415,7 @@ index
 </a>
 </h3>
 
-<p class="source_link" id="M000675-show-link"><a onclick="toggle('M000675-source'); toggleText('M000675-link'); return false;" href="#" id="M000675-link">Show source...</a></p><div class="source" id="M000675-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/contact_controller.rb, line 6</span>
+<p class="source_link" id="M000681-show-link"><a onclick="toggle('M000681-source'); toggleText('M000681-link'); return false;" href="#" id="M000681-link">Show source...</a></p><div class="source" id="M000681-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/contact_controller.rb, line 6</span>
  6:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
  7:    
  8:    <span class="ruby-ivar">@subjects</span>=<span class="ruby-constant">ContactSubject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,<span class="ruby-identifier">:order=</span><span class="ruby-operator">&gt;</span><span class="ruby-value str">'title'</span>)
@@ -436,9 +436,9 @@ index
 23:  <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000676"><br/></a>
+<a class="small" name="M000682"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000676'>
+<a href='#M000682'>
 
 
 send_message
@@ -448,7 +448,7 @@ send_message
 </a>
 </h3>
 
-<p class="source_link" id="M000676-show-link"><a onclick="toggle('M000676-source'); toggleText('M000676-link'); return false;" href="#" id="M000676-link">Show source...</a></p><div class="source" id="M000676-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/contact_controller.rb, line 25</span>
+<p class="source_link" id="M000682-show-link"><a onclick="toggle('M000682-source'); toggleText('M000682-link'); return false;" href="#" id="M000682-link">Show source...</a></p><div class="source" id="M000682-source"><pre>    <span class="ruby-comment cmt"># File app/controllers/administrator/contact_controller.rb, line 25</span>
 25:  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_message</span>
 26:  
 27:    <span class="ruby-ivar">@name</span>=<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:name</span>]

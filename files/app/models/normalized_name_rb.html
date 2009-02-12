@@ -327,6 +327,33 @@ File: normalized_name.rb
 <div id="spacer"></div><div class="navigation darker index" id="class_wrapper"><div class="list_header"><h3>All classes</h3></div><div class="list_header_link"><a onclick="toggle('class'); toggleText('class_link'); return false;" href="#" id="class_link">Hide...</a></div><div class="clear"></div><div id="class"><form><label for="filter_class">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('class', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_class"></input></form></div></div><div class="navigation darker index" id="file_wrapper"><div class="list_header"><h3>All files</h3></div><div class="list_header_link"><a onclick="toggle('file'); toggleText('file_link'); return false;" href="#" id="file_link">Hide...</a></div><div class="clear"></div><div id="file"><form><label for="filter_file">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('file', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_file"></input></form></div></div><div class="navigation darker index" id="method_wrapper"><div class="list_header"><h3>All methods</h3></div><div class="list_header_link"><a onclick="toggle('method'); toggleText('method_link'); return false;" href="#" id="method_link">Show...</a></div><div class="clear"></div><div id="method"><form><label for="filter_method">Filter:&nbsp;&nbsp;</label><input type="text" onKeyUp="return filterList('method', this.value, event);" onKeyPress="return disableSubmit(event);" id="filter_method"></input></form></div></div></div><div id="content">
 <h1 id="item_name">File: normalized_name.rb</h1>
 
+<div id="description"><p>
+A normalized name is a unique part of a <a
+href="../../../classes/Name.html">Name</a>
+</p>
+<p>
+<a href="../../../classes/Name.html">Name</a> is broken down into parts,
+each of which is a <a
+href="../../../classes/NormalizedName.html">NormalizedName</a>.
+</p>
+<p>
+<a href="../../../classes/NormalizedName.html">NormalizedName</a>&#8216;s
+are related to <a href="../../../classes/Name.html">Name</a>&#8216;s via <a
+href="../../../classes/NormalizedLink.html">NormalizedLink</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  &gt;&gt; @name.string
+  =&gt; &quot;Why Hello There&quot;
+
+  &gt;&gt; @name.normalized_links.map do |link|
+       link.normalized_name.name_part
+     end
+  =&gt; ['Why', 'Hello', 'There']  # &lt;--- each of these name_parts is a NormalizedName
+</pre>
+</div>
 
 
 

@@ -337,98 +337,98 @@ LoggingModel
 <div class="navigation top" id="methods"><h3>Methods</h3>
 
 
-<a href='#M000400'>
+<a href='#M000404'>
 create_table<br/>
 </a>
 
 
 
 
-<a href='#M000401'>
+<a href='#M000405'>
 drop_table<br/>
 </a>
 
 
 
 
-<a href='#M000402'>
+<a href='#M000406'>
 find_or_paginate<br/>
 </a>
 
 
 
 
-<a href='#M000405'>
+<a href='#M000409'>
 grand_totals<br/>
 </a>
 
 
 
 
-<a href='#M000403'>
+<a href='#M000407'>
 mine<br/>
 </a>
 
 
 
 
-<a href='#M000404'>
+<a href='#M000408'>
 mine_data<br/>
 </a>
 
 
 
 
-<a href='#M000397'>
+<a href='#M000401'>
 path<br/>
 </a>
 
 
 
 
-<a href='#M000398'>
+<a href='#M000402'>
 report_classes<br/>
 </a>
 
 
 
 
-<a href='#M000399'>
+<a href='#M000403'>
 report_name<br/>
 </a>
 
 
 
 
-<a href='#M000393'>
+<a href='#M000397'>
 set_mine_data_options<br/>
 </a>
 
 
 
 
-<a href='#M000392'>
+<a href='#M000396'>
 set_unique_data_column<br/>
 </a>
 
 
 
 
-<a href='#M000394'>
+<a href='#M000398'>
 unique_data<br/>
 </a>
 
 
 
 
-<a href='#M000396'>
+<a href='#M000400'>
 unique_data_name<br/>
 </a>
 
 
 
 
-<a href='#M000395'>
+<a href='#M000399'>
 unique_data_to_s<br/>
 </a>
 
@@ -458,43 +458,43 @@ All <a href="LogDaily.html">LogDaily</a> classes should implement a few
 common class methods.
 </p>
 <p>
-<a href="LogDaily.html#M000403">LogDaily#mine</a> RANGE
+<a href="LogDaily.html#M000407">LogDaily#mine</a> RANGE
 </p>
 <pre>
   go and mine data for a range and save the log objects
 </pre>
 <p>
-<a href="LogDaily.html#M000403">LogDaily#mine</a>
+<a href="LogDaily.html#M000407">LogDaily#mine</a>
 </p>
 <pre>
   go and mine ALL data (no range given) and save the log objects
 </pre>
 <p>
-<a href="LogDaily.html#M000404">LogDaily#mine_data</a> RANGE
+<a href="LogDaily.html#M000408">LogDaily#mine_data</a> RANGE
 </p>
 <pre>
   returns objects to save (fetches the data used by #mine)
 </pre>
 <p>
-<a href="LogDaily.html#M000404">LogDaily#mine_data</a>
+<a href="LogDaily.html#M000408">LogDaily#mine_data</a>
 </p>
 <pre>
   returns objects to save (fetches the data used by #mine_all)
 </pre>
 <p>
-<a href="LogDaily.html#M000405">LogDaily#grand_totals</a>
+<a href="LogDaily.html#M000409">LogDaily#grand_totals</a>
 </p>
 <pre>
   returns the sum of the LogDaily#total for all records
 </pre>
 <p>
-<a href="LogDaily.html#M000405">LogDaily#grand_totals</a> RANGE
+<a href="LogDaily.html#M000409">LogDaily#grand_totals</a> RANGE
 </p>
 <pre>
   returns the sum of the LogDaily#total for a given range of records
 </pre>
 <p>
-<a href="LogDaily.html#M000394">LogDaily#unique_data</a>
+<a href="LogDaily.html#M000398">LogDaily#unique_data</a>
 </p>
 <pre>
   returns the value of the LogDaily#unique_data_column ... LogDails objects all have a
@@ -506,7 +506,7 @@ common class methods.
              of views of this data.  Needs to be simpler but also more flexible.
 </pre>
 <p>
-<a href="LogDaily.html#M000400">LogDaily#create_table</a>
+<a href="LogDaily.html#M000404">LogDaily#create_table</a>
 </p>
 <pre>
   intended to be called within the context of an ActiveRecord::Migration, this should
@@ -559,9 +559,9 @@ Primary Maintainers
 <h1>Public Class Methods</h1>
 
 
-<a class="small" name="M000400"><br/></a>
+<a class="small" name="M000404"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000400'>
+<a href='#M000404'>
 
 
 create_table
@@ -575,7 +575,7 @@ Helpers for migrations for creating new <a
 href="LogDaily.html">LogDaily</a> models ###
 </p>
 
-<p class="source_link" id="M000400-show-link"><a onclick="toggle('M000400-source'); toggleText('M000400-link'); return false;" href="#" id="M000400-link">Show source...</a></p><div class="source" id="M000400-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 188</span>
+<p class="source_link" id="M000404-show-link"><a onclick="toggle('M000404-source'); toggleText('M000404-link'); return false;" href="#" id="M000404-link">Show source...</a></p><div class="source" id="M000404-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 188</span>
 188:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_table</span>(<span class="ruby-identifier">migration</span>)
 189:     <span class="ruby-identifier">migration</span>.<span class="ruby-identifier">create_table</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
 190:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:data_type_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
@@ -592,9 +592,9 @@ href="LogDaily.html">LogDaily</a> models ###
 201:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000401"><br/></a>
+<a class="small" name="M000405"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000401'>
+<a href='#M000405'>
 
 
 drop_table
@@ -604,15 +604,15 @@ drop_table
 </a>
 </h3>
 
-<p class="source_link" id="M000401-show-link"><a onclick="toggle('M000401-source'); toggleText('M000401-link'); return false;" href="#" id="M000401-link">Show source...</a></p><div class="source" id="M000401-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 203</span>
+<p class="source_link" id="M000405-show-link"><a onclick="toggle('M000405-source'); toggleText('M000405-link'); return false;" href="#" id="M000405-link">Show source...</a></p><div class="source" id="M000405-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 203</span>
 203:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">drop_table</span>(<span class="ruby-identifier">migration</span>)
 204:     <span class="ruby-identifier">migration</span>.<span class="ruby-identifier">drop_table</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_sym</span>
 205:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000402"><br/></a>
+<a class="small" name="M000406"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000402'>
+<a href='#M000406'>
 
 
 find_or_paginate
@@ -636,7 +636,7 @@ TODO move this onto <a href="ActiveRecord/Base.html">ActiveRecord::Base</a>
 so all models get it?
 </p>
 
-<p class="source_link" id="M000402-show-link"><a onclick="toggle('M000402-source'); toggleText('M000402-link'); return false;" href="#" id="M000402-link">Show source...</a></p><div class="source" id="M000402-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 214</span>
+<p class="source_link" id="M000406-show-link"><a onclick="toggle('M000406-source'); toggleText('M000406-link'); return false;" href="#" id="M000406-link">Show source...</a></p><div class="source" id="M000406-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 214</span>
 214:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_or_paginate</span> <span class="ruby-identifier">first_argument</span>, <span class="ruby-identifier">options</span> = {}
 215:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">:page</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:page</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'all'</span>
 216:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:per_page</span>] = <span class="ruby-constant">DEFAULT_PER_PAGE</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">:per_page</span>
@@ -649,9 +649,9 @@ so all models get it?
 223:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000405"><br/></a>
+<a class="small" name="M000409"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000405'>
+<a href='#M000409'>
 
 
 grand_totals
@@ -695,7 +695,7 @@ TODO test (spec) that :conditions work as expected, with and without
 :override_conditions
 </p>
 
-<p class="source_link" id="M000405-show-link"><a onclick="toggle('M000405-source'); toggleText('M000405-link'); return false;" href="#" id="M000405-link">Show source...</a></p><div class="source" id="M000405-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 278</span>
+<p class="source_link" id="M000409-show-link"><a onclick="toggle('M000409-source'); toggleText('M000409-link'); return false;" href="#" id="M000409-link">Show source...</a></p><div class="source" id="M000409-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 278</span>
 278:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">grand_totals</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}
 279:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Hash</span>
 280:       <span class="ruby-identifier">additional_options</span> = <span class="ruby-identifier">date_range</span>
@@ -765,9 +765,9 @@ TODO test (spec) that :conditions work as expected, with and without
 344:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000403"><br/></a>
+<a class="small" name="M000407"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000403'>
+<a href='#M000407'>
 
 
 mine
@@ -777,14 +777,14 @@ mine
 </a>
 </h3>
 <p>
-<a href="LogDaily.html#M000403">mine</a> a date range
+<a href="LogDaily.html#M000407">mine</a> a date range
 </p>
 <p>
 returns [(total number of items found),(number successfully mined),(number
 skipped)]
 </p>
 
-<p class="source_link" id="M000403-show-link"><a onclick="toggle('M000403-source'); toggleText('M000403-link'); return false;" href="#" id="M000403-link">Show source...</a></p><div class="source" id="M000403-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 230</span>
+<p class="source_link" id="M000407-show-link"><a onclick="toggle('M000407-source'); toggleText('M000407-link'); return false;" href="#" id="M000407-link">Show source...</a></p><div class="source" id="M000407-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 230</span>
 230:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}
 231:     <span class="ruby-identifier">data</span> = <span class="ruby-identifier">mine_data</span>(<span class="ruby-identifier">date_range</span>, <span class="ruby-identifier">additional_options</span>)
 232:     <span class="ruby-identifier">skipped</span> = <span class="ruby-value">0</span>
@@ -801,9 +801,9 @@ skipped)]
 243:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000404"><br/></a>
+<a class="small" name="M000408"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000404'>
+<a href='#M000408'>
 
 
 mine_data
@@ -813,7 +813,7 @@ mine_data
 </a>
 </h3>
 
-<p class="source_link" id="M000404-show-link"><a onclick="toggle('M000404-source'); toggleText('M000404-link'); return false;" href="#" id="M000404-link">Show source...</a></p><div class="source" id="M000404-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 245</span>
+<p class="source_link" id="M000408-show-link"><a onclick="toggle('M000408-source'); toggleText('M000408-link'); return false;" href="#" id="M000408-link">Show source...</a></p><div class="source" id="M000408-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 245</span>
 245:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data</span> <span class="ruby-identifier">date_range</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">additional_options</span> = {}
 246:     <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:select</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;count(*) AS total, agent_id, data_type_id, DATE(data_object_logs.created_at) AS day, #{ self.unique_data_column }&quot;</span>, 
 247:       <span class="ruby-identifier">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;agent_id, data_type_id, #{ self.unique_data_column }, DATE(data_object_logs.created_at)&quot;</span> }
@@ -824,9 +824,9 @@ mine_data
 252:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000397"><br/></a>
+<a class="small" name="M000401"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000397'>
+<a href='#M000401'>
 
 
 path
@@ -836,19 +836,19 @@ path
 </a>
 </h3>
 <p>
-a pretty URL <a href="LogDaily.html#M000397">path</a> that this class is
+a pretty URL <a href="LogDaily.html#M000401">path</a> that this class is
 associated with &#8230; eg. StateLogDaily.path =&gt; &#8216;states&#8216;
 </p>
 
-<p class="source_link" id="M000397-show-link"><a onclick="toggle('M000397-source'); toggleText('M000397-link'); return false;" href="#" id="M000397-link">Show source...</a></p><div class="source" id="M000397-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 166</span>
+<p class="source_link" id="M000401-show-link"><a onclick="toggle('M000401-source'); toggleText('M000401-link'); return false;" href="#" id="M000401-link">Show source...</a></p><div class="source" id="M000401-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 166</span>
 166:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span>
 167:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/LogDaily$/</span>,<span class="ruby-value str">''</span>).<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">pluralize</span>
 168:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000398"><br/></a>
+<a class="small" name="M000402"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000398'>
+<a href='#M000402'>
 
 
 report_classes
@@ -864,16 +864,16 @@ returns the *<a href="LogDaily.html">LogDaily</a> classes
 this is currently updated <b>MANUALLY</b>
 </p>
 
-<p class="source_link" id="M000398-show-link"><a onclick="toggle('M000398-source'); toggleText('M000398-link'); return false;" href="#" id="M000398-link">Show source...</a></p><div class="source" id="M000398-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 173</span>
+<p class="source_link" id="M000402-show-link"><a onclick="toggle('M000402-source'); toggleText('M000402-link'); return false;" href="#" id="M000402-link">Show source...</a></p><div class="source" id="M000402-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 173</span>
 173:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_classes</span>
 174:     <span class="ruby-comment cmt"># self.subclasses</span>
 175:     [ <span class="ruby-constant">StateLogDaily</span>, <span class="ruby-constant">CountryLogDaily</span>, <span class="ruby-constant">UserLogDaily</span>, <span class="ruby-constant">AgentLogDaily</span>, <span class="ruby-constant">DataObjectLogDaily</span> ]
 176:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000399"><br/></a>
+<a class="small" name="M000403"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000399'>
+<a href='#M000403'>
 
 
 report_name
@@ -884,22 +884,22 @@ report_name
 </h3>
 <p>
 a pretty title / name for the report that this class is associated with
-(when we fetch <a href="LogDaily.html#M000405">grand_totals</a>) eg.
+(when we fetch <a href="LogDaily.html#M000409">grand_totals</a>) eg.
 StateLogDaily.report_name =&gt; &#8216;States&#8216;
 </p>
 <p>
 TODO make this overridable in classes, set_report_name &#8216;Blah&#8216;
 </p>
 
-<p class="source_link" id="M000399-show-link"><a onclick="toggle('M000399-source'); toggleText('M000399-link'); return false;" href="#" id="M000399-link">Show source...</a></p><div class="source" id="M000399-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 182</span>
+<p class="source_link" id="M000403-show-link"><a onclick="toggle('M000403-source'); toggleText('M000403-link'); return false;" href="#" id="M000403-link">Show source...</a></p><div class="source" id="M000403-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 182</span>
 182:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_name</span>
 183:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">pluralize</span>
 184:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000393"><br/></a>
+<a class="small" name="M000397"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000393'>
+<a href='#M000397'>
 
 
 set_mine_data_options
@@ -909,15 +909,15 @@ set_mine_data_options
 </a>
 </h3>
 
-<p class="source_link" id="M000393-show-link"><a onclick="toggle('M000393-source'); toggleText('M000393-link'); return false;" href="#" id="M000393-link">Show source...</a></p><div class="source" id="M000393-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 100</span>
+<p class="source_link" id="M000397-show-link"><a onclick="toggle('M000397-source'); toggleText('M000397-link'); return false;" href="#" id="M000397-link">Show source...</a></p><div class="source" id="M000397-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 100</span>
 100:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_mine_data_options</span> <span class="ruby-identifier">options</span>
 101:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">mine_data_options</span> = <span class="ruby-identifier">options</span>
 102:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000392"><br/></a>
+<a class="small" name="M000396"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000392'>
+<a href='#M000396'>
 
 
 set_unique_data_column
@@ -927,7 +927,7 @@ set_unique_data_column
 </a>
 </h3>
 
-<p class="source_link" id="M000392-show-link"><a onclick="toggle('M000392-source'); toggleText('M000392-link'); return false;" href="#" id="M000392-link">Show source...</a></p><div class="source" id="M000392-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 83</span>
+<p class="source_link" id="M000396-show-link"><a onclick="toggle('M000396-source'); toggleText('M000396-link'); return false;" href="#" id="M000396-link">Show source...</a></p><div class="source" id="M000396-source"><pre>    <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 83</span>
 83:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_unique_data_column</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span> }
 84:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
 85:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column_info</span> = { <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:options</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span> }
@@ -947,9 +947,9 @@ set_unique_data_column
 99:     <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000396"><br/></a>
+<a class="small" name="M000400"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000396'>
+<a href='#M000400'>
 
 
 unique_data_name
@@ -960,7 +960,7 @@ unique_data_name
 </h3>
 <p>
 this will be deprecated when we change the way <a
-href="LogDaily.html#M000394">unique_data</a> works and make it more
+href="LogDaily.html#M000398">unique_data</a> works and make it more
 flexible
 </p>
 <p>
@@ -977,7 +977,7 @@ override this in your <a href="LogDaily.html">LogDaily</a> class to return
 something different
 </p>
 
-<p class="source_link" id="M000396-show-link"><a onclick="toggle('M000396-source'); toggleText('M000396-link'); return false;" href="#" id="M000396-link">Show source...</a></p><div class="source" id="M000396-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 161</span>
+<p class="source_link" id="M000400-show-link"><a onclick="toggle('M000400-source'); toggleText('M000400-link'); return false;" href="#" id="M000400-link">Show source...</a></p><div class="source" id="M000400-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 161</span>
 161:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_name</span>
 162:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">report_name</span>.<span class="ruby-identifier">singularize</span>
 163:   <span class="ruby-keyword kw">end</span></pre></div>
@@ -987,9 +987,9 @@ something different
 <h1>Public Instance Methods</h1>
 
 
-<a class="small" name="M000394"><br/></a>
+<a class="small" name="M000398"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000394'>
+<a href='#M000398'>
 
 
 unique_data
@@ -1016,15 +1016,15 @@ TODO i want to change this to return a <a href="Hash.html">Hash</a> like {
      eagerly load things to optimize as well
 </pre>
 
-<p class="source_link" id="M000394-show-link"><a onclick="toggle('M000394-source'); toggleText('M000394-link'); return false;" href="#" id="M000394-link">Show source...</a></p><div class="source" id="M000394-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 114</span>
+<p class="source_link" id="M000398-show-link"><a onclick="toggle('M000398-source'); toggleText('M000398-link'); return false;" href="#" id="M000398-link">Show source...</a></p><div class="source" id="M000398-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 114</span>
 114:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data</span>
 115:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attributes</span>[ <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unique_data_column</span> ]
 116:   <span class="ruby-keyword kw">end</span></pre></div>
 </div>
 
-<a class="small" name="M000395"><br/></a>
+<a class="small" name="M000399"><br/></a>
 <div class="method_block"><h3>
-<a href='#M000395'>
+<a href='#M000399'>
 
 
 unique_data_to_s
@@ -1035,16 +1035,16 @@ unique_data_to_s
 </h3>
 <p>
 override this if you want to return something custom (and pretty) when <a
-href="LogDaily.html#M000394">unique_data</a> is printed out (we call <a
-href="LogDaily.html#M000395">unique_data_to_s</a> from views which defaults
+href="LogDaily.html#M000398">unique_data</a> is printed out (we call <a
+href="LogDaily.html#M000399">unique_data_to_s</a> from views which defaults
 to unique_data.to_s)
 </p>
 <p>
 this will be deprecated when <a
-href="LogDaily.html#M000394">unique_data</a> becomes a hash
+href="LogDaily.html#M000398">unique_data</a> becomes a hash
 </p>
 
-<p class="source_link" id="M000395-show-link"><a onclick="toggle('M000395-source'); toggleText('M000395-link'); return false;" href="#" id="M000395-link">Show source...</a></p><div class="source" id="M000395-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 148</span>
+<p class="source_link" id="M000399-show-link"><a onclick="toggle('M000399-source'); toggleText('M000399-link'); return false;" href="#" id="M000399-link">Show source...</a></p><div class="source" id="M000399-source"><pre>     <span class="ruby-comment cmt"># File app/models/logging/log_daily.rb, line 148</span>
 148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unique_data_to_s</span>
 149:     <span class="ruby-identifier">unique_data</span>.<span class="ruby-identifier">to_s</span>
 150:   <span class="ruby-keyword kw">end</span></pre></div>
